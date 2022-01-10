@@ -7,11 +7,19 @@ This is a technical document on how to use the Tib DotNet SDK.
 
 here you'll find CodeSample to how to use the Tib DotNet SDK. 
 
+## Environments
+
+Calls to the service are done via a WEB service. There are two URLs for the service:
+* Production: https://portal.tib.finance    
+* Development: http://sandboxportal.tib.finance
+
 ## Set Up 
 ` Before you using the SDK you need to set the api url up and get a session id. `
 
 
 * Initialize the siteurl by using this line under: this Allows the SDK to know which Api to Call the methods from.
+
+*the link can be either the Sandbox or the production Envirement (we are using the sandbox version in this code sample)*
 
     ``` TibInvoker.InitializePortal(_siteUrl); ```
 
