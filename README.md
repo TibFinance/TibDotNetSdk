@@ -10,24 +10,23 @@ here you'll find CodeSample to how to use the Tib DotNet Core SDK.
 ## Set Up 
 ` Before you using the SDK you need to set the api url up and get a session id. `
 
-Initiate the TibInvoker Class : the Class that We are going to have the most interactions with.
 
-``` TibInvoker.InitializePortal(_siteUrl); ```
+* Initialize the siteurl by using this line under: this Allows the SDK to know which Api to Call the methods from.
 
-This line Sets up the Api Url and Create a TibPortal Object that let's you call the Api Methods.
+    ``` TibInvoker.InitializePortal(_siteUrl); ```
 
-Then Create a session
+* Then Create a session
 
-```   
-CreateSessionArgs sessionArgs = new CreateSessionArgs()
-{
-    ClientId = new Guid("CLIENT_ID"), // GUID
-    Username = "", // String
-    Password = "", // String
-};
-CreateSessionResponse response = TibInvoker.Portal.CreateSession(sessionArgs); 
-```
-
+    ```   
+    CreateSessionArgs sessionArgs = new CreateSessionArgs()
+    {
+        ClientId = new Guid("CLIENT_ID"), // GUID
+        Username = "", // String
+        Password = "", // String
+    };
+    CreateSessionResponse response = TibInvoker.Portal.CreateSession(sessionArgs); 
+    ```
+    
 The ``` TibInvoker.Portal.CreateSession(sessionArgs); ``` method return an object containing the SessionId that needs to be passed with each Call.
 
 ## Methods 
