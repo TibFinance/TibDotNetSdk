@@ -10,7 +10,7 @@ here you'll find CodeSample to how to use the Tib DotNet Core SDK.
 ## Set Up 
 ` Before you using the SDK you need to set the api url up and get a session id. `
 
-Initiat the TibInvoker Class : the Class that We are going to have the most interactions with.
+Initiate the TibInvoker Class : the Class that We are going to have the most interactions with.
 
 ``` TibInvoker.InitializePortal(_siteUrl); ```
 
