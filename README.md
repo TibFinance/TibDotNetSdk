@@ -1,11 +1,11 @@
 
 # Tib Dot Net Core  SDK 
 
-This is a technical document on how to use the Tib DotNet Core SDK.
+This is a technical document on how to use the Tib DotNet SDK.
 
 ## Overview 
 
-here you'll find CodeSample to how to use the Tib DotNet Core SDK. 
+here you'll find CodeSample to how to use the Tib DotNet SDK. 
 
 ## Set Up 
 ` Before you using the SDK you need to set the api url up and get a session id. `
@@ -33,7 +33,7 @@ The ``` TibInvoker.Portal.CreateSession(sessionArgs); ``` method return an objec
 
 ` after you set up the api url and created a session you can start Using the Other Methods of the Sdk `
 
-*here you see one Example but you'll see more Examples of Using the SDK in the Program.cs File*
+*here you see one Example but you'll see more Examples of Using the SDK in the ```Program.cs``` File*
 
 Ex :
 
