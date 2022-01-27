@@ -21,7 +21,7 @@ Calls to the service are done via a WEB service. There are two URLs for the serv
 
 *the link can be either the Sandbox or the production Envirement (we are using the sandbox version in this code sample)*
 
-    ``` TibInvoker.InitializePortal(_siteUrl); ```
+``` TibInvoker.InitializePortal(_siteUrl); ```
 
 * Then Create a session
 
