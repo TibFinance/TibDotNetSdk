@@ -1,5 +1,5 @@
 
-# Tib Dot Net Core  SDK 
+# Tib Dot Net SDK 
 
 This is a technical document on how to use the Tib DotNet SDK.
 
