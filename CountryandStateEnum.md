@@ -1,5 +1,20 @@
 
 # Provinces / States enumeration
+This  is the list of supported States / Province in the Api
+
+To Select One you will have to follow this patteren 'ctry_city'
+
+Ex: if you want to assign 'Quebec' to a state you will have to assign ```CA_Quebec``` 
+
+*Note: hat we are using the Pascalcase for City Names that have spaces in them.*
+
+Ex: 'Prince Edward Island' Will be ```PrinceEdwardIsland``` Plus the Counrty Name so the final Result will be ```CA_PrinceEdwardIsland```
+
+* The Following Code show How to use the Province / State enum.
+    ```
+    Var QuebecState = Tib.Api.Model.Enum.ProvinceStateIdEnum.CA_Quebec;
+    ```
+
 
 | Ctry | City                  | #   |
 | ---- | --------------------- | --- |

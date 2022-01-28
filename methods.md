@@ -1,2 +1,258 @@
-# Methods 
 
+# Methods
+
+## List Of Methods
+
+* #### Customers
+	* [Create a customer](#create-customer).
+	* [List all service customers](#list-all-service-customers).
+	* [Get a customer detail](#get-a-customer-detail).
+	* [List the customers based on external identification](#list-the-customers-based-on-external-identification).
+	* [Modify an existing customer](#modify-an-existing-customer).
+	* [Delete a customer](#delete-a-customer).
+
+* #### Payment methods
+	* [Create bank account payment method](#create-bank-account-payment-method).
+	* [Create credit card payment method](#create-credit-card-payment-method).
+	* [Create Interac payment method](#create-Interac-payment-method).
+	* [Change Interac Payment Method Question and Answer](#change-Interac-Payment-Method-Question-and-Answer)
+	* [Get a specific payment method](#get-a-specific-payment-method).
+	* [List payment methods](#list-payment-methods)
+	* [Change the default payment method of a customer](#change-the-default-payment-method-of-a-customer).
+	* [Delete payment method](#delete-payment-method).
+	* 
+* #### Payments / Transfers
+	* [Create Bill](#create-bill).
+	* [List Bill](#list-bill).
+	* [Get Bill](#get-bill).
+	* [Delete Bill](#delete-bill).
+	* [Create Payment](#create-payment).
+	* [Create Direct Deposit](#create-direct-deposit).
+	* [Create Interac Transfer](#create-interac-transfer).
+	* [Create from ACP File](#create-from-acp-file).
+	* [Create Free Operation](#create-free-operation).
+	* [Delete Transfer](#delete-transfer).
+	* [Revert Transfer](#revert-transfer).
+	* [List Recuring](#list-recuring).
+	* [Delete Recuring process](#delete-recuring-process).
+	* [Reporting of Operation](#reporting-of-operation)
+	* [List Executed Operations](#list-executed-operations).
+
+* #### Merchants
+	* [Merchant basic information object](#merchant-basic-information-object).
+
+* #### Whitelabeling (UI Looks)
+	* [Set WhiteLabeling](#set-whiteLabeling)
+	* [Delete WhiteLabeling](#delete-whiteLabeling)
+	* [Get WhiteLabeling](#get-whiteLabeling)
+	* [Update WhiteLabeling Values](#update-whiteLabeling-alues)
+	* [Get List of WhiteLabeling (related Services/Merchants)](#get-list-of-whiteLabeling)
+	
+* #### Clients
+	* [sub-client](#sub-client)
+	* [Set client default service fee settings](#set-client-default-service-fee-settings)
+	* [Set client settings](#set-client-settings)
+	* [Get client settings](#get-client-settings)
+  
+## Usage
+
+## Customers Methods
+` after you set up the api url and created a session you can start Using the Other Methods of the Sdk `
+
+*here you see one Example but you'll see more Examples of Using the SDK in the ```Program.cs``` File*
+### Create customer
+```
+var createCustomerArgs = new CreateCustomerArgs
+{
+	SessionToken = _session // Guid You Get For Creating a new Session,
+	ServiceId = _service, // guid, Id of the Service you wanna add the Customer to.
+	Customer = new CustomerEntity // the customer Object.
+	{
+		CustomerDescription = "", // customer description
+		CustomerName = "", // customer name
+		Language = (LanguageEnum)lang, // the default language ir for the
+		CustomerExternalId = "" // an Customer Identifier's if it exists
+	}
+};
+var result = TibInvoker.Portal.CreateCustomer(createCustomerArgs);
+```
+
+### List all service customers
+```
+var GetServiceCustomersArgs = new Tib.Api.Model.Customer.ListCustomersArgs
+{
+	SessionToken = _session, // The session token you get when creating a new session.
+	ServiceId = _service // The Service you want the Customers list of.
+};
+var result = TibInvoker.Portal.ListCustomers(GetServiceCustomersArgs);
+```
+
+### Get a customer detail
+```
+var GetCustomerDetailsArgs = new Tib.Api.Model.Customer.GetCustomerArgs{
+	SessionToken = _session,
+	CustomerId = _customer
+};
+var result = TibInvoker.Portal.GetCustomer(GetCustomerDetailsArgs);
+```
+
+### List the customers based on external identification
+```
+var getCustomersByExternalIdArgs=  new Tib.Api.Model.Customer.GetCustomersByExternalIdArgs{
+	SessionToken = _session,
+	ExternalCustomerId = exID
+};
+var result = TibInvoker.Portal.GetCustomersByExternalId(getCustomersByExternalIdArgs);
+```
+
+### Modify an existing customer
+```
+var updateCustomerArgs = new Tib.Api.Model.Customer.SaveCustomerArgs
+{
+	SessionToken = _session,
+	Customer = new Tib.Api.Model.Customer.CustomerModel
+	{
+		CustomerId = _customer,
+		CustomerDescription = customerDesc,
+		CustomerExternalId = exId,
+		CustomerName = customerName,
+		Language = (LanguageEnum)customerLang,
+	}
+};
+var result = TibInvoker.Portal.SaveCustomer(updateCustomerArgs );
+```
+
+### Delete a customer
+```
+var deleteCustomerArgs = new Tib.Api.Model.Customer.DeleteCustomerArgs
+{
+	SessionToken = _session,
+	CustomerId = _customer
+};
+var result = TibInvoker.Portal.DeleteCustomer(deleteCustomerArgs);
+```
+
+## Payment methods
+
+### Create bank account payment method
+
+```
+var createdDirectAccountArgs = new Tib.Api.Model.PaymentMethod.CreateDirectAccountPaymentMethodArgs
+{
+	CustomerId = _customer, // customer Id to add the payment method to .
+	SessionToken = _session, // Session Id to be able to call the Api
+	Account = new Tib.Api.Model.PaymentMethod.AccountModel // information about the payment method
+	{
+		AccountName = "", // the Account Name
+		AccountNumber = "", /: the account number 
+		BankNumber = "", // the bank number 
+		CheckDigit = "", // the Check digits
+		InstitutionNumber = "", // the institution number
+		Owner = "", // the owner's name.
+	},
+	IsCustomerAutomaticPaymentMethod = false,
+	IsCustomerWithdrawaAuthorized = false,
+	Language = LanguageEnum.English,
+}
+var result = TibInvoker.Portal.CreateDirectAccountPaymentMethod(createdDirectAccountArgs)
+```
+### Create credit card payment method
+```
+var CreateCreditCardArgs = new Tib.Api.Model.PaymentMethod.CreateCreditCardPaymentMethodArgs
+{
+	CustomerId = _customer,
+	CreditCard = new Tib.Api.Model.PaymentMethod.CreditCardModel
+	{
+		CardOwner = "", // Card Owner Name
+		CreditCardDescription = "", // A description to the card
+		CreditCardRegisteredAddress = new AddressModel // Address registered for this card
+		{
+			AddressCity = "",
+			CountryId = CountryIdEnum.USA,
+			PostalZipCode = "",
+			ProvinceStateId = ProvinceStateIdEnum.US_Alabama,
+			StreetAddress = ""
+		},
+		CVD = "",
+		ExpirationMonth = 5, // expiration month 
+		ExpirationYear = 2029, // expiration Year
+		Pan = 1231, // pan number
+	},
+	SessionToken = _session,
+	Language = LanguageEnum.English,
+	IsCustomerAutomaticPaymentMethod = false,
+	SkipValidation = true
+}
+var result = TibInvoker.Portal.CreateCreditCardPaymentMethod(CreateCreditCardArgs)
+```
+### Create Interac payment method
+
+``` 
+var createInteracPaymentMethodArgs = new Tib.Api.Model.PaymentMethod.CreateInteracPaymentMethodArgs{
+	CustomerId = new Guid(),
+	InteracInformation = new Tib.Api.Model.PaymentMethod.InteracModel
+	{
+		Description = "", // description of the method
+		InteracAnswer = "", // intrac Answer
+		InteracQuestion = "", // interac Question
+		Owner = "", // the owner name
+		TargetEmailAddress = "", // the target email
+		TargetMobilePhoneNumber = "" // the target phone number
+	},
+	IsCustomerAutomaticPaymentMethod = false, 
+	Language = LanguageEnum.English, 
+        SessionToken = _session
+}
+var result  = TibInvoker.Portal.CreateInteracPaymentMethod(createInteracPaymentMethodArgs)
+```
+### Change Interac Payment Method Question and Answer
+```
+var changeInteracPaymentMethodQuestionAndAnswerArgs = new Tib.Api.Model.PaymentMethod.ChangeInteracPaymentMethodQuestionAndAnswerArgs
+{
+	SessionToken = _session,
+	InteracAnswer = "",
+	InteracPaymentMethodId = _paymentMethodId,
+	InteracQuestion = "",
+}; 
+var result = TibInvoker.Portal.ChangeInteracPaymentMethodQuestionAndAnswer(changeInteracPaymentMethodQuestionAndAnswerArgs)
+```
+
+### Get a specific payment method
+```
+var getPaymentMethodArgs = new Tib.Api.Model.PaymentMethod.GetPaymentMethodArgs
+{
+	PaymentMethodId = _paymentMethodId, // Payment method Id 
+	SessionToken = _session, // session Token
+};
+var result = TibInvoker.Portal.GetPaymentMethod(getPaymentMethodArgs);
+```
+
+### List payment methods
+```
+var getPaymentMethodArgs = new Tib.Api.Model.PaymentMethod.GetPaymentMethodArgs
+{
+	PaymentMethodId = _paymentMethodId, // Payment method Id 
+	SessionToken = _session, // session Token
+};
+var result = TibInvoker.Portal.GetPaymentMethod(getPaymentMethodArgs);
+```
+
+### Change the default payment method of a customer
+```
+var listPaymentMethodArgs = new Tib.Api.Model.PaymentMethod.ListPaymentMethodsArgs
+{
+	CustomerId = _customer, // the Id of the customer that we need the payment method list of 
+	SessionToken = _session,
+};
+var result = TibInvoker.Portal.ListPaymentMethods(listPaymentMethodArgs);
+```
+
+### Delete payment method
+```
+var deletePaymentMethodArgs = new Tib.Api.Model.PaymentMethod.DeletePaymentMethodArgs
+{
+	PaymentMethodId = _paymentMethodId, // the payment method Id to delete
+	SessionToken = _session
+};
+var result = TibInvoker.Portal.DeletePaymentMethod(deletePaymentMethodArgs);
+```

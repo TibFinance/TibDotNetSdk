@@ -9,6 +9,16 @@ This is a technical document on how to use the Tib DotNet SDK.
 
 [API Objects Overview](#api-objects-overview)
 
+[Environments](#environments)
+
+[The Set Up](#set-up)
+
+[Methods](#methods)
+
+[Handling Response](#handeling-response)
+
+[General Objects and  Enumerations.](#general-objects-and-enumerations)
+
 ## Overview 
 Before you start Using the Sdk you'll need to know some basic concept the We Use and the Different Objects and Whats their role in  the app.
 
@@ -49,8 +59,6 @@ To understand how to use the API, you must understand the Different objects of t
 
     * *This ID is a “Guid” formatted hexadecimal.*
 
-* Customers
-
 #### Customer related objects overview.
 * Customer 
 
@@ -81,6 +89,7 @@ To understand how to use the API, you must understand the Different objects of t
     All payment methods have a unique identifier.
 
     There are three payment method types supported by TIB Finance:
+
     * Credit card
 
         Credit card payment method allow the merchant to collect money from the customer’s credit card.
@@ -141,12 +150,25 @@ To understand how to use the API, you must understand the Different objects of t
     * Interac
 
         This payment method type allows to use Interac to collect or deposit money to a customer account.
-
+        
+        The following code shows the InteractModel Properties.
+        
+        ```
+            var InteracModel = new Tib.Api.Model.PaymentMethod.InteracModel
+            {
+                Description = "", // 
+                InteracAnswer = "", //
+                InteracQuestion = "", //
+                Owner = "", //
+                TargetEmailAddress = "", //
+                TargetMobilePhoneNumber = "", //
+            }
+        ```
  
 
 ### Transaction related objects overview.
 
-This section explains the payment related object overview to help understanding the way to process payment within the API.
+This section explains the payment related objects to help understanding the way to process payment within the API.
 
 #### Bills and payments.  
 
@@ -230,6 +252,7 @@ var createCustomerArgs = new CreateCustomerArgs
 }
 var result = TibInvoker.Portal.CreateCustomer(createCustomerArgs);
 ```
+*For More Methods Visit [Methods](./methods.md)*
 ## Handling Response 
 
 Each Api Call Return a response Object that Follow the same Object structure 
@@ -297,7 +320,7 @@ just keep in mind that every response contains the said properties
 
 For more details about mothods visit [here](./methods.md)
 
-## General Objects and  Enumetations. 
+## General Objects and  Enumerations. 
 ### Address global object 
 
 ```
@@ -398,7 +421,6 @@ public enum TransferTypeEnum
 ```
 
 ### TransferFrequencyEnum
-
 ```
 public enum TransferFrequencyEnum
 {
@@ -426,7 +448,6 @@ public enum DateTypeEnum
 ```
 
 ### OperationTargetEnum
-
 ```
 public enum OperationTargetEnum
 {
