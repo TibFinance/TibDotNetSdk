@@ -3,6 +3,12 @@
 
 This is a technical document on how to use the Tib DotNet SDK.
 
+## Content Table  
+
+[Overview](#overview)
+
+[API Objects Overview](#api-objects-overview)
+
 ## Overview 
 Before you start Using the Sdk you'll need to know some basic concept the We Use and the Different Objects and Whats their role in  the app.
 
@@ -289,6 +295,7 @@ We can have many ways to handle the response, now we will focus on how to handle
 this is a way to handle a response , you can choose your own way to handle the response you get. 
 just keep in mind that every response contains the said properties
 
+For more details about mothods visit [here](./methods.md)
 
 ## General Objects and  Enumetations. 
 ### Address global object 
