@@ -156,6 +156,7 @@ var createdDirectAccountArgs = new Tib.Api.Model.PaymentMethod.CreateDirectAccou
 }
 var result = TibInvoker.Portal.CreateDirectAccountPaymentMethod(createdDirectAccountArgs)
 ```
+
 ### Create credit card payment method
 ```
 var CreateCreditCardArgs = new Tib.Api.Model.PaymentMethod.CreateCreditCardPaymentMethodArgs
@@ -185,6 +186,8 @@ var CreateCreditCardArgs = new Tib.Api.Model.PaymentMethod.CreateCreditCardPayme
 }
 var result = TibInvoker.Portal.CreateCreditCardPaymentMethod(CreateCreditCardArgs)
 ```
+
+
 ### Create Interac payment method
 
 ``` 
@@ -205,6 +208,7 @@ var createInteracPaymentMethodArgs = new Tib.Api.Model.PaymentMethod.CreateInter
 }
 var result  = TibInvoker.Portal.CreateInteracPaymentMethod(createInteracPaymentMethodArgs)
 ```
+
 ### Change Interac Payment Method Question and Answer
 ```
 var changeInteracPaymentMethodQuestionAndAnswerArgs = new Tib.Api.Model.PaymentMethod.ChangeInteracPaymentMethodQuestionAndAnswerArgs
@@ -256,3 +260,220 @@ var deletePaymentMethodArgs = new Tib.Api.Model.PaymentMethod.DeletePaymentMetho
 };
 var result = TibInvoker.Portal.DeletePaymentMethod(deletePaymentMethodArgs);
 ```
+
+## Bills / Payments / Transfers
+
+### Create Bill
+```
+var createbillsArgs = new CreateBillArgs
+{
+    SessionToken = _session,
+    BreakIfMerchantNeverBeenAuthorized = true,
+    BillData = new BillEntity
+    {
+        BillAmount = amount,
+        BillCurrency = (CurrencyEnum)currency,
+        BillDescription = desc,
+        BillTitle = title,
+        Language = (LanguageEnum)language,
+        MerchantId = _merchant,
+        RelatedCustomerId = _customer,
+        UseConvenientFeeRule = false
+    }
+};
+var result = TibInvoker.Portal.CreateBill(createbillsArgs);
+```
+
+### List Bills
+
+```
+var getbillsArgs = new ListBillsArgs
+{
+    SessionToken = _session, // Session token
+    ServiceId = _service, // the service Id
+    FromDateTime = new DateTime(2020, 12, 31), // start date of get bills search query
+    ToDateTime = DateTime.Now, // end date of the get bill search query
+    MerchantId = _merchant // merchant Id 
+}
+```
+
+### Get Bill
+
+```
+var getBillArgs = new GetBillArgs
+{
+    SessionToken = _session,
+    BillId = _bill
+}; 
+var result = TibInvoker.Portal.GetBill(getBillArgs)
+```
+
+### Delete Bill
+```
+var deleteBillArgs = new DeleteBillArgs
+{
+    SessionToken = _session,
+    BillId = _bill
+};
+var result = TibInvoker.Portal.DeleteBill();
+```
+*Keep in mind that you'll have to implement your own verification logic to avoid deleting a bill by mistake*
+
+### Create Payment
+
+```
+var createPaymentArgs = new CreatePaymentArgs
+{
+    BillId = _bill,
+    SessionToken = _session,
+    CustomerEmail = customerEmail,
+    PaymentInfo = new Tib.Api.Model.PaymentMethod.PaymentEntity
+    {
+        PaymentFlow = paymentFlow,
+        Language = language
+    },
+    StatementDescription = ""
+}; 
+TibInvoker.Portal.CreatePayment(createPaymentArgs)
+```
+
+### Create Direct Deposit
+```
+var createDirectDipositArgs = new CreateDirectDepositArgs
+{
+    SessionToken = _session,
+    Amount = 1,
+    Currency = CurrencyEnum.USD,
+    DepositDueDate = DateTime.Now.AddDays(1),
+    DestinationAccount = new Tib.Api.Model.PaymentMethod.AccountModel
+    {
+        AccountName = accountName,
+        BankNumber = bankNumber,
+        CheckDigit = CheckDegit,
+        InstitutionNumber = InsNumber,
+        Owner = Owner,
+        AccountNumber = accountNumber,
+    },
+    Language = LanguageEnum.English,
+    OriginMerchantId = _merchant,
+    StatementDescription = ""
+}; 
+var result = TibInvoker.Portal.CreateDirectDeposit(createDirectDipositArgs);
+```
+
+### Create Interac Transfer
+
+```
+var createDirectInteracTransactionArgs = new CreateDirectInteracTransactionArgs
+{
+    SessionToken = _session,
+    Amount = 1,
+    Currency = CurrencyEnum.USD,
+    DueDate = DateTime.Now.AddDays(1),
+    InteracInformation = new Tib.Api.Model.PaymentMethod.InteracModel
+    {
+        Description = "description of the interac",
+        InteracAnswer = "TheAnswer",
+        InteracQuestion = "TheQuestion",
+        Owner = "the Owner",
+        TargetEmailAddress = "theEmail@gmail.com",
+        TargetMobilePhoneNumber = "1212302190",
+    },
+    Language = LanguageEnum.English,
+    MerchantId = _merchant,
+    ReferenceNumber = "1233029920",
+    TransferDirection = TransferDirectionEnum.Deposit,
+    StatementDescription = ""
+};
+var result = TibInvoker.Portal.CreateDirectInteracTransaction(createDirectInteracTransactionArgs)
+```
+### Create from ACP file
+```
+var createTransactionFromRawArgs = new Tib.Api.Model.Bill.CreateTransactionFromRawArgs
+{
+    SessionToken = _session,
+    MerchantId = _merchant,
+    RawAcpFileContent = "",
+}
+var result = TibInvoker.Portal.CreateTransactionFromRaw(createTransactionFromRawArgs)
+```
+### Create Free Operation
+```
+var createDirectDepositArgs = new CreateDirectDepositArgs
+{
+    SessionToken = _session,
+    Amount = 1,
+    Currency = CurrencyEnum.USD,
+    DepositDueDate = DateTime.Now.AddDays(1),
+    DestinationAccount = new Tib.Api.Model.PaymentMethod.AccountModel
+    {
+        AccountName = accountName,
+        BankNumber = bankNumber,
+        CheckDigit = CheckDegit,
+        InstitutionNumber = InsNumber,
+        Owner = Owner,
+        AccountNumber = accountNumber,
+    },
+    Language = LanguageEnum.English,
+    OriginMerchantId = _merchant,
+    StatementDescription = ""
+}
+var result = var result = TibInvoker.Portal.CreateDirectDeposit(createTransactionFromRawArgs)
+```
+### Delete Transfer
+```
+var deletePaymentArgs = new DeletePaymentArgs
+{
+    SessionToken = _session,
+    PaymentId = _payment.Value,
+};
+var result = TibInvoker.Portal.DeletePayment(deletePaymentArgs)
+```
+### Revert Transfer
+```
+var revertTransferArgs = new Tib.Api.Model.PaymentMethod.RevertTransferArgs
+{
+    SessionToken = _session,
+    TransferId = _transfer.Value,
+}; 
+var result = TibInvoker.Portal.RevertTransfer(revertTransferArgs)
+```
+### List Recuring
+```
+var recuringList  = new GetRecuringTransfersArgs
+{
+    SessionToken = _session,
+    ServiceID = _service
+};
+var return  = TibInvoker.Portal.GetRecuringTransfers(recuringList);
+```
+
+### Delete Recuring process
+```
+var deleteRecuringTransferArgs = new DeleteRecuringTransferArgs
+{
+    SessionToken = _session,
+    RecuringTransferId = new Guid(""),
+};
+var result = TibInvoker.Portal.DeleteRecuringTransfer(deleteRecuringTransferArgs);
+```
+## Reporting of Operation
+
+### List Executed Operations
+```
+var listExecutedOperationsArgs = new Tib.Api.Model.Report.ListExecutedOperationsArgs
+{
+    SessionToken = _session,
+    DateType = DateTypeEnum.CreatedDate,
+    FromDate = new DateTime(2018, 01, 01),
+    MerchantId = _merchant,
+    ToDate = DateTime.Now,
+    TransferType = TransferTypeFlag.All,
+    OnlyWithErrors = false,
+    TransferGroupId = "",
+}
+var result = TibInvoker.Portal.ListExecutedOperations(listExecutedOperationsArgs);
+```
+
+
+
