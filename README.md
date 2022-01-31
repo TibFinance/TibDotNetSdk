@@ -207,7 +207,8 @@ Calls to the service are done via a WEB service. There are two URLs for the serv
 
 ## Set Up 
 ` Before you using the SDK you need to set the api url up and get a session id. `
-`You'll also need to install [NewtownSoft](https://www.newtonsoft.com/json)`
+
+`You'll also need to install` [NewtownSoft](https://www.newtonsoft.com/json)
 
 
 * Initialize the siteurl by using this line under: this Allows the SDK to know which Api to Call the methods from.
