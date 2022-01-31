@@ -199,6 +199,9 @@ All the transactions have status and detailed description of the execution. This
 
 #### Free operations
 
+
+
+for more details See the pdf Documentation.
 ## Environments
 
 Calls to the service are done via a WEB service. There are two URLs for the service:
