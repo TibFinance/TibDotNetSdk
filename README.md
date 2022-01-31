@@ -210,7 +210,6 @@ Calls to the service are done via a WEB service. There are two URLs for the serv
 
 `You'll also need to install` [NewtownSoft](https://www.newtonsoft.com/json)
 
-
 * Initialize the siteurl by using this line under: this Allows the SDK to know which Api to Call the methods from.
 
 *the link can be either the Sandbox or the production Envirement (we are using the sandbox version in this code sample)*
@@ -230,6 +229,8 @@ Calls to the service are done via a WEB service. There are two URLs for the serv
     ```
     
 The ``` TibInvoker.Portal.CreateSession(sessionArgs); ``` method return an object containing the SessionId that needs to be passed with each Call.
+
+See [Demo](./Demo.md) for a step by step from how to Create a session to Creating a payment for a bill.
 
 ## Methods 
 
