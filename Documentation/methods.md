@@ -483,7 +483,7 @@ The Whitelabeling can be set on multiple levels
 * Client
 * Service
 * Merchant
-please See [whitelabeling levels enums](./README.md#WhiteLabeling-levels-enum)
+please See [whitelabeling levels enums](../README.md#WhiteLabeling-levels-enum)
 
 The WhiteLabeling Use 2 main Objects `WhiteLabelingModel` and `WhiteLabelingDataModel`
 The first is a container of white labeling Values for a single entity (client, service, merchant) and have a list of `WhiteLabelingDataModel`.

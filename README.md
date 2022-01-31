@@ -26,182 +26,8 @@ Before you start Using the Sdk you'll need to know some basic concept the We Use
 
 To understand how to use the API, you must understand the Different objects of the application. 
 
-#### Structure related objects overview.
-* Client :
-    
-    'Client' is what a Tib Account Called in the Api, *The client ID is required for the session creation call*. This identification is provided by TIB during the account opening
+For details See the pdf [Documentation](./Documentation/TIB%20API%20ENGLISH%20VERSION_2_1.pdf).
 
-    * *This ID is a “Guid” formatted hexadecimal*.
-
-* Services :
-
-    The service layer allows a client to have multiple different contracts with TIB Finance. It is used only when the client act for more than one company. 
-    The service determines the limits and fees according to the contract.
-    The service ID is required for multiple calls. This identification is provided by TIB during the account opening. 
-    
-    * *This ID is a “Guid” formatted hexadecimal*.
-
-* Merchants
-
-    The merchant can be understood as the bank account of the client. The client may have multiple accounts to perform transactions. 
-    
-    The merchant has two concepts: Basic Information and Account Information.
-    
-    The primary merchant account is created by TIB Finance at the client account opening.
-
-    Most of the call required the related merchant ID to define the transaction bank account. 
-    
-    When transaction is a collection to a customer account, it defines the money destination account. 
-    
-    When the transaction is a deposit to a customer account, it defines the money origin account. 
-    
-    Other merchant can be created through the API, but it requires a validation process.
-
-    * *This ID is a “Guid” formatted hexadecimal.*
-
-#### Customer related objects overview.
-* Customer 
-
-    Customers are the clients of the merchants. 
-    
-    They are the one the merchant collect money from, or the one the merchant deposit money to.
-
-    The customer is only a container object that identify the entity of a person. 
-    
-    This object will then have payment methods attached to it for the account information. 
-    
-    The customer ID needs to be used when transmitting payment on the API. 
-    
-    * The Following Code Shows the Customer information
-        ```
-        var customer = Customer = new Tib.Api.Model.Customer.CustomerEntity
-        {
-            CustomerDescription = "", // a description of the customer
-            CustomerName = "", // the customer's name
-            Language = LanguageEnum.English, // LanguageEnum.English
-            CustomerExternalId = "" // an Enxternal Id of the customer is it exists .
-        }
-        ```
-* Payment methods
-
-    The payment methods are financial accounts attached to a customer. A customer can have multiple payment methods. 
-
-    All payment methods have a unique identifier.
-
-    There are three payment method types supported by TIB Finance:
-
-    * Credit card
-
-        Credit card payment method allow the merchant to collect money from the customer’s credit card.
-        
-        The Following code Displays a new CreditCard payment Method Args ;
-        
-        ```
-        var CreditCardpaymentMethodArgs = new Tib.Api.Model.PaymentMethod.CreateCreditCardPaymentMethodArgs
-        {
-            CustomerId = _customer,
-            CreditCard = new Tib.Api.Model.PaymentMethod.CreditCardModel
-            {
-            CardOwner = "PlaceHolder for whatever's the card owner's name.",
-            CreditCardDescription = "some Desc ",
-            CreditCardRegisteredAddress = new AddressModel
-            {
-                AddressCity = "some Desc ",
-                CountryId = CountryIdEnum.USA,
-                PostalZipCode = "",
-                ProvinceStateId = ProvinceStateIdEnum.US_Alabama,
-                StreetAddress = ""
-            },
-            CVD = "",
-            ExpirationMonth = 5,
-            ExpirationYear = 2029,
-            Pan = 1231,
-            },
-            SessionToken = _session,
-            Language = LanguageEnum.English,
-            IsCustomerAutomaticPaymentMethod = false,
-            SkipValidation = true
-        };
-        ```
-    
-    * Bank account
-        Bank account payment method type allow to perform direct deposit and process pre-authorised payment.
-        The following Code demonstrates the CreateBankAccountArgs 
-        ```
-        var Account  = new Tib.Api.Model.PaymentMethod.CreateDirectAccountPaymentMethodArgs
-        {
-            CustomerId = _customer,
-            Account = new Tib.Api.Model.PaymentMethod.AccountModel
-            {
-                AccountName = "placeholder for whatever name you like.",
-                AccountNumber = "000000000000000",
-                BankNumber = "1111111",
-                CheckDigit = "111",
-                InstitutionNumber = "1111111",
-                Owner = "placeholder for wheteber the owner's name",
-            },
-            IsCustomerAutomaticPaymentMethod = false,
-            IsCustomerWithdrawaAuthorized = false,
-            Language = LanguageEnum.English,
-            SessionToken = _session,
-        } 
-        ```
-
-    * Interac
-
-        This payment method type allows to use Interac to collect or deposit money to a customer account.
-        
-        The following code shows the InteractModel Properties.
-        
-        ```
-            var InteracModel = new Tib.Api.Model.PaymentMethod.InteracModel
-            {
-                Description = "", // 
-                InteracAnswer = "", //
-                InteracQuestion = "", //
-                Owner = "", //
-                TargetEmailAddress = "", //
-                TargetMobilePhoneNumber = "", //
-            }
-        ```
- 
-
-### Transaction related objects overview.
-
-This section explains the payment related objects to help understanding the way to process payment within the API.
-
-#### Bills and payments.  
-
-*It is possible with the API to create a bill and add payments for the bill. This allows the merchant to collect the customer based on bill information.*
-
-* Bill 
-* Payment
-
-
-#### Bills and payments.  
-#### Direct Interac  
-#### ACP file  
-#### Free operations
-
-### Process related objects overview.
-
-#### Operations.  
-
-The operations are multiple money movement in relation with the same logical process. Every transfer requested will generate a minimum of 3 operations.
-
-#### Transactions
-
-All operations have multiple execution transactions. The transactions correspond to execution sequence of the operation.
-
-#### Status  
-
-All the transactions have status and detailed description of the execution. This are required to verify the process status. 
-
-#### Free operations
-
-
-
-for more details See the pdf Documentation.
 ## Environments
 
 Calls to the service are done via a WEB service. There are two URLs for the service:
@@ -233,7 +59,7 @@ Calls to the service are done via a WEB service. There are two URLs for the serv
     
 The ``` TibInvoker.Portal.CreateSession(sessionArgs); ``` method return an object containing the SessionId that needs to be passed with each Call.
 
-See [Demo](./Demo.md) for a step by step from how to Create a session to Creating a payment for a bill.
+See [Demo](./Documentation/Demo.md) for a step by step from how to Create a session to Creating a payment for a bill.
 
 ## Methods 
 
@@ -258,7 +84,7 @@ var createCustomerArgs = new CreateCustomerArgs
 }
 var result = TibInvoker.Portal.CreateCustomer(createCustomerArgs);
 ```
-*For More Methods Visit [Methods](./methods.md)*
+*For More Methods Visit [Methods](./Documentation/methods.md)*
 ## Handling Response 
 
 Each Api Call Return a response Object that Follow the same Object structure 
@@ -324,7 +150,7 @@ We can have many ways to handle the response, now we will focus on how to handle
 this is a way to handle a response , you can choose your own way to handle the response you get. 
 just keep in mind that every response contains the said properties
 
-For more details about mothods visit [here](./methods.md)
+For more details about mothods visit [here](./Documentation/methods.md)
 
 ## General Objects and  Enumerations. 
 
@@ -400,7 +226,7 @@ public enum CountryIdEnum
 ```
 
 ### Provinces / States enumeration
-To see the full table of Country states Enumeration Go [Here](./CountryandStateEnum.md)
+To see the full table of Country states Enumeration Go [Here](./Documentation/CountryandStateEnum.md)
 
 ### TransferDirectionEnum
 ```
