@@ -207,6 +207,7 @@ Calls to the service are done via a WEB service. There are two URLs for the serv
 
 ## Set Up 
 ` Before you using the SDK you need to set the api url up and get a session id. `
+`You'll also need to install [NewtownSoft](https://www.newtonsoft.com/json)`
 
 
 * Initialize the siteurl by using this line under: this Allows the SDK to know which Api to Call the methods from.
@@ -321,8 +322,8 @@ just keep in mind that every response contains the said properties
 For more details about mothods visit [here](./methods.md)
 
 ## General Objects and  Enumerations. 
-### Address global object 
 
+### Address global object 
 ```
 var address = new AddressModel
 {
@@ -333,6 +334,7 @@ var address = new AddressModel
     StreetAddress = ""
 }
 ```
+
 
 ### LanguageEnum
 ```
@@ -472,3 +474,17 @@ public enum OperationTypeEnum
     PaybackCheck = 4
 }
 ```
+
+### WhiteLabeling Levels Enum  
+```
+public enum WhitelabelingLevelsEnum
+{
+    Default = -1,
+    NotSet = 0,
+    Merchant = 1,
+    Service = 2,
+    Client = 3,
+}
+```
+
+

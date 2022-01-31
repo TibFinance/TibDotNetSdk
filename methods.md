@@ -64,13 +64,13 @@
 ```
 var createCustomerArgs = new CreateCustomerArgs
 {
-	SessionToken = _session // Guid You Get For Creating a new Session,
-	ServiceId = _service, // guid, Id of the Service you wanna add the Customer to.
+	SessionToken = new Guid("") // Guid You Get For Creating a new Session,
+	ServiceId = new Guid(""), // guid, Id of the Service you wanna add the Customer to.
 	Customer = new CustomerEntity // the customer Object.
 	{
 		CustomerDescription = "", // customer description
 		CustomerName = "", // customer name
-		Language = (LanguageEnum)lang, // the default language ir for the
+		Language = LanguageEnum.English, // English or Frensh
 		CustomerExternalId = "" // an Customer Identifier's if it exists
 	}
 };
@@ -81,8 +81,8 @@ var result = TibInvoker.Portal.CreateCustomer(createCustomerArgs);
 ```
 var GetServiceCustomersArgs = new Tib.Api.Model.Customer.ListCustomersArgs
 {
-	SessionToken = _session, // The session token you get when creating a new session.
-	ServiceId = _service // The Service you want the Customers list of.
+	SessionToken = new Guid(""), // The session token you get when creating a new session.
+	ServiceId = new Guid("") // The Service you want the Customers list of.
 };
 var result = TibInvoker.Portal.ListCustomers(GetServiceCustomersArgs);
 ```
@@ -90,8 +90,8 @@ var result = TibInvoker.Portal.ListCustomers(GetServiceCustomersArgs);
 ### Get a customer detail
 ```
 var GetCustomerDetailsArgs = new Tib.Api.Model.Customer.GetCustomerArgs{
-	SessionToken = _session,
-	CustomerId = _customer
+	SessionToken = new Guid(""), // session token
+	CustomerId = new Guid("") // customer Id
 };
 var result = TibInvoker.Portal.GetCustomer(GetCustomerDetailsArgs);
 ```
@@ -99,8 +99,8 @@ var result = TibInvoker.Portal.GetCustomer(GetCustomerDetailsArgs);
 ### List the customers based on external identification
 ```
 var getCustomersByExternalIdArgs=  new Tib.Api.Model.Customer.GetCustomersByExternalIdArgs{
-	SessionToken = _session,
-	ExternalCustomerId = exID
+	SessionToken = new Guid(""),
+	ExternalCustomerId = "" // External customer Id 
 };
 var result = TibInvoker.Portal.GetCustomersByExternalId(getCustomersByExternalIdArgs);
 ```
@@ -109,25 +109,25 @@ var result = TibInvoker.Portal.GetCustomersByExternalId(getCustomersByExternalId
 ```
 var updateCustomerArgs = new Tib.Api.Model.Customer.SaveCustomerArgs
 {
-	SessionToken = _session,
+	SessionToken = new Guid(""),
 	Customer = new Tib.Api.Model.Customer.CustomerModel
 	{
-		CustomerId = _customer,
-		CustomerDescription = customerDesc,
-		CustomerExternalId = exId,
-		CustomerName = customerName,
-		Language = (LanguageEnum)customerLang,
+		CustomerId = new Guid(""),
+		CustomerDescription = "",
+		CustomerExternalId = "",
+		CustomerName = "",
+		Language = LanguageEnum.English,
 	}
 };
-var result = TibInvoker.Portal.SaveCustomer(updateCustomerArgs );
+var result = TibInvoker.Portal.SaveCustomer(updateCustomerArgs);
 ```
 
 ### Delete a customer
 ```
 var deleteCustomerArgs = new Tib.Api.Model.Customer.DeleteCustomerArgs
 {
-	SessionToken = _session,
-	CustomerId = _customer
+	SessionToken = new Guid(""),
+	CustomerId = new Guid("")
 };
 var result = TibInvoker.Portal.DeleteCustomer(deleteCustomerArgs);
 ```
@@ -139,8 +139,8 @@ var result = TibInvoker.Portal.DeleteCustomer(deleteCustomerArgs);
 ```
 var createdDirectAccountArgs = new Tib.Api.Model.PaymentMethod.CreateDirectAccountPaymentMethodArgs
 {
-	CustomerId = _customer, // customer Id to add the payment method to .
-	SessionToken = _session, // Session Id to be able to call the Api
+	CustomerId = new Guid(""), // customer Id to add the payment method to .
+	SessionToken = new Guid(""), // Session Id to be able to call the Api
 	Account = new Tib.Api.Model.PaymentMethod.AccountModel // information about the payment method
 	{
 		AccountName = "", // the Account Name
@@ -161,7 +161,7 @@ var result = TibInvoker.Portal.CreateDirectAccountPaymentMethod(createdDirectAcc
 ```
 var CreateCreditCardArgs = new Tib.Api.Model.PaymentMethod.CreateCreditCardPaymentMethodArgs
 {
-	CustomerId = _customer,
+	CustomerId = new Guid(""),
 	CreditCard = new Tib.Api.Model.PaymentMethod.CreditCardModel
 	{
 		CardOwner = "", // Card Owner Name
@@ -179,7 +179,7 @@ var CreateCreditCardArgs = new Tib.Api.Model.PaymentMethod.CreateCreditCardPayme
 		ExpirationYear = 2029, // expiration Year
 		Pan = 1231, // pan number
 	},
-	SessionToken = _session,
+	SessionToken = new Guid(""),
 	Language = LanguageEnum.English,
 	IsCustomerAutomaticPaymentMethod = false,
 	SkipValidation = true
@@ -213,9 +213,9 @@ var result  = TibInvoker.Portal.CreateInteracPaymentMethod(createInteracPaymentM
 ```
 var changeInteracPaymentMethodQuestionAndAnswerArgs = new Tib.Api.Model.PaymentMethod.ChangeInteracPaymentMethodQuestionAndAnswerArgs
 {
-	SessionToken = _session,
+	SessionToken = new Guid(""),
 	InteracAnswer = "",
-	InteracPaymentMethodId = _paymentMethodId,
+	InteracPaymentMethodId = new Guid(""),
 	InteracQuestion = "",
 }; 
 var result = TibInvoker.Portal.ChangeInteracPaymentMethodQuestionAndAnswer(changeInteracPaymentMethodQuestionAndAnswerArgs)
@@ -225,8 +225,8 @@ var result = TibInvoker.Portal.ChangeInteracPaymentMethodQuestionAndAnswer(chang
 ```
 var getPaymentMethodArgs = new Tib.Api.Model.PaymentMethod.GetPaymentMethodArgs
 {
-	PaymentMethodId = _paymentMethodId, // Payment method Id 
-	SessionToken = _session, // session Token
+	PaymentMethodId = new Guid(""), // Payment method Id 
+	SessionToken = new Guid(""), // session Token
 };
 var result = TibInvoker.Portal.GetPaymentMethod(getPaymentMethodArgs);
 ```
@@ -235,8 +235,8 @@ var result = TibInvoker.Portal.GetPaymentMethod(getPaymentMethodArgs);
 ```
 var getPaymentMethodArgs = new Tib.Api.Model.PaymentMethod.GetPaymentMethodArgs
 {
-	PaymentMethodId = _paymentMethodId, // Payment method Id 
-	SessionToken = _session, // session Token
+	PaymentMethodId = new Guid(""), // Payment method Id 
+	SessionToken = new Guid(""), // session Token
 };
 var result = TibInvoker.Portal.GetPaymentMethod(getPaymentMethodArgs);
 ```
@@ -245,8 +245,8 @@ var result = TibInvoker.Portal.GetPaymentMethod(getPaymentMethodArgs);
 ```
 var listPaymentMethodArgs = new Tib.Api.Model.PaymentMethod.ListPaymentMethodsArgs
 {
-	CustomerId = _customer, // the Id of the customer that we need the payment method list of 
-	SessionToken = _session,
+	CustomerId = new Guid(""), // the Id of the customer that we need the payment method list of 
+	SessionToken = new Guid(""),
 };
 var result = TibInvoker.Portal.ListPaymentMethods(listPaymentMethodArgs);
 ```
@@ -255,8 +255,8 @@ var result = TibInvoker.Portal.ListPaymentMethods(listPaymentMethodArgs);
 ```
 var deletePaymentMethodArgs = new Tib.Api.Model.PaymentMethod.DeletePaymentMethodArgs
 {
-	PaymentMethodId = _paymentMethodId, // the payment method Id to delete
-	SessionToken = _session
+	PaymentMethodId = new Guid(""), // the payment method Id to delete
+	SessionToken = new Guid("")
 };
 var result = TibInvoker.Portal.DeletePaymentMethod(deletePaymentMethodArgs);
 ```
@@ -289,8 +289,8 @@ var result = TibInvoker.Portal.CreateBill(createbillsArgs);
 ```
 var getbillsArgs = new ListBillsArgs
 {
-    SessionToken = _session, // Session token
-    ServiceId = _service, // the service Id
+    SessionToken = new Guid(""), // Session token
+    ServiceId = new Guid(""), // the service Id
     FromDateTime = new DateTime(2020, 12, 31), // start date of get bills search query
     ToDateTime = DateTime.Now, // end date of the get bill search query
     MerchantId = _merchant // merchant Id 
@@ -457,13 +457,14 @@ var deleteRecuringTransferArgs = new DeleteRecuringTransferArgs
 };
 var result = TibInvoker.Portal.DeleteRecuringTransfer(deleteRecuringTransferArgs);
 ```
+
 ## Reporting of Operation
 
 ### List Executed Operations
 ```
 var listExecutedOperationsArgs = new Tib.Api.Model.Report.ListExecutedOperationsArgs
 {
-    SessionToken = _session,
+    SessionToken = new Guid(""), // session token
     DateType = DateTypeEnum.CreatedDate,
     FromDate = new DateTime(2018, 01, 01),
     MerchantId = _merchant,
@@ -476,4 +477,79 @@ var result = TibInvoker.Portal.ListExecutedOperations(listExecutedOperationsArgs
 ```
 
 
+## Whitelabeling (UI Looks)
 
+The Whitelabeling can be set on multiple levels 
+* Client
+* Service
+* Merchant
+please See [whitelabeling levels enums](./README.md#WhiteLabeling-levels-enum)
+
+The WhiteLabeling Use 2 main Objects `WhiteLabelingModel` and `WhiteLabelingDataModel`
+The first is a container of white labeling Values for a single entity (client, service, merchant) and have a list of `WhiteLabelingDataModel`.
+The Second one represents the values that a single whitelabeling cssProperty going to have.
+
+### Set WhiteLabeling
+```
+var localWhiteLabelingData = new List<WhiteLabelingDataModel>() // list of values you need for your whitelabeling
+{	
+	new WhiteLabelingDataModel {
+		CssProperty = "button-color",
+		CssValue = "testvalue"
+	}
+};
+var whitelabelingArgs = new SetWhiteLabelingArgs
+{
+	SessionToken = _session,
+	WhiteLabelingLevel = 1, // int value of WhitelabelingLevelsEnum
+	WhiteLabelingData = localWhiteLabelingData
+};
+var result = TibInvoker.Portal.SetWhiteLabeling(whitelabelingArgs);
+```
+### Delete WhiteLabeling
+
+```
+var DeleteWhiteLabelingArgs = new DeleteWhitelabelinArgs
+{
+	SessionToken = _session,
+	Id = new Guid(""), // Id of the whiteLabeling to delete.
+	Level = (int)WhitelabelingLevelsEnum.Merchant // int value of WhitelabelingLevelsEnum
+}
+var result = TibInvoker.Portal.DeleteWhiteLabeling(DeleteWhiteLabelingArgs);
+```
+
+### Get WhiteLabeling
+```
+var getWhiteLabelingArgs = new GetWhiteLabelingArgs { 
+	SessionToken = _session,
+	WhiteLabelingLevel = type,
+	Id = entityId
+};
+var result = TibInvoker.Portal.GetWhiteLabelingData(getWhiteLabelingArgs);
+```  
+
+### Update WhiteLabeling Values
+
+```
+var localWhiteLabelingToUpdate = new List<WhiteLabelingDataModel>() {
+	new WhiteLabelingDataModel {
+		WhiteLabelingDataId = new Guid(""), // WL data Id you wanna update
+		CssProperty  = "", // the css Prop you wanna update
+		CssValue = "Brown"
+	}
+};
+var updateWhitelabelingArgs = new UpdateWhiteLabelingDataArgs
+{
+	SessionToken = _session,
+	UpdatedWhiteLabelingData = localWhiteLabelingToUpdate // list of WL to update.
+};
+var result = TibInvoker.Portal.UpdateWhiteLabeling(updateWhitelabelingArgs);
+```
+
+### Get List of WhiteLabeling
+```
+var wlArgs = new GetWhiteLabelingArgs { 
+	SessionToken = _session 
+};
+var result = TibInvoker.Portal.GetListWhiteLabeling(wlArgs);
+```

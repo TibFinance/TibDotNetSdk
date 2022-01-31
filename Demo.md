@@ -63,14 +63,14 @@ var merchantInfo = new Tib.Api.Model.Service.MerchantModel
 After filling out the correct information for the merchant creationg you'll need to pass the object to the CreateMerchant Method :
 
 ```
-var createMerchant = new Tib.Api.Model.Service.CreateMerchantArgs
+var createMerchantArgs = new Tib.Api.Model.Service.CreateMerchantArgs
 {
 	SessionToken = _session, / Session Guid Gotten earlier
 	MerchantInfo = merchantInfo, // Merchant Info
 	ServiceId = _service // ServiceId
 }
 
-var result = TibInvoker.Portal.CreateMerchant(createMerchant)
+var result = TibInvoker.Portal.CreateMerchant(createMerchantArgs)
 ```
 *save the merchant Id to user it Later when creating bills and*
  
@@ -87,10 +87,10 @@ The Following Code Show the Customer Entity
 ```
 var customer = new Tib.Api.Model.Customer.CustomerEntity
 {
-	CustomerDescription = Description,
-	CustomerName = name,
-	Language = (LanguageEnum)lang,
-	CustomerExternalId = externalId
+	CustomerDescription = "",
+	CustomerName = "",
+	Language = LanguageEnum.English,
+	CustomerExternalId = ""
 }
 ```
 
@@ -150,7 +150,7 @@ The Following code is the Arguments for creating Create Credit Card Payment meth
 ```
 var args = new Tib.Api.Model.PaymentMethod.CreateCreditCardPaymentMethodArgs
 {
-	CustomerId = _customer,
+	CustomerId = new Guid(), /// ID of the customer you wanna create the payment method for.
 	CreditCard = creditCardModel,
 	SessionToken = _session,
 	Language = LanguageEnum.English,
@@ -223,6 +223,8 @@ To begin proccessing payments with the Api you need first to create a bill.
 #### Create a bill 
 When creating a bill, it will return the created bill ID for further operation on the bill. Save that Id For Further operations on that bill.
 
+*NOTE that the Merchant needs to be authorized to Use the Id to create a bill for.*
+
 The following code displays the information needed for a bill Entitty
 ```
 var bill = new BillEntity
@@ -232,8 +234,8 @@ var bill = new BillEntity
 	BillDescription = desc,
 	BillTitle = title,
 	Language = (LanguageEnum)language,
-	MerchantId = _merchant,
-	RelatedCustomerId = _customer,
+	MerchantId = new Guid(), // Id of the Merchant you wanna create the bill for
+	RelatedCustomerId = new Guid(), // Id of the customer you wanna create the bill for.
 	UseConvenientFeeRule = false
 }
 ```
@@ -248,7 +250,7 @@ var createBillArgs = new CreateBillArgs
 ```
 Now we call the create bill method
 ```
-var result = TibInvoker.Portal.CreateBill(createBillArgs)
+var result = **TibInvoker**.Portal.CreateBill(createBillArgs)
 ```
 *Now that we have the bill we can start creating payments for that bill .*
 
@@ -263,13 +265,13 @@ The following code show the Arguments needed for Creating a payment
 ```
 var paymentArgs = new CreatePaymentArgs
 {
-	BillId = _bill,
-	SessionToken = _session,
-	CustomerEmail = customerEmail,
+	BillId = _bill, // bill Id For the bill we have just created.
+	SessionToken = _session, 
+	CustomerEmail = "",
 	PaymentInfo = new Tib.Api.Model.PaymentMethod.PaymentEntity
 	{
-		PaymentFlow = PaymentFlow.AnonymousNeedCustomerEmailPropertySet,
-		Language = language
+		PaymentFlow = PaymentFlowEnum.AnonymousNeedCustomerEmailPropertySet,
+		Language = LanguageEnum.English
 	},
 	StatementDescription = ""
 }
