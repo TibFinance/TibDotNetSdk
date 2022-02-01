@@ -64,7 +64,8 @@ var merchantInfo = new Tib.Api.Model.Service.MerchantModel
 };
 
 ```
-*The MerchantModel inherits from MerchantModelBasicInfo so the MerchantModel includes both concepts.*
+*NOTE The MerchantModel inherits from MerchantModelBasicInfo so the MerchantModel includes both concepts.*
+
 After filling out the correct information for the merchant creationg you'll need to pass the object to the CreateMerchant Method :
 
 ```
