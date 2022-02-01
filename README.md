@@ -226,7 +226,7 @@ public enum CountryIdEnum
 ```
 
 ### Provinces / States enumeration
-To see the full table of Country states Enumeration Go [Here](./Documentation/CountryandStateEnum.md)
+To see the full ProvinceStateIdEnum Go [Here](./Documentation/CountryandStateEnum.md)
 
 ### TransferDirectionEnum
 ```
