@@ -64,6 +64,7 @@ var merchantInfo = new Tib.Api.Model.Service.MerchantModel
 };
 
 ```
+
 *NOTE The MerchantModel inherits from MerchantModelBasicInfo so the MerchantModel includes both concepts.*
 
 After filling out the correct information for the merchant creationg you'll need to pass the object to the CreateMerchant Method :
@@ -78,7 +79,7 @@ var createMerchantArgs = new Tib.Api.Model.Service.CreateMerchantArgs
 
 var result = TibInvoker.Portal.CreateMerchant(createMerchantArgs)
 ```
-*Save the merchant Id to use it Later when creating bills *
+*Save the merchant Id to use it Later when creating bills*
  
 
 ## Create Customer
@@ -115,13 +116,13 @@ This is the actual api call to create the customer
 var result = TibInvoker.Portal.CreateCustomer(createCustomerArgs);
 ```
 
-## Create Payment Methods
+## Creating Payment Methods
 
-The payment methods are financial accounts attached to a customer. A customer can have multiple payment methods. All payment methods have a unique identifier.
+The payment methods are financial accounts Link it to a customer. A customer can have multiple payment methods. All payment methods have a unique identifier.
 
 This section Explains how to create a payment method and attache it to a customer with the Api.
 
-Currently the TibFinance Support Those 3 payment Method Types:
+Currently the TibFinance Supports 3 payment Method Types:
 
 * Credit card
 * Bank account
@@ -130,6 +131,8 @@ Currently the TibFinance Support Those 3 payment Method Types:
 #### Credit card
 
 Credit card payment method allow the merchant to collect money from the customer’s credit card.
+
+*NOTE The credit card payment method cannot be used during deposit.*
 
 The Following the CreditCardModel
 ```
