@@ -40,6 +40,12 @@
 
 * #### Merchants
 	* [Merchant basic information object](#merchant-basic-information-object).
+	* [Create new merchant](#create-new-merchant).
+	* [Get merchant info ](#get-merchant-info)
+	* [Update merchant](#update-merchant).
+	* [Delete merchant](#delete-merchant).
+	* [Update merchant basic info](#update-merchant-basic-info).
+	* [Update merchant account info](#update-Merchant-Account-Info).
 
 * #### Whitelabeling (UI Looks)
 	* [Set WhiteLabeling](#set-whiteLabeling)
@@ -476,6 +482,96 @@ var listExecutedOperationsArgs = new Tib.Api.Model.Report.ListExecutedOperations
 var result = TibInvoker.Portal.ListExecutedOperations(listExecutedOperationsArgs);
 ```
 
+## Merchant Methods
+
+### Create new merchant
+```
+var merchantArgs = new Tib.Api.Model.Service.GetMerchantArgs
+{
+	SessionToken = _session,
+	MerchantId = _merchant
+};
+var result = TibInvoker.Portal.GetMerchant(merchantArgs);
+```
+### Get merchant info
+```
+var getMerchantArgs = new Tib.Api.Model.Service.GetMerchantArgs
+{
+	SessionToken = _session,
+	MerchantId = _merchant
+};
+var result = TibInvoker.Portal.GetMerchant(getMerchantArgs);
+```
+### Update merchant
+```
+var saveMerchantArgs = new Tib.Api.Model.Service.SaveMerchantArgs
+{
+	SessionToken = _session,
+	MerchantId = _merchant,
+	MerchantInfo = new Tib.Api.Model.Service.MerchantModel
+	{
+		Account = new Tib.Api.Model.PaymentMethod.AccountModel { },
+	}
+}
+var result = TibInvoker.Portal.SaveMerchant(saveMerchantArgs);
+```
+### Delete merchant
+```
+var deleteMerchantArgs = new Tib.Api.Model.Merchant.DeleteMerchantArgs
+{
+	SessionToken = _session,
+	MerchantId = _merchant
+};
+var result = TibInvoker.Portal.DeleteMerchant(deleteMerchantArgs);
+```
+### Update merchant basic info 
+```
+var updateBasiInfoArgs = new Tib.Api.Model.Service.SaveMerchantBasicInfoArgs
+{
+	SessionToken = _session,
+	MerchantId = _merchant,
+	MerchantInfo = new Tib.Api.Model.Service.MerchantModelBasicInfo
+	{
+		EmailCopyTo = "EmailCopyTo@gmail.com",
+		ExternalSystemId = "M3493LDO",
+		Email = "email@email.d",
+		FavoriteProvider = ProviderEnum.CA_CreditCard_BankOfAmerica,
+		Language = LanguageEnum.English,
+		MerchantCurrency = CurrencyEnum.USD,
+		MerchantDescription = "merchant description",
+		MerchantName = "merchant nameupdate vie SDK",
+		PhoneNumber = "1234567890",
+		ExternalSystemGroupId = "#PQSD23",
+		Address = new AddressModel
+		{
+			AddressCity = "CIty",
+			CountryId = CountryIdEnum.USA,
+			PostalZipCode = "VP2039",
+			ProvinceStateId = ProvinceStateIdEnum.US_Kentucky,
+			StreetAddress = "0394FKDQSF sdlqjf"
+		},
+	}
+};
+var result = TibInvoker.Portal.SaveMerchantBasicInfo(updateBasiInfoArgs);
+```
+### Update merchant account info
+```
+var updateAccountInfoArgs =new Tib.Api.Model.Service.SaveMerchantAccountInfoArgs
+{
+	SessionToken = _session,
+	MerchantId = _merchant,
+	Account = new Tib.Api.Model.PaymentMethod.AccountModel
+	{
+		AccountName = "name Updated via SDK",
+		AccountNumber = "1231213112312321",
+		BankNumber = "123123",
+		CheckDigit = "122",
+		InstitutionNumber = "2133112",
+		Owner = "okey",
+	}
+};
+var result = TibInvoker.Portal.SaveMerchantAccountInfo(updateAccountInfoArgs);
+```
 
 ## Whitelabeling (UI Looks)
 
@@ -527,7 +623,7 @@ var localWhiteLabelingData = new List<WhiteLabelingDataModel>() // list of value
 {	
 	new WhiteLabelingDataModel {
 		CssProperty = "button-color",
-		CssValue = "testvalue"
+		CssValue = "testvalue" // Can be color name 'Red'/'Green' or can be a Hex Value '#000000'/'#FFFFFF' 
 	}, 
 	new WhiteLabelingDataModel { // setting up a logo for this whitelabel.
 		CssProperty = "Logo",
