@@ -493,6 +493,8 @@ The first is a container of white labeling Values for a single entity (client, s
 
 The Second one represents the values that a single whitelabeling cssProperty going to have.
 
+*Note: To Chenge the logo the api accepts images as a base64 string so you will need to implement your own imageToBase64 and the pass the string to the api.*
+
 ### Set WhiteLabeling
 ```
 var localWhiteLabelingData = new List<WhiteLabelingDataModel>() // list of values you need for your whitelabeling
