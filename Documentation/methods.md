@@ -495,6 +495,32 @@ The Second one represents the values that a single whitelabeling cssProperty goi
 
 *Note: To Chenge the logo the api accepts images as a base64 string so you will need to implement your own imageToBase64 and the pass the string to the api.*
 
+The WhiteLabeling only support a number of parameters 
+
+This is the list o f the properties that you can customize 
+```
+"company-name"
+"logo-secound-part-color"
+"logo-first-Part-color"
+"logo-background"
+"radio-button-color"
+"checbox-color"
+"sidenav-item-active-color"
+"sidenav-button-trigger-color"
+"button-color"
+"logo"
+"accepte-button-color"
+"reject-button-color"
+"navbar-backgournd-color"
+"icon-size"
+"title-font-family"
+"title-font-size"
+"subtitle-font-family"
+"subtitle-font-size"
+"subtitle-text-color"
+```
+you pass one of those to the cssProperty and pass the value you want it to be.
+
 ### Set WhiteLabeling
 ```
 var localWhiteLabelingData = new List<WhiteLabelingDataModel>() // list of values you need for your whitelabeling
@@ -502,7 +528,11 @@ var localWhiteLabelingData = new List<WhiteLabelingDataModel>() // list of value
 	new WhiteLabelingDataModel {
 		CssProperty = "button-color",
 		CssValue = "testvalue"
-	}
+	}, 
+	new WhiteLabelingDataModel { // setting up a logo for this whitelabel.
+		CssProperty = "Logo",
+		CssValue = "base64String"
+	}, 
 };
 var whitelabelingArgs = new SetWhiteLabelingArgs
 {
