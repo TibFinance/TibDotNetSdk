@@ -41,9 +41,9 @@ Calls to the service are done via a WEB service. There are two URLs for the serv
 
 * Initialize the siteurl by using this line under: this Allows the SDK to know which Api to Call the methods from.
 
-*the link can be either the Sandbox or the production Envirement (we are using the sandbox version in this code sample)*
-
 ``` TibInvoker.InitializePortal(_siteUrl); ```
+
+*the `_siteUrl` can be either the Sandbox or the production Envirement (we are using the sandbox version in this code sample)*
 
 * Then Create a session
 
@@ -100,12 +100,6 @@ public class ClientBaseResponse
     public string Messages { get; set; }
 }
 
-// base Service Error Class
-public class BaseServiceError
-{
-    public string ErrorMessage { get; set; }
-    public int ErrorCode { get; set; }
-}
 ```
 We can have many ways to handle the response, now we will focus on how to handle errors here:
 - the most important properties of the object when it comes to Error Handling are :
