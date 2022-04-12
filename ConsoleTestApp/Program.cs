@@ -611,26 +611,43 @@ namespace ConsoleTestApp
             Console.Write("\n Institute number: "); string InsNumber = Console.ReadLine();
             Console.Write("\n Owner : "); string Owner = Console.ReadLine();
             Console.Write("\n Account number: "); string accountNumber = Console.ReadLine();
-            var result = TibInvoker.Portal.CreateDirectDeposit(new CreateDirectDepositArgs
-            {
-                SessionToken = _session,
-                Amount = 1,
-                Currency = CurrencyEnum.USD,
-                DepositDueDate = DateTime.Now.AddDays(1),
-                DestinationAccount = new Tib.Api.Model.PaymentMethod.AccountModel
-                {
-                    AccountName = accountName,
-                    BankNumber = bankNumber,
-                    CheckDigit = CheckDegit,
-                    InstitutionNumber = InsNumber,
-                    Owner = Owner,
-                    AccountNumber = accountNumber,
-                },
-                Language = LanguageEnum.English,
-                OriginMerchantId = _merchant,
-                StatementDescription = ""
-            });
-            ResponseHandler(result, "Created");
+            //var result = TibInvoker.Portal.CreateDirectDeposit(new CreateDirectDepositArgs
+            //{
+            //    SessionToken = _session,
+            //    Amount = 1,
+            //    Currency = CurrencyEnum.USD,
+            //    DepositDueDate = DateTime.Now.AddDays(1),
+            //    DestinationAccount = new Tib.Api.Model.PaymentMethod.AccountModel
+            //    {
+            //        AccountName = accountName,
+            //        BankNumber = bankNumber,
+            //        CheckDigit = CheckDegit,
+            //        InstitutionNumber = InsNumber,
+            //        Owner = Owner,
+            //        AccountNumber = accountNumber,
+            //    },
+            //    Language = LanguageEnum.English,
+            //    OriginMerchantId = _merchant,
+            //    StatementDescription = ""
+            //}); 
+            var res = TibInvoker.Portal.CreateFreeOperation(new CreateFreeOperationArgs
+                  {
+                    Amount = 1,
+                    SessionToken = _session,
+                    Language = LanguageEnum.English,
+                    MerchantId = _merchant,
+                    TransactionDueDate = DateTime.Now.AddDays(1),
+                    TransferType = TransferTypeEnum.FreeDeposit,
+                    PaymentMethodId = new Guid(),
+                    TransferFrequency = TransferFrequencyEnum.Once,
+                    StopSameIdentifications = true,
+                    GroupId = "",
+                    ReferenceNumber = "",
+                    CustomerId = new Guid(),
+                    BillId = new Guid(),
+
+                  });
+            ResponseHandler(res, "Created");
         }
         private static void CreateDirectInteracTransaction()
         {

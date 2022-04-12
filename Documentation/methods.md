@@ -395,7 +395,7 @@ var createPaymentArgs = new CreatePaymentArgs
 TibInvoker.Portal.CreatePayment(createPaymentArgs)
 ```
 
-### Create Direct Deposit
+### Create Direct Deposit (this Methods is obsolete, Use CreateFreeOperation)
 ```
 var createDirectDipositArgs = new CreateDirectDepositArgs
 {
