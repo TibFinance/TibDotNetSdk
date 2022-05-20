@@ -18,7 +18,7 @@ namespace ConsoleTestApp
     class Program
     {
         private static Guid? _session = null;
-        private static string _siteUrl = "http://localhost:61851/";
+        private static string _siteUrl = "http://localhost:61858/";
         private static Guid _clientId = new Guid("9bfd1de3-2bb4-4a64-8b71-453699dff214");
         private static Guid _service = new Guid("8e373a22-8500-4fe2-9b6a-3225bca871dd");
         private static Guid? _provider = null;
@@ -169,17 +169,8 @@ namespace ConsoleTestApp
                             case "16":
                                 GetPayment();
                                 break;
-                            case "17":
-                                GetDepositOperations();
-                                break;
                             case "18":
                                 MarkPaymentResolved();
-                                break;
-                            case "19":
-                                GetFreeDepositOperations();
-                                break;
-                            case "20":
-                                GetFreeCollectionOperations();
                                 break;
                             case "21":
                                 //GetFeeCount();
@@ -878,19 +869,6 @@ namespace ConsoleTestApp
             ResponseHandler(result, JsonConvert.SerializeObject(result.Payment));
         }
 
-        private static void GetDepositOperations()
-        {
-            var result = TibInvoker.Portal.GetDepositOperations(new Tib.Api.Model.PaymentMethod.GetDepositOperationsArgs
-            {
-                SessionToken = _session,
-                FromDate = new DateTime(2020, 01, 01),
-                ToDate = DateTime.Now,
-                MerchantExternalGroupId = "",
-                TransferGroupId = "",
-                OnlyWithErrors = false,
-            });
-            ResponseHandler(result, JsonConvert.SerializeObject(result.OperationList));
-        }
 
         private static void MarkPaymentResolved()
         {
@@ -901,42 +879,9 @@ namespace ConsoleTestApp
             });
             ResponseHandler(result, "Success.");
         }
-        private static void GetFreeDepositOperations()
-        {
-            var result = TibInvoker.Portal.GetFreeDepositOperations(new Tib.Api.Model.PaymentMethod.GetFreeDepositOperationsArgs
-            {
-                SessionToken = _session,
-                FromDate = new DateTime(2020, 01, 01),
-                ToDate = DateTime.Now,
-                MerchantId = new Guid(),
-                OnlyWithErrors = false,
-                TransferGroupId = ""
-            });
-            ResponseHandler(result, JsonConvert.SerializeObject(result.OperationList));
-        }
-        private static void GetFreeCollectionOperations()
-        {
-            var result = TibInvoker.Portal.GetFreeCollectionOperations(new Tib.Api.Model.PaymentMethod.GetFreeCollectionOperationsArgs
-            {
-                TransferGroupId = "",
-                SessionToken = _session,
-                FromDate = new DateTime(2020, 01, 01),
-                OnlyWithErrors = false,
-                ToDate = DateTime.Now,
-            });
-            ResponseHandler(result, JsonConvert.SerializeObject(result.OperationList));
-        }
-        //private static void GetFeeCount()
-        //{
-        //  var result = TibInvoker.Portal.GetFeeCount(new Tib.Api.Model.PaymentMethod.GetFeeCountArgs
-        //  {
-        //    MerchantId = new Guid("122c2650-6418-469a-a2ce-4fdc02c601ac"), 
-        //    SessionToken = _session, 
-        //    Year = 2020, 
-        //    Month = 12, 
-        //  }); ;
-        //  ResponseHandler(result, JsonConvert.SerializeObject(result.TransactionFeesAgregated));
-        //}
+       
+       
+       
         private static void ForcePaymentProcess()
         {
             var result = TibInvoker.Portal.ForcePaymentProcess(new Tib.Api.Model.PaymentMethod.ForcePaymentProcessArgs

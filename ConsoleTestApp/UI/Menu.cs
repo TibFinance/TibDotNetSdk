@@ -127,10 +127,7 @@ namespace ConsoleTestApp.UI
       Console.WriteLine("'14' to set a default payment method");
       Console.WriteLine("'15' to delete a payment method.");
       Console.WriteLine("'16' to Get a payment.");
-      Console.WriteLine("'17' Get a list of Depostit Operations");
       Console.WriteLine("'18' to makr payment as resolved.");
-      Console.WriteLine("'19' to get a list of free deposit operations.");
-      Console.WriteLine("'20' to get a list of free collection operaions.");
       Console.Write("'21' to get fee count. "); Console.ForegroundColor = ConsoleColor.Red; Console.Write("(Not Implemented - Temporary removed Because not used.) \n"); Console.ForegroundColor = ConsoleColor.White; 
       Console.WriteLine("'22' to Force payment process.");
       Console.WriteLine("'23' to Login");
