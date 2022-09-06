@@ -18,13 +18,13 @@ namespace ConsoleTestApp
     class Program
     {
         private static Guid? _session = null;
-        private static string _siteUrl = "http://localhost:61858/";
-        private static Guid _clientId = new Guid("9bfd1de3-2bb4-4a64-8b71-453699dff214");
-        private static Guid _service = new Guid("8e373a22-8500-4fe2-9b6a-3225bca871dd");
+        private static string _siteUrl = "http://sandboxportal.tib.finance";
+        private static Guid _clientId = new Guid("4671a4c9-4367-4934-bb23-a8886cebd028");
+        private static Guid _service = new Guid("038D7171-BF23-4F3C-9E78-CF6342624FC7");
         private static Guid? _provider = null;
         private static Guid _merchant = new Guid("66077224-4239-4cd1-90e4-34650bf051ad"); // default merchant 
         private static Guid _bill = new Guid("e23682cc-e2bb-4868-a1f5-9eac6e2b4109"); // default Bill to go to 
-        private static Guid _customer = new Guid("970f0528-ab4d-41a2-b613-859d076f48a5"); // default  Customer
+        private static Guid _customer = new Guid("7fea36a6-a62f-44c1-97af-1a0b2b285b66"); // default  Customer
         private static Guid _paymentMethodId = new Guid("ed77b689-56be-4731-9ee4-d8685eba7d50");
         private static Guid? _payment = null; // you'll have to create a payment then this variabl with get filled automaticaly.
         private static Guid? _transfer = null; // you'll have to create a transfer in order to use it . 
@@ -420,7 +420,8 @@ namespace ConsoleTestApp
                     CustomerDescription = Description,
                     CustomerName = name,
                     Language = (LanguageEnum)lang,
-                    CustomerExternalId = externalId
+                    CustomerExternalId = externalId, 
+                    CustomerEmail = "EMail@customer.com"
                 }
             });
             ResponseHandler(result, "Customer Added Successfuly.");
