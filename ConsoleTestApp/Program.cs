@@ -19,7 +19,7 @@ namespace ConsoleTestApp
     {
         private static Guid? _session = null;
         private static string _siteUrl = "http://sandboxportal.tib.finance";
-        private static Guid _clientId = new Guid("4671a4c9-4367-4934-bb23-a8886cebd028");
+        private static Guid _clientId = new Guid("9bfd1de3-2bb4-4a64-8b71-453699dff214");
         private static Guid _service = new Guid("038D7171-BF23-4F3C-9E78-CF6342624FC7");
         private static Guid? _provider = null;
         private static Guid _merchant = new Guid("66077224-4239-4cd1-90e4-34650bf051ad"); // default merchant 
@@ -702,6 +702,7 @@ namespace ConsoleTestApp
                 SessionToken = _session,
                 TransferId = _transfer.Value,
             });
+      Console.WriteLine(result.HasBeenDeleted.ToString());
             ResponseHandler(result, "Success.");
         }
         public static void getListTransfers()
