@@ -19,13 +19,13 @@ namespace ConsoleTestApp
     {
         private static Guid? _session = null;
         private static string _siteUrl = "http://sandboxportal.tib.finance";
-        private static Guid _clientId = new Guid("9bfd1de3-2bb4-4a64-8b71-453699dff214");
-        private static Guid _service = new Guid("038D7171-BF23-4F3C-9E78-CF6342624FC7");
+        private static Guid _clientId = new Guid("");
+        private static Guid _service = new Guid("");
         private static Guid? _provider = null;
-        private static Guid _merchant = new Guid("66077224-4239-4cd1-90e4-34650bf051ad"); // default merchant 
-        private static Guid _bill = new Guid("e23682cc-e2bb-4868-a1f5-9eac6e2b4109"); // default Bill to go to 
-        private static Guid _customer = new Guid("7fea36a6-a62f-44c1-97af-1a0b2b285b66"); // default  Customer
-        private static Guid _paymentMethodId = new Guid("ed77b689-56be-4731-9ee4-d8685eba7d50");
+        private static Guid _merchant = new Guid(""); // default merchant 
+        private static Guid _bill = new Guid(""); // default Bill to go to 
+        private static Guid _customer = new Guid(""); // default  Customer
+        private static Guid _paymentMethodId = new Guid("");
         private static Guid? _payment = null; // you'll have to create a payment then this variabl with get filled automaticaly.
         private static Guid? _transfer = null; // you'll have to create a transfer in order to use it . 
 
