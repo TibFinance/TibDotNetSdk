@@ -1,6 +1,6 @@
 # TIB Finance .NET Framework SDK
 
-![.NET Framework](https://img.shields.io/badge/.NET_Framework-4.7.2%2B-512BD4)
+![.NET Framework](https://img.shields.io/badge/.NET_Framework-4.7%2B-512BD4)
 
 .NET Framework SDK for the TIB Finance payment processing API.
 
