@@ -1,12 +1,12 @@
-﻿namespace Tib.Api.CryptographyService
+namespace Tib.Api.CryptographyService
 {
   /// <summary>
-  /// Object résultant d'une encryption symétrique. Possède les données encryptés et le IV utilisé pour l'encryption.
+  /// Object resulting from a symmetric encryption. Contains the encrypted data and the IV used for encryption.
   /// </summary>
   public class SymetricCryptedData
   {
     /// <summary>
-    /// Crée une nouvelle instance de données ayant été crypté de manière symétrique avec IV
+    /// Creates a new instance of symmetrically encrypted data with IV
     /// </summary>
     public SymetricCryptedData()
     {
@@ -14,12 +14,12 @@
     }
 
     /// <summary>
-    /// Données encrypté avec une clef symétrique
+    /// Data encrypted with a symmetric key
     /// </summary>
     public byte[] EncryptedBytes { get; set; }
 
     /// <summary>
-    /// Le IV est la portion "aléatoire" mis en avant du mesage afin que celui-ci ne puisse être reconnu par association.
+    /// The IV is the random portion prepended to the message so that it cannot be recognized by association.
     /// </summary>
     public byte[] IV { get; set; }
   }

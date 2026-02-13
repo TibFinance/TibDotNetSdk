@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("TIB Finance")]
 [assembly: AssemblyProduct("Tib.Api")]
-[assembly: AssemblyCopyright("Copyright © TIB Finance 2021")]
+[assembly: AssemblyCopyright("Copyright © TIB Finance 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

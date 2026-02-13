@@ -1,53 +1,53 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text;
 
 namespace Tib.Api.CryptographyService
 {
   /// <summary>
-  /// Solution compatible avec toutes les plateformes pour générer des nombres ou des caractères aléatoirement.
+  /// Cross-platform solution for generating random numbers or characters.
   /// </summary>
   public static class Randomizer
   {
     /// <summary>
-    /// Génère aléatoirement un nombre positif (de 0 à max) du type demandé.
+    /// Randomly generates a positive number (from 0 to max) of the specified type.
     /// </summary>
-    /// <typeparam name="T">Type numérique à générer</typeparam>
-    /// <param name="max">Valeur maximale du nombre généré</param>
-    /// <returns>Valeur de nombre aléatoire</returns>
+    /// <typeparam name="T">Numeric type to generate</typeparam>
+    /// <param name="max">Maximum value of the generated number</param>
+    /// <returns>Random number value</returns>
     public static T GetRandomNumber<T>(T max) where T : struct, IComparable, IComparable<T>, IEquatable<T>, IFormattable
     {
       return GetRandomNumber<T>((T)(dynamic)0, max);
     }
 
     /// <summary>
-    /// Génère aléatoirement un nombre (de min à max) du type demandé.
+    /// Randomly generates a number (from min to max) of the specified type.
     /// </summary>
-    /// <typeparam name="T">Type numérique à générer</typeparam>
-    /// <param name="min">Valeur minimal du nombre généré</param>
-    /// <param name="max">Valeur maximale du nombre généré</param>
-    /// <returns>Valeur de nombre aléatoire</returns>
+    /// <typeparam name="T">Numeric type to generate</typeparam>
+    /// <param name="min">Minimum value of the generated number</param>
+    /// <param name="max">Maximum value of the generated number</param>
+    /// <returns>Random number value</returns>
     public static T GetRandomNumber<T>(T min, T max) where T : struct, IComparable, IComparable<T>, IEquatable<T>, IFormattable
     {
       return (T)(((Convert.ToDecimal(BitConverter.ToUInt64(Guid.NewGuid().ToByteArray(), 8)) / UInt64.MaxValue) * Convert.ToDecimal((dynamic)max - min)) + Convert.ToDecimal(min));
     }
 
     /// <summary>
-    /// Retourne une chaîne de caractères aléatoire de la longueur demandée.
+    /// Returns a random string of the specified length.
     /// </summary>
-    /// <param name="numberOfCharacter">Nombre de caractères à générer</param>
-    /// <param name="codeType">Type de caractère à générer. (Les lettres sont minuscules)</param>
-    /// <returns>Une chaîne de caractères ayant seulement des lettres (lowercase) et/ou des chiffres</returns>
+    /// <param name="numberOfCharacter">Number of characters to generate</param>
+    /// <param name="codeType">Type of characters to generate. (Letters are lowercase)</param>
+    /// <returns>A string containing only letters (lowercase) and/or digits</returns>
     public static string GetRandomString(int numberOfCharacter, RandomCodeTypeEnum codeType)
     {
       Guid guid = Guid.NewGuid();
       byte[] bytes = guid.ToByteArray();
       StringBuilder sb = new StringBuilder();
 
-      //Perte de précision de 2x (16 bytes à numberOfCharacter bytes)
+      //Precision loss of 2x (16 bytes to numberOfCharacter bytes)
       foreach (byte byteValue in bytes.Take(numberOfCharacter))
       {
-        //Perte de précision de 7.15 fois.
+        //Precision loss of 7.15x.
         byte useByte;
 
         switch (codeType)

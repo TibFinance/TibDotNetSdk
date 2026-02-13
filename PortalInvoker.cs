@@ -16,7 +16,6 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
-using Newtonsoft.Json;
 using Tib.Api.Model;
 using Tib.Api.Model.General;
 using Tib.Api.Model.Service;
@@ -64,25 +63,25 @@ namespace Tib.Api
     }
 
     /// <summary>
-/// 
+///
 /// </summary>
 public GetWalletOperationsResponse GetWalletOperations(GetWalletOperationsArgs args)
 {
     return _client.Call<GetWalletOperationsResponse>("GetWalletOperations", args);
 }/// <summary>
-/// 
+///
 /// </summary>
 public CreateSupplierResponse CreateSupplier(CreateSupplierArgs args)
 {
     return _client.Call<CreateSupplierResponse>("CreateSupplier", args);
 }/// <summary>
-/// 
+///
 /// </summary>
 public GetSuppliersResponse GetSuppliers(GetSuppliersArgs args)
 {
     return _client.Call<GetSuppliersResponse>("GetSuppliers", args);
 }/// <summary>
-/// 
+///
 /// </summary>
 public CreateSupplierTransferResponse CreateSupplierTransfer(CreateSupplierTransferArgs args)
 {
@@ -248,6 +247,12 @@ public DeleteRecuringTransferResponse DeleteRecuringTransfer(DeleteRecuringTrans
 public GetRecuringTransfersResponse GetRecuringTransfers(GetRecuringTransfersArgs args)
 {
     return _client.Call<GetRecuringTransfersResponse>("GetRecuringTransfers", args);
+}/// <summary>
+/// Lists the transfers of a bill.
+/// </summary>
+public ListTransfersFastResponse ListTransfersForBillFast(ListTransfersForBillFastArgs args)
+{
+    return _client.Call<ListTransfersFastResponse>("ListTransfersForBillFast", args);
 }/// <summary>
 /// Lists the transfers.
 /// </summary>
@@ -442,6 +447,24 @@ public DeleteMerchantResponse DeleteMerchant(DeleteMerchantArgs args)
 {
     return _client.Call<DeleteMerchantResponse>("DeleteMerchant", args);
 }/// <summary>
+/// Stores the merchant's account details securely in the system.
+/// </summary>
+/// <value>This function is responsible for saving the merchant's account information, ensuring that all necessary data is captured and stored correctly for future transactions.</value>
+/// <param name="args">The parameters required for this function include the merchant's account details, which must be provided in a structured format.</param>
+/// <returns>Returns a SaveMerchantResponse object indicating the success or failure of the operation.</returns>
+public SaveMerchantResponse SaveMerchantAccountInfo(SaveMerchantAccountInfoArgs args)
+{
+    return _client.Call<SaveMerchantResponse>("SaveMerchantAccountInfo", args);
+}/// <summary>
+/// This function saves the basic information of a merchant. It is used to update or create the initial details associated with a merchant account within the TIB Finance API system.
+/// </summary>
+/// <value>This function does not return a value.</value>
+/// <param name="args">The function accepts a parameter containing the merchant's basic information, which includes essential details required for account creation or updates.</param>
+/// <returns>The function returns a SaveMerchantResponse object, which contains the status and details of the save operation.</returns>
+public SaveMerchantResponse SaveMerchantBasicInfo(SaveMerchantBasicInfoArgs args)
+{
+    return _client.Call<SaveMerchantResponse>("SaveMerchantBasicInfo", args);
+}/// <summary>
 /// Persists a merchant entity to the TIB Finance system.
 /// </summary>
 /// <value>Executes the operation to create or update a merchant record.</value>
@@ -487,6 +510,14 @@ public ListMerchantsResponse ListMerchants(ListMerchantsArgs args)
 {
     return _client.Call<ListMerchantsResponse>("ListMerchants", args);
 }/// <summary>
+/// Gets the wallet information for a service.
+/// </summary>
+/// <param name="args">The arguments.</param>
+/// <returns>GetWalletInformationsByServiceResponse.</returns>
+public GetWalletInformationsResponse GetWalletInformationsByService(GetWalletInformationsArgs args)
+{
+    return _client.Call<GetWalletInformationsResponse>("GetWalletInformationsByService", args);
+}/// <summary>
 /// Retrieves the details of a specified service within the TIB Finance API. This function is essential for accessing service-related information, which is crucial for managing contracts and determining applicable limits and fees.
 /// </summary>
 /// <param name="args">Parameters required to identify and retrieve the specific service details.</param>
@@ -513,7 +544,6 @@ public CreateSessionResponse CreateSession(CreateSessionArgs args)
 {
     return _client.Call<CreateSessionResponse>("CreateSession", args);
 }
-    
+
   }
 }
-

@@ -1,25 +1,25 @@
-﻿namespace Tib.Api.CryptographyService
+namespace Tib.Api.CryptographyService
 {
   /// <summary>
-  /// Contient les deux clefs "publique" et privée"
+  /// Contains both the public and private keys
   /// </summary>
   public class AsymetricKey
   {
     /// <summary>
-    /// Crée une nouvelle instancede clefs asymétrique
+    /// Creates a new asymmetric key pair instance
     /// </summary>
     public AsymetricKey()
     {
     }
 
     /// <summary>
-    /// Clef publique (CspBlob)
+    /// Public key (CspBlob)
     /// </summary>
     public RsaPublicKey PublicKey { get; set; }
     public string PublicPEMKey { get; set; }
 
     /// <summary>
-    /// Clef privé (CspBlob)
+    /// Private key (CspBlob)
     /// </summary>
     public RsaPrivateKey PrivateKey { get; set; }
   }
