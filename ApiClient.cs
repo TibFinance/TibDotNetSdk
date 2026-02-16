@@ -5,11 +5,11 @@
 //
 // Last Modified By : cboivin
 // Last Modified On : 05-15-2019
-// Last Modified By : hiteshpatel
+// Last Modified By : TIB Finance
 // Last Modified On : 04-12-2021
 // ***********************************************************************
 // <copyright file="ApiClient.cs" company="Tib.finance">
-//     Copyright ©  2018
+//     Copyright ©  2026
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -70,7 +70,7 @@ namespace Tib.Api
       client.Timeout = TimeSpan.FromMinutes(5);
       client.DefaultRequestHeaders.Add("TIB_API_Version", "0.2");
 
-      JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+      JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.None };
 
       //GetPublicKey
       HttpResponseMessage getPublicKeyResponse = client.PostAsync(_siteUrl + "/Data/GetPublicKey", null).Result;
@@ -152,25 +152,25 @@ namespace Tib.Api
         }
         else
         {
-                    response.Errors.Add(new BaseServiceError()
-                    {
-                        ErrorCode = 500,
-                        ErrorMessage = callResponseStringContent
-                    });
-                    response.HasError = true;
-                    response.Messages = callResponseStringContent;
+          response.Errors.Add(new BaseServiceError()
+          {
+            ErrorCode = 500,
+            ErrorMessage = callResponseStringContent
+          });
+          response.HasError = true;
+          response.Messages = callResponseStringContent;
         }
       }
       else
       {
-                response.Errors.Add(new BaseServiceError()
-                {
-                    ErrorCode = 500,
-                    ErrorMessage = getPublicKeyContent
-                });
-                response.HasError = true;
-                response.Messages = getPublicKeyContent;
-            }
+        response.Errors.Add(new BaseServiceError()
+        {
+          ErrorCode = 500,
+          ErrorMessage = getPublicKeyContent
+        });
+        response.HasError = true;
+        response.Messages = getPublicKeyContent;
+      }
 
       return response;
     }

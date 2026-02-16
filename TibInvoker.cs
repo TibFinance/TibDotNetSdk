@@ -7,7 +7,7 @@
 // Last Modified On : 05-15-2019
 // ***********************************************************************
 // <copyright file="TibInvoker.cs" company="Tib.finance">
-//     Copyright ©  2018
+//     Copyright ©  2026
 // </copyright>
 // <summary></summary>
 // ***********************************************************************

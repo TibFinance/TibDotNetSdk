@@ -1,6 +1,4 @@
-﻿//using Hdce.Core.Cryptography.MyProject.Data.Encryption;
-//using Hdce.Core.Random;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;

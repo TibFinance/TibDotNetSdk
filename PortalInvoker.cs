@@ -11,7 +11,7 @@
 // Last Modified On : 04-14-2021
 // ***********************************************************************
 // <copyright file="PortalInvoker.cs" company="Tib.finance">
-//     Copyright ©  2018
+//     Copyright ©  2026
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -63,30 +63,46 @@ namespace Tib.Api
     }
 
     /// <summary>
-///
+/// Retrieves wallet operations and transaction history for a specified service within a date range.
 /// </summary>
+/// <param name="args">The arguments.</param>
+/// <returns>GetWalletOperationsResponse.</returns>
 public GetWalletOperationsResponse GetWalletOperations(GetWalletOperationsArgs args)
 {
     return _client.Call<GetWalletOperationsResponse>("GetWalletOperations", args);
-}/// <summary>
-///
+}
+
+/// <summary>
+/// Creates a new supplier associated with a merchant.
 /// </summary>
+/// <param name="args">The arguments.</param>
+/// <returns>CreateSupplierResponse.</returns>
 public CreateSupplierResponse CreateSupplier(CreateSupplierArgs args)
 {
     return _client.Call<CreateSupplierResponse>("CreateSupplier", args);
-}/// <summary>
-///
+}
+
+/// <summary>
+/// Retrieves the list of suppliers associated with a merchant.
 /// </summary>
+/// <param name="args">The arguments.</param>
+/// <returns>GetSuppliersResponse.</returns>
 public GetSuppliersResponse GetSuppliers(GetSuppliersArgs args)
 {
     return _client.Call<GetSuppliersResponse>("GetSuppliers", args);
-}/// <summary>
-///
+}
+
+/// <summary>
+/// Creates a transfer to a supplier.
 /// </summary>
+/// <param name="args">The arguments.</param>
+/// <returns>CreateSupplierTransferResponse.</returns>
 public CreateSupplierTransferResponse CreateSupplierTransfer(CreateSupplierTransferArgs args)
 {
     return _client.Call<CreateSupplierTransferResponse>("CreateSupplierTransfer", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initiates a retry process for a merchant's failed transfer operation.
 /// </summary>
 /// <value>This function is designed to handle scenarios where a merchant's transfer has failed, allowing the system to attempt the transfer again. It ensures that any temporary issues are addressed, and the transfer process is completed successfully.</value>
@@ -95,7 +111,9 @@ public CreateSupplierTransferResponse CreateSupplierTransfer(CreateSupplierTrans
 public RelaunchMerchantFailedTransferResponse RelaunchMerchantFailedTransfer(RelaunchMerchantFailedTransferArgs args)
 {
     return _client.Call<RelaunchMerchantFailedTransferResponse>("RelaunchMerchantFailedTransfer", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Resends the payment notification email to the specified recipient.
 /// </summary>
 /// <value>This function is used to trigger the sending of a payment notification email again, in case the initial email was not received or needs to be re-sent for any reason.</value>
@@ -104,7 +122,9 @@ public RelaunchMerchantFailedTransferResponse RelaunchMerchantFailedTransfer(Rel
 public ResendPaymentEmailResponse ResendPaymentEmail(ResendPaymentEmailArgs args)
 {
     return _client.Call<ResendPaymentEmailResponse>("ResendPaymentEmail", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Creates a new sub-client within the TIB Finance system.
 /// </summary>
 /// <value>This function facilitates the creation of a sub-client, allowing a parent client to manage multiple entities under a single account. It is essential for clients who operate with multiple subsidiaries or departments, providing them with the ability to segregate operations and financial transactions.</value>
@@ -113,7 +133,9 @@ public ResendPaymentEmailResponse ResendPaymentEmail(ResendPaymentEmailArgs args
 public CreateSubClientResponse CreateSubClient(CreateSubClientArgs args)
 {
     return _client.Call<CreateSubClientResponse>("CreateSubClient", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initializes the boarding process for a new client within the TIB Finance API.
 /// </summary>
 /// <value>This function sets up the necessary parameters and configurations to onboard a new client, ensuring that all required information is collected and validated.</value>
@@ -122,7 +144,9 @@ public CreateSubClientResponse CreateSubClient(CreateSubClientArgs args)
 public InitBoardingResponse InitBoarding(InitBoardingArgs args)
 {
     return _client.Call<InitBoardingResponse>("InitBoarding", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Modifies the security question and answer for an Interac payment method associated with a customer account.
 /// </summary>
 /// <value>This function updates the security question and answer used for verifying Interac transactions. It is crucial for ensuring the security of transactions and preventing unauthorized access.</value>
@@ -131,7 +155,9 @@ public InitBoardingResponse InitBoarding(InitBoardingArgs args)
 public ChangeInteracPaymentMethodQuestionAndAnswerResponse ChangeInteracPaymentMethodQuestionAndAnswer(ChangeInteracPaymentMethodQuestionAndAnswerArgs args)
 {
     return _client.Call<ChangeInteracPaymentMethodQuestionAndAnswerResponse>("ChangeInteracPaymentMethodQuestionAndAnswer", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Reverts a previously executed transfer operation, restoring the original state of the involved accounts.
 /// </summary>
 /// <value>This function is used to reverse a transfer that has already been processed. It ensures that the accounts involved in the transaction are returned to their initial states before the transfer occurred.</value>
@@ -140,7 +166,9 @@ public ChangeInteracPaymentMethodQuestionAndAnswerResponse ChangeInteracPaymentM
 public RevertTransferResponse RevertTransfer(RevertTransferArgs args)
 {
     return _client.Call<RevertTransferResponse>("RevertTransfer", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initiates a batch of free operations, allowing for transactions not tied to a specific bill. This function is essential for handling payments or deposits directly linked to customer payment methods.
 /// </summary>
 /// <value>This function facilitates the creation of multiple free operations in a single batch, streamlining the process of handling transactions that are independent of bills.</value>
@@ -149,7 +177,9 @@ public RevertTransferResponse RevertTransfer(RevertTransferArgs args)
 public CreateFreeOperationBatchResponse CreateFreeOperationBatch(CreateFreeOperationBatchArgs args)
 {
     return _client.Call<CreateFreeOperationBatchResponse>("CreateFreeOperationBatch", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initiates a free operation within the TIB Finance API, allowing for transactions not directly linked to a specific bill. This function is typically used to either collect payments from a customer's payment method or deposit funds into it, with the exception of credit card deposits.
 /// </summary>
 /// <value>This operation facilitates transactions that are independent of predefined billing structures, providing flexibility in handling customer payments and deposits.</value>
@@ -158,7 +188,9 @@ public CreateFreeOperationBatchResponse CreateFreeOperationBatch(CreateFreeOpera
 public CreateFreeOperationResponse CreateFreeOperation(CreateFreeOperationArgs args)
 {
     return _client.Call<CreateFreeOperationResponse>("CreateFreeOperation", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves the public token necessary for initiating a drop-in session. This token is used to authenticate and authorize the session within the API framework.
 /// </summary>
 /// <value>This function facilitates the acquisition of a public token, which is essential for secure API interactions.</value>
@@ -167,7 +199,9 @@ public CreateFreeOperationResponse CreateFreeOperation(CreateFreeOperationArgs a
 public GetDropInPublicTokenResponse GetDropInPublicToken(GetDropInPublicTokenArgs args)
 {
     return _client.Call<GetDropInPublicTokenResponse>("GetDropInPublicToken", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Triggers the payment processing workflow for a specific payment, overriding the default automatic selection mechanism.
 /// </summary>
 /// <param name="args">arguments: an object that includes required identifiers such as paymentId and merchantId, and optional flags that influence processing behavior.</param>
@@ -175,7 +209,9 @@ public GetDropInPublicTokenResponse GetDropInPublicToken(GetDropInPublicTokenArg
 public ForcePaymentProcessResponse ForcePaymentProcess(ForcePaymentProcessArgs args)
 {
     return _client.Call<ForcePaymentProcessResponse>("ForcePaymentProcess", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves a list of operations that have been executed within the system. This function provides detailed information about each operation, allowing users to track and analyze completed transactions.
 /// </summary>
 /// <value>This function does not require any specific input parameters, as it retrieves all executed operations by default.</value>
@@ -184,7 +220,9 @@ public ForcePaymentProcessResponse ForcePaymentProcess(ForcePaymentProcessArgs a
 public ListExecutedOperationsResponse ListExecutedOperations(ListExecutedOperationsArgs args)
 {
     return _client.Call<ListExecutedOperationsResponse>("ListExecutedOperations", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initiates a transaction using raw data input. This function processes the raw transaction details to create a valid transaction entry within the system.
 /// </summary>
 /// <value>This function does not require a predefined structure for input data, allowing flexibility in transaction creation.</value>
@@ -193,7 +231,9 @@ public ListExecutedOperationsResponse ListExecutedOperations(ListExecutedOperati
 public CreateTransactionFromRawResponse CreateTransactionFromRaw(CreateTransactionFromRawArgs args)
 {
     return _client.Call<CreateTransactionFromRawResponse>("CreateTransactionFromRaw", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initiates a direct Interac transaction, enabling the transfer of funds using a recipient's email or mobile phone number. This method facilitates seamless money transfers without requiring detailed customer account information.
 /// </summary>
 /// <value>This function is responsible for creating a direct Interac transaction, which allows for quick and efficient money transfers using the recipient's contact information.</value>
@@ -202,7 +242,9 @@ public CreateTransactionFromRawResponse CreateTransactionFromRaw(CreateTransacti
 public CreateDirectInteracTransactionResponse CreateDirectInteracTransaction(CreateDirectInteracTransactionArgs args)
 {
     return _client.Call<CreateDirectInteracTransactionResponse>("CreateDirectInteracTransaction", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Removes a specified payment from the system. This function is essential for managing and rectifying payment records, ensuring that erroneous or obsolete payments are efficiently deleted.
 /// </summary>
 /// <value>This function does not return a value. It performs an action to delete a payment.</value>
@@ -211,7 +253,9 @@ public CreateDirectInteracTransactionResponse CreateDirectInteracTransaction(Cre
 public DeletePaymentResponse DeletePayment(DeletePaymentArgs args)
 {
     return _client.Call<DeletePaymentResponse>("DeletePayment", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves the details of a specific payment using the provided payment identifier.
 /// </summary>
 /// <value>This function is used to access and retrieve payment information from the system. It requires a valid payment ID to return the corresponding payment details.</value>
@@ -220,7 +264,9 @@ public DeletePaymentResponse DeletePayment(DeletePaymentArgs args)
 public GetPaymentResponse GetPayment(GetPaymentArgs args)
 {
     return _client.Call<GetPaymentResponse>("GetPayment", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initiates a new payment transaction within the system. This function processes the payment details provided and returns a response indicating the success or failure of the operation.
 /// </summary>
 /// <value>This function is responsible for handling the creation of payment transactions, ensuring all necessary parameters are correctly processed.</value>
@@ -229,7 +275,9 @@ public GetPaymentResponse GetPayment(GetPaymentArgs args)
 public CreatePaymentResponse CreatePayment(CreatePaymentArgs args)
 {
     return _client.Call<CreatePaymentResponse>("CreatePayment", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Deletes a recurring transfer from the system.
 /// </summary>
 /// <value>This function is used to remove a scheduled recurring transfer, ensuring that no future transactions are processed under this transfer setup.</value>
@@ -238,7 +286,9 @@ public CreatePaymentResponse CreatePayment(CreatePaymentArgs args)
 public DeleteRecuringTransferResponse DeleteRecuringTransfer(DeleteRecuringTransferArgs args)
 {
     return _client.Call<DeleteRecuringTransferResponse>("DeleteRecuringTransfer", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves a list of recurring transfer operations associated with the client's account. This function is essential for clients who need to manage or review their scheduled transfers.
 /// </summary>
 /// <value>This function accesses the database to fetch details of all recurring transfers, including their status, amounts, and scheduled dates.</value>
@@ -247,19 +297,25 @@ public DeleteRecuringTransferResponse DeleteRecuringTransfer(DeleteRecuringTrans
 public GetRecuringTransfersResponse GetRecuringTransfers(GetRecuringTransfersArgs args)
 {
     return _client.Call<GetRecuringTransfersResponse>("GetRecuringTransfers", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Lists the transfers of a bill.
 /// </summary>
 public ListTransfersFastResponse ListTransfersForBillFast(ListTransfersForBillFastArgs args)
 {
     return _client.Call<ListTransfersFastResponse>("ListTransfersForBillFast", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Lists the transfers.
 /// </summary>
 public ListTransfersFastResponse ListTransfersFast(ListTransfersFastArgs args)
 {
     return _client.Call<ListTransfersFastResponse>("ListTransfersFast", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves a list of all transfer operations available within the system. This function provides details about each transfer, including status and associated metadata.
 /// </summary>
 /// <value>This function does not require any specific input parameters and returns a comprehensive list of transfer operations.</value>
@@ -268,7 +324,9 @@ public ListTransfersFastResponse ListTransfersFast(ListTransfersFastArgs args)
 public ListTransfersResponse ListTransfers(ListTransfersArgs args)
 {
     return _client.Call<ListTransfersResponse>("ListTransfers", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Removes a specified bill from the system. This operation is typically used when a bill is no longer needed or was created in error. Ensure that the bill ID is valid and corresponds to an existing bill before attempting to delete.
 /// </summary>
 /// <value>This function performs the deletion of a bill identified by its unique ID. It is crucial for maintaining the accuracy and integrity of billing records.</value>
@@ -277,7 +335,9 @@ public ListTransfersResponse ListTransfers(ListTransfersArgs args)
 public DeleteBillResponse DeleteBill(DeleteBillArgs args)
 {
     return _client.Call<DeleteBillResponse>("DeleteBill", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves a bill based on the provided criteria. This function is essential for accessing detailed billing information within the API, facilitating further operations such as payment processing or bill management.
 /// </summary>
 /// <value>This function does not require additional input parameters beyond those specified in the param field.</value>
@@ -286,7 +346,9 @@ public DeleteBillResponse DeleteBill(DeleteBillArgs args)
 public GetBillResponse GetBill(GetBillArgs args)
 {
     return _client.Call<GetBillResponse>("GetBill", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initiates the creation of a bill within the system. This function generates a unique Bill ID, which can be used for subsequent operations related to the bill.
 /// </summary>
 /// <value>This function does not require any specific value input.</value>
@@ -295,7 +357,9 @@ public GetBillResponse GetBill(GetBillArgs args)
 public CreateBillResponse CreateBill(CreateBillArgs args)
 {
     return _client.Call<CreateBillResponse>("CreateBill", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves a list of all bills associated with the client's account. This function is essential for managing and reviewing billing information within the system.
 /// </summary>
 /// <value>This function does not require any additional input parameters to execute. It operates within the context of the client's session, returning all relevant billing data.</value>
@@ -304,7 +368,9 @@ public CreateBillResponse CreateBill(CreateBillArgs args)
 public ListBillsResponse ListBills(ListBillsArgs args)
 {
     return _client.Call<ListBillsResponse>("ListBills", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Sets the default payment method for a customer. This function assigns a specified payment method as the primary option for transactions, ensuring that it is used by default unless another method is specified.
 /// </summary>
 /// <value>This function does not return any additional value beyond the standard response.</value>
@@ -313,7 +379,9 @@ public ListBillsResponse ListBills(ListBillsArgs args)
 public SetDefaultPaymentMethodResponse SetDefaultPaymentMethod(SetDefaultPaymentMethodArgs args)
 {
     return _client.Call<SetDefaultPaymentMethodResponse>("SetDefaultPaymentMethod", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Removes a specified payment method from the system. This function is typically used to delete a customer's payment method that is no longer needed or valid.
 /// </summary>
 /// <value>This operation permanently deletes the payment method, ensuring it cannot be used for future transactions.</value>
@@ -322,7 +390,9 @@ public SetDefaultPaymentMethodResponse SetDefaultPaymentMethod(SetDefaultPayment
 public DeletePaymentMethodResponse DeletePaymentMethod(DeletePaymentMethodArgs args)
 {
     return _client.Call<DeletePaymentMethodResponse>("DeletePaymentMethod", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves the details of a specific payment method associated with a customer. This function is essential for accessing payment method information, which can include credit cards, bank accounts, or Interac details.
 /// </summary>
 /// <value>This function does not require additional parameters beyond the standard call structure. It returns comprehensive details about the specified payment method.</value>
@@ -331,7 +401,9 @@ public DeletePaymentMethodResponse DeletePaymentMethod(DeletePaymentMethodArgs a
 public GetPaymentMethodResponse GetPaymentMethod(GetPaymentMethodArgs args)
 {
     return _client.Call<GetPaymentMethodResponse>("GetPaymentMethod", args);
-}/// <summary>
+}
+
+/// <summary>
 /// This function initializes and creates a new Interac payment method for a customer. It allows the merchant to facilitate transactions using the Interac network, which is a popular method for electronic funds transfers in Canada.
 /// </summary>
 /// <value>The function does not return a value directly. Instead, it processes the creation of an Interac payment method.</value>
@@ -340,7 +412,9 @@ public GetPaymentMethodResponse GetPaymentMethod(GetPaymentMethodArgs args)
 public CreateInteracPaymentMethodResponse CreateInteracPaymentMethod(CreateInteracPaymentMethodArgs args)
 {
     return _client.Call<CreateInteracPaymentMethodResponse>("CreateInteracPaymentMethod", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initializes a new direct account payment method for a customer. This function facilitates the creation of a payment method linked directly to a customer's bank account, allowing for seamless transactions.
 /// </summary>
 /// <value>This function does not return a value.</value>
@@ -349,7 +423,9 @@ public CreateInteracPaymentMethodResponse CreateInteracPaymentMethod(CreateInter
 public CreateDirectAccountPaymentMethodResponse CreateDirectAccountPaymentMethod(CreateDirectAccountPaymentMethodArgs args)
 {
     return _client.Call<CreateDirectAccountPaymentMethodResponse>("CreateDirectAccountPaymentMethod", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initializes a new credit card payment method for a customer. This function is essential for enabling transactions using a customer's credit card within the TIB Finance API. It securely stores the credit card details and associates them with the customer's account.
 /// </summary>
 /// <value>This function does not return a value but performs an action to create a credit card payment method.</value>
@@ -358,7 +434,9 @@ public CreateDirectAccountPaymentMethodResponse CreateDirectAccountPaymentMethod
 public CreateCreditCardPaymentMethodResponse CreateCreditCardPaymentMethod(CreateCreditCardPaymentMethodArgs args)
 {
     return _client.Call<CreateCreditCardPaymentMethodResponse>("CreateCreditCardPaymentMethod", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves a list of available payment methods associated with a customer. This function is essential for accessing and managing the various financial accounts linked to a customer, such as credit cards, bank accounts, and Interac. It is particularly useful for applications that need to display or process customer payment options.
 /// </summary>
 /// <param name="args">Parameters required to execute the ListPaymentMethods function, typically including customer identification details.</param>
@@ -366,7 +444,9 @@ public CreateCreditCardPaymentMethodResponse CreateCreditCardPaymentMethod(Creat
 public ListPaymentMethodsResponse ListPaymentMethods(ListPaymentMethodsArgs args)
 {
     return _client.Call<ListPaymentMethodsResponse>("ListPaymentMethods", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves customer information using an external identifier. This function is essential for accessing customer data linked to a specific external ID, which is useful for integration with external systems.
 /// </summary>
 /// <value>This function does not require additional parameters beyond the external identifier.</value>
@@ -375,7 +455,9 @@ public ListPaymentMethodsResponse ListPaymentMethods(ListPaymentMethodsArgs args
 public GetCustomersByExternalIdResponse GetCustomersByExternalId(GetCustomersByExternalIdArgs args)
 {
     return _client.Call<GetCustomersByExternalIdResponse>("GetCustomersByExternalId", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Removes a customer from the system based on the provided customer ID. This operation is irreversible and ensures that all associated data with the customer is permanently deleted.
 /// </summary>
 /// <value>This function is used to permanently delete a customer record from the database. It is crucial to ensure that the customer ID provided is accurate to prevent unintended data loss.</value>
@@ -384,7 +466,9 @@ public GetCustomersByExternalIdResponse GetCustomersByExternalId(GetCustomersByE
 public DeleteCustomerResponse DeleteCustomer(DeleteCustomerArgs args)
 {
     return _client.Call<DeleteCustomerResponse>("DeleteCustomer", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Persists the customer data to the database, ensuring that all necessary customer information is stored for future transactions.
 /// </summary>
 /// <value>This function is responsible for saving customer details, which include personal and payment information, to the system's database.</value>
@@ -393,7 +477,9 @@ public DeleteCustomerResponse DeleteCustomer(DeleteCustomerArgs args)
 public SaveCustomerResponse SaveCustomer(SaveCustomerArgs args)
 {
     return _client.Call<SaveCustomerResponse>("SaveCustomer", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves detailed information about a specific customer based on the provided customer identifier. This function is essential for accessing customer data necessary for transaction processing and account management.
 /// </summary>
 /// <value>This method does not require any additional parameters beyond the customer identifier. It is designed to efficiently fetch customer details.</value>
@@ -402,7 +488,9 @@ public SaveCustomerResponse SaveCustomer(SaveCustomerArgs args)
 public GetCustomerResponse GetCustomer(GetCustomerArgs args)
 {
     return _client.Call<GetCustomerResponse>("GetCustomer", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Creates a new customer entity within the system. This function initializes a customer object, which serves as a container for identifying the individual and associating payment methods.
 /// </summary>
 /// <param name="args">Parameters required for creating a customer, including necessary identification details.</param>
@@ -410,7 +498,9 @@ public GetCustomerResponse GetCustomer(GetCustomerArgs args)
 public CreateCustomerResponse CreateCustomer(CreateCustomerArgs args)
 {
     return _client.Call<CreateCustomerResponse>("CreateCustomer", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Generates a comprehensive list of all customers based on specified criteria, providing a complete overview of the customer base.
 /// </summary>
 /// <value>The 'ListCustomers' function retrieves a detailed list of all customers, offering a comprehensive view of the customer base. It is designed to provide targeted data retrieval, allowing for a flexible and efficient overview of customer information.</value>
@@ -419,16 +509,20 @@ public CreateCustomerResponse CreateCustomer(CreateCustomerArgs args)
 public ListCustomersResponse ListCustomers(ListCustomersArgs args)
 {
     return _client.Call<ListCustomersResponse>("ListCustomers", args);
-}/// <summary>
-/// Retrieves a list of customers associated with a merchant account.
+}
+
+/// <summary>
+/// Adjusts the balance of a wallet by adding or removing funds.
 /// </summary>
-/// <value>This function queries the API to obtain detailed information about each customer linked to the merchant, including their unique identifiers and associated payment methods.</value>
-/// <param name="args">Parameters required for this function include the merchant's unique identifier and any filtering criteria for the customer list.</param>
-/// <returns>Returns a ListCustomersResponse object containing customer details and associated metadata.</returns>
+/// <value>This function modifies the wallet balance for a specified merchant and service, supporting both increase and decrease operations.</value>
+/// <param name="args">Parameters required for this function include the service identifier, merchant identifier, adjustment amount, and the adjustment mode (increase or decrease).</param>
+/// <returns>Returns an AdjustWalletResponse object containing the transfer identifier and any error information.</returns>
 public AdjustWalletResponse AdjustWallet(AdjustWalletArgs args)
 {
     return _client.Call<AdjustWalletResponse>("AdjustWallet", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves merchant information using an external identifier. This function is essential for accessing merchant details that are linked to a specific external ID, facilitating seamless integration with external systems.
 /// </summary>
 /// <value>This function does not require additional parameters beyond the external identifier.</value>
@@ -437,7 +531,9 @@ public AdjustWalletResponse AdjustWallet(AdjustWalletArgs args)
 public GetMerchantsByExternalIdResponse GetMerchantsByExternalId(GetMerchantsByExternalIdArgs args)
 {
     return _client.Call<GetMerchantsByExternalIdResponse>("GetMerchantsByExternalId", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Removes a specified merchant from the system. This operation is irreversible and will permanently delete the merchant's data, including all associated accounts and transactions.
 /// </summary>
 /// <value>This function is used to delete a merchant identified by a unique identifier. Ensure that all necessary data is backed up before performing this operation.</value>
@@ -446,7 +542,9 @@ public GetMerchantsByExternalIdResponse GetMerchantsByExternalId(GetMerchantsByE
 public DeleteMerchantResponse DeleteMerchant(DeleteMerchantArgs args)
 {
     return _client.Call<DeleteMerchantResponse>("DeleteMerchant", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Stores the merchant's account details securely in the system.
 /// </summary>
 /// <value>This function is responsible for saving the merchant's account information, ensuring that all necessary data is captured and stored correctly for future transactions.</value>
@@ -455,7 +553,9 @@ public DeleteMerchantResponse DeleteMerchant(DeleteMerchantArgs args)
 public SaveMerchantResponse SaveMerchantAccountInfo(SaveMerchantAccountInfoArgs args)
 {
     return _client.Call<SaveMerchantResponse>("SaveMerchantAccountInfo", args);
-}/// <summary>
+}
+
+/// <summary>
 /// This function saves the basic information of a merchant. It is used to update or create the initial details associated with a merchant account within the TIB Finance API system.
 /// </summary>
 /// <value>This function does not return a value.</value>
@@ -464,7 +564,9 @@ public SaveMerchantResponse SaveMerchantAccountInfo(SaveMerchantAccountInfoArgs 
 public SaveMerchantResponse SaveMerchantBasicInfo(SaveMerchantBasicInfoArgs args)
 {
     return _client.Call<SaveMerchantResponse>("SaveMerchantBasicInfo", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Persists a merchant entity to the TIB Finance system.
 /// </summary>
 /// <value>Executes the operation to create or update a merchant record.</value>
@@ -473,7 +575,9 @@ public SaveMerchantResponse SaveMerchantBasicInfo(SaveMerchantBasicInfoArgs args
 public SaveMerchantResponse SaveMerchant(SaveMerchantArgs args)
 {
     return _client.Call<SaveMerchantResponse>("SaveMerchant", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves detailed information about a specific merchant using the provided merchant ID. This function is essential for accessing the merchant's basic and account information necessary for transaction processing.
 /// </summary>
 /// <value>This function does not require additional input parameters beyond the merchant ID.</value>
@@ -482,7 +586,9 @@ public SaveMerchantResponse SaveMerchant(SaveMerchantArgs args)
 public GetMerchantResponse GetMerchant(GetMerchantArgs args)
 {
     return _client.Call<GetMerchantResponse>("GetMerchant", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Initiates the creation of a new merchant account within the TIB Finance system. This function is essential for setting up a merchant's basic and account information, which is a prerequisite for conducting transactions.
 /// </summary>
 /// <value>This function does not require additional details in the value field.</value>
@@ -491,7 +597,9 @@ public GetMerchantResponse GetMerchant(GetMerchantArgs args)
 public CreateMerchantResponse CreateMerchant(CreateMerchantArgs args)
 {
     return _client.Call<CreateMerchantResponse>("CreateMerchant", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves a list of merchants who have completed the boarding process. This function is essential for monitoring and managing merchant onboarding statuses within the system.
 /// </summary>
 /// <value>This function does not require additional input parameters beyond the standard API call structure.</value>
@@ -500,7 +608,9 @@ public CreateMerchantResponse CreateMerchant(CreateMerchantArgs args)
 public GetServiceBoardingStatusResponse GetServiceBoardingStatus(GetServiceBoardingStatusArgs args)
 {
     return _client.Call<GetServiceBoardingStatusResponse>("GetServiceBoardingStatus", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves a list of all merchants associated with the client's account. This function is essential for managing and accessing merchant-specific data within the API.
 /// </summary>
 /// <value>This function does not require any input parameters and returns a comprehensive list of merchants.</value>
@@ -509,15 +619,19 @@ public GetServiceBoardingStatusResponse GetServiceBoardingStatus(GetServiceBoard
 public ListMerchantsResponse ListMerchants(ListMerchantsArgs args)
 {
     return _client.Call<ListMerchantsResponse>("ListMerchants", args);
-}/// <summary>
-/// Gets the wallet information for a service.
+}
+
+/// <summary>
+/// Retrieves wallet information for a specific service.
 /// </summary>
 /// <param name="args">The arguments.</param>
 /// <returns>GetWalletInformationsByServiceResponse.</returns>
 public GetWalletInformationsResponse GetWalletInformationsByService(GetWalletInformationsArgs args)
 {
     return _client.Call<GetWalletInformationsResponse>("GetWalletInformationsByService", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves the details of a specified service within the TIB Finance API. This function is essential for accessing service-related information, which is crucial for managing contracts and determining applicable limits and fees.
 /// </summary>
 /// <param name="args">Parameters required to identify and retrieve the specific service details.</param>
@@ -525,7 +639,9 @@ public GetWalletInformationsResponse GetWalletInformationsByService(GetWalletInf
 public GetServiceResponse GetService(GetServiceArgs args)
 {
     return _client.Call<GetServiceResponse>("GetService", args);
-}/// <summary>
+}
+
+/// <summary>
 /// Retrieves the full list of services that are available to the authenticated client.
 /// </summary>
 /// <value>The operation does not require a request body; it is invoked without parameters.</value>
@@ -534,7 +650,9 @@ public GetServiceResponse GetService(GetServiceArgs args)
 public ListServicesResponse ListServices(ListServicesArgs args)
 {
     return _client.Call<ListServicesResponse>("ListServices", args);
-}/// <summary>
+}
+
+/// <summary>
 /// The CreateSession function is purposed to establish a fresh session, thereby ensuring a secure and distinct environment for user activities.
 /// </summary>
 /// <value>Upon invocation, this function spawns a new session instance, thereby fabricating a unique milieu for user interactions.</value>
@@ -544,6 +662,7 @@ public CreateSessionResponse CreateSession(CreateSessionArgs args)
 {
     return _client.Call<CreateSessionResponse>("CreateSession", args);
 }
-
+    
   }
 }
+
