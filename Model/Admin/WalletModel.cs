@@ -7,7 +7,7 @@ using Tib.Api.Model.Admin;
 namespace Tib.Api.Model.Admin
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the WalletModel model.
     /// </summary>
     public class WalletModel 
     {

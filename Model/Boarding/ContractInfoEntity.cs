@@ -6,7 +6,7 @@ using Tib.Api.Model.Service;
 namespace Tib.Api.Model.Boarding
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ContractInfoEntity model.
     /// </summary>
     public class ContractInfoEntity 
     {

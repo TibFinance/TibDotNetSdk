@@ -5,7 +5,7 @@ using Tib.Api.CryptedService;
 namespace Tib.Api.Model.Client
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the CreateBoardingClientArgs model.
     /// </summary>
     public class CreateBoardingClientArgs : BaseCryptedServiceArgs
     {

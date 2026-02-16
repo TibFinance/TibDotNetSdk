@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.ContractEditionRequest
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetContractEditionRequestsArgs model.
     /// </summary>
     public class GetContractEditionRequestsArgs : ClientCallBaseArgs
     {

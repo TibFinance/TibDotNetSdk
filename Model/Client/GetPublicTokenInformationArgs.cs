@@ -5,7 +5,7 @@ using Tib.Api.Gateway.Args;
 namespace Tib.Api.Model.Client
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetPublicTokenInformationArgs model.
     /// </summary>
     public class GetPublicTokenInformationArgs : BaseAuthenticatePublicTokenArgs
     {

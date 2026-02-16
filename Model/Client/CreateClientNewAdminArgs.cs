@@ -8,7 +8,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Client
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the CreateClientNewAdminArgs model.
     /// </summary>
     public class CreateClientNewAdminArgs : ClientCallBaseArgs
     {

@@ -7,7 +7,7 @@ using Tib.Api.Model.General;
 namespace Tib.Api.Model.General
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the OperationDateReportEntity model.
     /// </summary>
     public class OperationDateReportEntity 
     {

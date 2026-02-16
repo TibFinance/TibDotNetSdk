@@ -5,7 +5,7 @@ using static Tib.Api.Model.Enum;
 namespace Tib.Api.Financial
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the AccountModel model.
     /// </summary>
     public class AccountModel 
     {

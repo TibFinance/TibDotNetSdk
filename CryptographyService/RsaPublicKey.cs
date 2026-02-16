@@ -12,12 +12,12 @@
     public string KeyXmlString { get; set; }
 
     /// <summary>
-    /// Paramètre "exponent"
+    /// The "exponent" parameter
     /// </summary>
     public byte[] PublicExponent { get; set; }
 
     /// <summary>
-    /// Paramètre "n"
+    /// The "n" parameter
     /// </summary>
     public byte[] Modulus { get; set; }
   }

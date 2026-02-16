@@ -6,7 +6,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Account
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the SaveSpecimenArgs model.
     /// </summary>
     public class SaveSpecimenArgs : ClientCallBaseArgs
     {

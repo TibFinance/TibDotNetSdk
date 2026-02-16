@@ -7,7 +7,7 @@
 // Last Modified By : cboivin
 // Last Modified On : 09-09-2019
 //
-// Last Modified By : hiteshPatel
+// Last Modified By : TIB Finance
 // Last Modified On : 04-14-2021
 // ***********************************************************************
 // <copyright file="PortalInvoker.cs" company="Tib.finance">
@@ -300,16 +300,18 @@ public GetRecuringTransfersResponse GetRecuringTransfers(GetRecuringTransfersArg
 }
 
 /// <summary>
-/// Lists the transfers of a bill.
+/// Lists the transfers for a specific bill using an optimized fast query.
 /// </summary>
+/// <returns>ListTransfersFastResponse.</returns>
 public ListTransfersFastResponse ListTransfersForBillFast(ListTransfersForBillFastArgs args)
 {
     return _client.Call<ListTransfersFastResponse>("ListTransfersForBillFast", args);
 }
 
 /// <summary>
-/// Lists the transfers.
+/// Lists the transfers using an optimized fast query.
 /// </summary>
+/// <returns>ListTransfersFastResponse.</returns>
 public ListTransfersFastResponse ListTransfersFast(ListTransfersFastArgs args)
 {
     return _client.Call<ListTransfersFastResponse>("ListTransfersFast", args);
@@ -600,7 +602,7 @@ public CreateMerchantResponse CreateMerchant(CreateMerchantArgs args)
 }
 
 /// <summary>
-/// Retrieves a list of merchants who have completed the boarding process. This function is essential for monitoring and managing merchant onboarding statuses within the system.
+/// Gets the boarding status for a service.
 /// </summary>
 /// <value>This function does not require additional input parameters beyond the standard API call structure.</value>
 /// <param name="args">This function accepts standard API call arguments necessary for execution.</param>

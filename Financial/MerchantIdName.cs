@@ -4,7 +4,7 @@ using System;
 namespace Tib.Api.Financial
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the MerchantIdName model.
     /// </summary>
     public class MerchantIdName 
     {

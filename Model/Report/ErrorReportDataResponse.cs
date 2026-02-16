@@ -6,7 +6,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Report
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ErrorReportDataResponse model.
     /// </summary>
     public class ErrorReportDataResponse : ClientBaseResponse
     {

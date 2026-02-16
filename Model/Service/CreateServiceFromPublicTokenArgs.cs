@@ -8,7 +8,7 @@ using Tib.Api.Gateway.Args;
 namespace Tib.Api.Model.Service
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the CreateServiceFromPublicTokenArgs model.
     /// </summary>
     public class CreateServiceFromPublicTokenArgs : BaseAuthenticatePublicTokenArgs
     {

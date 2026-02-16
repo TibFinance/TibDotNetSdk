@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Boarding
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetBoardingStatusResponse model.
     /// </summary>
     public class GetBoardingStatusResponse : ClientBaseResponse
     {

@@ -5,7 +5,7 @@ using Tib.Api.Model.Client;
 namespace Tib.Api.Model.Client
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ClientModel model.
     /// </summary>
     public class ClientModel : ClientEntity
     {

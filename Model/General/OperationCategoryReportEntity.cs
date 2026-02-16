@@ -6,7 +6,7 @@ using static Tib.Api.Model.Enum;
 namespace Tib.Api.Model.General
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the OperationCategoryReportEntity model.
     /// </summary>
     public class OperationCategoryReportEntity 
     {

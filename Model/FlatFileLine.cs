@@ -7,7 +7,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the FlatFileLine model.
     /// </summary>
     public class FlatFileLine : ClientCallBaseArgs
     {

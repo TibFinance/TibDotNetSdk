@@ -4,7 +4,7 @@ using System;
 namespace Tib.Api.Model.General
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ProviderAddressEntity model.
     /// </summary>
     public class ProviderAddressEntity 
     {

@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Payment
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetDepositOperationsArgs model.
     /// </summary>
     public class GetDepositOperationsArgs : ClientCallBaseArgs, IMerchantArgs
     {

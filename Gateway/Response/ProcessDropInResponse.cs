@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Gateway.Response
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ProcessDropInResponse model.
     /// </summary>
     public class ProcessDropInResponse : ClientBaseResponse
     {

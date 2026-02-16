@@ -5,7 +5,7 @@ using Tib.Api.Gateway.Args;
 namespace Tib.Api.Gateway.Args
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the SaveContractEditionRequestArgs model.
     /// </summary>
     public class SaveContractEditionRequestArgs : BaseAuthenticatePublicTokenArgs
     {

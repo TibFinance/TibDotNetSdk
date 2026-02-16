@@ -7,7 +7,7 @@ using Tib.Api.Financial;
 namespace Tib.Api.Model.PaymentMethod
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the PaymentMethodModel model.
     /// </summary>
     public class PaymentMethodModel 
     {

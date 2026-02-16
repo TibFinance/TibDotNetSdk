@@ -6,7 +6,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Client
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the CreateClientLoginArgs model.
     /// </summary>
     public class CreateClientLoginArgs : ClientCallBaseArgs
     {

@@ -8,7 +8,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Report
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetOperationsReportResponse model.
     /// </summary>
     public class GetOperationsReportResponse : ClientBaseResponse
     {

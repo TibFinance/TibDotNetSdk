@@ -7,7 +7,7 @@ using Tib.Api.Model.Merchant;
 namespace Tib.Api.Model.Merchant
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the MerchantViewModel model.
     /// </summary>
     public class MerchantViewModel 
     {

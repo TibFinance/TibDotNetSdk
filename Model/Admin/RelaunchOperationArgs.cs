@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Admin
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the RelaunchOperationArgs model.
     /// </summary>
     public class RelaunchOperationArgs : ClientCallBaseArgs
     {

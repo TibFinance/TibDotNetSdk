@@ -5,7 +5,7 @@ using static Tib.Api.Model.Enum;
 namespace Tib.Api.Gateway.Response
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the EditionRequest model.
     /// </summary>
     public class EditionRequest 
     {

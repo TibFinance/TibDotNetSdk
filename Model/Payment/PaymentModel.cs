@@ -7,7 +7,7 @@ using Tib.Api.Model.Payment;
 namespace Tib.Api.Model.Payment
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the PaymentModel model.
     /// </summary>
     public class PaymentModel : PaymentBaseWithHierarchyModel
     {

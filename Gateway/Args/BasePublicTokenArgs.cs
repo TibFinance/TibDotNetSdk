@@ -6,7 +6,7 @@ using Tib.Api.Common.Contract;
 namespace Tib.Api.Gateway.Args
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the BasePublicTokenArgs model.
     /// </summary>
     public class BasePublicTokenArgs : ClientCallBaseArgs, IPublicTokenObject
     {

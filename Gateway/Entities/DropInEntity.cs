@@ -7,7 +7,7 @@ using static Tib.Api.Model.Enum;
 namespace Tib.Api.Gateway.Entities
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the DropInEntity model.
     /// </summary>
     public class DropInEntity 
     {

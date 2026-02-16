@@ -4,7 +4,7 @@ using System;
 namespace Tib.Api.Model.WhiteLabeling
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the WhiteLabelingDataModel model.
     /// </summary>
     public class WhiteLabelingDataModel 
     {

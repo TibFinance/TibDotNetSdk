@@ -5,7 +5,7 @@ using static Tib.Api.Model.Enum;
 namespace Tib.Api.Model.Client
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ConsolidationInternalReportEntity model.
     /// </summary>
     public class ConsolidationInternalReportEntity 
     {

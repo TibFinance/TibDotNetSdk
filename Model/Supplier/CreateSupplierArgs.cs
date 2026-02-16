@@ -6,7 +6,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Supplier
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the CreateSupplierArgs model.
     /// </summary>
     public class CreateSupplierArgs : ClientCallBaseArgs
     {

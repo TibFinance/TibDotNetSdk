@@ -6,7 +6,7 @@ using Tib.Api.Common.Contract;
 namespace Tib.Api.Model.General
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the AdminCreateClientLoginSessionResponse model.
     /// </summary>
     public class AdminCreateClientLoginSessionResponse : ClientBaseResponse, ITibSession
     {

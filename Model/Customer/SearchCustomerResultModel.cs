@@ -4,7 +4,7 @@ using System;
 namespace Tib.Api.Model.Customer
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the SearchCustomerResultModel model.
     /// </summary>
     public class SearchCustomerResultModel 
     {

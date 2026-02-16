@@ -4,7 +4,7 @@ using System;
 namespace Tib.Api.Model.Admin
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the WalletHolderModel model.
     /// </summary>
     public class WalletHolderModel 
     {

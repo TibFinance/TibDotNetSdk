@@ -6,7 +6,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.WhiteLabeling.Responses
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetWhiteLabelingResponse model.
     /// </summary>
     public class GetWhiteLabelingResponse : ClientBaseResponse
     {

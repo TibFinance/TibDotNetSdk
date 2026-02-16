@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Boarding
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetProviderMerchantCredentialsResponse model.
     /// </summary>
     public class GetProviderMerchantCredentialsResponse : ClientBaseResponse
     {

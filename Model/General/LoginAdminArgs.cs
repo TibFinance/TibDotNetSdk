@@ -6,7 +6,7 @@ using Tib.Api.Model.General;
 namespace Tib.Api.Model.General
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the LoginAdminArgs model.
     /// </summary>
     public class LoginAdminArgs : ClientCallBaseArgs, ILoginAdmin
     {

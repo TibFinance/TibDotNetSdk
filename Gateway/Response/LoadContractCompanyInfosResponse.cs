@@ -8,7 +8,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Gateway.Response
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the LoadContractCompanyInfosResponse model.
     /// </summary>
     public class LoadContractCompanyInfosResponse : ClientBaseResponse
     {

@@ -6,7 +6,7 @@ using Tib.Api.Model.Service;
 namespace Tib.Api.Model.Service
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ServiceWithMerchantModel model.
     /// </summary>
     public class ServiceWithMerchantModel : ServiceModel
     {

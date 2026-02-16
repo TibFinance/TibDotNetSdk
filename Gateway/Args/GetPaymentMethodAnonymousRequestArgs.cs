@@ -5,7 +5,7 @@ using Tib.Api.Gateway.Args;
 namespace Tib.Api.Gateway.Args
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetPaymentMethodAnonymousRequestArgs model.
     /// </summary>
     public class GetPaymentMethodAnonymousRequestArgs : BaseAuthenticatePublicTokenArgs
     {

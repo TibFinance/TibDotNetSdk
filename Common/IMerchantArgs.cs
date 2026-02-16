@@ -6,7 +6,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Common
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the IMerchantArgs interface.
     /// </summary>
     public interface IMerchantArgs 
     {

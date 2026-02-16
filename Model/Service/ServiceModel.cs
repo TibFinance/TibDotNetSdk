@@ -5,7 +5,7 @@ using Tib.Api.Model.Service;
 namespace Tib.Api.Model.Service
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ServiceModel model.
     /// </summary>
     public class ServiceModel : ServiceEntity
     {

@@ -6,7 +6,7 @@ using Tib.Api.Financial;
 namespace Tib.Api.Financial
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the TransactionFeesAgregatedModel model.
     /// </summary>
     public class TransactionFeesAgregatedModel 
     {

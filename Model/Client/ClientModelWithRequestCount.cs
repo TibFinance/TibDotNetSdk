@@ -5,7 +5,7 @@ using Tib.Api.Model.Boarding;
 namespace Tib.Api.Model.Client
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ClientModelWithRequestCount model.
     /// </summary>
     public class ClientModelWithRequestCount : ClientModelBoarding
     {

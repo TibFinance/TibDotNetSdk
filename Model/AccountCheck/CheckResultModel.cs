@@ -4,7 +4,7 @@ using System;
 namespace Tib.Api.Model.AccountCheck
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the CheckResultModel model.
     /// </summary>
     public class CheckResultModel 
     {

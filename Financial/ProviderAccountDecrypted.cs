@@ -7,7 +7,7 @@ using Tib.Api.Model.General;
 namespace Tib.Api.Financial
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ProviderAccountDecrypted model.
     /// </summary>
     public class ProviderAccountDecrypted 
     {

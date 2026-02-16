@@ -5,7 +5,7 @@ using Tib.Api.Model.FreeOperation;
 namespace Tib.Api.Model.FreeOperation
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the CreateFreeOperationBatchResponseBase model.
     /// </summary>
     public class CreateFreeOperationBatchResponseBase 
     {

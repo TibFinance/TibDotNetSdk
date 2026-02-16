@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.FreeModeOperation
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetFreeCollectionOperationsArgs model.
     /// </summary>
     public class GetFreeCollectionOperationsArgs : ClientCallBaseArgs, IMerchantArgs
     {

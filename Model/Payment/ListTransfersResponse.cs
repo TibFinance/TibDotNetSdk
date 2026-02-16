@@ -7,7 +7,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Payment
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ListTransfersResponse model.
     /// </summary>
     public class ListTransfersResponse : ClientBaseResponse
     {

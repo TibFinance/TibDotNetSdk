@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Payment
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the CheckTransferRevertableResponse model.
     /// </summary>
     public class CheckTransferRevertableResponse : ClientBaseResponse
     {

@@ -6,7 +6,7 @@ using Tib.Api.Model.General;
 namespace Tib.Api.Gateway.Args
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the AuthenticateUserArgs model.
     /// </summary>
     public class AuthenticateUserArgs : ClientCallBaseArgs, ILoginAccessList
     {

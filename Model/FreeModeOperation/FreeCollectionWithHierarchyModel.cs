@@ -5,7 +5,7 @@ using static Tib.Api.Model.Enum;
 namespace Tib.Api.Model.FreeModeOperation
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the FreeCollectionWithHierarchyModel model.
     /// </summary>
     public class FreeCollectionWithHierarchyModel 
     {

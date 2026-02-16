@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.PhysicalAddresse
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetPhysicalAddressesArgs model.
     /// </summary>
     public class GetPhysicalAddressesArgs : ClientCallBaseArgs
     {

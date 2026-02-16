@@ -5,7 +5,7 @@ using Tib.Api.Model.Service;
 namespace Tib.Api.Model.Service
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ServiceSettingsModel model.
     /// </summary>
     public class ServiceSettingsModel : IClientWarningLimits
     {

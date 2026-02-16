@@ -5,7 +5,7 @@ using Tib.Api.Financial;
 namespace Tib.Api.Financial
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ProcessTransferInteracEntity model.
     /// </summary>
     public class ProcessTransferInteracEntity : ProcessTransferEntity
     {

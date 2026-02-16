@@ -5,7 +5,7 @@ using static Tib.Api.Model.Enum;
 namespace Tib.Api.Model.Service
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the ServiceFeeSettingsModel model.
     /// </summary>
     public class ServiceFeeSettingsModel 
     {

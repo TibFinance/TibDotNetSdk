@@ -6,7 +6,7 @@ using Tib.Api.Common.Contract;
 namespace Tib.Api.Model.Transfer.Args
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the AdminTransferValidationRequestArgs model.
     /// </summary>
     public class AdminTransferValidationRequestArgs : ClientCallBaseArgs, IPublicTokenObject
     {

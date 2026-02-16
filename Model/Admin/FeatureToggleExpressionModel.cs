@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Tib.Api.Model.Admin
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the FeatureToggleExpressionModel model.
     /// </summary>
     public class FeatureToggleExpressionModel 
     {

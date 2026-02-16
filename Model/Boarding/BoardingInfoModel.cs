@@ -7,7 +7,7 @@ using Tib.Api.Model.Boarding;
 namespace Tib.Api.Model.Boarding
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the BoardingInfoModel model.
     /// </summary>
     public class BoardingInfoModel : BoardingInfoEntity
     {

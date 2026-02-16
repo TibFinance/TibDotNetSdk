@@ -4,7 +4,7 @@ using System;
 namespace Tib.Api.Model.Admin
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the AdminServiceMerchantModel model.
     /// </summary>
     public class AdminServiceMerchantModel 
     {

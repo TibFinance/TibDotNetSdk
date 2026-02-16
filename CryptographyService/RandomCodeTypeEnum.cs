@@ -2,7 +2,7 @@
 namespace Tib.Api.CryptographyService
 {
   /// <summary>
-  /// Options de types de caractères à générer aléatoirement.
+  /// Character type options for random code generation.
   /// </summary>
   public enum RandomCodeTypeEnum
   {

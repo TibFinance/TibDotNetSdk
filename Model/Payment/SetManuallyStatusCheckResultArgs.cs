@@ -6,7 +6,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Payment
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the SetManuallyStatusCheckResultArgs model.
     /// </summary>
     public class SetManuallyStatusCheckResultArgs : ClientCallBaseArgs
     {

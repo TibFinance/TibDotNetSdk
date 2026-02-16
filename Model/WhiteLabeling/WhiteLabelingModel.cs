@@ -6,7 +6,7 @@ using Tib.Api.Model.WhiteLabeling;
 namespace Tib.Api.Model.WhiteLabeling
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the WhiteLabelingModel model.
     /// </summary>
     public class WhiteLabelingModel 
     {

@@ -6,7 +6,7 @@ using Tib.Api.Model.General;
 namespace Tib.Api.Model.Client
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the GetLoginAdminAccessListArgs model.
     /// </summary>
     public class GetLoginAdminAccessListArgs : ClientCallBaseArgs, ILoginAdminAccessList
     {

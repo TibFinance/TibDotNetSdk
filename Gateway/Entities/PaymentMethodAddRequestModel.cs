@@ -10,7 +10,7 @@ using Tib.Api.Model.Bill;
 namespace Tib.Api.Gateway.Entities
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the PaymentMethodAddRequestModel model.
     /// </summary>
     public class PaymentMethodAddRequestModel 
     {

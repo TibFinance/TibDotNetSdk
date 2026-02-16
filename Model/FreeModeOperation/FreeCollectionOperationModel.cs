@@ -8,7 +8,7 @@ using Tib.Api.Model.FreeModeOperation;
 namespace Tib.Api.Model.FreeModeOperation
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the FreeCollectionOperationModel model.
     /// </summary>
     public class FreeCollectionOperationModel 
     {

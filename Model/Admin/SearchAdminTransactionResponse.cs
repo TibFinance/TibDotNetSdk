@@ -7,7 +7,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Admin
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the SearchAdminTransactionResponse model.
     /// </summary>
     public class SearchAdminTransactionResponse : ClientBaseResponse
     {

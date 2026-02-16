@@ -6,7 +6,7 @@ using Tib.Api.Common.Contract;
 namespace Tib.Api.Common
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the BaseAuthenticatedCryptedArgs model.
     /// </summary>
     public class BaseAuthenticatedCryptedArgs : ClientCallBaseArgs, IAuthenticatedSessionArgs
     {

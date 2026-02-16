@@ -5,7 +5,7 @@ using Tib.Api.Common;
 namespace Tib.Api.Model.Bill
 {
     /// <summary>
-    /// Object that represent Bill to be paid by an End User
+    /// Represents the DeleteBillResponse model.
     /// </summary>
     public class DeleteBillResponse : ClientBaseResponse
     {

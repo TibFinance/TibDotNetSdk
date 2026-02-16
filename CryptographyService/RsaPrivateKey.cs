@@ -9,32 +9,32 @@ namespace Tib.Api.CryptographyService
     }
 
     /// <summary>
-    /// Paramêtre "D"
+    /// The "D" parameter
     /// </summary>
     public byte[] PrivateExponent { get; set; }
 
     /// <summary>
-    /// Paramètre "DP"
+    /// The "DP" parameter
     /// </summary>
     public byte[] Exponent1 { get; set; }
 
     /// <summary>
-    /// Paramètre "DQ"
+    /// The "DQ" parameter
     /// </summary>
     public byte[] Exponent2 { get; set; }
 
     /// <summary>
-    /// Paramètre "inverse of q" mod p
+    /// The "inverse of q" mod p parameter
     /// </summary>
     public byte[] Coefficient { get; set; }
 
     /// <summary>
-    /// Paramètre "P"
+    /// The "P" parameter
     /// </summary>
     public byte[] Prime1 { get; set; }
 
     /// <summary>
-    /// Paramètre "Q"
+    /// The "Q" parameter
     /// </summary>
     public byte[] Prime2 { get; set; }
   }
