@@ -1,33 +1,11 @@
-
 using System;
-using System.Collections.Generic;
-using Tib.Api.Common;
 
 namespace Tib.Api.Model.General
 {
-    /// <summary>
-    /// Represents the ILoginAccessList interface.
-    /// </summary>
-    public interface ILoginAccessList 
+    public interface ILoginAccessList
     {
-        
-    /// <summary>
-    /// The ClientId property serves as a distinct identifier for each client, playing a crucial role in the authentication process.
-    /// </summary>
-    /// <value>ClientId is a distinctive identifier, encapsulated as a Guid, allocated to every client for precise identification and authentication.</value>
-    public Guid ClientId { get; set; }
-
-    /// <summary>
-    /// The 'Username' property functions as a unique identifier for each user, facilitating personalized user interactions within the system.
-    /// </summary>
-    /// <value>This property holds a unique string value that differentiates each user, thus enabling tailored operations and interactions.</value>
-    public string Username { get; set; }
-
-    /// <summary>
-    /// The 'Password' property is a critical component in user authentication, safeguarding individualized user data.
-    /// </summary>
-    /// <value>This property stores a distinct string, representing the user's password, which is vital for user identification and data protection.</value>
-    public string Password { get; set; }
-
+        Guid ClientId { get; set; }
+        string Username { get; set; }
+        string Password { get; set; }
     }
 }

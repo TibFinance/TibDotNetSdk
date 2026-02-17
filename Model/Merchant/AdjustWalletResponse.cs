@@ -16,5 +16,17 @@ namespace Tib.Api.Model.Merchant
     /// <value>This identifier is used to specify which failed transfer operation should be targeted for a retry process.</value>
     public Guid TransferId { get; set; }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    public bool WasSuccessful { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    public bool RequiresSupplierBoarding { get; set; }
+
     }
 }

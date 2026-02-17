@@ -4,6 +4,7 @@ namespace Tib.Api.Model
     public class Enum
     {
       public enum AccountOperationDirectionEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -20,7 +21,9 @@ Withdraw = 1,
 /// The deposit
 /// </summary>
 Deposit = 2,
-}public enum AccountTypeEnum {
+}
+      public enum AccountTypeEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -37,16 +40,9 @@ CorporateChecking = 3,
 /// 
 /// </summary>
 CorporateSaving = 4,
-}public enum AcpFileType {
-    /// <summary>
-/// 
-/// </summary>
-Acp = 0,
-/// <summary>
-/// 
-/// </summary>
-Perceptech = 1,
-}public enum AcpOperationTypeEnum {
+}
+      public enum AcpOperationTypeEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -491,7 +487,9 @@ Commercial_Location_de_materiel_LBE = 715,
 /// The commercial location automobile lae
 /// </summary>
 Commercial_Location_automobile_LAE = 716,
-}public enum AcpTransactionTypeEnum {
+}
+      public enum AcpTransactionTypeEnum {
+
     /// <summary>
 /// The collection
 /// </summary>
@@ -500,7 +498,9 @@ Collection = 0,
 /// The deposit
 /// </summary>
 Deposit = 1,
-}public enum AutorizedPaymentMethodFlags {
+}
+      public enum AutorizedPaymentMethodFlags {
+
     /// <summary>
 /// The not set
 /// </summary>
@@ -525,7 +525,21 @@ DirectAccountPPA = 8,
 /// The Interac account
 /// </summary>
 Interac = 16,
-}public enum BankingOperationResultEnum {
+/// <summary>
+/// Authorization for Visa credit cards
+/// </summary>
+CreditCardVisa = 32,
+/// <summary>
+/// Authorization for Mastercard credit cards
+/// </summary>
+CreditCardMastercard = 64,
+/// <summary>
+/// Authorization for American Express credit cards
+/// </summary>
+CreditCardAmex = 128,
+}
+      public enum BankingOperationResultEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -562,48 +576,9 @@ InteracRefused = 6,
 /// Interac transaction interrupted
 /// </summary>
 InteracFailed = 7,
-}public enum BoardingDocTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-unknown = -1,
-/// <summary>
-/// 
-/// </summary>
-notSet = 0,
-/// <summary>
-/// 
-/// </summary>
-companyIdentificationProof = 1,
-/// <summary>
-/// 
-/// </summary>
-bankAccountIdentificationProof = 2,
-/// <summary>
-/// 
-/// </summary>
-person1IdentificationProof = 3,
-/// <summary>
-/// 
-/// </summary>
-person2IdentificationProof = 4,
-/// <summary>
-/// 
-/// </summary>
-shareholder1IdentificationProof = 5,
-/// <summary>
-/// 
-/// </summary>
-shareholder2IdentificationProof = 6,
-/// <summary>
-/// 
-/// </summary>
-shareholder3IdentificationProof = 7,
-/// <summary>
-/// 
-/// </summary>
-shareholder4IdentificationProof = 8,
-}public enum BoardingIdFileSidesEnum {
+}
+      public enum BoardingIdFileSidesEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -616,7 +591,9 @@ Front = 1,
 /// 
 /// </summary>
 Back = 2,
-}public enum BoardingStatusEnum {
+}
+      public enum BoardingStatusEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -653,7 +630,9 @@ Rejected = 23,
 /// 
 /// </summary>
 DocumentsSubmitted = 24,
-}public enum BoardingStepEnum {
+}
+      public enum BoardingStepEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -682,32 +661,9 @@ CompanyInfoToValidate = 3,
 /// Company info validated
 /// </summary>
 CompanyInfoValidated = 4,
-}public enum CheckFeesModeEnum {
-    /// <summary>
-/// The unknown
-/// </summary>
-Unknown = -1,
-/// <summary>
-/// The fees on each call
-/// </summary>
-FeesOnEachCall = 0,
-/// <summary>
-/// The fees on each call only found
-/// </summary>
-FeesOnEachCallOnlyFound = 1,
-/// <summary>
-/// The once per month
-/// </summary>
-OncePerMonth = 2,
-/// <summary>
-/// The once per month only if found
-/// </summary>
-OncePerMonthOnlyIfFound = 3,
-/// <summary>
-/// The no fees
-/// </summary>
-NoFees = 4,
-}public enum ClientAuthorizationStatus {
+}
+      public enum ClientAuthorizationStatus {
+
     /// <summary>
 /// This state mean that the client autorization is not required
 /// </summary>
@@ -724,7 +680,9 @@ Approved = 2,
 /// This state is rejected by the client
 /// </summary>
 Rejected = 3,
-}public enum CompanyTypeEnum {
+}
+      public enum CompanyTypeEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -761,16 +719,9 @@ NonprofitOrganization = 6,
 /// 
 /// </summary>
 SoleProprietorship = 7,
-}public enum ContractEditionRequestStatusEnum {
-    /// <summary>
-/// request have not been processed yet
-/// </summary>
-Waiting = 1,
-/// <summary>
-/// request have been processed
-/// </summary>
-Processed = 2,
-}public enum ContractRequestStatusEnum {
+}
+      public enum ContractRequestStatusEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -787,7 +738,9 @@ Waiting = 1,
 /// Request has been processed
 /// </summary>
 Processed = 2,
-}public enum ConvenientFeeModeEnum {
+}
+      public enum ConvenientFeeModeEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -812,24 +765,9 @@ FeeWithRoundupOnAbsolute = 3,
 /// All the merchant service fee must be fix, RelativeToPaymentTypeFee is not supported. The Percentage and Absolute are added to the merchant fee. They can be zero to only follow the merchant fees. The roundup position never apply
 /// </summary>
 RelativeToPaymentTypeFee = 4,
-}public enum ConvenientFeeSettingStatusEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-Active = 1,
-/// <summary>
-/// 
-/// </summary>
-Inactive = 2,
-/// <summary>
-/// 
-/// </summary>
-Deleted = 3,
-}public enum CountryIdEnum {
+}
+      public enum CountryIdEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -846,7 +784,9 @@ Canada = 1,
 /// The usa
 /// </summary>
 USA = 2,
-}public enum CredentialTypeEnum {
+}
+      public enum CredentialTypeEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -883,7 +823,9 @@ ProviderId = 8,
 /// 
 /// </summary>
 MerchantCredentials = 9,
-}public enum CurrencyEnum {
+}
+      public enum CurrencyEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -908,272 +850,9 @@ EUR = 3,
 /// 
 /// </summary>
 GBP = 4,
-}public enum DasFieldTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-IdentificationNumber = 1,
-/// <summary>
-/// 
-/// </summary>
-FileType = 2,
-/// <summary>
-/// 
-/// </summary>
-FileNumber = 3,
-/// <summary>
-/// 
-/// </summary>
-DeclarationFrequency = 4,
-/// <summary>
-/// 
-/// </summary>
-Description = 5,
-/// <summary>
-/// 
-/// </summary>
-BusinessName = 6,
-/// <summary>
-/// 
-/// </summary>
-BusinessOrAccountNumber = 7,
-/// <summary>
-/// 
-/// </summary>
-PeriodStartDate = 8,
-/// <summary>
-/// 
-/// </summary>
-PeriodStartMonth = 9,
-/// <summary>
-/// 
-/// </summary>
-PeriodStartYear = 10,
-/// <summary>
-/// 
-/// </summary>
-PeriodEndDate = 11,
-/// <summary>
-/// 
-/// </summary>
-PeriodEndMonth = 12,
-/// <summary>
-/// 
-/// </summary>
-PeriodEndYear = 13,
-/// <summary>
-/// 
-/// </summary>
-WithhodingTax = 14,
-/// <summary>
-/// 
-/// </summary>
-RetirementPensionPlan = 15,
-/// <summary>
-/// 
-/// </summary>
-HealthServiceFund = 16,
-/// <summary>
-/// 
-/// </summary>
-ParentalInsurancePlan = 17,
-/// <summary>
-/// 
-/// </summary>
-CNESST = 18,
-/// <summary>
-/// 
-/// </summary>
-LastPayPeriodEmployeeCount = 19,
-/// <summary>
-/// 
-/// </summary>
-PeriodRawRemuneration = 20,
-/// <summary>
-/// 
-/// </summary>
-PaymentAmount = 21,
-}public enum DasKeyValuePropertyTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-StringValue = 0,
-/// <summary>
-/// 
-/// </summary>
-IntValue = 1,
-/// <summary>
-/// 
-/// </summary>
-DecimalValue = 2,
-/// <summary>
-/// 
-/// </summary>
-DasDate = 3,
-/// <summary>
-/// 
-/// </summary>
-DasMonthlyDate = 4,
-}public enum DasPaymentProcessStatusEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-New = 1,
-/// <summary>
-/// 
-/// </summary>
-MoneyCollected = 2,
-/// <summary>
-/// 
-/// </summary>
-ReadyToSend = 3,
-/// <summary>
-/// 
-/// </summary>
-PaymentSent = 4,
-/// <summary>
-/// 
-/// </summary>
-PaymentAccepted = 5,
-/// <summary>
-/// 
-/// </summary>
-Cancelled = 10,
-/// <summary>
-/// 
-/// </summary>
-Reverted = 11,
-/// <summary>
-/// 
-/// </summary>
-ErrorCollectingMoney = 100,
-/// <summary>
-/// 
-/// </summary>
-ErrorPreparingPayment = 101,
-/// <summary>
-/// 
-/// </summary>
-ErrorSendingPayment = 102,
-}public enum DasProviderCanadaDeclarationFrequencyEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-Weekly = 1,
-/// <summary>
-/// 
-/// </summary>
-TwiceMonthly = 2,
-/// <summary>
-/// 
-/// </summary>
-Monthly = 3,
-/// <summary>
-/// 
-/// </summary>
-Quarterly = 4,
-}public enum DasProviderCanadaFileTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-FileType_RP = 1,
-}public enum DasProviderQuebecDeclarationFrequencyEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-Weekly = 1,
-/// <summary>
-/// 
-/// </summary>
-TwiceMonthly = 2,
-/// <summary>
-/// 
-/// </summary>
-Monthly = 3,
-/// <summary>
-/// 
-/// </summary>
-Quarterly = 4,
-/// <summary>
-/// 
-/// </summary>
-Annually = 5,
-}public enum DasProviderQuebecFileTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-FileType_RS = 1,
-/// <summary>
-/// 
-/// </summary>
-FileType_11 = 2,
-}public enum DasProviderTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-RevenuQuebec = 1,
-/// <summary>
-/// 
-/// </summary>
-CanadaRevenueAgancy = 2,
-}public enum DataSummaryAggregationCategoryEnum {
-    /// <summary>
-/// The unknown
-/// </summary>
-Unknown = -1,
-/// <summary>
-/// The not set
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// The today collections
-/// </summary>
-TodayCollections = 1,
-/// <summary>
-/// The today deposits
-/// </summary>
-TodayDeposits = 2,
-/// <summary>
-/// The today cashback
-/// </summary>
-TodayCashback = 3,
-/// <summary>
-/// The pending collections
-/// </summary>
-PendingCollections = 4,
-/// <summary>
-/// The pending deposits
-/// </summary>
-PendingDeposits = 5,
-}public enum DateTypeEnum {
+}
+      public enum DateTypeEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -1190,7 +869,9 @@ CreatedDate = 1,
 /// 
 /// </summary>
 LastModifiedDate = 2,
-}public enum DeletedPublicTokenReasonEnum {
+}
+      public enum DeletedPublicTokenReasonEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -1211,58 +892,9 @@ Canceled = 3,
 /// 
 /// </summary>
 WeSentYouNewLogin = 9,
-}public enum ErrorCodeEnum {
-    /// <summary>
-/// 
-/// </summary>
-InsufficientBalance = 2000,
-/// <summary>
-/// 
-/// </summary>
-TransmissionError = 2001,
-/// <summary>
-/// 
-/// </summary>
-NotValid = 2003,
-}public enum EventToBroadcastTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-TransactionEventToBroadcast = 1,
-/// <summary>
-/// 
-/// </summary>
-BatchFileEventToBroadcast = 2,
-/// <summary>
-/// 
-/// </summary>
-BoardingEventToBroadcast = 3,
-/// <summary>
-/// 
-/// </summary>
-TransferPendingProcessEventToBroadcast = 4,
-}public enum FeatureToggleTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-Unknown = -1,
-/// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-ftr_wallet = 1,
-/// <summary>
-/// 
-/// </summary>
-NewWallet = 2,
-}public enum FeeModeEnum {
+}
+      public enum FeeModeEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -1283,78 +915,9 @@ RelativeToPaymentTypeFee = 2,
 /// 
 /// </summary>
 FixUsingRoundUp = 3,
-}public enum FinancialSettingsDataContextEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// Use for Settings only, not use by FeeSettings. When NEW CLIENT is created, it is created with this Setting. So there will have an entry inside FinancialExecutionBehaviorSettings with DataContext 3 and the related clientId with a copy of the entry with DataContext 1.
-/// </summary>
-DefaultClientSettings = 1,
-/// <summary>
-/// Used by Settings and FeeSettings. Understanding the "settings" and "fee settings" for all sub services of a client are set at client level (except if overrided specifically), when a NEW CLIENT is created, it copy the DataContext 2 into DataContext 4 with related client ID. There is an entry into FinancialExecutionBehaviorSettings and FinancialExecutionBehaviorFeeSettings. Wo once client is created, the default service settings for this client ID is set.
-/// </summary>
-DefaultClientServiceSettings = 2,
-/// <summary>
-/// Use for Settings only, not use by FeeSettings. This entry is created for client level limits. Meaning as example if the 3 service has 100k, but client level is to 200k the sum of all service usage cannot exceed the limit set for the client. This is auto created with DefaultClientSettings values.
-/// </summary>
-ClientSettings = 3,
-/// <summary>
-/// Used by Settings and FeeSettings. Once client is created, it pushes the service level "settings" and "fee settings" for this client (Based on DataContext 2 values). Meaning all the services under this client will have the same common limit.
-/// </summary>
-ClientDefaultServiceSettings = 4,
-/// <summary>
-/// Used by Settings and FeeSettings. This allow to override the settings or FeeSettings for a service. All client's service have the settings and fee settings using the DataContext 4 (with ClientId into RelatedId). If a service has different settings or fee settings, there will have a DataContext 5 with "Service ID" into RelatedId.
-/// </summary>
-ServiceSettings = 5,
-/// <summary>
-/// 
-/// </summary>
-MerchantSettings = 6,
-}public enum FlagPermission {
-    /// <summary>
-/// The none
-/// </summary>
-None = 0,
-/// <summary>
-/// The admin
-/// </summary>
-Admin = 1,
-/// <summary>
-/// The client
-/// </summary>
-Client = 2,
-/// <summary>
-/// The merchant
-/// </summary>
-Merchant = 4,
-/// <summary>
-/// The customer
-/// </summary>
-Customer = 8,
-/// <summary>
-/// The service
-/// </summary>
-Service = 16,
-}public enum FreeDepositAccountTypeEnum {
-    /// <summary>
-/// The unkown
-/// </summary>
-Unkown = -1,
-/// <summary>
-/// The not set
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// The direct to account
-/// </summary>
-DirectToAccount = 1,
-/// <summary>
-/// The related to customer
-/// </summary>
-RelatedToCustomer = 2,
-}public enum GetReferenceInformationTypeEnum {
+}
+      public enum GetReferenceInformationTypeEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -1363,33 +926,9 @@ NotSet = 0,
 /// 
 /// </summary>
 Service = 1,
-}public enum IPNType {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-MERCHANT_PARTNER_ONBOARDED = 1,
-/// <summary>
-/// 
-/// </summary>
-APPLICATION_DOCUMENT_REQUEST = 2,
-/// <summary>
-/// 
-/// </summary>
-CHARGEBACK_FILE_UPLOADED = 3,
-}public enum JobEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-OperationCreation = 1,
-}public enum LanguageEnum {
+}
+      public enum LanguageEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -1406,24 +945,9 @@ French = 1,
 /// The english
 /// </summary>
 English = 2,
-}public enum LineTypeEnum {
-    /// <summary>
-/// Start of file
-/// </summary>
-A = 1,
-/// <summary>
-/// Debit (collect into account)
-/// </summary>
-D = 2,
-/// <summary>
-/// Credit (deposit into account)
-/// </summary>
-C = 3,
-/// <summary>
-/// End of file
-/// </summary>
-Z = 4,
-}public enum LoginType {
+}
+      public enum LoginType {
+
     /// <summary>
 /// The none
 /// </summary>
@@ -1448,44 +972,9 @@ Customer = 8,
 /// The service
 /// </summary>
 Service = 16,
-}public enum OperationCategoryReportType {
-    /// <summary>
-/// The deposit
-/// </summary>
-Deposit = 0,
-/// <summary>
-/// The collection
-/// </summary>
-Collection = 1,
-/// <summary>
-/// The transmitted
-/// </summary>
-Transmitted = 2,
-/// <summary>
-/// The bill
-/// </summary>
-Bill = 3,
-/// <summary>
-/// The cancel fast
-/// </summary>
-CancelFast = 4,
-/// <summary>
-/// The cancel late
-/// </summary>
-CancelLate = 5,
-/// <summary>
-/// The payback
-/// </summary>
-Payback = 6,
-/// <summary>
-/// The transaction
-/// </summary>
-Transaction = 7,
-/// <summary>
-/// 
-/// </summary>
-UserCanceled = 8,
-}public enum OperationKindEnum {
+}
+      public enum OperationKindEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -1590,7 +1079,9 @@ GroupedFees = 100,
 /// 
 /// </summary>
 FeesRetransfer = 101,
-}public enum OperationStatusEnum {
+}
+      public enum OperationStatusEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -1631,7 +1122,9 @@ Error_Fatal = 12,
 /// The transaction is abort
 /// </summary>
 Abort = 13,
-}public enum OperationTargetEnum {
+}
+      public enum OperationTargetEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -1660,7 +1153,9 @@ Wallet = 4,
 /// The tib
 /// </summary>
 Tib = 100,
-}public enum OperationTypeEnum {
+}
+      public enum OperationTypeEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -1685,7 +1180,9 @@ StatusCheck = 3,
 /// The payback
 /// </summary>
 Payback = 4,
-}public enum OwnerTypeEnum {
+}
+      public enum OwnerTypeEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -1698,16 +1195,9 @@ Tib = 1,
 /// 
 /// </summary>
 Client = 2,
-}public enum PadDirectionEnum {
-    /// <summary>
-/// 
-/// </summary>
-Left = 0,
-/// <summary>
-/// 
-/// </summary>
-Right = 1,
-}public enum PaymentFilterLevelEnum {
+}
+      public enum PaymentFilterLevelEnum {
+
     /// <summary>
 /// The service
 /// </summary>
@@ -1720,7 +1210,9 @@ Merchant = 1,
 /// The bill
 /// </summary>
 Bill = 2,
-}public enum PaymentFlowEnum {
+}
+      public enum PaymentFlowEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -1761,7 +1253,9 @@ AutoSelectEasier = 7,
 /// Select the most permissive gateway based on the profil and bill information, ignoring the AutoPayment possibilities
 /// </summary>
 AutoSelectEasierExceptAutoPayment = 8,
-}public enum PaymentFlowParsingResultEnum {
+}
+      public enum PaymentFlowParsingResultEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -1806,7 +1300,9 @@ AnonymousMustHaveEmail = 8,
 /// PaymentMethod is not Authorized for PPA (preauthorized automatic payment) Payment
 /// </summary>
 CustomerPPAConsentIsNeeded = 9,
-}public enum PaymentMethodTypeEnum {
+}
+      public enum PaymentMethodTypeEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -1827,24 +1323,9 @@ DirectAccount = 2,
 /// Interac account
 /// </summary>
 Interac = 3,
-}public enum PaymentMethodTypeFlag {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-CreditCard = 1,
-/// <summary>
-/// 
-/// </summary>
-DirectAccount = 2,
-/// <summary>
-/// 
-/// </summary>
-Interac = 4,
-}public enum ProcessStatusEnum {
+}
+      public enum ProcessStatusEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -2169,60 +1650,9 @@ Deposit_StatusCheck_Pending = 120,
 /// 
 /// </summary>
 Authorization_Denied = 900,
-}public enum ProcessTypeEnum {
-    /// <summary>
-/// The unknown
-/// </summary>
-Unknown = -1,
-/// <summary>
-/// The not set
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// The collect
-/// </summary>
-Collect = 1,
-/// <summary>
-/// The deposit
-/// </summary>
-Deposit = 2,
-/// <summary>
-/// The check status
-/// </summary>
-CheckStatus = 3,
-/// <summary>
-/// The check payback
-/// </summary>
-CheckPayback = 4,
-/// <summary>
-/// The gather account information
-/// </summary>
-GatherAccountInfo = 5,
-/// <summary>
-/// The transmit accounting file
-/// </summary>
-TransmitAccountingFile = 6,
-/// <summary>
-/// Process deposit only without state execution
-/// </summary>
-QuickInterac = 7,
-/// <summary>
-/// 
-/// </summary>
-BuildTransactionsCacheFile = 8,
-/// <summary>
-/// 
-/// </summary>
-SendAllBills = 9,
-/// <summary>
-/// 
-/// </summary>
-CollectPortalFee = 10,
-/// <summary>
-/// 
-/// </summary>
-SendAllCommissions = 11,
-}public enum ProviderEnum {
+}
+      public enum ProviderEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -2303,25 +1733,9 @@ BlueSnap_CreditCard_CAD = 4002,
 /// The Account provider using BlueSnap Account CAD
 /// </summary>
 BlueSnap_Account_CAD = 4003,
-}public enum ProviderRefIdTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-Merchant = 1,
-/// <summary>
-/// 
-/// </summary>
-Service = 2,
-}public enum ProviderSubTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-RBC_ARN = 0,
-}public enum ProvinceStateIdEnum {
+}
+      public enum ProvinceStateIdEnum {
+
     /// <summary>
 /// The unkown
 /// </summary>
@@ -2630,7 +2044,9 @@ US_Wisconsin = 75,
 /// The us wyoming
 /// </summary>
 US_Wyoming = 76,
-}public enum PublicAccessTokenRoutingType {
+}
+      public enum PublicAccessTokenRoutingType {
+
     /// <summary>
 /// The not set
 /// </summary>
@@ -2683,7 +2099,9 @@ ExternalSupplierFinancialInformationsRequest = 12,
 /// 
 /// </summary>
 ExternalSupplierReadOnlyPortalLink = 13,
-}public enum ReferenceTypeEnum {
+}
+      public enum ReferenceTypeEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -2700,93 +2118,9 @@ Service = 2,
 /// 
 /// </summary>
 Merchant = 3,
-}public enum SandboxTestStatusEnum {
-    /// <summary>
-/// 
-/// </summary>
-COLLECT_DEPOSIT_SUCCESS = 1,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_DEPOSIT_WEBHOOK_SUCCESS = 1,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_VALIDATION_FAIL = 2,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_VALIDATION_SUCCESS = 3,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_TRANSMISSION_FAIL = 4,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_TRANSMISSION_SUCCESS = 5,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_STATUSCHECK_FAIL = 6,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_STATUSCHECK_PENDING = 7,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_STATUSCHECK_SUCCESS = 8,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_PAYBACK_FAIL = 9,
-/// <summary>
-/// 
-/// </summary>
-COLLECT_PAYBACK_SUCCESS = 10,
-/// <summary>
-/// 
-/// </summary>
-DEPOSIT_VALIDATION_FAIL = 11,
-/// <summary>
-/// 
-/// </summary>
-DEPOSIT_VALIDATION_SUCCESS = 12,
-/// <summary>
-/// 
-/// </summary>
-DEPOSIT_TRANSMISSION_FAIL = 13,
-/// <summary>
-/// 
-/// </summary>
-DEPOSIT_TRANSMISSION_PENDING = 14,
-/// <summary>
-/// 
-/// </summary>
-DEPOSIT_TRANSMISSION_SUCCESS = 15,
-/// <summary>
-/// 
-/// </summary>
-DEPOSIT_STATUSCHECK_FAIL = 16,
-/// <summary>
-/// 
-/// </summary>
-DEPOSIT_STATUSCHECK_SUCCESS = 17,
-/// <summary>
-/// 
-/// </summary>
-DEPOSIT_PAYBACK_FAIL = 18,
-/// <summary>
-/// 
-/// </summary>
-DEPOSIT_PAYBACK_SUCCESS = 19,
-}public enum SysOptionsTypeEnum {
-    /// <summary>
-/// 
-/// </summary>
-TargetMerchantFeesRedeposit = 1,
-}public enum TibAuthorizationStatus {
+}
+      public enum TibAuthorizationStatus {
+
     /// <summary>
 /// This state automaticly approved the transfer
 /// </summary>
@@ -2807,36 +2141,9 @@ Approved = 3,
 /// The declined
 /// </summary>
 Declined = 4,
-}public enum TibCustomPaymentStatus {
-    /// <summary>
-/// 
-/// </summary>
-Pending = 0,
-/// <summary>
-/// 
-/// </summary>
-InProgress = 1,
-/// <summary>
-/// 
-/// </summary>
-RevertedPending = 2,
-/// <summary>
-/// 
-/// </summary>
-Completed = 3,
-/// <summary>
-/// 
-/// </summary>
-RevertedCompleted = 4,
-/// <summary>
-/// 
-/// </summary>
-Error = 5,
-/// <summary>
-/// 
-/// </summary>
-Canceled = 6,
-}public enum TibOperationStatus {
+}
+      public enum TibOperationStatus {
+
     /// <summary>
 /// 
 /// </summary>
@@ -2865,7 +2172,9 @@ Success = 5,
 /// 
 /// </summary>
 Lost = 6,
-}public enum TransferDirectionEnum {
+}
+      public enum TransferDirectionEnum {
+
     /// <summary>
 /// The unknown
 /// </summary>
@@ -2882,7 +2191,9 @@ Collect = 1,
 /// The deposit
 /// </summary>
 Deposit = 2,
-}public enum TransferFrequencyEnum {
+}
+      public enum TransferFrequencyEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -2919,7 +2230,9 @@ BiAnually = 6,
 /// 
 /// </summary>
 Anually = 7,
-}public enum TransferTypeEnum {
+}
+      public enum TransferTypeEnum {
+
     /// <summary>
 /// The not set
 /// </summary>
@@ -2964,7 +2277,9 @@ CollectFromWallet = 9,
 /// 
 /// </summary>
 DepositToWalletFromInterac = 10,
-}public enum TransferTypeFlag {
+}
+      public enum TransferTypeFlag {
+
     /// <summary>
 /// The not set
 /// </summary>
@@ -2997,16 +2312,44 @@ FreeCollectionAndFreeDeposit = 6,
 /// All
 /// </summary>
 All = 7,
-}public enum UserType {
+}
+      public enum TwoFactorStatus {
+
     /// <summary>
-/// The admin
+/// Operation completed successfully - no 2FA was required (admin, impersonated, or non-protected operation)
 /// </summary>
-Admin = 0,
+NotRequired = 0,
 /// <summary>
-/// The user
+/// User has 2FA enabled - client must prompt for 6-digit code and retry with TwoFactorCode populated
 /// </summary>
-User = 1,
-}public enum ValidationLimitStatus {
+CodeRequired = 1,
+/// <summary>
+/// User must set up 2FA first - client should display QR code from SetupData and call Verify2FASetup
+/// </summary>
+SetupRequired = 2,
+/// <summary>
+/// 2FA code was verified successfully - operation completed
+/// </summary>
+Verified = 3,
+/// <summary>
+/// The provided code was invalid - client should prompt for code again
+/// </summary>
+InvalidCode = 4,
+/// <summary>
+/// Security verification required before 2FA setup. Client must prompt user for bank account number and retry with TwoFactorSecurityAnswer populated. Response includes TwoFactorVerificationMerchantName to display in the prompt.
+/// </summary>
+SecurityVerificationRequired = 5,
+/// <summary>
+/// The provided bank account number did not match records. Client should re-prompt for bank account number. Response includes TwoFactorVerificationMerchantName for retry.
+/// </summary>
+SecurityVerificationFailed = 6,
+/// <summary>
+/// Security verification cannot be performed - no merchant with bank account found. User cannot set up 2FA until they have a bank account on file. This is a blocking error with no retry option.
+/// </summary>
+SecurityVerificationUnavailable = 7,
+}
+      public enum ValidationLimitStatus {
+
     /// <summary>
 /// The no errors
 /// </summary>
@@ -3039,7 +2382,9 @@ LimitDailyReach = 32,
 /// The client limit daily reach
 /// </summary>
 LimitClientDailyReach = 64,
-}public enum WalletAdjustmentEnum {
+}
+      public enum WalletAdjustmentEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -3052,36 +2397,9 @@ IncreaseWallet = 2,
 /// 
 /// </summary>
 DecreaseWallet = 4,
-}public enum WalletHistoryStatus {
-    /// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-New = 1,
-/// <summary>
-/// 
-/// </summary>
-InProgress = 2,
-/// <summary>
-/// 
-/// </summary>
-Failed = 3,
-/// <summary>
-/// 
-/// </summary>
-Abord = 4,
-/// <summary>
-/// 
-/// </summary>
-Success = 5,
-/// <summary>
-/// 
-/// </summary>
-Lost = 6,
-}public enum WalletTypeEnum {
+}
+      public enum WalletTypeEnum {
+
     /// <summary>
 /// 
 /// </summary>
@@ -3094,40 +2412,6 @@ Manual = 2,
 /// 
 /// </summary>
 Automatic = 3,
-}public enum WebhookActionEnum {
-    /// <summary>
-/// 
-/// </summary>
-CollectSuccess = 1,
-/// <summary>
-/// 
-/// </summary>
-DepositSuccess = 2,
-}public enum WhitelabelingLevelsEnum {
-    /// <summary>
-/// 
-/// </summary>
-Default = -1,
-/// <summary>
-/// 
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// 
-/// </summary>
-Merchant = 1,
-/// <summary>
-/// 
-/// </summary>
-Service = 2,
-/// <summary>
-/// 
-/// </summary>
-Client = 3,
-/// <summary>
-/// 
-/// </summary>
-Url = 4,
 }
     }
 }

@@ -63,30 +63,33 @@ namespace Tib.Api
     }
 
     /// <summary>
-/// Retrieves wallet operations and transaction history for a specified service within a date range.
+/// Retrieves wallet operations and transaction history for a merchant.
 /// </summary>
-/// <param name="args">The arguments.</param>
-/// <returns>GetWalletOperationsResponse.</returns>
+/// <value>Fetches the daily wallet operations for a specified service within a given date range, including deposits, withdrawals, and balance information.</value>
+/// <param name="args">The arguments containing the service ID and the date range (From and To) for which to retrieve operations.</param>
+/// <returns>A GetWalletOperationsResponse containing the list of daily operations, balance before operations, and delay buffer amount.</returns>
 public GetWalletOperationsResponse GetWalletOperations(GetWalletOperationsArgs args)
 {
     return _client.Call<GetWalletOperationsResponse>("GetWalletOperations", args);
 }
 
 /// <summary>
-/// Creates a new supplier associated with a merchant.
+/// Creates a new supplier for a merchant.
 /// </summary>
-/// <param name="args">The arguments.</param>
-/// <returns>CreateSupplierResponse.</returns>
+/// <value>Registers a new supplier under a merchant account, including the supplier's banking information and contact details.</value>
+/// <param name="args">The arguments containing the merchant ID, supplier name, email, currency, language, and banking details (account number, bank number, institution number).</param>
+/// <returns>A CreateSupplierResponse containing the newly created supplier's ID, name, and any matching existing merchants.</returns>
 public CreateSupplierResponse CreateSupplier(CreateSupplierArgs args)
 {
     return _client.Call<CreateSupplierResponse>("CreateSupplier", args);
 }
 
 /// <summary>
-/// Retrieves the list of suppliers associated with a merchant.
+/// Retrieves the list of suppliers for a merchant.
 /// </summary>
-/// <param name="args">The arguments.</param>
-/// <returns>GetSuppliersResponse.</returns>
+/// <value>Fetches all suppliers associated with a given merchant, returning their identifiers and descriptions.</value>
+/// <param name="args">The arguments containing the merchant ID for which to retrieve suppliers.</param>
+/// <returns>A GetSuppliersResponse containing the list of suppliers with their IDs and descriptions.</returns>
 public GetSuppliersResponse GetSuppliers(GetSuppliersArgs args)
 {
     return _client.Call<GetSuppliersResponse>("GetSuppliers", args);
@@ -95,8 +98,9 @@ public GetSuppliersResponse GetSuppliers(GetSuppliersArgs args)
 /// <summary>
 /// Creates a transfer to a supplier.
 /// </summary>
-/// <param name="args">The arguments.</param>
-/// <returns>CreateSupplierTransferResponse.</returns>
+/// <value>Initiates a financial transfer from a merchant to a designated supplier, specifying the amount, currency, and transfer details.</value>
+/// <param name="args">The arguments containing the merchant ID, supplier target merchant ID, amount, currency, transfer frequency, and optional bill details.</param>
+/// <returns>A CreateSupplierTransferResponse containing the result of the transfer creation, including any matching existing merchants.</returns>
 public CreateSupplierTransferResponse CreateSupplierTransfer(CreateSupplierTransferArgs args)
 {
     return _client.Call<CreateSupplierTransferResponse>("CreateSupplierTransfer", args);
@@ -300,18 +304,19 @@ public GetRecuringTransfersResponse GetRecuringTransfers(GetRecuringTransfersArg
 }
 
 /// <summary>
-/// Lists the transfers for a specific bill using an optimized fast query.
+/// Lists the transfers of a bill.
 /// </summary>
-/// <returns>ListTransfersFastResponse.</returns>
 public ListTransfersFastResponse ListTransfersForBillFast(ListTransfersForBillFastArgs args)
 {
     return _client.Call<ListTransfersFastResponse>("ListTransfersForBillFast", args);
 }
 
 /// <summary>
-/// Lists the transfers using an optimized fast query.
+/// Lists transfers using an optimized fast query.
 /// </summary>
-/// <returns>ListTransfersFastResponse.</returns>
+/// <value>Retrieves a list of transfers using an optimized query, supporting filtering by date range, service, merchant, transfer type, and error status.</value>
+/// <param name="args">The arguments containing optional filters such as date range, service ID, merchant ID, transfer group ID, transfer type, and error-only flag.</param>
+/// <returns>A ListTransfersFastResponse containing the list of transfers with compact field names for optimized performance.</returns>
 public ListTransfersFastResponse ListTransfersFast(ListTransfersFastArgs args)
 {
     return _client.Call<ListTransfersFastResponse>("ListTransfersFast", args);
@@ -626,8 +631,9 @@ public ListMerchantsResponse ListMerchants(ListMerchantsArgs args)
 /// <summary>
 /// Retrieves wallet information for a specific service.
 /// </summary>
-/// <param name="args">The arguments.</param>
-/// <returns>GetWalletInformationsByServiceResponse.</returns>
+/// <value>Fetches detailed wallet information for a given service, including wallet balances, types, holders, and processing status.</value>
+/// <param name="args">The arguments containing the service ID for which to retrieve wallet information.</param>
+/// <returns>A GetWalletInformationsByServiceResponse containing the list of wallets with their details.</returns>
 public GetWalletInformationsResponse GetWalletInformationsByService(GetWalletInformationsArgs args)
 {
     return _client.Call<GetWalletInformationsResponse>("GetWalletInformationsByService", args);

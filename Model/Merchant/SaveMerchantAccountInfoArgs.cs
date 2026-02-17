@@ -23,5 +23,17 @@ namespace Tib.Api.Model.Merchant
     /// <value>This model represents the account details associated with a merchant, ensuring that all relevant information is accurately captured and stored.</value>
     public AccountModel Account { get; set; }
 
+    /// <summary>
+    /// The 6-digit TOTP code from the user's authenticator app. Set to null on first call. If response indicates CodeRequired, prompt user and retry with code.
+    /// </summary>
+    /// <value></value>
+    public string TwoFactorCode { get; set; }
+
+    /// <summary>
+    /// The bank account number provided by the user for security verification before 2FA setup. Required when TwoFactorStatus is SecurityVerificationRequired. Format: "BankNumber-Transit-AccountNumber" (e.g., "123-12345-123456789").
+    /// </summary>
+    /// <value></value>
+    public string TwoFactorSecurityAnswer { get; set; }
+
     }
 }

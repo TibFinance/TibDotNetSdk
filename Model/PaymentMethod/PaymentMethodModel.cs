@@ -55,6 +55,12 @@ namespace Tib.Api.Model.PaymentMethod
     public string Owner { get; set; }
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    public string CcType { get; set; }
+
+    /// <summary>
     /// Fetches a list of merchants who are preauthorized for a Preauthorized Payment Agreement (PPA) on a specified payment method.
     /// </summary>
     /// <value>This property encapsulates a list of merchant identifiers and corresponding names that have received preauthorization for PPA.</value>
