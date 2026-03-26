@@ -57,6 +57,12 @@ namespace Tib.Api.Model.Supplier
     /// 
     /// </summary>
     /// <value></value>
+    public DateTime? RecurringEndDate { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
     public string BillNumber { get; set; }
 
     /// <summary>

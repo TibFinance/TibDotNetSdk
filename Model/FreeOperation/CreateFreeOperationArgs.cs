@@ -90,6 +90,12 @@ namespace Tib.Api.Model.FreeOperation
     public TransferFrequencyEnum TransferFrequency { get; set; }
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    public DateTime? RecurringEndDate { get; set; }
+
+    /// <summary>
     /// Represents the unique identifier for a group within the TIB Finance API.
     /// </summary>
     /// <value>The GroupId is used to uniquely identify and manage groups, ensuring precise operations within the API.</value>

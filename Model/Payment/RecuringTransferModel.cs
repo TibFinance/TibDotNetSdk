@@ -100,5 +100,11 @@ namespace Tib.Api.Model.Payment
     /// <value>Holds the identifier assigned by an external system to correlate the transfer record.</value>
     public string TrasnferExternalSystemNumber { get; set; }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    public DateTime? EndDate { get; set; }
+
     }
 }

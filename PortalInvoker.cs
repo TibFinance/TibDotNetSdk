@@ -74,6 +74,30 @@ public GetWalletOperationsResponse GetWalletOperations(GetWalletOperationsArgs a
 }
 
 /// <summary>
+/// 
+/// </summary>
+public DeleteSupplierResponse DeleteSupplier(DeleteSupplierArgs args)
+{
+    return _client.Call<DeleteSupplierResponse>("DeleteSupplier", args);
+}
+
+/// <summary>
+/// 
+/// </summary>
+public UpdateSupplierAliasResponse UpdateSupplierAlias(UpdateSupplierAliasArgs args)
+{
+    return _client.Call<UpdateSupplierAliasResponse>("UpdateSupplierAlias", args);
+}
+
+/// <summary>
+/// 
+/// </summary>
+public ListSuppliersResponse ListSuppliers(ListSuppliersArgs args)
+{
+    return _client.Call<ListSuppliersResponse>("ListSuppliers", args);
+}
+
+/// <summary>
 /// Creates a new supplier for a merchant.
 /// </summary>
 /// <value>Registers a new supplier under a merchant account, including the supplier's banking information and contact details.</value>

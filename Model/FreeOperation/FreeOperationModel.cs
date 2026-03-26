@@ -89,6 +89,12 @@ namespace Tib.Api.Model.FreeOperation
     public TransferFrequencyEnum TransferFrequency { get; set; }
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <value></value>
+    public DateTime? RecurringEndDate { get; set; }
+
+    /// <summary>
     /// Represents a brief description used in statements to identify or clarify the transaction.
     /// </summary>
     /// <value>This string provides a concise description for transactions, aiding in the identification and clarification of statement entries.</value>
