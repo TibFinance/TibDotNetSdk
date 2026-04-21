@@ -11,9 +11,9 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a payment.
+    /// Unique identifier of the newly created payment
     /// </summary>
-    /// <value>Represents the unique identifier associated with a specific payment transaction.</value>
+    /// <value>System‑generated GUID (36‑character string), immutable and required for all subsequent payment‑related operations</value>
     public Guid PaymentId { get; set; }
 
     }

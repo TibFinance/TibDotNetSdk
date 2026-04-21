@@ -12,9 +12,9 @@ namespace Tib.Api.Gateway.Args
     {
         
     /// <summary>
-    /// Gets or sets the identifier of the public token required to initiate a drop‑in session.
+    /// Gets or sets the public token identifier.
     /// </summary>
-    /// <value>A GUID that uniquely identifies the public token issued by TIB Finance.</value>
+    /// <value>The public token identifier.</value>
     public Guid PublicTokenId { get; set; }
 
     }

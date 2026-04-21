@@ -13,9 +13,9 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Provides detailed information about all merchants associated with a client's account. This is crucial for managing merchant-specific data within the API.
+    /// A collection of merchant records matching the requested external identifier.
     /// </summary>
-    /// <value>This property contains a collection of MerchantViewModel objects, each representing a merchant associated with the client's account.</value>
+    /// <value>IEnumerable&lt;MerchantViewModel&gt; containing zero or more merchants; each element represents a distinct merchant linked to the supplied external ID. Order is not guaranteed.</value>
     public IEnumerable<MerchantViewModel> Merchants { get; set; }
 
     }

@@ -11,9 +11,9 @@ namespace Tib.Api.Gateway.Args
     {
         
     /// <summary>
-    /// The 'Password' property is a critical component in user authentication, safeguarding individualized user data.
+    /// The account password used to authenticate the session request
     /// </summary>
-    /// <value>This property stores a distinct string, representing the user's password, which is vital for user identification and data protection.</value>
+    /// <value>String, required, non‑empty; must meet the platform's password policy (minimum length, allowed characters) and is transmitted securely</value>
     public string Password { get; set; }
 
     }

@@ -12,9 +12,9 @@ namespace Tib.Api.Gateway.Args
     {
         
     /// <summary>
-    /// The 'Username' property functions as a unique identifier for each user, facilitating personalized user interactions within the system.
+    /// The login identifier of the user initiating the session.
     /// </summary>
-    /// <value>This property holds a unique string value that differentiates each user, thus enabling tailored operations and interactions.</value>
+    /// <value>String, required, case‑sensitive, typically an email or account name; maximum length 256 characters; must correspond to a valid TIB Finance user.</value>
     public string Username { get; set; }
 
     /// <summary>

@@ -14,45 +14,45 @@ namespace Tib.Api.Model.Customer
     {
         
     /// <summary>
-    /// This property represents the full name of the customer in the system.
+    /// The full name of the customer who owns the recurring transfer.
     /// </summary>
-    /// <value>The 'CustomerName' is a string attribute that holds the complete name of the customer as registered in the system.</value>
+    /// <value>String, up to 100 Unicode characters, may include spaces and hyphens; always present in the response.</value>
     public string CustomerName { get; set; }
 
     /// <summary>
-    /// Serves as a unique identifier for customers within an external system, enabling efficient data mapping and integration across various platforms.
+    /// The external identifier assigned to the customer by the client’s system.
     /// </summary>
-    /// <value>This string parameter represents a distinct identifier assigned to a customer within an external system, thereby facilitating seamless synchronization of data and customer identification across different platforms.</value>
+    /// <value>String; must be unique per customer, case‑sensitive, up to 50 characters; may be empty only if the customer has no external reference.</value>
     public string CustomerExternalId { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum? Language { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns a detailed description for a specific customer.
+    /// A textual description of the customer identified by the external ID
     /// </summary>
-    /// <value>The 'CustomerDescription' property signifies an extensive textual representation of a customer, offering a profound insight into the customer's profile.</value>
+    /// <value>Free‑form Unicode string, up to 255 characters; may be omitted if no description is defined</value>
     public string CustomerDescription { get; set; }
 
     /// <summary>
-    /// Handles the acquisition and assignment of a customer's email address.
+    /// The email address of the customer initiating the payment.
     /// </summary>
-    /// <value>Represents a valid email address linked to a specific customer, provided as a string.</value>
+    /// <value>Must be a valid RFC‑5322 email, max 254 characters; required for receipt delivery and notifications.</value>
     public string CustomerEmail { get; set; }
 
     /// <summary>
-    /// This function is engineered to retrieve or allocate the array of accessible payment methods for transactional operations.
+    /// A collection of payment methods available to the requester.
     /// </summary>
-    /// <value>The function generates an exhaustive list of models that represent diverse payment methods.</value>
+    /// <value>IEnumerable of PaymentMethodModel objects; each includes identifiers, display name, and type. May be empty if no methods are configured. Order is not guaranteed.</value>
     public List<PaymentMethodModel> PaymentMethods { get; set; }
 
     /// <summary>
-    /// Manages the extraction or assignment of specific user or entity contact information.
+    /// The customer's contact information
     /// </summary>
-    /// <value>This model embodies all the vital contact details associated with a user or entity.</value>
+    /// <value>A ContactInfoModel object containing phone numbers, email addresses, and mailing address. All fields are optional and may be null if not provided. Values follow standard E.164 format for phone numbers and RFC 5322 for email. Address fields are normalized per ISO 3166 country codes.</value>
     public ContactInfoModel ContactInfo { get; set; }
 
     }

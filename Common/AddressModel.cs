@@ -11,33 +11,33 @@ namespace Tib.Api.Common
     {
         
     /// <summary>
-    /// Represents the street address associated with a specific entity or location.
+    /// The billing street address of the cardholder for the credit card payment method.
     /// </summary>
-    /// <value>This property stores the street address information, which is crucial for identifying the physical location of an entity.</value>
+    /// <value>Required string, up to 100 characters, must be a valid street address; cannot contain line breaks or special characters beyond standard punctuation.</value>
     public string StreetAddress { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the city component of an address.
+    /// The city component of the billing address for the credit card.
     /// </summary>
-    /// <value>Represents the city part of an address, typically used in postal addresses.</value>
+    /// <value>String, required; max 50 characters; must contain only alphanumeric characters, spaces, hyphens, or periods.</value>
     public string AddressCity { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for a province or state within the system.
+    /// Identifier of the province or state for the billing address.
     /// </summary>
-    /// <value>This identifier is used to specify a particular province or state, facilitating region-specific operations.</value>
+    /// <value>Required input; must be a valid value from ProvinceStateIdEnum; case‑sensitive; corresponds to the jurisdiction of the cardholder's billing address; omit only if the selected country has no subdivisions.</value>
     public ProvinceStateIdEnum? ProvinceStateId { get; set; }
 
     /// <summary>
-    /// Gets or sets the identifier of the country using the CountryIdEnum enumeration. This identifier is required when specifying the country for client, service, or merchant operations.
+    /// Identifier of the card‑issuing country for the payment method
     /// </summary>
-    /// <value>The current CountryIdEnum value representing the selected country.</value>
+    /// <value>Must be a valid CountryIdEnum value representing a supported country; required for all credit‑card payments and case‑sensitive.</value>
     public CountryIdEnum? CountryId { get; set; }
 
     /// <summary>
-    /// Gets or sets the postal zip code for the address entity.
+    /// The postal ZIP code of the cardholder’s billing address.
     /// </summary>
-    /// <value>The postal zip code string stored in the object.</value>
+    /// <value>String, required; must match the postal code format of the cardholder’s country (e.g., 5‑digit US ZIP or alphanumeric international code), typically 3‑10 characters.</value>
     public string PostalZipCode { get; set; }
 
     }

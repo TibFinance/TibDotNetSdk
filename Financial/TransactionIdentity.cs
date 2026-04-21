@@ -18,9 +18,9 @@ namespace Tib.Api.Financial
     public Guid TransactionId { get; set; }
 
     /// <summary>
-    /// Retrieves the identifier of the merchant (bank account) to which the operation applies.
+    /// Unique identifier of the merchant linked to the recurring transfer.
     /// </summary>
-    /// <value>A GUID assigned by TIB Finance during client account opening that uniquely identifies the merchant's primary account.</value>
+    /// <value>Guid; present only when the transfer is associated with a merchant, otherwise null. Read‑only and must be a valid GUID.</value>
     public Guid RelatedMerchantId { get; set; }
 
     /// <summary>
@@ -48,15 +48,15 @@ namespace Tib.Api.Financial
     public DateTime OriginalTransactionCreatedDatePassedWeekend { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
-    /// Identifies the specific transfer operation that needs to be reverted.
+    /// Unique identifier of the wallet adjustment transaction
     /// </summary>
-    /// <value>This identifier is used to specify which failed transfer operation should be targeted for a retry process.</value>
+    /// <value>System‑generated GUID (UUID v4) returned in the response; immutable, required for tracking and correlation of the adjustment</value>
     public Guid? TransferId { get; set; }
 
     /// <summary>

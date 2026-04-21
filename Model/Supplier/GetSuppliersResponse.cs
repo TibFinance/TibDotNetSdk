@@ -12,7 +12,7 @@ namespace Tib.Api.Model.Supplier
     {
         
     /// <summary>
-    /// 
+    /// List of suppliers matching the query criteria. Each entry contains a Description and SupplierId.
     /// </summary>
     /// <value></value>
     public List<object> Suppliers { get; set; }

@@ -13,9 +13,9 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Provides access to a list of recurring transfer operations linked to the client's account, facilitating management and review of scheduled transfers.
+    /// A list of scheduled recurring transfer objects returned by GetRecuringTransfers.
     /// </summary>
-    /// <value>This function queries the database to retrieve comprehensive details of all recurring transfers, including their current status, amounts, and scheduled dates.</value>
+    /// <value>Each item is a RecuringTransferModel containing transfer ID, amount, currency, frequency, start/end dates, next execution date, status, and optional description. The list may be empty; maximum size is defined by the API pagination limits. Read‑only field.</value>
     public List<RecuringTransferModel> RecuringTransfers { get; set; }
 
     }

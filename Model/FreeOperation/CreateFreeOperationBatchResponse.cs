@@ -13,9 +13,9 @@ namespace Tib.Api.Model.FreeOperation
     {
         
     /// <summary>
-    /// Represents a collection of responses for a batch of free operations, facilitating transactions not associated with specific bills.
+    /// List of individual batch item results.
     /// </summary>
-    /// <value>This model is used to handle the responses from creating multiple free operations in a single batch, optimizing the process of managing transactions that are independent of bills.</value>
+    /// <value></value>
     public List<CreateFreeOperationBatchResponseBase> CreateFreeOperationBatchResponses { get; set; }
 
     }

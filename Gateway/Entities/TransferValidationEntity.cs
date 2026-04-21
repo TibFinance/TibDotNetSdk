@@ -11,15 +11,15 @@ namespace Tib.Api.Gateway.Entities
     {
         
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public Decimal Amount { get; set; }
 
     /// <summary>
-    /// The date and time when the payment was created.
+    /// The date and time when the recurring transfer was initially created.
     /// </summary>
-    /// <value>A UTC DateTime indicating the exact moment the payment record was generated.</value>
+    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
     public DateTime CreatedDate { get; set; }
 
     /// <summary>
@@ -29,15 +29,15 @@ namespace Tib.Api.Gateway.Entities
     public string AcountNumber { get; set; }
 
     /// <summary>
-    /// Gets or sets the external reference number used to link this entity with an external system or business process.
+    /// Gets or sets the external reference number.
     /// </summary>
-    /// <value>The external reference number associated with the entity.</value>
+    /// <value>The external reference number.</value>
     public string ExternalReferenceNumber { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for a group within the TIB Finance API.
+    /// Identifier of the payment group to which the payment belongs
     /// </summary>
-    /// <value>The GroupId is used to uniquely identify and manage groups, ensuring precise operations within the API.</value>
+    /// <value>String, required, non‑empty, max 36 characters, must be a valid UUID/GUID if the system uses GUIDs</value>
     public string GroupId { get; set; }
 
     /// <summary>
@@ -65,45 +65,45 @@ namespace Tib.Api.Gateway.Entities
     public string ClientAuthorizationStatusStr { get; set; }
 
     /// <summary>
-    /// Represents the merchant's unique name.
+    /// The name of the merchant associated with the transfer.
     /// </summary>
-    /// <value>This property holds a string value that uniquely identifies the merchant by name.</value>
+    /// <value>String, up to 100 characters; may be empty or null if the transfer has no merchant context.</value>
     public string MerchantName { get; set; }
 
     /// <summary>
-    /// This property represents the full name of the customer in the system.
+    /// The full name of the customer who owns the recurring transfer.
     /// </summary>
-    /// <value>The 'CustomerName' is a string attribute that holds the complete name of the customer as registered in the system.</value>
+    /// <value>String, up to 100 Unicode characters, may include spaces and hyphens; always present in the response.</value>
     public string CustomerName { get; set; }
 
     /// <summary>
-    /// Bill model representing a financial invoice in the TIB Finance system.
+    /// Specifies the bill identifier to filter transfers associated with that bill
     /// </summary>
-    /// <value>Contains the complete set of properties that describe a bill, such as BillId (Guid), Amount, Currency, Status, IssueDate, DueDate, and the associated CustomerId.</value>
+    /// <value>String (or numeric) bill ID; must correspond to an existing bill in the system; optional – if omitted, transfers for all bills are returned</value>
     public string Bill { get; set; }
 
     /// <summary>
-    /// Defines and manages the type of transfer operation within the system.
+    /// Indicates the category of the recurring transfer (e.g., inbound, outbound, internal).
     /// </summary>
-    /// <value>Specifies the category of the transfer, determining its processing logic and applicable rules.</value>
+    /// <value>Enum TransferTypeEnum; possible values: INBOUND, OUTBOUND, INTERNAL. Returned in uppercase; null if not applicable.</value>
     public string TransferType { get; set; }
 
     /// <summary>
-    /// Identifies the specific transfer operation that needs to be reverted.
+    /// Unique identifier of the wallet adjustment transaction
     /// </summary>
-    /// <value>This identifier is used to specify which failed transfer operation should be targeted for a retry process.</value>
+    /// <value>System‑generated GUID (UUID v4) returned in the response; immutable, required for tracking and correlation of the adjustment</value>
     public Guid TransferId { get; set; }
 
     /// <summary>
-    /// Serves as a unique identifier for each customer within the system.
+    /// Unique identifier of the customer owning the recurring transfers
     /// </summary>
-    /// <value>The 'CustomerId' is a unique, non-duplicable identifier that is assigned to each customer upon their creation. It functions as a primary key for all operations related to a specific customer.</value>
+    /// <value>A non‑null GUID that matches an existing customer record; used to correlate transfers with the correct account</value>
     public Guid CustomerId { get; set; }
 
     /// <summary>
-    /// Specifies the due date for the payment. If the value is null, the system treats the due date as the current date and time.
+    /// The date by which the created payment must be settled.
     /// </summary>
-    /// <value>The date and time by which the payment must be completed.</value>
+    /// <value>ISO‑8601 DateTime (UTC). Must be a future date, not earlier than the current date, and cannot exceed the platform's maximum scheduling horizon.</value>
     public DateTime? DueDate { get; set; }
 
     }

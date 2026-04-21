@@ -12,9 +12,9 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Represents a payment transaction within the TIB Finance API, facilitating the transfer of funds between accounts.
+    /// The payment details associated with each recurring transfer returned by GetRecuringTransfers.
     /// </summary>
-    /// <value>This entity encapsulates the details of a payment transaction, including the necessary identifiers and financial information, to ensure accurate processing.</value>
+    /// <value>Contains amount, currency, execution date, and status of the scheduled payment; may be null if the transfer has no associated payment.</value>
     public PaymentModel Payment { get; set; }
 
     }

@@ -11,15 +11,15 @@ namespace Tib.Api.Model.Service
     {
         
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     }

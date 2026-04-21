@@ -11,69 +11,69 @@ namespace Tib.Api.Model.Bill
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// Represents the title of a bill associated with a payment.
+    /// The title or description of the bill linked to the transfer.
     /// </summary>
-    /// <value>This property holds the title of the bill. It is used to identify and describe the bill within the system.</value>
+    /// <value>String, up to 255 characters; may include alphanumeric characters, spaces, and common punctuation; optional and present only when the transfer is associated with a bill.</value>
     public string BillTitle { get; set; }
 
     /// <summary>
-    /// Provides a textual description of the bill associated with a payment.
+    /// The textual description of the bill associated with the transfer.
     /// </summary>
-    /// <value>A free‑form string that describes the purpose or details of the bill. The value is stored and returned as‑is.</value>
+    /// <value>String, up to 255 characters; may be empty if no bill is linked. Returned as‑is from the originating system and used for display or reconciliation.</value>
     public string BillDescription { get; set; }
 
     /// <summary>
-    /// Specifies the monetary amount of a bill to be created.
+    /// The total monetary amount due for the requested bill.
     /// </summary>
-    /// <value>Decimal value representing the total amount due for the bill. Must be greater than zero.</value>
+    /// <value>Decimal value in the account's currency, non‑negative, typically with two decimal places of precision (e.g., 1234.56).</value>
     public decimal BillAmount { get; set; }
 
     /// <summary>
-    /// Represents the first external system bill reference associated with the TIB bill.
+    /// The bill identifier assigned by the first external system linked to this transaction.
     /// </summary>
-    /// <value>ExternalSystemBillNumber1 contains the bill number provided by the external system. It is a free‑form string limited to 150 characters and restricted to the allowed character set.</value>
+    /// <value>String, up to 50 characters, may be empty if no external system is associated; read‑only in responses.</value>
     public string ExternalSystemBillNumber1 { get; set; }
 
     /// <summary>
-    /// Reference number provided by an external system for the bill (field 2).
+    /// Secondary bill identifier assigned by an external system
     /// </summary>
-    /// <value>Contains the external system's bill identifier (up to 150 characters) using only permitted characters.</value>
+    /// <value>String, optional, up to 50 characters; read‑only in the response; may be null if not provided by the external system</value>
     public string ExternalSystemBillNumber2 { get; set; }
 
     /// <summary>
-    /// Identifies the bill number provided by an external system. This field allows TIB to map its internal bill to the originating system's reference.
+    /// The bill number assigned by the third external system.
     /// </summary>
-    /// <value>The third external system bill number associated with the created bill.</value>
+    /// <value>String, up to 50 characters, may be null if not applicable; unique per external system bill.</value>
     public string ExternalSystemBillNumber3 { get; set; }
 
     /// <summary>
-    /// Specifies the currency of the bill. If null, the merchant’s default currency is applied.
+    /// The currency in which the bill amount is denominated.
     /// </summary>
-    /// <value>CurrencyEnum value representing the bill’s currency.</value>
+    /// <value>Uses the CurrencyEnum (ISO 4217 codes). Must be one of the supported enum values; no conversion is performed on the returned value.</value>
     public CurrencyEnum? BillCurrency { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum? Language { get; set; }
 
     /// <summary>
-    /// Identifies the customer linked to this payment, when a customer relationship exists.
+    /// Identifier of the customer associated with the payment
     /// </summary>
-    /// <value>The unique GUID that references the associated customer record.</value>
+    /// <value>Must be a valid, non‑empty GUID that references an existing customer record in the system</value>
     public Guid? RelatedCustomerId { get; set; }
 
     /// <summary>
-    /// Indicates whether the bill should apply the convenience fee according to the client’s service configuration. The fee calculation follows the configuration set by an administrator.
+    /// Indicates whether the convenient fee rule is applied to the retrieved bill.
     /// </summary>
-    /// <value>true to enable convenience‑fee calculation for the bill; false to disable it.</value>
+    /// <value>Boolean; true if the bill uses the convenient fee rule, false otherwise. Only relevant for bills that support fee rule customization; defaults to false when not applicable.</value>
     public bool UseConvenientFeeRule { get; set; }
 
     }

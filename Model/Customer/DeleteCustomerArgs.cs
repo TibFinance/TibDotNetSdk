@@ -11,9 +11,9 @@ namespace Tib.Api.Model.Customer
     {
         
     /// <summary>
-    /// Serves as a unique identifier for each customer within the system.
+    /// Unique identifier of the customer owning the recurring transfers
     /// </summary>
-    /// <value>The 'CustomerId' is a unique, non-duplicable identifier that is assigned to each customer upon their creation. It functions as a primary key for all operations related to a specific customer.</value>
+    /// <value>A non‑null GUID that matches an existing customer record; used to correlate transfers with the correct account</value>
     public Guid CustomerId { get; set; }
 
     }

@@ -13,141 +13,141 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// Represents the merchant's unique name.
+    /// The name of the merchant associated with the transfer.
     /// </summary>
-    /// <value>This property holds a string value that uniquely identifies the merchant by name.</value>
+    /// <value>String, up to 100 characters; may be empty or null if the transfer has no merchant context.</value>
     public string MerchantName { get; set; }
 
     /// <summary>
-    /// Represents the name associated with the merchant's account.
+    /// The display name of the account involved in the transfer.
     /// </summary>
-    /// <value>Specifies the name of the merchant's account used for identification and transaction purposes.</value>
+    /// <value>String (max 100 chars); reflects the account's configured name, may include alphanumeric characters and spaces.</value>
     public string AccountName { get; set; }
 
     /// <summary>
-    /// Provides a secure representation of the account card number associated with a specific payment method.
+    /// A masked representation of the account linked to the payment method.
     /// </summary>
-    /// <value>The 'AccountPreview' property securely displays the account card number by masking certain digits, thereby safeguarding sensitive information.</value>
+    /// <value>String (max 34 chars) showing only the first and last few digits (e.g., '1234****5678'); empty if no account is associated.</value>
     public string AccountPreview { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for a merchant within an external system. This ID is crucial for integrating and synchronizing merchant data across different platforms.
+    /// Identifier of the external system that owns the merchant ID
     /// </summary>
-    /// <value>Serves as the external system identifier, linking the merchant to external databases or services.</value>
+    /// <value>String (max 50 chars), required, case‑sensitive; must match the external system's unique identifier used to locate merchants linked to that system</value>
     public string ExternalSystemId { get; set; }
 
     /// <summary>
-    /// Represents the external identity associated with a merchant within an external system.
+    /// Identifier of the external system group for the merchant lookup
     /// </summary>
-    /// <value>Serves as the identifier for the group in an external system, facilitating the integration and management of merchant data across platforms.</value>
+    /// <value>String (max 50 chars), required, case‑sensitive, must correspond to an existing external system group; scopes the search performed by GetMerchantsByExternalId</value>
     public string ExternalSystemGroupId { get; set; }
 
     /// <summary>
-    /// Defines the base currency utilized for bill creation by the merchant.
+    /// The currency in which the merchant conducts transactions.
     /// </summary>
-    /// <value>Specifies the currency in which the merchant operates, ensuring consistency in billing and transactions.</value>
+    /// <value>A value from CurrencyEnum (e.g., USD, EUR, GBP); reflects the merchant's base currency and is required for all monetary fields in the response.</value>
     public CurrencyEnum MerchantCurrency { get; set; }
 
     /// <summary>
-    /// Specifies the default language used by the merchant within the TIB Finance API. This setting is crucial for ensuring that all communications and operations are conducted in the preferred language of the merchant.
+    /// The language used for the merchant's displayed information
     /// </summary>
-    /// <value>Defines the language preference for the merchant.</value>
+    /// <value>Enum value from LanguageEnum (e.g., EN, DE, FR). Indicates the merchant's preferred language; may be omitted if not configured.</value>
     public LanguageEnum MerchantLanguage { get; set; }
 
     /// <summary>
-    /// Specifies the email address associated with the merchant.
+    /// The merchant's primary contact email address.
     /// </summary>
-    /// <value>Represents the merchant's email address, which is used for communication and identification purposes within the TIB Finance API.</value>
+    /// <value>A valid RFC 5322 email string, maximum 254 characters; may be null or omitted if no email is on record.</value>
     public string Email { get; set; }
 
     /// <summary>
-    /// Determines if the merchant is authorized to perform billing operations.
+    /// Indicates whether the caller is authorized to access the requested merchant data
     /// </summary>
-    /// <value>Returns <c>true</c> if the merchant is authorized; otherwise, returns <c>false</c>.</value>
+    /// <value>True if the external ID matches a merchant the caller has permission to view; false otherwise. Always present in the response.</value>
     public bool IsAuthorized { get; set; }
 
     /// <summary>
-    /// Specifies a list of email addresses, separated by semicolons, that will receive copies of emails sent to the merchant.
+    /// Email address(es) that receive a copy of the merchant's communications
     /// </summary>
-    /// <value>Represents the list of email addresses designated to receive email copies.</value>
+    /// <value>String, optional, may contain a single email or a comma‑separated list of valid email addresses; maximum length 256 characters</value>
     public string EmailCopyTo { get; set; }
 
     /// <summary>
-    /// Represents the phone number associated with the merchant.
+    /// The merchant's primary contact phone number.
     /// </summary>
-    /// <value>This property holds the phone number of the merchant, which is used for contact and verification purposes within the API.</value>
+    /// <value>String in E.164 format (e.g., +15551234567); may be null if not provided.</value>
     public string MerchantPhoneNumber { get; set; }
 
     /// <summary>
-    /// Represents the street address associated with a specific entity or location.
+    /// The billing street address of the cardholder for the credit card payment method.
     /// </summary>
-    /// <value>This property stores the street address information, which is crucial for identifying the physical location of an entity.</value>
+    /// <value>Required string, up to 100 characters, must be a valid street address; cannot contain line breaks or special characters beyond standard punctuation.</value>
     public string StreetAddress { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the city component of an address.
+    /// The city component of the billing address for the credit card.
     /// </summary>
-    /// <value>Represents the city part of an address, typically used in postal addresses.</value>
+    /// <value>String, required; max 50 characters; must contain only alphanumeric characters, spaces, hyphens, or periods.</value>
     public string AddressCity { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for a province or state within the system.
+    /// Identifier of the province or state for the billing address.
     /// </summary>
-    /// <value>This identifier is used to specify a particular province or state, facilitating region-specific operations.</value>
+    /// <value>Required input; must be a valid value from ProvinceStateIdEnum; case‑sensitive; corresponds to the jurisdiction of the cardholder's billing address; omit only if the selected country has no subdivisions.</value>
     public ProvinceStateIdEnum ProvinceStateId { get; set; }
 
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// Gets or sets the identifier of the country using the CountryIdEnum enumeration. This identifier is required when specifying the country for client, service, or merchant operations.
+    /// Identifier of the card‑issuing country for the payment method
     /// </summary>
-    /// <value>The current CountryIdEnum value representing the selected country.</value>
+    /// <value>Must be a valid CountryIdEnum value representing a supported country; required for all credit‑card payments and case‑sensitive.</value>
     public CountryIdEnum CountryId { get; set; }
 
     /// <summary>
-    /// Gets or sets the postal zip code for the address entity.
+    /// The postal ZIP code of the cardholder’s billing address.
     /// </summary>
-    /// <value>The postal zip code string stored in the object.</value>
+    /// <value>String, required; must match the postal code format of the cardholder’s country (e.g., 5‑digit US ZIP or alphanumeric international code), typically 3‑10 characters.</value>
     public string PostalZipCode { get; set; }
 
     /// <summary>
-    /// Gets or sets the account provider for the merchant or client account.
+    /// Identifies the external payment provider associated with the merchant.
     /// </summary>
-    /// <value>Specifies the external account provider. Acceptable values are defined in the ProviderEnum enumeration.</value>
+    /// <value>Enum defined by ProviderEnum (e.g., Stripe, PayPal, Square). Present only for merchants linked via an external ID; may be null if the provider is not applicable.</value>
     public ProviderEnum? AccountProvider { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the unique identifier for WhiteLabeling.
+    /// Identifier of the white‑label partner linked to the merchant, if any.
     /// </summary>
-    /// <value>This property represents the unique identifier for a WhiteLabeling entity within the TIB Finance system. It is crucial for distinguishing between different WhiteLabeling configurations.</value>
+    /// <value>Nullable GUID; present only when the merchant is part of a white‑label arrangement, otherwise null. Must be a valid UUID when provided.</value>
     public Nullable<Guid> WhiteLabelingId { get; set; }
 
     /// <summary>
-    /// Represents the status of the merchant boarding process within the system. This status is crucial for tracking the progress and completion of merchant onboarding.
+    /// Indicates the current onboarding state of the merchant identified by the external ID
     /// </summary>
-    /// <value>The BoardingStatus does not require additional input parameters and is utilized within the standard API call structure to determine the current state of merchant onboarding.</value>
+    /// <value>String value such as "Pending", "InReview", "Completed" or "Failed"; reflects the merchant's progress through TIB Finance's boarding workflow and is case‑sensitive.</value>
     public string BoardingStatus { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for the boarding information of a merchant. This ID is crucial for tracking and referencing the boarding status within the system.
+    /// Identifier of the boarding information linked to the merchant
     /// </summary>
-    /// <value>This property holds a GUID that uniquely identifies the boarding information associated with a merchant.</value>
+    /// <value>A valid GUID referencing the merchant's boarding information record; included only when such data exists</value>
     public Guid? BoardingInformationId { get; set; }
 
     /// <summary>
-    /// 
+    /// A list of boarding file records linked to the merchant identified by the external ID.
     /// </summary>
-    /// <value></value>
+    /// <value>Contains zero or more BoardingFileModel objects, each describing a file (e.g., name, type, upload date, status). Read‑only in the response; may be empty if no files are associated. The list size is limited by platform storage policies.</value>
     public List<BoardingFileModel> BoardingFiles { get; set; }
 
     }

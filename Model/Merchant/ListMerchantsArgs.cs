@@ -11,21 +11,21 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// Gets or sets whether to include client merchants in the results. Default is false (excludes client merchants for backward compatibility).
+    /// Specifies whether the response should include merchants linked to the requesting client.
     /// </summary>
-    /// <value>True to include client merchants, false to exclude them.</value>
+    /// <value>Boolean flag; true returns client‑associated merchants, false (default) excludes them. Must be provided as a bool; omitted defaults to false.</value>
     public bool IncludeClientMerchants { get; set; }
 
     }

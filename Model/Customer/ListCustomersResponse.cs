@@ -13,9 +13,9 @@ namespace Tib.Api.Model.Customer
     {
         
     /// <summary>
-    /// Represents a collection of all customers currently using a specific service.
+    /// A collection of customers that match the requested external identifier.
     /// </summary>
-    /// <value>This property is an enumerable collection of 'CustomerModel' instances, each instance representing a unique customer.</value>
+    /// <value>IEnumerable&lt;CustomerModel&gt; containing zero or more CustomerModel objects; each entry represents a distinct customer with the given external ID. The list may be empty if no matches are found and order is not guaranteed.</value>
     public IEnumerable<CustomerModel> Customers { get; set; }
 
     }

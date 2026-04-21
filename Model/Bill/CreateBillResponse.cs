@@ -11,9 +11,9 @@ namespace Tib.Api.Model.Bill
     {
         
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a bill.
+    /// Unique identifier of the bill to be paid
     /// </summary>
-    /// <value>Represents the unique identifier associated with a bill.</value>
+    /// <value>Guid referencing an existing, unpaid bill; must be a valid, non‑empty GUID and belong to the requesting account</value>
     public Guid BillId { get; set; }
 
     }

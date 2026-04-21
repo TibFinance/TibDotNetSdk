@@ -11,15 +11,15 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// Retrieves the numeric status code of an operation.
+    /// Indicates the result of the ListTransfers request
     /// </summary>
-    /// <value>The property holds an integer that identifies the current status of the operation.</value>
+    /// <value>Integer status code where 0 = success; non‑zero values represent specific error conditions as defined in the API error code table.</value>
     public OperationStatusEnum OperationStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the result of a banking operation as defined by the BankingOperationResultEnum.
+    /// Indicates the outcome of the banking operation for each listed transfer
     /// </summary>
-    /// <value>The value indicating the outcome of the banking operation.</value>
+    /// <value>Enum values (e.g., SUCCESS, FAILED, PENDING, REJECTED). Returned for every transfer; never null. Reflects the final processing status as recorded by the banking system.</value>
     public BankingOperationResultEnum BankingOperationResult { get; set; }
 
     /// <summary>
@@ -29,15 +29,15 @@ namespace Tib.Api.Financial
     public string BankingOperationDescription { get; set; }
 
     /// <summary>
-    /// 
+    /// Identifies the category of the service provider for the requested service
     /// </summary>
-    /// <value></value>
+    /// <value>Returns a ProviderEnum value (e.g., BANK, BROKER, PAYMENT_GATEWAY). Must be one of the defined enum members; case‑sensitive and always present in the GetService response.</value>
     public ProviderEnum ProviderType { get; set; }
 
     /// <summary>
-    /// Gets or sets the description associated with a transaction.
+    /// A free‑form text describing the purpose or details of the transfer.
     /// </summary>
-    /// <value>A textual description that provides context or details about the transaction. The value must be a non‑null string.</value>
+    /// <value>Returned as a string; may be empty if no description was provided. Maximum length 255 characters; UTF‑8 encoded.</value>
     public string TransactionDescription { get; set; }
 
     /// <summary>

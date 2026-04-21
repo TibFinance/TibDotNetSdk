@@ -11,87 +11,87 @@ namespace Tib.Api.Model.FreeModeOperation
     {
         
     /// <summary>
-    /// Gets or sets the unique identifier of a free‑collection operation. This GUID is assigned by TIB Finance when a free operation is created and is required to reference the operation in subsequent API calls.
+    /// Unique identifier of this free collection.
     /// </summary>
-    /// <value>A GUID that uniquely identifies a free collection operation within the TIB Finance system.</value>
+    /// <value></value>
     public Guid FreeCollectionId { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
-    /// Specifies the direction of the operation, indicating whether funds are being collected or deposited.
+    /// Indicates whether the listed transfer is inbound to or outbound from the queried account
     /// </summary>
-    /// <value>A TransferDirectionEnum value that represents the operation direction (Collect or Deposit).</value>
+    /// <value>Enum TransferDirectionEnum; possible values: INBOUND, OUTBOUND. Read‑only field present in every ListTransfers response item.</value>
     public TransferDirectionEnum OperationDirection { get; set; }
 
     /// <summary>
-    /// Specifies the category of a financial operation.
+    /// Specifies the category of the transfer operation returned by the API
     /// </summary>
-    /// <value>Indicates the type of operation, such as deposit, collection, fee, or other supported categories defined by the API.</value>
+    /// <value>One of the OperationKindEnum values (e.g., DEPOSIT, WITHDRAWAL, INTERNAL, EXTERNAL). Always present in the response and limited to the defined enum members.</value>
     public OperationKindEnum OperationKind { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// Gets or sets the monetary amount associated with an operation.
+    /// Dollar amount of the combined operation.
     /// </summary>
-    /// <value>The amount of the operation expressed in the transaction currency.</value>
+    /// <value></value>
     public decimal OperationAmount { get; set; }
 
     /// <summary>
-    /// Current processing state of a transaction or operation.
+    /// The current processing status of the transfer.
     /// </summary>
-    /// <value>Indicates the current status of the process using the ProcessStatusEnum values.</value>
+    /// <value>Read‑only enum (ProcessStatusEnum) indicating the latest state: Pending, InProgress, Completed, Failed, Cancelled, or Reversed. Returned only for transfers that have been processed.</value>
     public ProcessStatusEnum CurrentStatus { get; set; }
 
     /// <summary>
-    /// The date and time when the payment was created.
+    /// The date and time when the recurring transfer was initially created.
     /// </summary>
-    /// <value>A UTC DateTime indicating the exact moment the payment record was generated.</value>
+    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
     public DateTime CreatedDate { get; set; }
 
     /// <summary>
-    /// Represents the name associated with the merchant's account.
+    /// The display name of the account involved in the transfer.
     /// </summary>
-    /// <value>Specifies the name of the merchant's account used for identification and transaction purposes.</value>
+    /// <value>String (max 100 chars); reflects the account's configured name, may include alphanumeric characters and spaces.</value>
     public string AccountName { get; set; }
 
     /// <summary>
-    /// Gets or sets the reference identifier used to uniquely identify a transaction, operation, or entity within the TIB Finance system.
+    /// Unique identifier of the wallet information record returned by the service
     /// </summary>
-    /// <value>A string containing the unique reference identifier. The identifier follows the GUID format supplied by TIB Finance.</value>
+    /// <value>A GUID that uniquely correlates the response to the request; must be a valid UUID format and remains constant for the lifetime of the record</value>
     public string ReferenceId { get; set; }
 
     /// <summary>
-    /// Gets or sets the execution date and time of the transaction.
+    /// The timestamp when the transfer was executed.
     /// </summary>
-    /// <value>A DateTime value indicating when the transaction was executed, stored in UTC.</value>
+    /// <value>ISO‑8601 UTC datetime; present only for completed transfers, null for pending or failed ones.</value>
     public DateTime? ExecutedDate { get; set; }
 
     /// <summary>
-    /// Gets or sets the date and time when the transfer must be completed.
+    /// Scheduled execution date for the collection.
     /// </summary>
-    /// <value>The due date of the transfer represented as a UTC DateTime.</value>
+    /// <value></value>
     public DateTime? TransferDueDate { get; set; }
 
     /// <summary>
-    /// Identifies the type of payment method linked to a specific account.
+    /// The payment method type employed for the transfer.
     /// </summary>
-    /// <value>A unique identifier representing the type of the payment method.</value>
+    /// <value>A value from the PaymentMethodTypeEnum (e.g., CARD, BANK_ACCOUNT, WALLET). It identifies the source/destination method, is always present in the response, and must match one of the defined enum members.</value>
     public int PaymentMethodType { get; set; }
 
     }

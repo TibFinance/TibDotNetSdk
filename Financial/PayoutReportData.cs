@@ -24,9 +24,9 @@ namespace Tib.Api.Financial
     public string ExternalId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>

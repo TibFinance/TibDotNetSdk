@@ -12,51 +12,51 @@ namespace Tib.Api.Model.Supplier
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// 
+    /// Display name for the supplier (max 150 characters).
     /// </summary>
     /// <value></value>
     public string SupplierName { get; set; }
 
     /// <summary>
-    /// 
+    /// Email address of the supplier. Used for deduplication and login creation (max 250 characters).
     /// </summary>
     /// <value></value>
     public string SupplierEmail { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum Language { get; set; }
 
     /// <summary>
-    /// Specifies the bank account number associated with the payment method.
+    /// The bank account number used for the direct account payment.
     /// </summary>
-    /// <value>Gets or sets the account number. The value must be a non‑empty string with a maximum length of 20 characters.</value>
+    /// <value>String of digits only (no spaces or symbols), typically 8–34 characters, matching the format required by the selected bank; required input.</value>
     public string AccountNumber { get; set; }
 
     /// <summary>
-    /// Identifies the bank associated with the account using its numeric identifier.
+    /// The bank's identification number used for the direct account payment method.
     /// </summary>
-    /// <value>Holds the bank number as a string. The value must not exceed the allowed length.</value>
+    /// <value>String of up to 4 numeric characters, required, no spaces or special symbols.</value>
     public string BankNumber { get; set; }
 
     /// <summary>
-    /// Bank institution code identifying the financial institution for a transaction.
+    /// The bank's institution number identifying the financial institution for the direct account payment.
     /// </summary>
-    /// <value>The institution number as a string. It uniquely identifies the bank within the TIB Finance network and is required when specifying a merchant bank account.</value>
+    /// <value>String of exactly 3 numeric characters (e.g., "001"); required; must correspond to a valid institution in the TIB Finance network.</value>
     public string InstitutionNumber { get; set; }
 
     }

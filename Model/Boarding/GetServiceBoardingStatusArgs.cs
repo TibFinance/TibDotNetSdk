@@ -11,9 +11,9 @@ namespace Tib.Api.Model.Boarding
     {
         
     /// <summary>
-    /// The BoardingServiceId uniquely identifies a boarding service within the system. It is essential for tracking and managing the onboarding process of merchants.
+    /// Identifier of the boarding service whose status is being retrieved.
     /// </summary>
-    /// <value>This property holds a unique identifier in the form of a GUID, which is crucial for referencing specific boarding services.</value>
+    /// <value>Required GUID; must correspond to an existing boarding service; must be a valid, non‑empty GUID string.</value>
     public Guid BoardingServiceId { get; set; }
 
     }

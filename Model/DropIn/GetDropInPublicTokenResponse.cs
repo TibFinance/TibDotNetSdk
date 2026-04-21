@@ -12,9 +12,9 @@ namespace Tib.Api.Model.DropIn
     {
         
     /// <summary>
-    /// Gets or sets the identifier of the public token required to initiate a drop‑in session.
+    /// Generated public token identifier used to initialize the Drop-In payment form.
     /// </summary>
-    /// <value>A GUID that uniquely identifies the public token issued by TIB Finance.</value>
+    /// <value></value>
     public Guid PublicTokenId { get; set; }
 
     }

@@ -95,9 +95,9 @@ namespace Tib.Api.Financial
     public decimal TIBWarningLimitDaily { get; set; }
 
     /// <summary>
-    /// Specifies the operation category used throughout the API.
+    /// The kind of operation the transfer represents
     /// </summary>
-    /// <value>Represents the operation type defined in the OperationTypeEnum, enabling the system to differentiate between deposit, collection, fee, and other transaction flows.</value>
+    /// <value>Enum value from OperationTypeEnum (e.g., CREDIT, DEBIT, REVERSAL, etc.); always present in the ListTransfers response and defines the transfer direction or special action.</value>
     public AcpTransactionTypeEnum OperationType { get; set; }
 
     /// <summary>

@@ -12,9 +12,9 @@ namespace Tib.Api.Model.Service
     {
         
     /// <summary>
-    /// Retrieves or assigns the service associated with a merchant in the TIB Finance API. This property is crucial for managing service-related operations, including contract management and fee determination.
+    /// Specifies the TIB Finance service (e.g., payments, savings) for which transfers are being listed
     /// </summary>
-    /// <value>Represents the service entity linked to a merchant, encapsulating details necessary for API interactions.</value>
+    /// <value>String, required; must match one of the platform's supported service identifiers (case‑sensitive enum).</value>
     public ServiceWithMerchantModel Service { get; set; }
 
     }

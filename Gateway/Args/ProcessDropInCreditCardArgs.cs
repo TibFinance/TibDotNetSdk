@@ -12,9 +12,9 @@ namespace Tib.Api.Gateway.Args
     {
         
     /// <summary>
-    /// Manages all operations associated with credit card data.
+    /// Credit card data supplied to fund the payment
     /// </summary>
-    /// <value>Represents a distinct numerical identifier that corresponds to a specific credit card in the system.</value>
+    /// <value>Object containing cardNumber (16‑digit numeric, Luhn‑validated), expiryMonth (01‑12), expiryYear (YY or YYYY, not past), cvv (3‑4 digits), cardholderName (ASCII, ≤ 26 chars). Must be PCI‑DSS compliant: transmitted over TLS and stored only as a token. Supported schemes: Visa, MasterCard, Amex, Discover. All fields are required.</value>
     public CreditCardModel CreditCard { get; set; }
 
     }

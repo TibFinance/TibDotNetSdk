@@ -11,9 +11,9 @@ namespace Tib.Api.Model.FreeModeOperation
     {
         
     /// <summary>
-    /// Retrieves or assigns the identifier for a group of transactions.
+    /// Identifier of the transaction group created from the raw file import.
     /// </summary>
-    /// <value>Represents the unique identifier for a group of transactions.</value>
+    /// <value></value>
     public string TransactionsGroupId { get; set; }
 
     }

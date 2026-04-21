@@ -11,75 +11,75 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Specifies the execution mode used for processing a payment.
+    /// Specifies the processing flow type for the payment being created
     /// </summary>
-    /// <value>Indicates which payment flow is applied (e.g., AutoSelect, Anonymous, DirectDeposit, etc.).</value>
+    /// <value>Must be one of the PaymentFlowEnum values (e.g., ONE_TIME, RECURRING, SCHEDULED). Required; case‑sensitive. Determines how the payment is handled and any subsequent actions.</value>
     public PaymentFlowEnum PaymentFlow { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum? Language { get; set; }
 
     /// <summary>
-    /// Identifies the customer linked to this payment, when a customer relationship exists.
+    /// Identifier of the customer associated with the payment
     /// </summary>
-    /// <value>The unique GUID that references the associated customer record.</value>
+    /// <value>Must be a valid, non‑empty GUID that references an existing customer record in the system</value>
     public Guid? RelatedCustomerId { get; set; }
 
     /// <summary>
-    /// Specifies the due date for the payment. If the value is null, the system treats the due date as the current date and time.
+    /// The date by which the created payment must be settled.
     /// </summary>
-    /// <value>The date and time by which the payment must be completed.</value>
+    /// <value>ISO‑8601 DateTime (UTC). Must be a future date, not earlier than the current date, and cannot exceed the platform's maximum scheduling horizon.</value>
     public DateTime? DueDate { get; set; }
 
     /// <summary>
-    /// Defines the frequency at which transfers occur within the TIB Finance API.
+    /// Specifies how often the payment should be executed.
     /// </summary>
-    /// <value>This enumeration specifies the intervals for executing financial transfers, enabling precise scheduling and management of recurring transactions.</value>
+    /// <value>Accepts a TransferFrequencyEnum value (e.g., ONE_TIME, DAILY, WEEKLY, MONTHLY, YEARLY). Required for recurring payments; defaults to ONE_TIME if omitted.</value>
     public TransferFrequencyEnum TransferFrequency { get; set; }
 
     /// <summary>
-    /// Specifies the amount to be paid. The value must not exceed the sum of the associated bill amount and any previously recorded payments. If null, the system applies the remaining unpaid portion of the bill.
+    /// The monetary amount to be transferred in the transaction's currency.
     /// </summary>
-    /// <value>The monetary amount of the payment, expressed as a decimal number.</value>
+    /// <value>Decimal, required, must be greater than 0, limited to two fractional digits, and must not exceed the payer's available balance or any configured transaction limits.</value>
     public decimal? PaymentAmount { get; set; }
 
     /// <summary>
-    /// Identifies the customer payment method that is mandatory when the payment flow operates in forced mode.
+    /// Identifier of a specific customer payment method to force for this payment
     /// </summary>
-    /// <value>Guid of the forced customer payment method.</value>
+    /// <value>Guid of an existing payment method belonging to the customer; overrides the default selection. Must be a valid GUID and correspond to a payment method the customer can use. If omitted, the platform selects the appropriate method automatically.</value>
     public Guid? ForcedCustomerPaymentMethodId { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for a group within the TIB Finance API.
+    /// Identifier of the payment group to which the payment belongs
     /// </summary>
-    /// <value>The GroupId is used to uniquely identify and manage groups, ensuring precise operations within the API.</value>
+    /// <value>String, required, non‑empty, max 36 characters, must be a valid UUID/GUID if the system uses GUIDs</value>
     public string GroupId { get; set; }
 
     /// <summary>
-    /// External reference identifier supplied by the client to correlate the transaction with external systems.
+    /// A client‑provided identifier that uniquely references the payment in external systems.
     /// </summary>
-    /// <value>A free‑form alphanumeric string that uniquely identifies the transaction in the client’s external system.</value>
+    /// <value>String, up to 35 alphanumeric characters; must be unique per merchant per day; used for reconciliation and audit trails.</value>
     public string ExternalReferenceIdentification { get; set; }
 
     /// <summary>
-    /// 
+    /// Flags indicating which payment methods are authorized for the created payment
     /// </summary>
-    /// <value></value>
+    /// <value>Bitmask of AuthorizedPaymentMethodFlags; combine multiple methods using OR. Must include at least one supported method; unsupported flags cause validation error.</value>
     public AutorizedPaymentMethodFlags? AutorizedPaymentMethod { get; set; }
 
     /// <summary>
-    /// Indicates if the system must request the customer's consent prior to executing the payment.
+    /// Indicates whether the platform must request the customer's consent before processing the payment.
     /// </summary>
-    /// <value>Set to true to trigger a consent request; false skips the consent step.</value>
+    /// <value>Boolean; set to true to trigger a consent prompt (required for regulated or high‑value payments). Defaults to false if omitted.</value>
     public bool? AskForCustomerConsent { get; set; }
 
     /// <summary>
-    /// 
+    /// Specifies whether the new payment should be created as a deleted (soft‑deleted) record.
     /// </summary>
-    /// <value></value>
+    /// <value>Accepts true or false; typically must be false on creation—setting true may be ignored or rejected as the payment is not yet persisted.</value>
     public bool IsDeleted { get; set; }
 
     }

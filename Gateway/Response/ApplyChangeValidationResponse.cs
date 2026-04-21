@@ -13,7 +13,7 @@ namespace Tib.Api.Gateway.Response
     /// <summary>
     /// Gets or sets a value indicating whether [record is modify].
     /// </summary>
-    /// <value><c>true<c> if [record is modify]; otherwise, <c>false<c>.</value>
+    /// <value>&lt;c&gt;true&lt;c&gt; if [record is modify]; otherwise, &lt;c&gt;false&lt;c&gt;.</value>
     public bool RecordIsModify { get; set; }
 
     }

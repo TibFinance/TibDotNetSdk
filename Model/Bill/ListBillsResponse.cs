@@ -13,9 +13,9 @@ namespace Tib.Api.Model.Bill
     {
         
     /// <summary>
-    /// Provides a collection of bills filtered according to specified criteria. This collection is essential for managing and reviewing billing information within the system.
+    /// A collection of BillModel objects representing the bills returned by the ListBills call.
     /// </summary>
-    /// <value>Contains the list of bills that match the applied filter criteria.</value>
+    /// <value>IEnumerable&lt;BillModel&gt;; never null (empty collection if no bills); each BillModel includes fields such as Id, Amount, DueDate, Status, etc.</value>
     public IEnumerable<BillModel> Bills { get; set; }
 
     }

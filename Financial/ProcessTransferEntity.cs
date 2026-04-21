@@ -30,21 +30,21 @@ namespace Tib.Api.Financial
     public decimal TransactionAmount { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
-    /// Specifies the due date for the payment. If the value is null, the system treats the due date as the current date and time.
+    /// The date by which the created payment must be settled.
     /// </summary>
-    /// <value>The date and time by which the payment must be completed.</value>
+    /// <value>ISO‑8601 DateTime (UTC). Must be a future date, not earlier than the current date, and cannot exceed the platform's maximum scheduling horizon.</value>
     public DateTime DueDate { get; set; }
 
     /// <summary>
-    /// Gets or sets the description associated with a transaction.
+    /// A free‑form text describing the purpose or details of the transfer.
     /// </summary>
-    /// <value>A textual description that provides context or details about the transaction. The value must be a non‑null string.</value>
+    /// <value>Returned as a string; may be empty if no description was provided. Maximum length 255 characters; UTF‑8 encoded.</value>
     public string TransactionDescription { get; set; }
 
     /// <summary>
@@ -54,15 +54,15 @@ namespace Tib.Api.Financial
     public AcpOperationTypeEnum AcpOperationType { get; set; }
 
     /// <summary>
-    /// Indicates the direction of an Interac transaction.
+    /// Gets or sets the transfer direction.
     /// </summary>
-    /// <value>Use 1 for Collect (merchant receives funds from the customer) or 2 for Deposit (merchant sends funds to the customer).</value>
+    /// <value>The transfer direction.</value>
     public TransferDirectionEnum TransferDirection { get; set; }
 
     /// <summary>
-    /// Gets or sets the favorite provider.
+    /// The merchant's preferred payment provider.
     /// </summary>
-    /// <value>The favorite provider.</value>
+    /// <value>Must be a valid ProviderEnum value representing a supported provider; case‑sensitive and required for processing the merchant's basic info.</value>
     public Guid? FavoriteProvider { get; set; }
 
     /// <summary>
@@ -84,9 +84,9 @@ namespace Tib.Api.Financial
     public string AlreadyProcessedProviderAdditionalInfos { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum Language { get; set; }
 
     /// <summary>
@@ -102,21 +102,21 @@ namespace Tib.Api.Financial
     public string ProviderSubType { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// 
+    /// Identifies the category of the service provider for the requested service
     /// </summary>
-    /// <value></value>
+    /// <value>Returns a ProviderEnum value (e.g., BANK, BROKER, PAYMENT_GATEWAY). Must be one of the defined enum members; case‑sensitive and always present in the GetService response.</value>
     public ProviderEnum ProviderType { get; set; }
 
     /// <summary>
-    /// Identifies the specific transfer operation that needs to be reverted.
+    /// Unique identifier of the wallet adjustment transaction
     /// </summary>
-    /// <value>This identifier is used to specify which failed transfer operation should be targeted for a retry process.</value>
+    /// <value>System‑generated GUID (UUID v4) returned in the response; immutable, required for tracking and correlation of the adjustment</value>
     public Guid? TransferId { get; set; }
 
     /// <summary>

@@ -12,9 +12,9 @@ namespace Tib.Api.Model.General
     {
         
     /// <summary>
-    /// The SessionId property serves as a unique identifier for each user session, encapsulated as a Guid, facilitating a secure and personalized user experience.
+    /// Unique identifier for the newly created session
     /// </summary>
-    /// <value>The SessionId property denotes a unique identifier, expressed as a Guid, assigned to each user session, thereby ensuring its distinctiveness and security.</value>
+    /// <value>A 128‑bit GUID returned in the response; required for all subsequent authenticated API calls</value>
     public Guid SessionId { get; set; }
 
     }

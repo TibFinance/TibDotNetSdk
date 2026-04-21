@@ -11,27 +11,27 @@ namespace Tib.Api.Model.Bill
     {
         
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// Specifies the starting date and time for filtering data.
+    /// The start of the date‑time range for which bills are returned.
     /// </summary>
-    /// <value>Defines the initial point in time from which data is filtered.</value>
+    /// <value>Must be a valid ISO‑8601 DateTime (UTC preferred), inclusive, and cannot be later than the ToDateTime parameter.</value>
     public DateTime? FromDateTime { get; set; }
 
     /// <summary>
-    /// Converts a specified date filter to a DateTime object.
+    /// Upper bound of the billing period for which bills are retrieved.
     /// </summary>
-    /// <value>This function processes a given date filter and returns its equivalent DateTime representation.</value>
+    /// <value>ISO‑8601 DateTime (UTC). Must be greater than or equal to FromDateTime; inclusive. If omitted defaults to the current date.</value>
     public DateTime? ToDateTime { get; set; }
 
     }

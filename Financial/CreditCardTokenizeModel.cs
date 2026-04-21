@@ -18,13 +18,13 @@ namespace Tib.Api.Financial
     /// <summary>
     /// Returns true if ... is valid.
     /// </summary>
-    /// <value><c>true<c> if this instance is valid; otherwise, <c>false<c>.</value>
+    /// <value>true if this instance is valid; otherwise, false.</value>
     public bool IsValid { get; set; }
 
     /// <summary>
-    /// The ErrorMessage property provides a textual description of any error encountered during the execution of a function or process.
+    /// Human‑readable description of the error that occurred while creating the payment
     /// </summary>
-    /// <value>This property contains a string that details the nature of the error, aiding in debugging and error handling.</value>
+    /// <value>String returned only on failure; may be empty or null on success. Contains the API‑generated error message, up to 512 characters, suitable for logging or display to end users.</value>
     public string ErrorMessage { get; set; }
 
     }

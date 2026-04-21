@@ -13,57 +13,57 @@ namespace Tib.Api.Model.PaymentMethod
     {
         
     /// <summary>
-    /// Acts as a unique identifier for a distinct payment method.
+    /// Identifier of the payment method to be set as the default for the account
     /// </summary>
-    /// <value>This unique identifier, or token, is specifically associated with a single payment method.</value>
+    /// <value>Must be a valid, non‑empty GUID referencing an existing, active payment method owned by the caller; cannot be null or belong to another tenant.</value>
     public Guid PaymentMethodId { get; set; }
 
     /// <summary>
-    /// Determines if the customer's payment method is set as the default for automatic transactions.
+    /// Indicates whether this payment method is configured as the customer's automatic payment method.
     /// </summary>
-    /// <value>This property returns a boolean value. It yields 'true' if the customer's payment method is configured for automatic transactions, and 'false' otherwise.</value>
+    /// <value>True if the method will be used for automatic payments, false otherwise. Only applicable to payment methods that support auto‑pay; the flag is read‑only in this response.</value>
     public bool IsCustomerAutomaticPaymentMethod { get; set; }
 
     /// <summary>
-    /// Identifies the type of payment method linked to a specific account.
+    /// The payment method type employed for the transfer.
     /// </summary>
-    /// <value>A unique identifier representing the type of the payment method.</value>
+    /// <value>A value from the PaymentMethodTypeEnum (e.g., CARD, BANK_ACCOUNT, WALLET). It identifies the source/destination method, is always present in the response, and must match one of the defined enum members.</value>
     public PaymentMethodTypeEnum PaymentMethodType { get; set; }
 
     /// <summary>
-    /// Provides a detailed description of the payment method for easy identification.
+    /// Descriptive name of the payment method used for the transfer.
     /// </summary>
-    /// <value>The 'PaymentMethodDescription' property stores a descriptive string that offers a comprehensive understanding of the specific payment method.</value>
+    /// <value>Human‑readable string (e.g., "Bank Transfer", "Credit Card", "SEPA"); up to 100 characters; may be null if the method is not applicable.</value>
     public string PaymentMethodDescription { get; set; }
 
     /// <summary>
-    /// Provides a secure representation of the account card number associated with a specific payment method.
+    /// A masked representation of the account linked to the payment method.
     /// </summary>
-    /// <value>The 'AccountPreview' property securely displays the account card number by masking certain digits, thereby safeguarding sensitive information.</value>
+    /// <value>String (max 34 chars) showing only the first and last few digits (e.g., '1234****5678'); empty if no account is associated.</value>
     public string AccountPreview { get; set; }
 
     /// <summary>
-    /// Handles the extraction or assignment of a particular entity's expiration date.
+    /// The date and time when the payment method expires.
     /// </summary>
-    /// <value>Denotes the expiration date of a specific entity, represented as a DateTime object.</value>
+    /// <value>ISO‑8601 UTC timestamp; may be null for perpetual methods; must be a future date at the time of retrieval.</value>
     public DateTime? ExpirationDate { get; set; }
 
     /// <summary>
-    /// The 'Owner' property is designed to assign and identify the ownership of a specific resource or object within the system.
+    /// Identifier of the entity that owns the payment method.
     /// </summary>
-    /// <value>The 'Owner' property holds a unique string value that signifies the identifier of the owner, ensuring distinct representation within the system.</value>
+    /// <value>String, non‑empty, typically a UUID or account ID representing the user or merchant; immutable for the lifetime of the method.</value>
     public string Owner { get; set; }
 
     /// <summary>
-    /// 
+    /// The type of credit card used for the payment (e.g., Visa, MasterCard).
     /// </summary>
-    /// <value></value>
+    /// <value>String; returned only for credit‑card payment methods. Expected values include Visa, MasterCard, Amex, Discover, etc. Case‑insensitive but typically capitalized.</value>
     public string CcType { get; set; }
 
     /// <summary>
-    /// Fetches a list of merchants who are preauthorized for a Preauthorized Payment Agreement (PPA) on a specified payment method.
+    /// List of merchants (ID and name) that are pre‑authorized to use this payment method.
     /// </summary>
-    /// <value>This property encapsulates a list of merchant identifiers and corresponding names that have received preauthorization for PPA.</value>
+    /// <value>Read‑only array of MerchantIdName objects; may be empty if no merchants are pre‑authorized. Each entry contains a unique merchant identifier and its display name.</value>
     public List<MerchantIdName> PreauthorizedMerchants { get; set; }
 
     }

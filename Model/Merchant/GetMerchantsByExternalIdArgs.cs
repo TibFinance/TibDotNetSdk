@@ -11,15 +11,15 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Represents the unique identifier for a merchant within an external system. This ID is crucial for integrating and synchronizing merchant data across different platforms.
+    /// Identifier of the external system that owns the merchant ID
     /// </summary>
-    /// <value>Serves as the external system identifier, linking the merchant to external databases or services.</value>
+    /// <value>String (max 50 chars), required, case‑sensitive; must match the external system's unique identifier used to locate merchants linked to that system</value>
     public string ExternalSystemId { get; set; }
 
     /// <summary>
-    /// Represents the external identity associated with a merchant within an external system.
+    /// Identifier of the external system group for the merchant lookup
     /// </summary>
-    /// <value>Serves as the identifier for the group in an external system, facilitating the integration and management of merchant data across platforms.</value>
+    /// <value>String (max 50 chars), required, case‑sensitive, must correspond to an existing external system group; scopes the search performed by GetMerchantsByExternalId</value>
     public string ExternalSystemGroupId { get; set; }
 
     }

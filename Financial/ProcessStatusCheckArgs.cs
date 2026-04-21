@@ -13,9 +13,9 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// Gets or sets the collection of transaction details associated with the operation.
+    /// A list of transfer records returned by the ListTransfers call.
     /// </summary>
-    /// <value>Represents the list of TransactionCommon objects that describe each transaction performed within the operation.</value>
+    /// <value>Contains zero or more TransactionCommon objects, ordered by most recent transfer first; each object includes the standard transaction fields (id, amount, currency, status, timestamps, etc.). The list size respects the request's pagination limits and may be empty if no transfers match the query.</value>
     public List<TransactionIdentity> Transactions { get; set; }
 
     /// <summary>

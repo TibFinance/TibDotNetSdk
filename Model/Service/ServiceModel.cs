@@ -11,21 +11,21 @@ namespace Tib.Api.Model.Service
     {
         
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the unique identifier for WhiteLabeling.
+    /// Identifier of the white‑label partner linked to the merchant, if any.
     /// </summary>
-    /// <value>This property represents the unique identifier for a WhiteLabeling entity within the TIB Finance system. It is crucial for distinguishing between different WhiteLabeling configurations.</value>
+    /// <value>Nullable GUID; present only when the merchant is part of a white‑label arrangement, otherwise null. Must be a valid UUID when provided.</value>
     public Nullable<Guid> WhiteLabelingId { get; set; }
 
     /// <summary>
-    /// Gets or sets a value indicating whether this service has a completed boarding (status 13 = approved).
+    /// Indicates whether the service has finished its onboarding process.
     /// </summary>
-    /// <value><c>true<c> if the service has at least one merchant with completed boarding; otherwise, <c>false<c>.</value>
+    /// <value>True when all required boarding steps are completed; false otherwise. Read‑only, always present in the GetService response.</value>
     public bool HasCompletedBoarding { get; set; }
 
     }

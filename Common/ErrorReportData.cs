@@ -10,21 +10,21 @@ namespace Tib.Api.Common
     {
         
     /// <summary>
-    /// Provides a detailed explanation of the function's purpose and usage within the API.
+    /// Human‑readable description of the transfer
     /// </summary>
-    /// <value>This property offers a comprehensive description of how the function interacts with the API, detailing its role in retrieving customer data associated with a merchant account.</value>
+    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public String Description { get; set; }
 
     /// <summary>
-    /// Represents the name associated with the merchant's account.
+    /// The display name of the account involved in the transfer.
     /// </summary>
-    /// <value>Specifies the name of the merchant's account used for identification and transaction purposes.</value>
+    /// <value>String (max 100 chars); reflects the account's configured name, may include alphanumeric characters and spaces.</value>
     public String AccountName { get; set; }
 
     /// <summary>
-    /// Represents the merchant's unique name.
+    /// The name of the merchant associated with the transfer.
     /// </summary>
-    /// <value>This property holds a string value that uniquely identifies the merchant by name.</value>
+    /// <value>String, up to 100 characters; may be empty or null if the transfer has no merchant context.</value>
     public String MerchantName { get; set; }
 
     /// <summary>
@@ -46,15 +46,15 @@ namespace Tib.Api.Common
     public DateTime TransactionDate2 { get; set; }
 
     /// <summary>
-    /// The date and time when the payment was created.
+    /// The date and time when the recurring transfer was initially created.
     /// </summary>
-    /// <value>A UTC DateTime indicating the exact moment the payment record was generated.</value>
+    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
     public DateTime CreatedDate { get; set; }
 
     /// <summary>
-    /// Gets or sets the execution date and time of the transaction.
+    /// The timestamp when the transfer was executed.
     /// </summary>
-    /// <value>A DateTime value indicating when the transaction was executed, stored in UTC.</value>
+    /// <value>ISO‑8601 UTC datetime; present only for completed transfers, null for pending or failed ones.</value>
     public Nullable<DateTime> ExecutedDate { get; set; }
 
     /// <summary>
@@ -64,9 +64,9 @@ namespace Tib.Api.Common
     public String TransactionDate { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal Amount { get; set; }
 
     /// <summary>

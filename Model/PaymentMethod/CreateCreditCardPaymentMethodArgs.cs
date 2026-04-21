@@ -13,45 +13,45 @@ namespace Tib.Api.Model.PaymentMethod
     {
         
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
-    /// Serves as a unique identifier for each customer within the system.
+    /// Unique identifier of the customer owning the recurring transfers
     /// </summary>
-    /// <value>The 'CustomerId' is a unique, non-duplicable identifier that is assigned to each customer upon their creation. It functions as a primary key for all operations related to a specific customer.</value>
+    /// <value>A non‑null GUID that matches an existing customer record; used to correlate transfers with the correct account</value>
     public Guid CustomerId { get; set; }
 
     /// <summary>
-    /// Determines if the customer's payment method is set as the default for automatic transactions.
+    /// Indicates whether this payment method is configured as the customer's automatic payment method.
     /// </summary>
-    /// <value>This property returns a boolean value. It yields 'true' if the customer's payment method is configured for automatic transactions, and 'false' otherwise.</value>
+    /// <value>True if the method will be used for automatic payments, false otherwise. Only applicable to payment methods that support auto‑pay; the flag is read‑only in this response.</value>
     public bool IsCustomerAutomaticPaymentMethod { get; set; }
 
     /// <summary>
-    /// Manages all operations associated with credit card data.
+    /// Credit card data supplied to fund the payment
     /// </summary>
-    /// <value>Represents a distinct numerical identifier that corresponds to a specific credit card in the system.</value>
+    /// <value>Object containing cardNumber (16‑digit numeric, Luhn‑validated), expiryMonth (01‑12), expiryYear (YY or YYYY, not past), cvv (3‑4 digits), cardholderName (ASCII, ≤ 26 chars). Must be PCI‑DSS compliant: transmitted over TLS and stored only as a token. Supported schemes: Visa, MasterCard, Amex, Discover. All fields are required.</value>
     public CreditCardModel CreditCard { get; set; }
 
     /// <summary>
-    /// Specifies the name of the card owner.
+    /// Name of the cardholder as printed on the credit card
     /// </summary>
-    /// <value>Represents the name of the individual who owns the credit card. This information is crucial for validating and processing transactions.</value>
+    /// <value>Required string, up to 100 characters, alphabetic characters and spaces only; must match the card's billing name</value>
     public string CardOwner { get; set; }
 
     /// <summary>
-    /// For ZipCode only situation, not full address
+    /// Postal code of the cardholder's billing address
     /// </summary>
-    /// <value></value>
+    /// <value>String, required; alphanumeric, up to 10 characters; must match the format expected by the issuing country (e.g., 5‑digit or ZIP+4 for US).</value>
     public string ZipCode { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum? Language { get; set; }
 
     }

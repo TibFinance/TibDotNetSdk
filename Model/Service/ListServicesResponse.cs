@@ -13,15 +13,15 @@ namespace Tib.Api.Model.Service
     {
         
     /// <summary>
-    /// Retrieves or assigns the collection of services associated with a client.
+    /// A collection of ServiceModel objects representing the services available to the caller.
     /// </summary>
-    /// <value>This property represents a collection of services linked to a client account within the TIB Finance system. It is used to manage and access various service contracts that a client may have with TIB Finance.</value>
+    /// <value>IEnumerable&lt;ServiceModel&gt;; may be empty; each item includes service ID, name, description, status, and related metadata. No duplicate entries; ordered as defined by the platform.</value>
     public IEnumerable<ServiceModel> Services { get; set; }
 
     /// <summary>
-    /// 
+    /// Indicates whether client approbation was bypassed for the listed service.
     /// </summary>
-    /// <value></value>
+    /// <value>True means the service was provided without the usual client approval step; false means standard client approbation applied. Read‑only, defaults to false, and is only relevant for services that support optional approbation.</value>
     public bool SkipClientApprobation { get; set; }
 
     }

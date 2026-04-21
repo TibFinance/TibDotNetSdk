@@ -11,15 +11,15 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a bill.
+    /// Unique identifier of the bill to be paid
     /// </summary>
-    /// <value>Represents the unique identifier associated with a bill.</value>
+    /// <value>Guid referencing an existing, unpaid bill; must be a valid, non‑empty GUID and belong to the requesting account</value>
     public Guid BillId { get; set; }
 
     }

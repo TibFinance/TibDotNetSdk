@@ -11,15 +11,15 @@ namespace Tib.Api.Gateway.Args
     {
         
     /// <summary>
-    /// Acts as a unique identifier for a distinct payment method.
+    /// Identifier of the payment method to be set as the default for the account
     /// </summary>
-    /// <value>This unique identifier, or token, is specifically associated with a single payment method.</value>
+    /// <value>Must be a valid, non‑empty GUID referencing an existing, active payment method owned by the caller; cannot be null or belong to another tenant.</value>
     public Guid PaymentMethodId { get; set; }
 
     /// <summary>
-    /// Indicates if the system must request the customer's consent prior to executing the payment.
+    /// Indicates whether the platform must request the customer's consent before processing the payment.
     /// </summary>
-    /// <value>Set to true to trigger a consent request; false skips the consent step.</value>
+    /// <value>Boolean; set to true to trigger a consent prompt (required for regulated or high‑value payments). Defaults to false if omitted.</value>
     public bool? AskForCustomerConsent { get; set; }
 
     }

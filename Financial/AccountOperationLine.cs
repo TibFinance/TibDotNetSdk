@@ -23,9 +23,9 @@ namespace Tib.Api.Financial
     public string OperationDescription { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal? Amount { get; set; }
 
     /// <summary>

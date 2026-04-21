@@ -12,15 +12,15 @@ namespace Tib.Api.Model.Bill
     {
         
     /// <summary>
-    /// Represents the data required to create a new bill in the TIB Finance system.
+    /// The bill details to be created by the CreateBill method.
     /// </summary>
-    /// <value>Encapsulates all bill attributes such as client identifier, amount, currency, due date, and descriptive metadata.</value>
+    /// <value>Must be a non‑null BillEntity containing all required fields (e.g., amount, currency, dueDate, payerId). Values must pass validation rules: amount &gt; 0, dueDate in the future, and identifiers must reference existing entities.</value>
     public BillEntity BillData { get; set; }
 
     /// <summary>
-    /// Determines whether the function should return an error if the merchant has not been authorized. This boolean property ensures that unauthorized merchants are not processed further.
+    /// Indicates whether bill creation should abort if the merchant has never been authorized.
     /// </summary>
-    /// <value>No specific input value is required for this property.</value>
+    /// <value>Boolean flag; true stops the operation when the merchant lacks prior authorization, false proceeds. Defaults to false if omitted.</value>
     public bool BreakIfMerchantNeverBeenAuthorized { get; set; }
 
     }

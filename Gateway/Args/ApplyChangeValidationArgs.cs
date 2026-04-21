@@ -19,7 +19,7 @@ namespace Tib.Api.Gateway.Args
     /// <summary>
     /// Gets or sets a value indicating whether [change approved].
     /// </summary>
-    /// <value><c>true<c> if [change approved]; otherwise, <c>false<c>.</value>
+    /// <value>&lt;c&gt;true&lt;c&gt; if [change approved]; otherwise, &lt;c&gt;false&lt;c&gt;.</value>
     public bool ChangeApproved { get; set; }
 
     }

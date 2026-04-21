@@ -373,9 +373,9 @@ namespace Tib.Api.Gateway.Args
     public string BankName { get; set; }
 
     /// <summary>
-    /// Identifies the bank associated with the account using its numeric identifier.
+    /// The bank's identification number used for the direct account payment method.
     /// </summary>
-    /// <value>Holds the bank number as a string. The value must not exceed the allowed length.</value>
+    /// <value>String of up to 4 numeric characters, required, no spaces or special symbols.</value>
     public string BankNumber { get; set; }
 
     /// <summary>

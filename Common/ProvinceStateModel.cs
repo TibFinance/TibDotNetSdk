@@ -11,9 +11,9 @@ namespace Tib.Api.Common
     {
         
     /// <summary>
-    /// Gets or sets the identifier of the country using the CountryIdEnum enumeration. This identifier is required when specifying the country for client, service, or merchant operations.
+    /// Identifier of the card‑issuing country for the payment method
     /// </summary>
-    /// <value>The current CountryIdEnum value representing the selected country.</value>
+    /// <value>Must be a valid CountryIdEnum value representing a supported country; required for all credit‑card payments and case‑sensitive.</value>
     public CountryIdEnum CountryId { get; set; }
 
     /// <summary>
@@ -23,9 +23,9 @@ namespace Tib.Api.Common
     public string CountryAbreviation { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for a province or state within the system.
+    /// Identifier of the province or state for the billing address.
     /// </summary>
-    /// <value>This identifier is used to specify a particular province or state, facilitating region-specific operations.</value>
+    /// <value>Required input; must be a valid value from ProvinceStateIdEnum; case‑sensitive; corresponds to the jurisdiction of the cardholder's billing address; omit only if the selected country has no subdivisions.</value>
     public ProvinceStateIdEnum ProvinceStateId { get; set; }
 
     /// <summary>

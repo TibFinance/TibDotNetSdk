@@ -12,81 +12,81 @@ namespace Tib.Api.Model.DropIn
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// Serves as a unique identifier for each customer within the system.
+    /// Unique identifier of the customer owning the recurring transfers
     /// </summary>
-    /// <value>The 'CustomerId' is a unique, non-duplicable identifier that is assigned to each customer upon their creation. It functions as a primary key for all operations related to a specific customer.</value>
+    /// <value>A non‑null GUID that matches an existing customer record; used to correlate transfers with the correct account</value>
     public Guid? CustomerId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a bill.
+    /// Unique identifier of the bill to be paid
     /// </summary>
-    /// <value>Represents the unique identifier associated with a bill.</value>
+    /// <value>Guid referencing an existing, unpaid bill; must be a valid, non‑empty GUID and belong to the requesting account</value>
     public Guid? BillId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public Decimal Amount { get; set; }
 
     /// <summary>
-    /// Defines and manages the type of transfer operation within the system.
+    /// Indicates the category of the recurring transfer (e.g., inbound, outbound, internal).
     /// </summary>
-    /// <value>Specifies the category of the transfer, determining its processing logic and applicable rules.</value>
+    /// <value>Enum TransferTypeEnum; possible values: INBOUND, OUTBOUND, INTERNAL. Returned in uppercase; null if not applicable.</value>
     public TransferTypeEnum TransferType { get; set; }
 
     /// <summary>
-    /// Specifies the payment method flags that are authorized for the Drop‑In session.
+    /// Restrict which payment methods are available in the Drop-In interface.
     /// </summary>
-    /// <value>Flags indicating which payment methods the Drop‑In UI may present to the customer.</value>
+    /// <value></value>
     public AutorizedPaymentMethodFlags DropInAuthorizedPaymentMethod { get; set; }
 
     /// <summary>
-    /// Gets or sets the external reference number used to link this entity with an external system or business process.
+    /// External system reference number to associate with the Drop-In payment.
     /// </summary>
-    /// <value>The external reference number associated with the entity.</value>
+    /// <value></value>
     public string ExternalReferenceNumber { get; set; }
 
     /// <summary>
-    /// Specifies whether the API request should include the customer's existing payment methods in the response.
+    /// Whether to display the customer's previously saved payment methods in the Drop-In.
     /// </summary>
-    /// <value>True to include the customer's existing payment methods; false to exclude them.</value>
+    /// <value></value>
     public bool ShowCustomerExistingPaymentMethods { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum Language { get; set; }
 
     /// <summary>
-    /// Specifies the lifetime of the public token in days.
+    /// Number of days before the Drop-In token expires.
     /// </summary>
-    /// <value>An integer representing how many days the token remains valid after issuance.</value>
+    /// <value></value>
     public int ExpirationDays { get; set; }
 
     /// <summary>
-    /// Gets or sets the title that identifies the object in a human‑readable way.
+    /// Title displayed on the Drop-In payment form.
     /// </summary>
-    /// <value>A short, descriptive string displayed in user interfaces and reports.</value>
+    /// <value></value>
     public string Title { get; set; }
 
     /// <summary>
-    /// Provides a detailed explanation of the function's purpose and usage within the API.
+    /// Human‑readable description of the transfer
     /// </summary>
-    /// <value>This property offers a comprehensive description of how the function interacts with the API, detailing its role in retrieving customer data associated with a merchant account.</value>
+    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public string Description { get; set; }
 
     /// <summary>
-    /// Gets or sets the due date for a payment.
+    /// Scheduled due date for the payment created via Drop-In.
     /// </summary>
-    /// <value>The date and time when the payment must be completed, expressed in UTC.</value>
+    /// <value></value>
     public DateTime? PaymentDueDate { get; set; }
 
     }

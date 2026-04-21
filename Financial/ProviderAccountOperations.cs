@@ -13,9 +13,9 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// Gets or sets the type of the provider.
+    /// Identifies the category of the service provider for the requested service
     /// </summary>
-    /// <value>The type of the provider.</value>
+    /// <value>Returns a ProviderEnum value (e.g., BANK, BROKER, PAYMENT_GATEWAY). Must be one of the defined enum members; case‑sensitive and always present in the GetService response.</value>
     public ProviderEnum ProviderType { get; set; }
 
     /// <summary>

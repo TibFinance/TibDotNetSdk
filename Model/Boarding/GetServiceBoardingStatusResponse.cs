@@ -13,15 +13,15 @@ namespace Tib.Api.Model.Boarding
     {
         
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// Provides access to a collection of merchants who have successfully completed the onboarding process. This list is crucial for tracking and managing the status of merchant onboarding within the system.
+    /// List of merchants and their boarding details for the requested service.
     /// </summary>
-    /// <value>This property does not require additional parameters beyond the standard API call structure.</value>
+    /// <value>Array of BoardingServiceMerchant objects; may be empty if no merchants are associated. Each entry contains merchantId, boardingStatus, and relevant timestamps. Read‑only; order not guaranteed.</value>
     public List<BoardingServiceMerchant> BoardingServiceMerchants { get; set; }
 
     }

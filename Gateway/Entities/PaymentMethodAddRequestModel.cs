@@ -16,9 +16,9 @@ namespace Tib.Api.Gateway.Entities
     {
         
     /// <summary>
-    /// This property holds the basic information necessary for creating or updating a merchant's account within the TIB Finance API system.
+    /// Basic merchant details required for creating or updating a merchant record
     /// </summary>
-    /// <value>Contains essential details about the merchant.</value>
+    /// <value>Object of type MerchantModelBasicInfo; must not be null and must contain all required fields (e.g., merchantName, taxId, contactEmail). Field lengths and formats follow the MerchantModelBasicInfo schema; optional fields may be omitted.</value>
     public MerchantViewModel MerchantInfo { get; set; }
 
     /// <summary>

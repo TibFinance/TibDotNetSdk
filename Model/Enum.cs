@@ -25,19 +25,19 @@ Deposit = 2,
       public enum AccountTypeEnum {
 
     /// <summary>
-/// 
+/// Personal checking account.
 /// </summary>
 CustomerChecking = 1,
 /// <summary>
-/// 
+/// Personal savings account.
 /// </summary>
 CustomerSaving = 2,
 /// <summary>
-/// 
+/// Business or corporate checking account.
 /// </summary>
 CorporateChecking = 3,
 /// <summary>
-/// 
+/// Business or corporate savings account.
 /// </summary>
 CorporateSaving = 4,
 }
@@ -595,39 +595,39 @@ Back = 2,
       public enum BoardingStatusEnum {
 
     /// <summary>
-/// 
+/// No boarding status set.
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// 
+/// Boarding application started but not yet submitted.
 /// </summary>
 Draft = 1,
 /// <summary>
-/// 
+/// Application submitted for review.
 /// </summary>
 Submit = 11,
 /// <summary>
-/// 
+/// Application currently under review.
 /// </summary>
 InReview = 12,
 /// <summary>
-/// 
+/// Boarding completed and approved.
 /// </summary>
 Completed = 13,
 /// <summary>
-/// 
+/// Application failed validation.
 /// </summary>
 ValidationError = 21,
 /// <summary>
-/// 
+/// Additional documents are required.
 /// </summary>
 DocumentsRequired = 22,
 /// <summary>
-/// 
+/// Application was rejected.
 /// </summary>
 Rejected = 23,
 /// <summary>
-/// 
+/// Additional documents submitted, awaiting re-review.
 /// </summary>
 DocumentsSubmitted = 24,
 }
@@ -692,31 +692,31 @@ Unkown = -1,
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// 
+/// Corporation (Societe par actions).
 /// </summary>
 JointStockCompany = 1,
 /// <summary>
-/// 
+/// Limited corporation (Societe de capitaux).
 /// </summary>
 LimitedCompany = 2,
 /// <summary>
-/// 
+/// Partnership (Societe de personnes).
 /// </summary>
 Partnership = 3,
 /// <summary>
-/// 
+/// Publicly traded company.
 /// </summary>
 PublicCompany = 4,
 /// <summary>
-/// 
+/// Government or public administration.
 /// </summary>
 PublicAdministration = 5,
 /// <summary>
-/// 
+/// Non-profit organization.
 /// </summary>
 NonprofitOrganization = 6,
 /// <summary>
-/// 
+/// Sole proprietorship.
 /// </summary>
 SoleProprietorship = 7,
 }
@@ -769,19 +769,19 @@ RelativeToPaymentTypeFee = 4,
       public enum CountryIdEnum {
 
     /// <summary>
-/// The unkown
+/// Unknown or unspecified country.
 /// </summary>
 Unkown = -1,
 /// <summary>
-/// The not set
+/// No country specified.
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// The canada
+/// Canada (CAD currency region).
 /// </summary>
 Canada = 1,
 /// <summary>
-/// The usa
+/// United States (USD currency region).
 /// </summary>
 USA = 2,
 }
@@ -827,27 +827,27 @@ MerchantCredentials = 9,
       public enum CurrencyEnum {
 
     /// <summary>
-/// The unkown
+/// Currency could not be determined.
 /// </summary>
 Unkown = -1,
 /// <summary>
-/// The not set
+/// No currency has been specified.
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// The cad
+/// Canadian dollar.
 /// </summary>
 CAD = 1,
 /// <summary>
-/// The usd
+/// United States dollar.
 /// </summary>
 USD = 2,
 /// <summary>
-/// 
+/// Euro.
 /// </summary>
 EUR = 3,
 /// <summary>
-/// 
+/// British pound sterling.
 /// </summary>
 GBP = 4,
 }
@@ -862,11 +862,11 @@ Unkown = -1,
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// 
+/// Filter or sort by the record's creation date.
 /// </summary>
 CreatedDate = 1,
 /// <summary>
-/// 
+/// Filter or sort by the record's last modification date.
 /// </summary>
 LastModifiedDate = 2,
 }
@@ -912,7 +912,7 @@ Fix = 1,
 /// </summary>
 RelativeToPaymentTypeFee = 2,
 /// <summary>
-/// 
+/// Fixed fee with round-up pricing applied.
 /// </summary>
 FixUsingRoundUp = 3,
 }
@@ -930,19 +930,19 @@ Service = 1,
       public enum LanguageEnum {
 
     /// <summary>
-/// The unkown
+/// Unknown or unspecified language.
 /// </summary>
 Unkown = -1,
 /// <summary>
-/// The not set
+/// No language specified.
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// The french
+/// French (Francais).
 /// </summary>
 French = 1,
 /// <summary>
-/// The english
+/// English.
 /// </summary>
 English = 2,
 }
@@ -1052,31 +1052,35 @@ RevertedOperation = 19,
 /// </summary>
 ConvenientFee = 20,
 /// <summary>
-/// 
+/// Reversal of a convenience fee.
 /// </summary>
 RevertConvenientFee = 21,
 /// <summary>
-/// 
+/// Platform fee charged by TIB.
 /// </summary>
 PlatformFee = 22,
 /// <summary>
-/// 
+/// Gateway usage fee.
 /// </summary>
 GatewayUsageFee = 23,
 /// <summary>
-/// 
+/// Support or maintenance fee.
 /// </summary>
 SupportFee = 24,
 /// <summary>
-/// 
+/// Collection from merchant's internal wallet.
 /// </summary>
 WalletCollect = 25,
 /// <summary>
-/// The reverted operation
+/// Fee for a failed credit card charge.
+/// </summary>
+CreditCardFailedCharge = 26,
+/// <summary>
+/// Aggregated fee operations grouped for batch processing.
 /// </summary>
 GroupedFees = 100,
 /// <summary>
-/// 
+/// Re-transfer of fees when the original fee deposit failed.
 /// </summary>
 FeesRetransfer = 101,
 }
@@ -1595,35 +1599,35 @@ Deposit_StatusCheck_NotSet = 106,
 /// </summary>
 Deposit_Payback_NotSet = 107,
 /// <summary>
-/// 
+/// Collection validation was aborted.
 /// </summary>
 Collect_Validation_Abort = 108,
 /// <summary>
-/// 
+/// Collection transmission was aborted.
 /// </summary>
 Collect_Transmission_Abort = 109,
 /// <summary>
-/// 
+/// Collection status check was aborted.
 /// </summary>
 Collect_StatusCheck_Abort = 110,
 /// <summary>
-/// 
+/// Collection payback was aborted.
 /// </summary>
 Collect_Payback_Abort = 111,
 /// <summary>
-/// 
+/// Deposit validation was aborted.
 /// </summary>
 Deposit_Validation_Abort = 112,
 /// <summary>
-/// 
+/// Deposit transmission was aborted.
 /// </summary>
 Deposit_Transmission_Abort = 113,
 /// <summary>
-/// 
+/// Deposit status check was aborted.
 /// </summary>
 Deposit_StatusCheck_Abort = 114,
 /// <summary>
-/// 
+/// Deposit payback was aborted.
 /// </summary>
 Deposit_Payback_Abort = 115,
 /// <summary>
@@ -1631,23 +1635,23 @@ Deposit_Payback_Abort = 115,
 /// </summary>
 Deposit_Immediate_Insufficient_Wallet_Balance_Abort = 116,
 /// <summary>
-/// 
+/// Collection transmission awaiting provider response.
 /// </summary>
 Collect_Transmission_Pending = 117,
 /// <summary>
-/// 
+/// Collection status check awaiting provider response.
 /// </summary>
 Collect_StatusCheck_Pending = 118,
 /// <summary>
-/// 
+/// Deposit transmission awaiting provider response.
 /// </summary>
 Deposit_Transmission_Pending = 119,
 /// <summary>
-/// 
+/// Deposit status check awaiting provider response.
 /// </summary>
 Deposit_StatusCheck_Pending = 120,
 /// <summary>
-/// 
+/// Transfer denied by TIB authorization review.
 /// </summary>
 Authorization_Denied = 900,
 }
@@ -1737,311 +1741,311 @@ BlueSnap_Account_CAD = 4003,
       public enum ProvinceStateIdEnum {
 
     /// <summary>
-/// The unkown
+/// Unknown province or state.
 /// </summary>
 Unkown = -1,
 /// <summary>
-/// The not set
+/// Not specified.
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// The ca alberta
+/// Alberta, Canada.
 /// </summary>
 CA_Alberta = 1,
 /// <summary>
-/// The ca british columbia
+/// British Columbia, Canada.
 /// </summary>
 CA_BritishColumbia = 2,
 /// <summary>
-/// The ca manitoba
+/// Manitoba, Canada.
 /// </summary>
 CA_Manitoba = 3,
 /// <summary>
-/// The ca new brunswick
+/// New Brunswick, Canada.
 /// </summary>
 CA_NewBrunswick = 4,
 /// <summary>
-/// The ca newfoundland
+/// Newfoundland and Labrador, Canada.
 /// </summary>
 CA_Newfoundland = 5,
 /// <summary>
-/// The ca nova scotia
+/// Nova Scotia, Canada.
 /// </summary>
 CA_NovaScotia = 6,
 /// <summary>
-/// The ca nunavut
+/// Nunavut, Canada.
 /// </summary>
 CA_Nunavut = 7,
 /// <summary>
-/// The ca ontario
+/// Ontario, Canada.
 /// </summary>
 CA_Ontario = 8,
 /// <summary>
-/// The ca prince edward island
+/// Prince Edward Island, Canada.
 /// </summary>
 CA_PrinceEdwardIsland = 9,
 /// <summary>
-/// The ca quebec
+/// Quebec, Canada.
 /// </summary>
 CA_Quebec = 10,
 /// <summary>
-/// The ca saskatchewan
+/// Saskatchewan, Canada.
 /// </summary>
 CA_Saskatchewan = 11,
 /// <summary>
-/// The ca northwest territories
+/// Northwest Territories, Canada.
 /// </summary>
 CA_NorthwestTerritories = 12,
 /// <summary>
-/// The ca yukon territory
+/// Yukon Territory, Canada.
 /// </summary>
 CA_YukonTerritory = 13,
 /// <summary>
-/// The us armed forces americas
+/// Armed Forces Americas (AA), United States.
 /// </summary>
 US_ArmedForcesAmericas = 14,
 /// <summary>
-/// The us armed forces europe and middle east and canada
+/// Armed Forces Europe, Middle East, and Canada (AE), United States.
 /// </summary>
 US_ArmedForcesEuropeAndMiddleEastAndCanada = 15,
 /// <summary>
-/// The us alaska
+/// Alaska, United States.
 /// </summary>
 US_Alaska = 16,
 /// <summary>
-/// The us alabama
+/// Alabama, United States.
 /// </summary>
 US_Alabama = 17,
 /// <summary>
-/// The us armed forces pacific
+/// Armed Forces Pacific (AP), United States.
 /// </summary>
 US_ArmedForcesPacific = 18,
 /// <summary>
-/// The us arkansas
+/// Arkansas, United States.
 /// </summary>
 US_Arkansas = 19,
 /// <summary>
-/// The us american samoa
+/// American Samoa, United States.
 /// </summary>
 US_AmericanSamoa = 20,
 /// <summary>
-/// The us arizona
+/// Arizona, United States.
 /// </summary>
 US_Arizona = 21,
 /// <summary>
-/// The us california
+/// California, United States.
 /// </summary>
 US_California = 22,
 /// <summary>
-/// The us colorado
+/// Colorado, United States.
 /// </summary>
 US_Colorado = 23,
 /// <summary>
-/// The us connecticut
+/// Connecticut, United States.
 /// </summary>
 US_Connecticut = 24,
 /// <summary>
-/// The us districtof columbia
+/// District of Columbia, United States.
 /// </summary>
 US_DistrictofColumbia = 25,
 /// <summary>
-/// The us delaware
+/// Delaware, United States.
 /// </summary>
 US_Delaware = 26,
 /// <summary>
-/// The us florida
+/// Florida, United States.
 /// </summary>
 US_Florida = 27,
 /// <summary>
-/// The us federated statesof micronesia
+/// Federated States of Micronesia, United States.
 /// </summary>
 US_FederatedStatesofMicronesia = 28,
 /// <summary>
-/// The us georgia
+/// Georgia, United States.
 /// </summary>
 US_Georgia = 29,
 /// <summary>
-/// The us guam
+/// Guam, United States.
 /// </summary>
 US_Guam = 30,
 /// <summary>
-/// The us hawaii
+/// Hawaii, United States.
 /// </summary>
 US_Hawaii = 31,
 /// <summary>
-/// The us iowa
+/// Iowa, United States.
 /// </summary>
 US_Iowa = 32,
 /// <summary>
-/// The us idaho
+/// Idaho, United States.
 /// </summary>
 US_Idaho = 33,
 /// <summary>
-/// The us illinois
+/// Illinois, United States.
 /// </summary>
 US_Illinois = 34,
 /// <summary>
-/// The us indiana
+/// Indiana, United States.
 /// </summary>
 US_Indiana = 35,
 /// <summary>
-/// The us kansas
+/// Kansas, United States.
 /// </summary>
 US_Kansas = 36,
 /// <summary>
-/// The us kentucky
+/// Kentucky, United States.
 /// </summary>
 US_Kentucky = 37,
 /// <summary>
-/// The us louisiana
+/// Louisiana, United States.
 /// </summary>
 US_Louisiana = 38,
 /// <summary>
-/// The us massachusetts
+/// Massachusetts, United States.
 /// </summary>
 US_Massachusetts = 39,
 /// <summary>
-/// The us maryland
+/// Maryland, United States.
 /// </summary>
 US_Maryland = 40,
 /// <summary>
-/// The us maine
+/// Maine, United States.
 /// </summary>
 US_Maine = 41,
 /// <summary>
-/// The us marshall islands
+/// Marshall Islands, United States.
 /// </summary>
 US_MarshallIslands = 42,
 /// <summary>
-/// The us michigan
+/// Michigan, United States.
 /// </summary>
 US_Michigan = 43,
 /// <summary>
-/// The us minnesota
+/// Minnesota, United States.
 /// </summary>
 US_Minnesota = 44,
 /// <summary>
-/// The us missouri
+/// Missouri, United States.
 /// </summary>
 US_Missouri = 45,
 /// <summary>
-/// The us northern mariana islands
+/// Northern Mariana Islands, United States.
 /// </summary>
 US_NorthernMarianaIslands = 46,
 /// <summary>
-/// The us mississippi
+/// Mississippi, United States.
 /// </summary>
 US_Mississippi = 47,
 /// <summary>
-/// The us montana
+/// Montana, United States.
 /// </summary>
 US_Montana = 48,
 /// <summary>
-/// The us north carolina
+/// North Carolina, United States.
 /// </summary>
 US_NorthCarolina = 49,
 /// <summary>
-/// The us north dakota
+/// North Dakota, United States.
 /// </summary>
 US_NorthDakota = 50,
 /// <summary>
-/// The us nebraska
+/// Nebraska, United States.
 /// </summary>
 US_Nebraska = 51,
 /// <summary>
-/// The us new hampshire
+/// New Hampshire, United States.
 /// </summary>
 US_NewHampshire = 52,
 /// <summary>
-/// The us new jersey
+/// New Jersey, United States.
 /// </summary>
 US_NewJersey = 53,
 /// <summary>
-/// The us new mexico
+/// New Mexico, United States.
 /// </summary>
 US_NewMexico = 54,
 /// <summary>
-/// The us nevada
+/// Nevada, United States.
 /// </summary>
 US_Nevada = 55,
 /// <summary>
-/// The us new york
+/// New York, United States.
 /// </summary>
 US_NewYork = 56,
 /// <summary>
-/// The us ohio
+/// Ohio, United States.
 /// </summary>
 US_Ohio = 57,
 /// <summary>
-/// The us oklahoma
+/// Oklahoma, United States.
 /// </summary>
 US_Oklahoma = 58,
 /// <summary>
-/// The us oregon
+/// Oregon, United States.
 /// </summary>
 US_Oregon = 59,
 /// <summary>
-/// The us pennsylvania
+/// Pennsylvania, United States.
 /// </summary>
 US_Pennsylvania = 61,
 /// <summary>
-/// The us puerto rico
+/// Puerto Rico, United States.
 /// </summary>
 US_PuertoRico = 62,
 /// <summary>
-/// The us palau
+/// Palau, United States.
 /// </summary>
 US_Palau = 63,
 /// <summary>
-/// The us rhode island
+/// Rhode Island, United States.
 /// </summary>
 US_RhodeIsland = 64,
 /// <summary>
-/// The us south carolina
+/// South Carolina, United States.
 /// </summary>
 US_SouthCarolina = 65,
 /// <summary>
-/// The us south dakota
+/// South Dakota, United States.
 /// </summary>
 US_SouthDakota = 66,
 /// <summary>
-/// The us tennessee
+/// Tennessee, United States.
 /// </summary>
 US_Tennessee = 67,
 /// <summary>
-/// The us texas
+/// Texas, United States.
 /// </summary>
 US_Texas = 68,
 /// <summary>
-/// The us utah
+/// Utah, United States.
 /// </summary>
 US_Utah = 69,
 /// <summary>
-/// The us virginia
+/// Virginia, United States.
 /// </summary>
 US_Virginia = 70,
 /// <summary>
-/// The us virgin islands
+/// Virgin Islands, United States.
 /// </summary>
 US_VirginIslands = 71,
 /// <summary>
-/// The us vermont
+/// Vermont, United States.
 /// </summary>
 US_Vermont = 72,
 /// <summary>
-/// The us washington
+/// Washington, United States.
 /// </summary>
 US_Washington = 73,
 /// <summary>
-/// The us west virginia
+/// West Virginia, United States.
 /// </summary>
 US_WestVirginia = 74,
 /// <summary>
-/// The us wisconsin
+/// Wisconsin, United States.
 /// </summary>
 US_Wisconsin = 75,
 /// <summary>
-/// The us wyoming
+/// Wyoming, United States.
 /// </summary>
 US_Wyoming = 76,
 }
@@ -2092,30 +2096,30 @@ BoardingContract = 10,
 /// </summary>
 ChangePassword = 11,
 /// <summary>
-/// 
+/// Token for a supplier to submit bank account information.
 /// </summary>
 ExternalSupplierFinancialInformationsRequest = 12,
 /// <summary>
-/// 
+/// Token for a supplier to access a read-only portal view.
 /// </summary>
 ExternalSupplierReadOnlyPortalLink = 13,
 }
       public enum ReferenceTypeEnum {
 
     /// <summary>
-/// 
+/// No reference type specified.
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// 
+/// Reference belongs to a client entity.
 /// </summary>
 Client = 1,
 /// <summary>
-/// 
+/// Reference belongs to a service entity.
 /// </summary>
 Service = 2,
 /// <summary>
-/// 
+/// Reference belongs to a merchant entity.
 /// </summary>
 Merchant = 3,
 }
@@ -2145,31 +2149,31 @@ Declined = 4,
       public enum TibOperationStatus {
 
     /// <summary>
-/// 
+/// Default uninitialized state.
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// 
+/// Operation created, not yet picked up for processing.
 /// </summary>
 New = 1,
 /// <summary>
-/// 
+/// Operation currently being processed.
 /// </summary>
 InProgress = 2,
 /// <summary>
-/// 
+/// Operation failed (terminal state).
 /// </summary>
 Failed = 3,
 /// <summary>
-/// 
+/// Operation was aborted.
 /// </summary>
 Abord = 4,
 /// <summary>
-/// 
+/// Operation completed successfully.
 /// </summary>
 Success = 5,
 /// <summary>
-/// 
+/// Operation lost or unresolved.
 /// </summary>
 Lost = 6,
 }
@@ -2195,86 +2199,86 @@ Deposit = 2,
       public enum TransferFrequencyEnum {
 
     /// <summary>
-/// 
+/// No frequency specified.
 /// </summary>
 NotSet = -1,
 /// <summary>
-/// 
+/// One-time transfer (non-recurring).
 /// </summary>
 Once = 0,
 /// <summary>
-/// 
+/// Recurs every day.
 /// </summary>
 Daily = 1,
 /// <summary>
-/// 
+/// Recurs every week.
 /// </summary>
 Weekly = 2,
 /// <summary>
-/// 
+/// Recurs every two weeks.
 /// </summary>
 EveryTwoWeeks = 3,
 /// <summary>
-/// 
+/// Recurs once per month.
 /// </summary>
 Monthly = 4,
 /// <summary>
-/// 
+/// Recurs every three months (quarterly).
 /// </summary>
 Trimester = 5,
 /// <summary>
-/// 
+/// Recurs every six months (semi-annually).
 /// </summary>
 BiAnually = 6,
 /// <summary>
-/// 
+/// Recurs once per year.
 /// </summary>
 Anually = 7,
 }
       public enum TransferTypeEnum {
 
     /// <summary>
-/// The not set
+/// No transfer type specified.
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// The payment
+/// Standard payment transfer linked to a bill and customer.
 /// </summary>
 Payment = 1,
 /// <summary>
-/// The free deposit
+/// Direct deposit operation without a linked payment.
 /// </summary>
 FreeDeposit = 2,
 /// <summary>
-/// The free collection
+/// Direct collection operation without a linked payment.
 /// </summary>
 FreeCollection = 3,
 /// <summary>
-/// The fee
+/// Fee transfer charged by TIB.
 /// </summary>
 Fee = 4,
 /// <summary>
-/// The revert
+/// Reversal of a previous transfer.
 /// </summary>
 Revert = 5,
 /// <summary>
-/// Payment and Free Collection
+/// Combined payment with an associated free collection.
 /// </summary>
 PaymentAndFreeCollection = 6,
 /// <summary>
-/// 
+/// Commission payment transfer.
 /// </summary>
 Commission = 7,
 /// <summary>
-/// 
+/// Deposit into the merchant's internal wallet from a bank account.
 /// </summary>
 DepositToWallet = 8,
 /// <summary>
-/// 
+/// Collection (withdrawal) from the merchant's internal wallet.
 /// </summary>
 CollectFromWallet = 9,
 /// <summary>
-/// 
+/// Deposit into the merchant's wallet via Interac.
 /// </summary>
 DepositToWalletFromInterac = 10,
 }
@@ -2386,30 +2390,30 @@ LimitClientDailyReach = 64,
       public enum WalletAdjustmentEnum {
 
     /// <summary>
-/// 
+/// No adjustment mode specified.
 /// </summary>
 NotSet = 0,
 /// <summary>
-/// 
+/// Add funds to the wallet balance.
 /// </summary>
 IncreaseWallet = 2,
 /// <summary>
-/// 
+/// Remove funds from the wallet balance.
 /// </summary>
 DecreaseWallet = 4,
 }
       public enum WalletTypeEnum {
 
     /// <summary>
-/// 
+/// Wallet withdrawals occur on a set schedule.
 /// </summary>
 Schedule = 1,
 /// <summary>
-/// 
+/// Wallet withdrawals require manual action.
 /// </summary>
 Manual = 2,
 /// <summary>
-/// 
+/// Wallet withdrawals occur automatically when the threshold is reached.
 /// </summary>
 Automatic = 3,
 }

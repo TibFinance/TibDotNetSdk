@@ -12,9 +12,9 @@ namespace Tib.Api.Model.Bill
     {
         
     /// <summary>
-    /// Bill model representing a financial invoice in the TIB Finance system.
+    /// Specifies the bill identifier to filter transfers associated with that bill
     /// </summary>
-    /// <value>Contains the complete set of properties that describe a bill, such as BillId (Guid), Amount, Currency, Status, IssueDate, DueDate, and the associated CustomerId.</value>
+    /// <value>String (or numeric) bill ID; must correspond to an existing bill in the system; optional – if omitted, transfers for all bills are returned</value>
     public BillModel Bill { get; set; }
 
     }

@@ -12,21 +12,21 @@ namespace Tib.Api.Gateway
     {
         
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a payment.
+    /// Unique identifier of the newly created payment
     /// </summary>
-    /// <value>Represents the unique identifier associated with a specific payment transaction.</value>
+    /// <value>System‑generated GUID (36‑character string), immutable and required for all subsequent payment‑related operations</value>
     public Guid PaymentId { get; set; }
 
     /// <summary>
-    /// Manages all operations associated with credit card data.
+    /// Credit card data supplied to fund the payment
     /// </summary>
-    /// <value>Represents a distinct numerical identifier that corresponds to a specific credit card in the system.</value>
+    /// <value>Object containing cardNumber (16‑digit numeric, Luhn‑validated), expiryMonth (01‑12), expiryYear (YY or YYYY, not past), cvv (3‑4 digits), cardholderName (ASCII, ≤ 26 chars). Must be PCI‑DSS compliant: transmitted over TLS and stored only as a token. Supported schemes: Visa, MasterCard, Amex, Discover. All fields are required.</value>
     public CreditCardModel CreditCard { get; set; }
 
     /// <summary>
-    /// Specifies the amount to be paid. The value must not exceed the sum of the associated bill amount and any previously recorded payments. If null, the system applies the remaining unpaid portion of the bill.
+    /// The monetary amount to be transferred in the transaction's currency.
     /// </summary>
-    /// <value>The monetary amount of the payment, expressed as a decimal number.</value>
+    /// <value>Decimal, required, must be greater than 0, limited to two fractional digits, and must not exceed the payer's available balance or any configured transaction limits.</value>
     public decimal PaymentAmount { get; set; }
 
     }

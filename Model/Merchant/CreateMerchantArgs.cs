@@ -12,15 +12,15 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// This property holds the basic information necessary for creating or updating a merchant's account within the TIB Finance API system.
+    /// Basic merchant details required for creating or updating a merchant record
     /// </summary>
-    /// <value>Contains essential details about the merchant.</value>
+    /// <value>Object of type MerchantModelBasicInfo; must not be null and must contain all required fields (e.g., merchantName, taxId, contactEmail). Field lengths and formats follow the MerchantModelBasicInfo schema; optional fields may be omitted.</value>
     public MerchantModel MerchantInfo { get; set; }
 
     }

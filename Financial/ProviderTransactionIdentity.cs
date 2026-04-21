@@ -11,9 +11,9 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// Gets or sets the type of the provider.
+    /// Identifies the category of the service provider for the requested service
     /// </summary>
-    /// <value>The type of the provider.</value>
+    /// <value>Returns a ProviderEnum value (e.g., BANK, BROKER, PAYMENT_GATEWAY). Must be one of the defined enum members; case‑sensitive and always present in the GetService response.</value>
     public ProviderEnum ProviderType { get; set; }
 
     /// <summary>
@@ -23,9 +23,9 @@ namespace Tib.Api.Financial
     public Guid ProviderId { get; set; }
 
     /// <summary>
-    /// Indicates the direction of an Interac transaction.
+    /// Gets or sets the transfer direction.
     /// </summary>
-    /// <value>Use 1 for Collect (merchant receives funds from the customer) or 2 for Deposit (merchant sends funds to the customer).</value>
+    /// <value>The transfer direction.</value>
     public TransferDirectionEnum TransferDirection { get; set; }
 
     /// <summary>

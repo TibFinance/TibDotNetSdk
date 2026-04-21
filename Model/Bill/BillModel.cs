@@ -11,27 +11,27 @@ namespace Tib.Api.Model.Bill
     {
         
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a bill.
+    /// Unique identifier of the bill to be paid
     /// </summary>
-    /// <value>Represents the unique identifier associated with a bill.</value>
+    /// <value>Guid referencing an existing, unpaid bill; must be a valid, non‑empty GUID and belong to the requesting account</value>
     public Guid BillId { get; set; }
 
     /// <summary>
-    /// Gets or sets the fee applied to credit‑card transactions when the convenient fee option is used.
+    /// The fee amount applied to a credit‑card transfer when the convenient fee option is used.
     /// </summary>
-    /// <value>A decimal value representing the credit‑card convenient fee expressed in the transaction currency.</value>
+    /// <value>Decimal value in the account's currency, typically with two decimal places; may be zero if no fee applies.</value>
     public decimal? ConvenientFeeCreditCard { get; set; }
 
     /// <summary>
-    /// Gets or sets the fee amount that is directly applied to the merchant's account for convenience services.
+    /// The convenience fee charged for a direct account transfer.
     /// </summary>
-    /// <value>Decimal value representing the direct convenience fee charged to the account. The fee is expressed in the merchant's configured currency.</value>
+    /// <value>Decimal amount in the transaction currency, typically with two decimal places; may be zero if no fee applies.</value>
     public decimal? ConvenientFeeDirectAccount { get; set; }
 
     /// <summary>
-    /// The date and time when the payment was created.
+    /// The date and time when the recurring transfer was initially created.
     /// </summary>
-    /// <value>A UTC DateTime indicating the exact moment the payment record was generated.</value>
+    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
     public DateTime CreatedDate { get; set; }
 
     }

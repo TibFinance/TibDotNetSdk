@@ -13,7 +13,7 @@ namespace Tib.Api.Model.Supplier
     {
         
     /// <summary>
-    /// 
+    /// List of existing merchants that match the supplier's financial information, if any.
     /// </summary>
     /// <value></value>
     public IEnumerable<MerchantViewModel> MatchingExistingMerchants { get; set; }

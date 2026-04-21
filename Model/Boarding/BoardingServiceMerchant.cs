@@ -10,21 +10,21 @@ namespace Tib.Api.Model.Boarding
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for the boarding information of a merchant. This ID is crucial for tracking and referencing the boarding status within the system.
+    /// Identifier of the boarding information linked to the merchant
     /// </summary>
-    /// <value>This property holds a GUID that uniquely identifies the boarding information associated with a merchant.</value>
+    /// <value>A valid GUID referencing the merchant's boarding information record; included only when such data exists</value>
     public Guid BoardingInformationId { get; set; }
 
     /// <summary>
-    /// Represents the status of the merchant boarding process within the system. This status is crucial for tracking the progress and completion of merchant onboarding.
+    /// Indicates the current onboarding state of the merchant identified by the external ID
     /// </summary>
-    /// <value>The BoardingStatus does not require additional input parameters and is utilized within the standard API call structure to determine the current state of merchant onboarding.</value>
+    /// <value>String value such as "Pending", "InReview", "Completed" or "Failed"; reflects the merchant's progress through TIB Finance's boarding workflow and is case‑sensitive.</value>
     public string BoardingStatus { get; set; }
 
     }

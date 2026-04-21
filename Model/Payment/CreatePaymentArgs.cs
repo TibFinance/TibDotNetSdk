@@ -13,75 +13,75 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a bill.
+    /// Unique identifier of the bill to be paid
     /// </summary>
-    /// <value>Represents the unique identifier associated with a bill.</value>
+    /// <value>Guid referencing an existing, unpaid bill; must be a valid, non‑empty GUID and belong to the requesting account</value>
     public Guid BillId { get; set; }
 
     /// <summary>
-    /// Automatically assigns the customer linked to a payment from the customer associated with the specified bill. The method takes no action if the bill has no customer or if the payment already has a customer assigned.
+    /// Indicates whether the payment’s customer should be automatically taken from the associated bill.
     /// </summary>
-    /// <value>Returns true when the payment's customer is set from the bill; otherwise returns false.</value>
+    /// <value>True copies the bill’s customer to the payment; false requires the caller to specify a customer. Only applicable when creating a payment from a bill and cannot be changed after creation.</value>
     public bool SetPaymentCustomerFromBill { get; set; }
 
     /// <summary>
-    /// Handles the acquisition and assignment of a customer's email address.
+    /// The email address of the customer initiating the payment.
     /// </summary>
-    /// <value>Represents a valid email address linked to a specific customer, provided as a string.</value>
+    /// <value>Must be a valid RFC‑5322 email, max 254 characters; required for receipt delivery and notifications.</value>
     public string CustomerEmail { get; set; }
 
     /// <summary>
-    /// Contains metadata for a payment operation.
+    /// PaymentInfo provides the full set of data required to create a new payment.
     /// </summary>
-    /// <value>Represents the core attributes of a payment, such as identifiers, amount, currency, status, and timestamps.</value>
+    /// <value>Must be a non‑null PaymentEntity containing a positive Amount, a supported Currency code, valid PayerId and PayeeId, and optionally a Description and DueDate. All fields are validated before processing.</value>
     public PaymentEntity PaymentInfo { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// Gets or sets the external reference identifier used to correlate this entity with an external system.
+    /// A client‑provided unique identifier for the payment request
     /// </summary>
-    /// <value>A string that uniquely identifies the entity in an external system.</value>
+    /// <value>Must be a non‑empty string, unique per merchant within the last 30 days, up to 64 alphanumeric characters (A‑Z, a‑z, 0‑9) and hyphens/underscores; used for idempotency and reconciliation.</value>
     public string ExternalReferenceId { get; set; }
 
     /// <summary>
-    /// Indicates whether the system aborts a payment when the amount exceeds the remaining bill balance.
+    /// Indicates whether the payment should be split when its amount exceeds the remaining bill balance.
     /// </summary>
-    /// <value>Set to true to stop the transaction if the payment amount is greater than the outstanding bill amount; set to false to allow the payment to proceed.</value>
+    /// <value>True allows the payment to be broken into multiple parts to cover the excess; false rejects the payment if it surpasses the remaining amount. Must be provided as a boolean.</value>
     public bool SafetyToBreakIfOverRemainingBillAmount { get; set; }
 
     /// <summary>
-    /// 
+    /// Flags indicating which payment methods are authorized for the created payment
     /// </summary>
-    /// <value></value>
+    /// <value>Bitmask of AuthorizedPaymentMethodFlags; combine multiple methods using OR. Must include at least one supported method; unsupported flags cause validation error.</value>
     public AutorizedPaymentMethodFlags? AutorizedPaymentMethod { get; set; }
 
     /// <summary>
-    /// Indicates if the system must request the customer's consent prior to executing the payment.
+    /// Indicates whether the platform must request the customer's consent before processing the payment.
     /// </summary>
-    /// <value>Set to true to trigger a consent request; false skips the consent step.</value>
+    /// <value>Boolean; set to true to trigger a consent prompt (required for regulated or high‑value payments). Defaults to false if omitted.</value>
     public bool? AskForCustomerConsent { get; set; }
 
     /// <summary>
-    /// Specifies whether the payment creation request should omit sending the confirmation email.
+    /// Controls whether a payment confirmation email is sent
     /// </summary>
-    /// <value>True suppresses the email; false allows the email to be sent.</value>
+    /// <value>Set to true to suppress the email (default false sends it). Ignored if email notifications are disabled or no recipient address is provided.</value>
     public bool DoNotSendEmail { get; set; }
 
     /// <summary>
-    /// Indicates whether the transfer should be executed immediately within the TIB Finance API.
+    /// Indicates whether the payment should be executed as an immediate transfer.
     /// </summary>
-    /// <value>This boolean property determines if the transaction is processed instantly, bypassing any scheduled or delayed processing mechanisms.</value>
+    /// <value>True triggers real‑time settlement; false creates a pending payment. Must be a boolean; ignored if the account lacks sufficient funds or if immediate processing is not supported for the selected currency.</value>
     public bool? ImmediateTransfer { get; set; }
 
     /// <summary>
-    /// Represents a brief description used in statements to identify or clarify the transaction.
+    /// The text that will appear on the payer’s bank statement for this payment.
     /// </summary>
-    /// <value>This string provides a concise description for transactions, aiding in the identification and clarification of statement entries.</value>
+    /// <value>String, up to 140 characters; may include alphanumeric characters and basic punctuation; trimmed of leading/trailing whitespace; must not contain line breaks or special symbols that banks reject.</value>
     public string StatementDescription { get; set; }
 
     }

@@ -14,51 +14,51 @@ namespace Tib.Api.Model.FreeModeOperation
     {
         
     /// <summary>
-    /// Gets or sets the operation type reference identifier that categorizes an operation.
+    /// Reference identifier for the operation type.
     /// </summary>
-    /// <value>A string containing the operation type reference, typically formatted as a GUID.</value>
+    /// <value></value>
     public string OperationTypeRef { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
-    /// Specifies the target of an operation, indicating whether the operation pertains to the merchant or the customer.
+    /// Specifies the destination entity of the transfer returned by ListTransfers
     /// </summary>
-    /// <value>Enum value that identifies the operation target.</value>
+    /// <value>Enum values: ACCOUNT (internal account), WALLET (user wallet), EXTERNAL (outside TIB Finance). Always present; case‑sensitive; used to route subsequent actions.</value>
     public OperationTargetEnum OperationTarget { get; set; }
 
     /// <summary>
-    /// Specifies the direction of the operation, indicating whether funds are being collected or deposited.
+    /// Indicates whether the listed transfer is inbound to or outbound from the queried account
     /// </summary>
-    /// <value>A TransferDirectionEnum value that represents the operation direction (Collect or Deposit).</value>
+    /// <value>Enum TransferDirectionEnum; possible values: INBOUND, OUTBOUND. Read‑only field present in every ListTransfers response item.</value>
     public TransferDirectionEnum OperationDirection { get; set; }
 
     /// <summary>
-    /// Gets or sets the unique identifier of the target system used to reference the client’s contract within TIB Finance.
+    /// Identifier of the entity in the target financial system.
     /// </summary>
-    /// <value>The target system identifier represented as a GUID.</value>
+    /// <value></value>
     public Guid TargetSystemId { get; set; }
 
     /// <summary>
-    /// Gets or sets the collection of transaction details associated with the operation.
+    /// A list of transfer records returned by the ListTransfers call.
     /// </summary>
-    /// <value>Represents the list of TransactionCommon objects that describe each transaction performed within the operation.</value>
+    /// <value>Contains zero or more TransactionCommon objects, ordered by most recent transfer first; each object includes the standard transaction fields (id, amount, currency, status, timestamps, etc.). The list size respects the request's pagination limits and may be empty if no transfers match the query.</value>
     public List<TransactionCommon> Transactions { get; set; }
 
     /// <summary>
-    /// Retrieves the collection of free‑operation records, each represented as a FreeCollectionWithHierarchyModel, ordered by their hierarchical relationship.
+    /// Child collection operations in the hierarchy.
     /// </summary>
-    /// <value>A list containing all free collection entries currently stored in the system.</value>
+    /// <value></value>
     public List<FreeCollectionWithHierarchyModel> FreeCollectionList { get; set; }
 
     }

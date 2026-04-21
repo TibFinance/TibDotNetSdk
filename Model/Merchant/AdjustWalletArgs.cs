@@ -12,33 +12,33 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// Defines the mode of wallet adjustment operations.
+    /// Specifies the type of wallet adjustment to perform
     /// </summary>
-    /// <value>This enumeration specifies the different modes available for adjusting wallet balances, providing a structured way to handle various adjustment scenarios.</value>
+    /// <value>Accepts a WalletAdjustmentEnum value (e.g., Deposit, Withdrawal, Transfer); determines how the wallet balance is modified and must be a valid enum member for the request</value>
     public WalletAdjustmentEnum Mode { get; set; }
 
     /// <summary>
-    /// 
+    /// Specifies whether the wallet adjustment should be processed via Interac.
     /// </summary>
-    /// <value></value>
+    /// <value>Boolean; true enables Interac transfer (available only for Canadian accounts), false uses the default funding method. Must be set before the adjustment request; defaults to false.</value>
     public bool UseInterac { get; set; }
 
     }

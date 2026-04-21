@@ -12,117 +12,117 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a bill.
+    /// Unique identifier of the bill to be paid
     /// </summary>
-    /// <value>Represents the unique identifier associated with a bill.</value>
+    /// <value>Guid referencing an existing, unpaid bill; must be a valid, non‑empty GUID and belong to the requesting account</value>
     public Guid BillId { get; set; }
 
     /// <summary>
-    /// Identifier utilized by an external system for bill tracking.
+    /// External system's primary bill identifier returned for the transfer
     /// </summary>
-    /// <value>Represents the primary external system number associated with a bill.</value>
+    /// <value>String (max 35 chars), alphanumeric, read‑only; may be empty if not provided by the originating system</value>
     public string BillExternalSystemNumber1 { get; set; }
 
     /// <summary>
-    /// Represents the identifier used by an external system for billing purposes.
+    /// Secondary external system identifier associated with the bill.
     /// </summary>
-    /// <value>This property holds the secondary external system number associated with a bill. It is used to link billing information with external systems.</value>
+    /// <value>String returned by the external system; may be empty if not provided. Typically alphanumeric, up to 50 characters.</value>
     public string BillExternalSystemNumber2 { get; set; }
 
     /// <summary>
-    /// Identifier utilized by an external system for bill tracking.
+    /// The third external system identifier associated with the bill.
     /// </summary>
-    /// <value>Represents the third external system number associated with a bill, used for integration and tracking purposes.</value>
+    /// <value>String, up to 50 alphanumeric characters; may be empty if not applicable. Used for integration with external accounting or ERP systems.</value>
     public string BillExternalSystemNumber3 { get; set; }
 
     /// <summary>
-    /// Represents the title of a bill associated with a payment.
+    /// The title or description of the bill linked to the transfer.
     /// </summary>
-    /// <value>This property holds the title of the bill. It is used to identify and describe the bill within the system.</value>
+    /// <value>String, up to 255 characters; may include alphanumeric characters, spaces, and common punctuation; optional and present only when the transfer is associated with a bill.</value>
     public string BillTitle { get; set; }
 
     /// <summary>
-    /// Identifies the customer linked to this payment, when a customer relationship exists.
+    /// Identifier of the customer associated with the payment
     /// </summary>
-    /// <value>The unique GUID that references the associated customer record.</value>
+    /// <value>Must be a valid, non‑empty GUID that references an existing customer record in the system</value>
     public Guid? RelatedCustomerId { get; set; }
 
     /// <summary>
-    /// Identifies the external customer associated with the payment, when applicable.
+    /// External identifier of the customer on the opposite side of the transfer.
     /// </summary>
-    /// <value>A string containing the external identifier of the related customer. The identifier is supplied by the merchant’s external system and is used only for reference; it does not replace the internal TIB customer GUID.</value>
+    /// <value>String, up to 255 characters; may be null if the transfer has no associated external customer; must match the format used by the partner system for customer IDs.</value>
     public string RelatedCustomerExternalId { get; set; }
 
     /// <summary>
-    /// Provides a textual description of the bill associated with a payment.
+    /// The textual description of the bill associated with the transfer.
     /// </summary>
-    /// <value>A free‑form string that describes the purpose or details of the bill. The value is stored and returned as‑is.</value>
+    /// <value>String, up to 255 characters; may be empty if no bill is linked. Returned as‑is from the originating system and used for display or reconciliation.</value>
     public string BillDescription { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a payment.
+    /// Unique identifier of the newly created payment
     /// </summary>
-    /// <value>Represents the unique identifier associated with a specific payment transaction.</value>
+    /// <value>System‑generated GUID (36‑character string), immutable and required for all subsequent payment‑related operations</value>
     public Guid PaymentId { get; set; }
 
     /// <summary>
-    /// Indicates whether the payment is processed automatically without user intervention.
+    /// Indicates whether the listed transfer was created automatically (e.g., scheduled or recurring).
     /// </summary>
-    /// <value>Returns true when the payment is configured for automatic processing; otherwise returns false.</value>
+    /// <value>Boolean; true for automatic transfers, false for manual ones. Present only for transfers that support automation and is read‑only.</value>
     public bool IsAutomaticPayment { get; set; }
 
     /// <summary>
-    /// Contains metadata for a payment operation.
+    /// PaymentInfo provides the full set of data required to create a new payment.
     /// </summary>
-    /// <value>Represents the core attributes of a payment, such as identifiers, amount, currency, status, and timestamps.</value>
+    /// <value>Must be a non‑null PaymentEntity containing a positive Amount, a supported Currency code, valid PayerId and PayeeId, and optionally a Description and DueDate. All fields are validated before processing.</value>
     public PaymentEntity PaymentInfo { get; set; }
 
     /// <summary>
-    /// Flag used to indicate that the payment is resolved in the third‑party system. It is employed solely for filtering payment lists.
+    /// Indicates whether the listed transfer has been marked as resolved.
     /// </summary>
-    /// <value>True if the payment is marked as resolved; otherwise, false.</value>
+    /// <value>Boolean; true if the transfer (typically a disputed one) is resolved, false otherwise. Read‑only in the ListTransfers response.</value>
     public bool IsMarkResolved { get; set; }
 
     /// <summary>
-    /// Current processing state of a transaction or operation.
+    /// The current processing status of the transfer.
     /// </summary>
-    /// <value>Indicates the current status of the process using the ProcessStatusEnum values.</value>
+    /// <value>Read‑only enum (ProcessStatusEnum) indicating the latest state: Pending, InProgress, Completed, Failed, Cancelled, or Reversed. Returned only for transfers that have been processed.</value>
     public ProcessStatusEnum CurrentStatus { get; set; }
 
     /// <summary>
-    /// Gets or sets the fee applied to credit‑card transactions when the convenient fee option is used.
+    /// The fee amount applied to a credit‑card transfer when the convenient fee option is used.
     /// </summary>
-    /// <value>A decimal value representing the credit‑card convenient fee expressed in the transaction currency.</value>
+    /// <value>Decimal value in the account's currency, typically with two decimal places; may be zero if no fee applies.</value>
     public decimal? ConvenientFeeCreditCard { get; set; }
 
     /// <summary>
-    /// Gets or sets the fee amount that is directly applied to the merchant's account for convenience services.
+    /// The convenience fee charged for a direct account transfer.
     /// </summary>
-    /// <value>Decimal value representing the direct convenience fee charged to the account. The fee is expressed in the merchant's configured currency.</value>
+    /// <value>Decimal amount in the transaction currency, typically with two decimal places; may be zero if no fee applies.</value>
     public decimal? ConvenientFeeDirectAccount { get; set; }
 
     /// <summary>
-    /// The date and time when the payment was created.
+    /// The date and time when the recurring transfer was initially created.
     /// </summary>
-    /// <value>A UTC DateTime indicating the exact moment the payment record was generated.</value>
+    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
     public DateTime CreatedDate { get; set; }
 
     /// <summary>
-    /// Provides a detailed description of the payment method for easy identification.
+    /// Descriptive name of the payment method used for the transfer.
     /// </summary>
-    /// <value>The 'PaymentMethodDescription' property stores a descriptive string that offers a comprehensive understanding of the specific payment method.</value>
+    /// <value>Human‑readable string (e.g., "Bank Transfer", "Credit Card", "SEPA"); up to 100 characters; may be null if the method is not applicable.</value>
     public string PaymentMethodDescription { get; set; }
 
     /// <summary>
-    /// Provides a read‑only preview of the merchant’s bank account information.
+    /// A short preview of the account involved in the transfer.
     /// </summary>
-    /// <value>Contains a masked representation of the account number and related bank identifiers, suitable for display purposes only.</value>
+    /// <value>String up to 100 characters showing masked account number and optional holder name; may be empty if no account data is applicable.</value>
     public string AccountInformationPreview { get; set; }
 
     /// <summary>
-    /// Identifies the type of payment method linked to a specific account.
+    /// The payment method type employed for the transfer.
     /// </summary>
-    /// <value>A unique identifier representing the type of the payment method.</value>
+    /// <value>A value from the PaymentMethodTypeEnum (e.g., CARD, BANK_ACCOUNT, WALLET). It identifies the source/destination method, is always present in the response, and must match one of the defined enum members.</value>
     public PaymentMethodTypeEnum PaymentMethodType { get; set; }
 
     }

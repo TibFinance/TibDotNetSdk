@@ -11,15 +11,15 @@ namespace Tib.Api.Model.FreeModeOperation
     {
         
     /// <summary>
-    /// Retrieves or assigns the content of the raw ACP file.
+    /// Raw ACP (Automated Clearing and Payment) file content to parse and process.
     /// </summary>
-    /// <value>Represents the data contained within the raw ACP file.</value>
+    /// <value></value>
     public string RawAcpFileContent { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     }

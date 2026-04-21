@@ -11,99 +11,99 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Indicates the next scheduled date for a recurring transfer operation associated with the client's account.
+    /// The date and time when the next recurring transfer is scheduled to occur.
     /// </summary>
-    /// <value>This property retrieves the date and time of the next occurrence of a recurring transfer, allowing clients to manage and anticipate their scheduled transactions.</value>
+    /// <value>ISO‑8601 UTC timestamp; always a future date for active schedules, null if no further occurrences are planned.</value>
     public DateTime NextRecuringDate { get; set; }
 
     /// <summary>
-    /// Identifies a specific recurring transfer operation associated with a client's account.
+    /// Identifier of the recurring transfer to delete
     /// </summary>
-    /// <value>This GUID uniquely represents a recurring transfer, allowing for precise management and retrieval of transfer details.</value>
+    /// <value>Guid; must reference an existing active recurring transfer; required and immutable</value>
     public Guid RecuringTransferId { get; set; }
 
     /// <summary>
-    /// Defines the frequency of recurring transfer operations within the client's account. This enumeration is crucial for setting up and managing scheduled transfers.
+    /// Specifies the frequency at which the transfer recurs.
     /// </summary>
-    /// <value>The RecuringMode enumeration specifies the intervals at which recurring transfers occur. It helps automate the process of transferring funds at regular intervals, such as daily, weekly, or monthly.</value>
+    /// <value>Enum TransferFrequencyEnum (e.g., DAILY, WEEKLY, MONTHLY, YEARLY). Present only for recurring transfers; omitted or null for one‑off transfers.</value>
     public TransferFrequencyEnum RecuringMode { get; set; }
 
     /// <summary>
-    /// Defines and manages the type of transfer operation within the system.
+    /// Indicates the category of the recurring transfer (e.g., inbound, outbound, internal).
     /// </summary>
-    /// <value>Specifies the category of the transfer, determining its processing logic and applicable rules.</value>
+    /// <value>Enum TransferTypeEnum; possible values: INBOUND, OUTBOUND, INTERNAL. Returned in uppercase; null if not applicable.</value>
     public TransferTypeEnum TransferType { get; set; }
 
     /// <summary>
-    /// Identifies the payment method associated with a specific transaction or operation.
+    /// Identifier of the payment method linked to the recurring transfer.
     /// </summary>
-    /// <value>This property stores the unique identifier for a payment method, allowing the system to link transactions to the correct financial account.</value>
+    /// <value>A valid GUID referencing the associated payment method; may be null if the transfer is not tied to a specific method. Must conform to standard GUID format.</value>
     public Guid? RelatedPaymentMethodId { get; set; }
 
     /// <summary>
-    /// Gets or sets the reference date used for scheduling recurring transfers.
+    /// The reference date from which the recurring transfer schedule is calculated.
     /// </summary>
-    /// <value>The reference date defines the base point from which recurrence intervals are calculated. It must be a valid UTC DateTime.</value>
+    /// <value>ISO‑8601 UTC datetime; read‑only; must be a valid, non‑null date; serves as the base for all recurrence intervals (e.g., weekly, monthly).</value>
     public DateTime RecuringRefDate { get; set; }
 
     /// <summary>
-    /// The date and time when the payment was created.
+    /// The date and time when the recurring transfer was initially created.
     /// </summary>
-    /// <value>A UTC DateTime indicating the exact moment the payment record was generated.</value>
+    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
     public DateTime CreatedDate { get; set; }
 
     /// <summary>
-    /// Retrieves the identifier of the merchant (bank account) to which the operation applies.
+    /// Unique identifier of the merchant linked to the recurring transfer.
     /// </summary>
-    /// <value>A GUID assigned by TIB Finance during client account opening that uniquely identifies the merchant's primary account.</value>
+    /// <value>Guid; present only when the transfer is associated with a merchant, otherwise null. Read‑only and must be a valid GUID.</value>
     public Guid RelatedMerchantId { get; set; }
 
     /// <summary>
-    /// Gets or sets the name of the merchant related to the current operation.
+    /// The name of the merchant linked to the recurring transfer.
     /// </summary>
-    /// <value>The merchant name is stored as a UTF-8 string and can be used for display or for filtering transactions by merchant.</value>
+    /// <value>String, up to 100 characters; may be null if the transfer has no associated merchant; trimmed of leading/trailing whitespace.</value>
     public string RelatedMerchantName { get; set; }
 
     /// <summary>
-    /// This property represents the full name of the customer in the system.
+    /// The full name of the customer who owns the recurring transfer.
     /// </summary>
-    /// <value>The 'CustomerName' is a string attribute that holds the complete name of the customer as registered in the system.</value>
+    /// <value>String, up to 100 Unicode characters, may include spaces and hyphens; always present in the response.</value>
     public string CustomerName { get; set; }
 
     /// <summary>
-    /// Serves as a unique identifier for each customer within the system.
+    /// Unique identifier of the customer owning the recurring transfers
     /// </summary>
-    /// <value>The 'CustomerId' is a unique, non-duplicable identifier that is assigned to each customer upon their creation. It functions as a primary key for all operations related to a specific customer.</value>
+    /// <value>A non‑null GUID that matches an existing customer record; used to correlate transfers with the correct account</value>
     public Guid? CustomerId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// Gets or sets the title of the transfer.
+    /// The descriptive title of the recurring transfer.
     /// </summary>
-    /// <value>The title is a short, human‑readable string that identifies the purpose of the transfer.</value>
+    /// <value>String, up to 255 characters; may include letters, numbers, spaces and common punctuation; used for display and identification in UI and reports.</value>
     public string TrasnferTitle { get; set; }
 
     /// <summary>
-    /// Provides a textual description of a transfer operation.
+    /// A textual description of the recurring transfer.
     /// </summary>
-    /// <value>Contains a human‑readable summary that explains the purpose, parties, and details of the transfer.</value>
+    /// <value>Optional string, up to 255 characters; may include alphanumeric characters, spaces, and common punctuation; returned exactly as stored.</value>
     public string TrasnferDescription { get; set; }
 
     /// <summary>
-    /// External system identifier for a transfer.
+    /// Identifier assigned by the external system for the recurring transfer
     /// </summary>
-    /// <value>Holds the identifier assigned by an external system to correlate the transfer record.</value>
+    /// <value>String, up to 50 alphanumeric characters; may be empty if the external system did not provide an ID</value>
     public string TrasnferExternalSystemNumber { get; set; }
 
     /// <summary>
-    /// 
+    /// The date on which the recurring transfer series terminates.
     /// </summary>
-    /// <value></value>
+    /// <value>ISO‑8601 UTC timestamp; must be later than the transfer's StartDate. May be null to indicate an indefinite series. The date is inclusive—last scheduled transfer occurs on this day.</value>
     public DateTime? EndDate { get; set; }
 
     }

@@ -11,27 +11,27 @@ namespace Tib.Api.Model.PaymentMethod
     {
         
     /// <summary>
-    /// Represents the unique identifier for an Interac payment method associated with a customer account.
+    /// Identity of the Interac Payment Method
     /// </summary>
-    /// <value>This identifier is used to specify which Interac payment method should be updated or accessed within the API.</value>
+    /// <value></value>
     public Guid InteracPaymentMethodId { get; set; }
 
     /// <summary>
-    /// The question displayed to the Interac recipient to request acceptance of a deposit.
+    /// The security question presented to the payer for an Interac e‑Transfer payment.
     /// </summary>
-    /// <value>Holds the question text as a string.</value>
+    /// <value>String, required; up to 255 characters; must be UTF‑8; used to verify the payer’s identity during payment creation.</value>
     public string InteracQuestion { get; set; }
 
     /// <summary>
-    /// InteracAnswer is the response string that the target must provide to accept an Interac deposit.
+    /// The answer to the security question required for creating an Interac payment method.
     /// </summary>
-    /// <value>Holds the answer supplied by the Interac recipient to confirm the deposit operation.</value>
+    /// <value>String, required; must match the answer previously set for the Interac e‑Transfer account; typically 1‑255 characters; case‑sensitive; trimmed of leading/trailing whitespace.</value>
     public string InteracAnswer { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     }

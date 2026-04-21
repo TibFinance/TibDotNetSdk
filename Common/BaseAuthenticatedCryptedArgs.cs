@@ -12,9 +12,9 @@ namespace Tib.Api.Common
     {
         
     /// <summary>
-    /// Handles the acquisition or assignment of a unique session token, acting as a distinct identifier for the user's session.
+    /// Identifier for the authenticated user session
     /// </summary>
-    /// <value>This symbolizes a unique token that identifies a user's session, ensuring secure and personalized system access.</value>
+    /// <value>A non‑empty GUID issued at login; must correspond to an active session and be passed unchanged to authorize the CreatePayment request.</value>
     public Guid? SessionToken { get; set; }
 
     }

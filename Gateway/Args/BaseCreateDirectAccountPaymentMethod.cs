@@ -12,9 +12,9 @@ namespace Tib.Api.Gateway.Args
     {
         
     /// <summary>
-    /// Determines if the customer's payment method is set as the default for automatic transactions.
+    /// Indicates whether this payment method is configured as the customer's automatic payment method.
     /// </summary>
-    /// <value>This property returns a boolean value. It yields 'true' if the customer's payment method is configured for automatic transactions, and 'false' otherwise.</value>
+    /// <value>True if the method will be used for automatic payments, false otherwise. Only applicable to payment methods that support auto‑pay; the flag is read‑only in this response.</value>
     public bool IsCustomerAutomaticPaymentMethod { get; set; }
 
     /// <summary>
@@ -24,9 +24,9 @@ namespace Tib.Api.Gateway.Args
     public string Token { get; set; }
 
     /// <summary>
-    /// Contains the necessary details for replacing a merchant's account information within the system.
+    /// The target bank account for the direct payment.
     /// </summary>
-    /// <value>This model represents the account details associated with a merchant, ensuring that all relevant information is accurately captured and stored.</value>
+    /// <value>Must be a valid, active AccountModel (e.g., accountNumber, routingNumber) belonging to the payer; cannot be null.</value>
     public AccountModel Account { get; set; }
 
     }

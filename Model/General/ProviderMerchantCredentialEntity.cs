@@ -16,9 +16,9 @@ namespace Tib.Api.Model.General
     public string UserName { get; set; }
 
     /// <summary>
-    /// The 'Password' property is a critical component in user authentication, safeguarding individualized user data.
+    /// The account password used to authenticate the session request
     /// </summary>
-    /// <value>This property stores a distinct string, representing the user's password, which is vital for user identification and data protection.</value>
+    /// <value>String, required, non‑empty; must meet the platform's password policy (minimum length, allowed characters) and is transmitted securely</value>
     public string Password { get; set; }
 
     /// <summary>
@@ -28,9 +28,9 @@ namespace Tib.Api.Model.General
     public string DataProtectionKey { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     }

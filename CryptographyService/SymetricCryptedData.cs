@@ -1,4 +1,4 @@
-namespace Tib.Api.CryptographyService
+﻿namespace Tib.Api.CryptographyService
 {
   /// <summary>
   /// Object resulting from a symmetric encryption. Contains the encrypted data and the IV used for encryption.

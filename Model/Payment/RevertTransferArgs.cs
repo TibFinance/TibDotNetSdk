@@ -11,15 +11,15 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Identifies the specific transfer operation that needs to be reverted.
+    /// Unique identifier of the wallet adjustment transaction
     /// </summary>
-    /// <value>This identifier is used to specify which failed transfer operation should be targeted for a retry process.</value>
+    /// <value>System‑generated GUID (UUID v4) returned in the response; immutable, required for tracking and correlation of the adjustment</value>
     public Guid TransferId { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     }

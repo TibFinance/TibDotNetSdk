@@ -11,15 +11,15 @@ namespace Tib.Api.Model.FreeOperation
     {
         
     /// <summary>
-    /// Retrieves or assigns the unique identifier for a payment.
+    /// Unique identifier of the newly created payment
     /// </summary>
-    /// <value>Represents the unique identifier associated with a specific payment transaction.</value>
+    /// <value>System‑generated GUID (36‑character string), immutable and required for all subsequent payment‑related operations</value>
     public Guid PaymentId { get; set; }
 
     /// <summary>
-    /// The ClientId property serves as a distinct identifier for each client, playing a crucial role in the authentication process.
+    /// Unique identifier of the client initiating the session
     /// </summary>
-    /// <value>ClientId is a distinctive identifier, encapsulated as a Guid, allocated to every client for precise identification and authentication.</value>
+    /// <value>Required Guid; must be a valid, registered client ID in the TIB Finance system</value>
     public Guid? ClientId { get; set; }
 
     }

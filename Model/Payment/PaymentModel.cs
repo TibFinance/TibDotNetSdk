@@ -13,9 +13,9 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Gets or sets the collection of payment operations associated with the current entity.
+    /// A collection of payment operations included in the ListTransfers response
     /// </summary>
-    /// <value>A list of PaymentOperationEntity objects representing each operation performed on the payment.</value>
+    /// <value>List of PaymentOperationEntity objects, each describing a single transfer (id, amount, currency, status, timestamps, etc.). May be empty; order follows the request's sorting criteria. Read‑only and limited to the page size defined by pagination parameters.</value>
     public List<PaymentOperationEntity> Operations { get; set; }
 
     }

@@ -17,9 +17,9 @@ namespace Tib.Api.Gateway.Response
     public string Content { get; set; }
 
     /// <summary>
-    /// Represents the current state of a transaction within the system.
+    /// Indicates the current status of the transfer operation.
     /// </summary>
-    /// <value>The Status integer indicates the progress or outcome of a transaction, providing essential information for error handling and process monitoring.</value>
+    /// <value>Read‑only enum (OperationStatusEnum) with values such as PENDING, COMPLETED, FAILED, CANCELED; reflects the final processing outcome of the transfer.</value>
     public ContractRequestStatusEnum Status { get; set; }
 
     /// <summary>

@@ -11,63 +11,63 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// Provides a description to identify the credit card within the TIB Finance API. This description helps in distinguishing between multiple credit card payment methods associated with a customer.
+    /// A textual description of the credit card to be used for the payment method.
     /// </summary>
-    /// <value>Stores the descriptive text for the credit card, aiding in its recognition and management.</value>
+    /// <value>Free‑form string (max 100 characters) identifying the card (e.g., brand, last four digits). Must not contain line breaks or control characters.</value>
     public string CreditCardDescription { get; set; }
 
     /// <summary>
-    /// Represents the primary account number (PAN) of the credit card.
+    /// The numeric Primary Account Number (PAN) of the credit card.
     /// </summary>
-    /// <value>Stores the credit card number securely.</value>
+    /// <value>Unsigned 64‑bit integer containing up to 19 digits; must pass Luhn validation and represent a valid, active card number.</value>
     public ulong Pan { get; set; }
 
     /// <summary>
-    /// Represents the card verification code (CVD) used for validating credit card transactions.
+    /// Card Verification Data (CVD) code for the credit card
     /// </summary>
-    /// <value>Stores the CVD as a string.</value>
+    /// <value>Three‑digit (Visa/MasterCard/Discover) or four‑digit (American Express) numeric string; required for the payment; must be transmitted securely (TLS) and not stored.</value>
     public string CVD { get; set; }
 
     /// <summary>
-    /// Specifies the expiration month of the credit card.
+    /// The two‑digit month (1‑12) in which the credit card expires.
     /// </summary>
-    /// <value>Represents the month when the credit card expires.</value>
+    /// <value>Integer 1‑12; required; must represent a month that, together with ExpirationYear, is not in the past.</value>
     public int ExpirationMonth { get; set; }
 
     /// <summary>
-    /// Specifies the expiration year of the credit card. This is a crucial component for validating the card's validity period within the TIB Finance API.
+    /// The four‑digit year when the credit card expires.
     /// </summary>
-    /// <value>Represents the year when the credit card expires.</value>
+    /// <value>Must be a valid future year (e.g., 2025) and typically expressed as a four‑digit integer; values earlier than the current year are rejected.</value>
     public int ExpirationYear { get; set; }
 
     /// <summary>
-    /// Specifies the name of the card owner.
+    /// Name of the cardholder as printed on the credit card
     /// </summary>
-    /// <value>Represents the name of the individual who owns the credit card. This information is crucial for validating and processing transactions.</value>
+    /// <value>Required string, up to 100 characters, alphabetic characters and spaces only; must match the card's billing name</value>
     public string CardOwner { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the registered address associated with a credit card. This property is crucial for verifying the billing address linked to the credit card, ensuring secure and accurate transaction processing.
+    /// The billing address associated with the credit card being added.
     /// </summary>
-    /// <value>Represents the address registered with the credit card, used for billing verification purposes.</value>
+    /// <value>Must be a valid AddressModel (street, city, postal code, country) matching the card issuer's records; required for verification and fraud checks.</value>
     public AddressModel CreditCardRegisteredAddress { get; set; }
 
     /// <summary>
-    /// Handles the extraction or assignment of a particular entity's expiration date.
+    /// The date and time when the payment method expires.
     /// </summary>
-    /// <value>Denotes the expiration date of a specific entity, represented as a DateTime object.</value>
+    /// <value>ISO‑8601 UTC timestamp; may be null for perpetual methods; must be a future date at the time of retrieval.</value>
     public DateTime ExpirationDate { get; set; }
 
     /// <summary>
-    /// A well formated string of the credit card number
+    /// The credit card number string provided in a standardized format for payment method creation.
     /// </summary>
-    /// <value>The formated credit card string.</value>
+    /// <value>Must contain only digits, optionally separated by spaces or dashes (e.g., "4111 1111 1111 1111"), pass Luhn validation, and represent a supported card type (Visa, MasterCard, Amex, etc.).</value>
     public string FormatedCreditCardString { get; set; }
 
     /// <summary>
-    /// An obfuscated string of the card number
+    /// A formatted string that previews the direct account payment method details before creation.
     /// </summary>
-    /// <value>The preview string.</value>
+    /// <value>Must be a non‑empty UTF‑8 string, max 256 characters; includes masked account number, bank name, and optional reference, following the platform’s preview template.</value>
     public string PreviewString { get; set; }
 
     }

@@ -23,9 +23,9 @@ namespace Tib.Api.Common
     public DateTime CreationDate { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the identifier for user login relations.
+    /// That is the ID of the reference, the reference defined by the permissiontype
     /// </summary>
-    /// <value>Represents the unique identifier associated with user login relations.</value>
+    /// <value>The logins user relations identifier.</value>
     public Guid LoginsUserRelationsId { get; set; }
 
     /// <summary>

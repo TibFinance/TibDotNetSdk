@@ -11,9 +11,9 @@ namespace Tib.Api.Model.FreeModeOperation
     {
         
     /// <summary>
-    /// Identifies the specific transfer operation that needs to be reverted.
+    /// Unique identifier of the wallet adjustment transaction
     /// </summary>
-    /// <value>This identifier is used to specify which failed transfer operation should be targeted for a retry process.</value>
+    /// <value>System‑generated GUID (UUID v4) returned in the response; immutable, required for tracking and correlation of the adjustment</value>
     public Guid TransferId { get; set; }
 
     }

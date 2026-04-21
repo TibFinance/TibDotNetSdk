@@ -12,9 +12,9 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Provides comprehensive information about a merchant, including essential details necessary for transaction processing.
+    /// Identifier of the merchant whose transfers are being queried
     /// </summary>
-    /// <value>Represents the merchant entity within the system, encapsulating both basic and account information.</value>
+    /// <value>String, required; must match the merchant's unique ID in TIB Finance; filters results to transfers created by or associated with this merchant</value>
     public MerchantViewModel Merchant { get; set; }
 
     }

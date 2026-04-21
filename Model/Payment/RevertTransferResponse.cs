@@ -11,9 +11,9 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Gets a value indicating whether the record has been deleted.
+    /// Whether the transfer was successfully deleted as part of the revert operation.
     /// </summary>
-    /// <value>True when the record is marked as deleted; otherwise false.</value>
+    /// <value></value>
     public bool HasBeenDeleted { get; set; }
 
     }

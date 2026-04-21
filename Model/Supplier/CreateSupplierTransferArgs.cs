@@ -12,21 +12,21 @@ namespace Tib.Api.Model.Supplier
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public Decimal Amount { get; set; }
 
     /// <summary>
-    /// Gets or sets the date and time when the transfer must be completed.
+    /// Scheduled date for the supplier transfer to be processed.
     /// </summary>
-    /// <value>The due date of the transfer represented as a UTC DateTime.</value>
+    /// <value></value>
     public DateTime TransferDueDate { get; set; }
 
     /// <summary>
@@ -36,45 +36,45 @@ namespace Tib.Api.Model.Supplier
     public Guid TargetMerchantId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum Language { get; set; }
 
     /// <summary>
-    /// Defines the frequency at which transfers occur within the TIB Finance API.
+    /// Specifies how often the payment should be executed.
     /// </summary>
-    /// <value>This enumeration specifies the intervals for executing financial transfers, enabling precise scheduling and management of recurring transactions.</value>
+    /// <value>Accepts a TransferFrequencyEnum value (e.g., ONE_TIME, DAILY, WEEKLY, MONTHLY, YEARLY). Required for recurring payments; defaults to ONE_TIME if omitted.</value>
     public TransferFrequencyEnum TransferFrequency { get; set; }
 
     /// <summary>
-    /// 
+    /// End date for a recurring supplier transfer. Null means no end date.
     /// </summary>
     /// <value></value>
     public DateTime? RecurringEndDate { get; set; }
 
     /// <summary>
-    /// 
+    /// Bill number or invoice number associated with this supplier transfer.
     /// </summary>
     /// <value></value>
     public string BillNumber { get; set; }
 
     /// <summary>
-    /// Provides a textual description of the bill associated with a payment.
+    /// The textual description of the bill associated with the transfer.
     /// </summary>
-    /// <value>A free‑form string that describes the purpose or details of the bill. The value is stored and returned as‑is.</value>
+    /// <value>String, up to 255 characters; may be empty if no bill is linked. Returned as‑is from the originating system and used for display or reconciliation.</value>
     public string BillDescription { get; set; }
 
     /// <summary>
-    /// Represents the title of a bill associated with a payment.
+    /// The title or description of the bill linked to the transfer.
     /// </summary>
-    /// <value>This property holds the title of the bill. It is used to identify and describe the bill within the system.</value>
+    /// <value>String, up to 255 characters; may include alphanumeric characters, spaces, and common punctuation; optional and present only when the transfer is associated with a bill.</value>
     public string BillTitle { get; set; }
 
     }

@@ -12,27 +12,27 @@ namespace Tib.Api.Model.Service
     {
         
     /// <summary>
-    /// Retrieves or assigns the primary merchant associated with the service.
+    /// The primary merchant linked to the requested service.
     /// </summary>
-    /// <value>This property represents the primary merchant for the service, which is crucial for handling transactions and managing merchant-specific operations.</value>
+    /// <value>Returned as a MerchantViewModel containing merchant ID, name, and status; may be null if the service has no primary merchant. Read‑only field in the GetService response.</value>
     public MerchantViewModel ServicePrimaryMerchant { get; set; }
 
     /// <summary>
-    /// Gets or sets the ServiceFeeSettings model that defines the fee configuration for a specific service contract.
+    /// Configuration of fees applied to the service.
     /// </summary>
-    /// <value>An instance of ServiceFeeSettingsModel containing fee rates, thresholds, and applicable rules.</value>
+    /// <value>Encapsulates fee rates, thresholds, currency, and calculation rules; fields are read‑only and represent the active fee schedule for the queried service.</value>
     public ServiceFeeSettingsModel ServiceFeeSettings { get; set; }
 
     /// <summary>
-    /// Gets or sets the configuration settings for a TIB Finance service.
+    /// The ServiceSettingsModel object that defines the configuration of the requested service.
     /// </summary>
-    /// <value>An instance of ServiceSettingsModel that defines the service's contract identifier, applicable limits, fees, and other operational parameters.</value>
+    /// <value>Includes endpoint URLs, authentication requirements, rate limits, and feature toggles. Returned only for services the caller is authorized to view; fields are read‑only and may be null if the service has no configurable settings.</value>
     public ServiceSettingsModel ServiceSettings { get; set; }
 
     /// <summary>
-    /// Specifies the merchant name that is charged for fees when an override is applied.
+    /// The merchant name linked to any overloaded fees applied to the transaction.
     /// </summary>
-    /// <value>A string containing the merchant's display name. The name must match an existing merchant record in TIB Finance.</value>
+    /// <value>String, up to 100 characters; may be empty if no overloaded fees are present; UTF‑8 encoded.</value>
     public string OverloadedFeesMerchantName { get; set; }
 
     }

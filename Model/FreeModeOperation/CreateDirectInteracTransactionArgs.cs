@@ -13,57 +13,57 @@ namespace Tib.Api.Model.FreeModeOperation
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// This model encapsulates the details required to manage Interac payment methods for customers. It is used to facilitate electronic funds transfers via the Interac network, a widely used payment system in Canada.
+    /// Details of the Interac e‑transfer payment method to be created.
     /// </summary>
-    /// <value>The model does not directly return a value. It serves as a data structure to store and manage Interac payment information.</value>
+    /// <value>Required InteracModel containing valid Canadian banking fields (bankAccountNumber, transitNumber, institutionNumber) and optional description; all values must conform to Canadian banking format and the object cannot be null.</value>
     public InteracModel InteracInformation { get; set; }
 
     /// <summary>
-    /// Indicates the direction of an Interac transaction.
+    /// This property determine if you desire to deposit money to someone account of if you request someone to pay the merchant using Interac.
     /// </summary>
-    /// <value>Use 1 for Collect (merchant receives funds from the customer) or 2 for Deposit (merchant sends funds to the customer).</value>
+    /// <value></value>
     public TransferDirectionEnum TransferDirection { get; set; }
 
     /// <summary>
-    /// Specifies the due date for the payment. If the value is null, the system treats the due date as the current date and time.
+    /// The date by which the created payment must be settled.
     /// </summary>
-    /// <value>The date and time by which the payment must be completed.</value>
+    /// <value>ISO‑8601 DateTime (UTC). Must be a future date, not earlier than the current date, and cannot exceed the platform's maximum scheduling horizon.</value>
     public DateTime? DueDate { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// Represents a brief description used in statements to identify or clarify the transaction.
+    /// The text that will appear on the payer’s bank statement for this payment.
     /// </summary>
-    /// <value>This string provides a concise description for transactions, aiding in the identification and clarification of statement entries.</value>
+    /// <value>String, up to 140 characters; may include alphanumeric characters and basic punctuation; trimmed of leading/trailing whitespace; must not contain line breaks or special symbols that banks reject.</value>
     public string StatementDescription { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum? Currency { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum? Language { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the reference number associated with a transaction or operation.
+    /// Use this property to match transaction in other system.
     /// </summary>
-    /// <value>Represents the unique identifier for tracking and referencing a specific transaction.</value>
+    /// <value></value>
     public string ReferenceNumber { get; set; }
 
     }

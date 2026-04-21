@@ -12,9 +12,9 @@ namespace Tib.Api.Model.Customer
     {
         
     /// <summary>
-    /// Provides access to detailed customer information necessary for transaction processing and account management.
+    /// The customer data to be saved
     /// </summary>
-    /// <value>Represents the customer entity within the system, encapsulating all relevant customer data.</value>
+    /// <value>A fully populated CustomerModel object; must not be null and must satisfy all validation rules (e.g., required fields such as Name, Email, and valid address). Optional fields may be omitted, but any provided values must conform to type constraints.</value>
     public CustomerModel Customer { get; set; }
 
     }

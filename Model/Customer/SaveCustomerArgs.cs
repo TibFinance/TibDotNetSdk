@@ -12,15 +12,15 @@ namespace Tib.Api.Model.Customer
     {
         
     /// <summary>
-    /// Provides access to detailed customer information necessary for transaction processing and account management.
+    /// The customer data to be saved
     /// </summary>
-    /// <value>Represents the customer entity within the system, encapsulating all relevant customer data.</value>
+    /// <value>A fully populated CustomerModel object; must not be null and must satisfy all validation rules (e.g., required fields such as Name, Email, and valid address). Optional fields may be omitted, but any provided values must conform to type constraints.</value>
     public CustomerModel Customer { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     }

@@ -11,21 +11,21 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Identifies the specific transfer operation that needs to be reverted.
+    /// Unique identifier of the wallet adjustment transaction
     /// </summary>
-    /// <value>This identifier is used to specify which failed transfer operation should be targeted for a retry process.</value>
+    /// <value>System‑generated GUID (UUID v4) returned in the response; immutable, required for tracking and correlation of the adjustment</value>
     public Guid TransferId { get; set; }
 
     /// <summary>
-    /// 
+    /// Indicates whether the AdjustWallet request completed successfully
     /// </summary>
-    /// <value></value>
+    /// <value>Boolean flag; true when the wallet adjustment was applied, false if it failed (e.g., validation error, insufficient funds). Always present in the response.</value>
     public bool WasSuccessful { get; set; }
 
     /// <summary>
-    /// 
+    /// Indicates whether the supplier must complete onboarding before the wallet can be adjusted
     /// </summary>
-    /// <value></value>
+    /// <value>True when supplier boarding is required, false otherwise; always present and non‑null in the response</value>
     public bool RequiresSupplierBoarding { get; set; }
 
     }

@@ -11,81 +11,81 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// Specifies the target of an operation, indicating whether the operation pertains to the merchant or the customer.
+    /// Specifies the destination entity of the transfer returned by ListTransfers
     /// </summary>
-    /// <value>Enum value that identifies the operation target.</value>
+    /// <value>Enum values: ACCOUNT (internal account), WALLET (user wallet), EXTERNAL (outside TIB Finance). Always present; case‑sensitive; used to route subsequent actions.</value>
     public OperationTargetEnum OperationTarget { get; set; }
 
     /// <summary>
-    /// Specifies the operation category used throughout the API.
+    /// The kind of operation the transfer represents
     /// </summary>
-    /// <value>Represents the operation type defined in the OperationTypeEnum, enabling the system to differentiate between deposit, collection, fee, and other transaction flows.</value>
+    /// <value>Enum value from OperationTypeEnum (e.g., CREDIT, DEBIT, REVERSAL, etc.); always present in the ListTransfers response and defines the transfer direction or special action.</value>
     public OperationTypeEnum OperationType { get; set; }
 
     /// <summary>
-    /// Specifies the direction of the operation, indicating whether funds are being collected or deposited.
+    /// Indicates whether the listed transfer is inbound to or outbound from the queried account
     /// </summary>
-    /// <value>A TransferDirectionEnum value that represents the operation direction (Collect or Deposit).</value>
+    /// <value>Enum TransferDirectionEnum; possible values: INBOUND, OUTBOUND. Read‑only field present in every ListTransfers response item.</value>
     public TransferDirectionEnum OperationDirection { get; set; }
 
     /// <summary>
-    /// Represents the current state of a transaction within the system.
+    /// Indicates the current status of the transfer operation.
     /// </summary>
-    /// <value>The Status integer indicates the progress or outcome of a transaction, providing essential information for error handling and process monitoring.</value>
+    /// <value>Read‑only enum (OperationStatusEnum) with values such as PENDING, COMPLETED, FAILED, CANCELED; reflects the final processing outcome of the transfer.</value>
     public OperationStatusEnum Status { get; set; }
 
     /// <summary>
-    /// Provides a detailed explanation of the function's purpose and usage within the API.
+    /// Human‑readable description of the transfer
     /// </summary>
-    /// <value>This property offers a comprehensive description of how the function interacts with the API, detailing its role in retrieving customer data associated with a merchant account.</value>
+    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public string Description { get; set; }
 
     /// <summary>
-    /// Gets or sets the result of a banking operation as defined by the BankingOperationResultEnum.
+    /// Indicates the outcome of the banking operation for each listed transfer
     /// </summary>
-    /// <value>The value indicating the outcome of the banking operation.</value>
+    /// <value>Enum values (e.g., SUCCESS, FAILED, PENDING, REJECTED). Returned for every transfer; never null. Reflects the final processing status as recorded by the banking system.</value>
     public BankingOperationResultEnum BankingOperationResult { get; set; }
 
     /// <summary>
-    /// Gets or sets the textual description of the bank associated with the transaction.
+    /// The name of the bank associated with the transfer.
     /// </summary>
-    /// <value>A string that contains the bank's description.</value>
+    /// <value>String, up to 100 characters; may be empty if the bank is not identified; reflects the bank's official name as provided by the originating institution.</value>
     public string BankDescription { get; set; }
 
     /// <summary>
-    /// Represents the name associated with the merchant's account.
+    /// The display name of the account involved in the transfer.
     /// </summary>
-    /// <value>Specifies the name of the merchant's account used for identification and transaction purposes.</value>
+    /// <value>String (max 100 chars); reflects the account's configured name, may include alphanumeric characters and spaces.</value>
     public string AccountName { get; set; }
 
     /// <summary>
-    /// Gets or sets the preview text for a merchant account.
+    /// A short preview of the account involved in the transfer.
     /// </summary>
-    /// <value>A string containing a concise, read‑only representation of the account, suitable for display in UI lists.</value>
+    /// <value>String showing account name and masked number (e.g., "Savings ****1234"); max 100 characters; may be empty if no account is linked.</value>
     public string AccoutPreview { get; set; }
 
     /// <summary>
-    /// Specifies the payment method type associated with the account.
+    /// The type of payment method used for the transfer.
     /// </summary>
-    /// <value>Indicates whether the account is a Credit Card, Bank Account, or Interac payment method.</value>
+    /// <value>Enum PaymentMethodTypeEnum (e.g., BANK_ACCOUNT, CREDIT_CARD, DEBIT_CARD, WALLET). Always present in the response; reflects the source or destination account category.</value>
     public PaymentMethodTypeEnum AccountType { get; set; }
 
     /// <summary>
-    /// Gets or sets the description associated with a transaction.
+    /// A free‑form text describing the purpose or details of the transfer.
     /// </summary>
-    /// <value>A textual description that provides context or details about the transaction. The value must be a non‑null string.</value>
+    /// <value>Returned as a string; may be empty if no description was provided. Maximum length 255 characters; UTF‑8 encoded.</value>
     public string TransactionDescription { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the due date for a transaction.
+    /// The scheduled date and time when the listed transfer is due to be executed.
     /// </summary>
-    /// <value>Specifies the date by which the transaction is expected to be completed.</value>
+    /// <value>ISO‑8601 UTC timestamp. Must be a future date for pending transfers; may be null for immediate or completed transfers.</value>
     public DateTime TransactionDueDate { get; set; }
 
     /// <summary>
-    /// Gets or sets the timestamp indicating when the entity was last modified.
+    /// The date and time when the transfer record was last modified.
     /// </summary>
-    /// <value>Date and time of the most recent modification.</value>
+    /// <value>ISO‑8601 UTC timestamp (e.g., 2023-07-15T14:30:00Z). Read‑only; may be null if the transfer has never been updated.</value>
     public DateTime? LastModifiedDate { get; set; }
 
     }

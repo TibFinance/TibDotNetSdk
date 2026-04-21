@@ -13,9 +13,9 @@ namespace Tib.Api.Model.FreeModeOperation
     {
         
     /// <summary>
-    /// Provides the collection of free‑collection operations that have been executed.
+    /// List of executed operations matching the query criteria.
     /// </summary>
-    /// <value>A list of FreeCollectionOperationModel instances, each representing a single operation.</value>
+    /// <value></value>
     public List<FreeCollectionOperationModel> OperationList { get; set; }
 
     }

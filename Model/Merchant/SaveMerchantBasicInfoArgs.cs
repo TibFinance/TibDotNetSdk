@@ -12,15 +12,15 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// This property holds the basic information necessary for creating or updating a merchant's account within the TIB Finance API system.
+    /// Basic merchant details required for creating or updating a merchant record
     /// </summary>
-    /// <value>Contains essential details about the merchant.</value>
+    /// <value>Object of type MerchantModelBasicInfo; must not be null and must contain all required fields (e.g., merchantName, taxId, contactEmail). Field lengths and formats follow the MerchantModelBasicInfo schema; optional fields may be omitted.</value>
     public MerchantModelBasicInfo MerchantInfo { get; set; }
 
     }

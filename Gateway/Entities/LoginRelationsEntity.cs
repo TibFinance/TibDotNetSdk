@@ -10,9 +10,9 @@ namespace Tib.Api.Gateway.Entities
     {
         
     /// <summary>
-    /// Retrieves or assigns the identifier for user login relations.
+    /// Gets or sets the logins user relations identifier.
     /// </summary>
-    /// <value>Represents the unique identifier associated with user login relations.</value>
+    /// <value>The logins user relations identifier.</value>
     public Guid LoginsUserRelationsId { get; set; }
 
     /// <summary>
@@ -28,9 +28,9 @@ namespace Tib.Api.Gateway.Entities
     public Guid InternalReferenceId { get; set; }
 
     /// <summary>
-    /// Provides a detailed explanation of the function's purpose and usage within the API.
+    /// Human‑readable description of the transfer
     /// </summary>
-    /// <value>This property offers a comprehensive description of how the function interacts with the API, detailing its role in retrieving customer data associated with a merchant account.</value>
+    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public string Description { get; set; }
 
     /// <summary>

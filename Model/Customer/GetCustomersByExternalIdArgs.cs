@@ -11,15 +11,15 @@ namespace Tib.Api.Model.Customer
     {
         
     /// <summary>
-    /// Retrieves or assigns the identifier used for external customer identification. This property is crucial for linking customer data with external systems.
+    /// The external identifier of the customer to retrieve.
     /// </summary>
-    /// <value>Represents the unique identifier for a customer used in external systems.</value>
+    /// <value>String (max 255 chars), required, case‑sensitive, must match the ID used in the external system; URL‑encode special characters.</value>
     public string ExternalCustomerId { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     }

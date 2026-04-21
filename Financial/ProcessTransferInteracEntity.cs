@@ -11,9 +11,9 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// This model encapsulates the details required to manage Interac payment methods for customers. It is used to facilitate electronic funds transfers via the Interac network, a widely used payment system in Canada.
+    /// Details of the Interac e‑transfer payment method to be created.
     /// </summary>
-    /// <value>The model does not directly return a value. It serves as a data structure to store and manage Interac payment information.</value>
+    /// <value>Required InteracModel containing valid Canadian banking fields (bankAccountNumber, transitNumber, institutionNumber) and optional description; all values must conform to Canadian banking format and the object cannot be null.</value>
     public InteracModel InteracInformation { get; set; }
 
     /// <summary>

@@ -13,21 +13,21 @@ namespace Tib.Api.Model.FreeOperation
     {
         
     /// <summary>
-    /// Facilitates the initiation of a batch of free operations, enabling transactions that are not associated with a specific bill. This is crucial for managing payments or deposits directly linked to customer payment methods.
+    /// List of free operations to create as a batch.
     /// </summary>
-    /// <value>This property allows for the creation of multiple free operations in a single batch, optimizing the process of handling transactions that are independent of bills.</value>
+    /// <value></value>
     public List<FreeOperationModel> FreeOperationBatchList { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for a group within the TIB Finance API.
+    /// Identifier of the payment group to which the payment belongs
     /// </summary>
-    /// <value>The GroupId is used to uniquely identify and manage groups, ensuring precise operations within the API.</value>
+    /// <value>String, required, non‑empty, max 36 characters, must be a valid UUID/GUID if the system uses GUIDs</value>
     public string GroupId { get; set; }
 
     /// <summary>
-    /// Determines whether to halt operations with identical identifications.
+    /// Whether to reject duplicate operations with the same identification details within the group.
     /// </summary>
-    /// <value>This boolean property is used to control the processing of transactions that share the same identification values, such as GroupId or ReferenceNumber.</value>
+    /// <value></value>
     public bool? StopSameIdentifications { get; set; }
 
     }

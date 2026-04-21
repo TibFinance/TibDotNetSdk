@@ -13,9 +13,9 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Retrieves the collection of PaymentModel objects that satisfy the current query criteria.
+    /// A collection of payment details for each transfer returned by ListTransfers
     /// </summary>
-    /// <value>An IEnumerable containing the matching payments.</value>
+    /// <value>IEnumerable of PaymentModel objects, each containing amount, currency, status, timestamps, and identifiers. May be empty if no payments exist. Items are ordered chronologically by creation date. All fields follow the PaymentModel schema and are read‑only.</value>
     public IEnumerable<PaymentModel> Payments { get; set; }
 
     }

@@ -11,27 +11,27 @@ namespace Tib.Api.Model.Service
     {
         
     /// <summary>
-    /// Retrieves or assigns the service's name.
+    /// The name of the service that processed the transfer
     /// </summary>
-    /// <value>This property holds the name of the service, which is crucial for identifying and managing the service within the TIB Finance system.</value>
+    /// <value>String, non‑empty, max length 64 characters; reflects the internal service identifier returned in the ListTransfers response</value>
     public string ServiceName { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the default language preference for a customer.
+    /// The default language assigned to the customer for all platform communications.
     /// </summary>
-    /// <value>This property specifies the default language setting for a customer, allowing for personalized communication and interaction within the TIB Finance system.</value>
+    /// <value>Returned as a LanguageEnum code (e.g., EN, DE, FR). Read‑only; reflects the language set in the customer's profile and may be null if no default is configured.</value>
     public LanguageEnum DefaultCustomerLanguage { get; set; }
 
     /// <summary>
-    /// Gets or sets the type of the provider.
+    /// Identifies the category of the service provider for the requested service
     /// </summary>
-    /// <value>The type of the provider.</value>
+    /// <value>Returns a ProviderEnum value (e.g., BANK, BROKER, PAYMENT_GATEWAY). Must be one of the defined enum members; case‑sensitive and always present in the GetService response.</value>
     public ProviderEnum? ProviderType { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     }

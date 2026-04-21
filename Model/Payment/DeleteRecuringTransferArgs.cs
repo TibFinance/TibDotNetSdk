@@ -11,9 +11,9 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Identifies a specific recurring transfer operation associated with a client's account.
+    /// Identifier of the recurring transfer to delete
     /// </summary>
-    /// <value>This GUID uniquely represents a recurring transfer, allowing for precise management and retrieval of transfer details.</value>
+    /// <value>Guid; must reference an existing active recurring transfer; required and immutable</value>
     public Guid RecuringTransferId { get; set; }
 
     }

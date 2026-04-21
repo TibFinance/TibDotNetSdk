@@ -12,9 +12,9 @@ namespace Tib.Api.Gateway.Args
     {
         
     /// <summary>
-    /// Contains the necessary details for replacing a merchant's account information within the system.
+    /// The target bank account for the direct payment.
     /// </summary>
-    /// <value>This model represents the account details associated with a merchant, ensuring that all relevant information is accurately captured and stored.</value>
+    /// <value>Must be a valid, active AccountModel (e.g., accountNumber, routingNumber) belonging to the payer; cannot be null.</value>
     public AccountModel Account { get; set; }
 
     }

@@ -13,9 +13,9 @@ namespace Tib.Api.Model.PaymentMethod
     {
         
     /// <summary>
-    /// This function is engineered to retrieve or allocate the array of accessible payment methods for transactional operations.
+    /// A collection of payment methods available to the requester.
     /// </summary>
-    /// <value>The function generates an exhaustive list of models that represent diverse payment methods.</value>
+    /// <value>IEnumerable of PaymentMethodModel objects; each includes identifiers, display name, and type. May be empty if no methods are configured. Order is not guaranteed.</value>
     public IEnumerable<PaymentMethodModel> PaymentMethods { get; set; }
 
     }

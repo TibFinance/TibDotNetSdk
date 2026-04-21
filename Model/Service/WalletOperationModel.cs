@@ -10,27 +10,27 @@ namespace Tib.Api.Model.Service
     {
         
     /// <summary>
-    /// 
+    /// Date and time of the wallet operation.
     /// </summary>
     /// <value></value>
     public DateTime Date { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// 
+    /// Whether this operation was a withdrawal from the wallet.
     /// </summary>
     /// <value></value>
     public bool IsWithdrawn { get; set; }
 
     /// <summary>
-    /// Provides a detailed explanation of the function's purpose and usage within the API.
+    /// Human‑readable description of the transfer
     /// </summary>
-    /// <value>This property offers a comprehensive description of how the function interacts with the API, detailing its role in retrieving customer data associated with a merchant account.</value>
+    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public string Description { get; set; }
 
     }

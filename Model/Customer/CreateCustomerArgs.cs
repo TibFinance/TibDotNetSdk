@@ -12,15 +12,15 @@ namespace Tib.Api.Model.Customer
     {
         
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// Provides access to detailed customer information necessary for transaction processing and account management.
+    /// The customer data to be saved
     /// </summary>
-    /// <value>Represents the customer entity within the system, encapsulating all relevant customer data.</value>
+    /// <value>A fully populated CustomerModel object; must not be null and must satisfy all validation rules (e.g., required fields such as Name, Email, and valid address). Optional fields may be omitted, but any provided values must conform to type constraints.</value>
     public CustomerEntity Customer { get; set; }
 
     }

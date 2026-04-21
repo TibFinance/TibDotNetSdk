@@ -10,9 +10,9 @@ namespace Tib.Api.Model.Boarding
     {
         
     /// <summary>
-    /// The ClientId property serves as a distinct identifier for each client, playing a crucial role in the authentication process.
+    /// Unique identifier of the client initiating the session
     /// </summary>
-    /// <value>ClientId is a distinctive identifier, encapsulated as a Guid, allocated to every client for precise identification and authentication.</value>
+    /// <value>Required Guid; must be a valid, registered client ID in the TIB Finance system</value>
     public Guid ClientId { get; set; }
 
     /// <summary>
@@ -106,9 +106,9 @@ namespace Tib.Api.Model.Boarding
     public string TransitNumber { get; set; }
 
     /// <summary>
-    /// Specifies the bank account number associated with the payment method.
+    /// The bank account number used for the direct account payment.
     /// </summary>
-    /// <value>Gets or sets the account number. The value must be a non‑empty string with a maximum length of 20 characters.</value>
+    /// <value>String of digits only (no spaces or symbols), typically 8–34 characters, matching the format required by the selected bank; required input.</value>
     public string AccountNumber { get; set; }
 
     /// <summary>
@@ -118,9 +118,9 @@ namespace Tib.Api.Model.Boarding
     public string AccountOwner { get; set; }
 
     /// <summary>
-    /// Identifies the bank associated with the account using its numeric identifier.
+    /// The bank's identification number used for the direct account payment method.
     /// </summary>
-    /// <value>Holds the bank number as a string. The value must not exceed the allowed length.</value>
+    /// <value>String of up to 4 numeric characters, required, no spaces or special symbols.</value>
     public string BankNumber { get; set; }
 
     }

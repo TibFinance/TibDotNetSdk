@@ -10,15 +10,15 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// Represents the merchant's unique name.
+    /// The name of the merchant associated with the transfer.
     /// </summary>
-    /// <value>This property holds a string value that uniquely identifies the merchant by name.</value>
+    /// <value>String, up to 100 characters; may be empty or null if the transfer has no merchant context.</value>
     public string MerchantName { get; set; }
 
     }

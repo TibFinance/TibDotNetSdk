@@ -12,51 +12,51 @@ namespace Tib.Api.Model.FreeOperation
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal? Amount { get; set; }
 
     /// <summary>
-    /// Serves as a unique identifier for each customer within the system.
+    /// Unique identifier of the customer owning the recurring transfers
     /// </summary>
-    /// <value>The 'CustomerId' is a unique, non-duplicable identifier that is assigned to each customer upon their creation. It functions as a primary key for all operations related to a specific customer.</value>
+    /// <value>A non‑null GUID that matches an existing customer record; used to correlate transfers with the correct account</value>
     public Guid? CustomerId { get; set; }
 
     /// <summary>
-    /// Acts as a unique identifier for a distinct payment method.
+    /// Identifier of the payment method to be set as the default for the account
     /// </summary>
-    /// <value>This unique identifier, or token, is specifically associated with a single payment method.</value>
+    /// <value>Must be a valid, non‑empty GUID referencing an existing, active payment method owned by the caller; cannot be null or belong to another tenant.</value>
     public Guid? PaymentMethodId { get; set; }
 
     /// <summary>
-    /// Defines and manages the type of transfer operation within the system.
+    /// Indicates the category of the recurring transfer (e.g., inbound, outbound, internal).
     /// </summary>
-    /// <value>Specifies the category of the transfer, determining its processing logic and applicable rules.</value>
+    /// <value>Enum TransferTypeEnum; possible values: INBOUND, OUTBOUND, INTERNAL. Returned in uppercase; null if not applicable.</value>
     public TransferTypeEnum TransferType { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the reference number associated with a transaction or operation.
+    /// Merchant-defined reference number for this batch item.
     /// </summary>
-    /// <value>Represents the unique identifier for tracking and referencing a specific transaction.</value>
+    /// <value></value>
     public string ReferenceNumber { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum Language { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the due date for a transaction.
+    /// The scheduled date and time when the listed transfer is due to be executed.
     /// </summary>
-    /// <value>Specifies the date by which the transaction is expected to be completed.</value>
+    /// <value>ISO‑8601 UTC timestamp. Must be a future date for pending transfers; may be null for immediate or completed transfers.</value>
     public DateTime? TransactionDueDate { get; set; }
 
     }

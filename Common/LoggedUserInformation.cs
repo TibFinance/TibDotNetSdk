@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections.Generic;
 using Tib.Api.Common;
 
 namespace Tib.Api.Common
@@ -29,9 +30,9 @@ namespace Tib.Api.Common
     public Guid UserClientId { get; set; }
 
     /// <summary>
-    /// The 'Username' property functions as a unique identifier for each user, facilitating personalized user interactions within the system.
+    /// The login identifier of the user initiating the session.
     /// </summary>
-    /// <value>This property holds a unique string value that differentiates each user, thus enabling tailored operations and interactions.</value>
+    /// <value>String, required, case‑sensitive, typically an email or account name; maximum length 256 characters; must correspond to a valid TIB Finance user.</value>
     public string Username { get; set; }
 
     /// <summary>
@@ -49,13 +50,13 @@ namespace Tib.Api.Common
     /// <summary>
     /// Gets or sets a value indicating whether this instance is manager account.
     /// </summary>
-    /// <value><c>true<c> if this instance is manager account; otherwise, <c>false<c>.</value>
+    /// <value>true if this instance is manager account; otherwise, false.</value>
     public bool IsManagerAccount { get; set; }
 
     /// <summary>
-    /// Provides a detailed explanation of the function's purpose and usage within the API.
+    /// Human‑readable description of the transfer
     /// </summary>
-    /// <value>This property offers a comprehensive description of how the function interacts with the API, detailing its role in retrieving customer data associated with a merchant account.</value>
+    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public string Description { get; set; }
 
     /// <summary>
@@ -63,6 +64,24 @@ namespace Tib.Api.Common
     /// </summary>
     /// <value>IsPayCollecAccess</value>
     public bool IsReadOnly { get; set; }
+
+    /// <summary>
+    /// Indicates if this session was created via admin impersonation. When true, 2FA checks are bypassed since the admin has already authenticated.
+    /// </summary>
+    /// <value></value>
+    public bool IsImpersonatedSession { get; set; }
+
+    /// <summary>
+    /// The LoginId of the admin who is impersonating this user. Used for audit logging when IsImpersonatedSession is true.
+    /// </summary>
+    /// <value></value>
+    public Guid? ImpersonatingAdminId { get; set; }
+
+    /// <summary>
+    /// List of ServiceIds that this login has access to via LoginsRelations. Populated only for Service-level logins.
+    /// </summary>
+    /// <value></value>
+    public HashSet<Guid> AllowedServiceIds { get; set; }
 
     }
 }

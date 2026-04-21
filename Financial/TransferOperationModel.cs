@@ -19,27 +19,27 @@ namespace Tib.Api.Financial
     public Guid OperationId { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the monetary amount involved in the transaction.
+    /// The monetary value of each recurring transfer.
     /// </summary>
-    /// <value>Represents the monetary value to be processed.</value>
+    /// <value>Decimal amount in the account's currency, expressed with up to 2 decimal places; must be greater than zero.</value>
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// Retrieves or assigns the currency type used in transactions.
+    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
     /// </summary>
-    /// <value>This property represents the currency type, defined by the CurrencyEnum, used for financial operations within the TIB Finance system.</value>
+    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
-    /// Specifies the target of an operation, indicating whether the operation pertains to the merchant or the customer.
+    /// Specifies the destination entity of the transfer returned by ListTransfers
     /// </summary>
-    /// <value>Enum value that identifies the operation target.</value>
+    /// <value>Enum values: ACCOUNT (internal account), WALLET (user wallet), EXTERNAL (outside TIB Finance). Always present; case‑sensitive; used to route subsequent actions.</value>
     public OperationTargetEnum OperationTarget { get; set; }
 
     /// <summary>
-    /// Specifies the direction of the operation, indicating whether funds are being collected or deposited.
+    /// Indicates whether the listed transfer is inbound to or outbound from the queried account
     /// </summary>
-    /// <value>A TransferDirectionEnum value that represents the operation direction (Collect or Deposit).</value>
+    /// <value>Enum TransferDirectionEnum; possible values: INBOUND, OUTBOUND. Read‑only field present in every ListTransfers response item.</value>
     public TransferDirectionEnum OperationDirection { get; set; }
 
     /// <summary>
@@ -49,9 +49,9 @@ namespace Tib.Api.Financial
     public Guid? DependentOperation { get; set; }
 
     /// <summary>
-    /// Specifies the category of a financial operation.
+    /// Specifies the category of the transfer operation returned by the API
     /// </summary>
-    /// <value>Indicates the type of operation, such as deposit, collection, fee, or other supported categories defined by the API.</value>
+    /// <value>One of the OperationKindEnum values (e.g., DEPOSIT, WITHDRAWAL, INTERNAL, EXTERNAL). Always present in the response and limited to the defined enum members.</value>
     public OperationKindEnum OperationKind { get; set; }
 
     /// <summary>
@@ -73,9 +73,9 @@ namespace Tib.Api.Financial
     public Guid? OverloadedProviderId { get; set; }
 
     /// <summary>
-    /// Retrieves the numeric status code of an operation.
+    /// Indicates the result of the ListTransfers request
     /// </summary>
-    /// <value>The property holds an integer that identifies the current status of the operation.</value>
+    /// <value>Integer status code where 0 = success; non‑zero values represent specific error conditions as defined in the API error code table.</value>
     public TibOperationStatus? OperationStatus { get; set; }
 
     /// <summary>
@@ -85,9 +85,9 @@ namespace Tib.Api.Financial
     public bool? HasUsedWallet { get; set; }
 
     /// <summary>
-    /// Gets or sets the collection of transaction details associated with the operation.
+    /// A list of transfer records returned by the ListTransfers call.
     /// </summary>
-    /// <value>Represents the list of TransactionCommon objects that describe each transaction performed within the operation.</value>
+    /// <value>Contains zero or more TransactionCommon objects, ordered by most recent transfer first; each object includes the standard transaction fields (id, amount, currency, status, timestamps, etc.). The list size respects the request's pagination limits and may be empty if no transfers match the query.</value>
     public List<TransactionCommon> Transactions { get; set; }
 
     }

@@ -12,9 +12,9 @@ namespace Tib.Api.Model.PaymentMethod
     {
         
     /// <summary>
-    /// Provides detailed information about a customer's payment method, which may include credit card, bank account, or Interac details.
+    /// The payment method returned by the GetPaymentMethod request.
     /// </summary>
-    /// <value>Represents the specific payment method associated with a customer, crucial for transaction processing.</value>
+    /// <value>An object of type PaymentMethodModel containing the method's unique identifier, display name, supported currency codes, activation status, and any additional configuration flags. This field is always present in the response and is read‑only.</value>
     public PaymentMethodModel PaymentMethod { get; set; }
 
     }

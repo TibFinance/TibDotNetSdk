@@ -12,57 +12,57 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// Specifies the starting date for filtering payment due dates.
+    /// The start date-time for the transfer search window.
     /// </summary>
-    /// <value>Indicates the initial date from which payments are considered.</value>
+    /// <value>ISO‑8601 DateTime (UTC). Must be earlier than or equal to ToDate and cannot be set in the future.</value>
     public DateTime? FromDate { get; set; }
 
     /// <summary>
-    /// Specifies the payment due date.
+    /// Upper bound of the transfer creation date range for the query
     /// </summary>
-    /// <value>Indicates the end date for payment processing.</value>
+    /// <value>ISO‑8601 UTC DateTime; inclusive; must be ≥ FromDate; cannot exceed current server time; typical max range 90 days</value>
     public DateTime? ToDate { get; set; }
 
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// Identifies the group of related transfer operations.
+    /// Identifier of the transfer group to filter the fast transfer list
     /// </summary>
-    /// <value>A GUID string that uniquely identifies a transfer group within the system.</value>
+    /// <value>String, required; must be a valid UUID (36 characters, hyphenated) representing an existing TransferGroupId</value>
     public string TransferGroupId { get; set; }
 
     /// <summary>
-    /// Defines and manages the type of transfer operation within the system.
+    /// Indicates the category of the recurring transfer (e.g., inbound, outbound, internal).
     /// </summary>
-    /// <value>Specifies the category of the transfer, determining its processing logic and applicable rules.</value>
+    /// <value>Enum TransferTypeEnum; possible values: INBOUND, OUTBOUND, INTERNAL. Returned in uppercase; null if not applicable.</value>
     public TransferTypeEnum TransferType { get; set; }
 
     /// <summary>
-    /// Indicates whether the request should consider only payments that are already marked as resolved.
+    /// If true, the request returns only transfers that are marked as resolved.
     /// </summary>
-    /// <value>Returns true when only resolved payments are to be processed; returns false to include all payments regardless of their resolution status.</value>
+    /// <value>Boolean input; default false. When set to true, unresolved transfers are excluded from the result set. No other status filters may be applied concurrently.</value>
     public bool MarkResolvedOnly { get; set; }
 
     /// <summary>
-    /// External merchant group identifier used to filter transfer operations.
+    /// Identifier of the external merchant group for which transfers are requested
     /// </summary>
-    /// <value>Specifies the GUID of the external merchant group. When provided, the API returns only transfers associated with this group.</value>
+    /// <value>String, required; must match the external system's merchant group ID format (e.g., alphanumeric, up to 64 characters).</value>
     public string ExternalMerchantGroupId { get; set; }
 
     /// <summary>
-    /// Indicates whether the transfer list should be filtered to include only operations that have an error status.
+    /// When true, ListTransfersFast returns only transfers that have errors.
     /// </summary>
-    /// <value>True to return only transfer operations with an error status; false to return all transfer operations regardless of status.</value>
+    /// <value>Boolean input; defaults to false (returns all transfers). Ignored if omitted. Must be true or false.</value>
     public bool OnlyWithErrors { get; set; }
 
     }

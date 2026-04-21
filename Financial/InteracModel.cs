@@ -10,39 +10,39 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// Provides a detailed explanation of the function's purpose and usage within the API.
+    /// Human‑readable description of the transfer
     /// </summary>
-    /// <value>This property offers a comprehensive description of how the function interacts with the API, detailing its role in retrieving customer data associated with a merchant account.</value>
+    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public string Description { get; set; }
 
     /// <summary>
-    /// The 'Owner' property is designed to assign and identify the ownership of a specific resource or object within the system.
+    /// Identifier of the entity that owns the payment method.
     /// </summary>
-    /// <value>The 'Owner' property holds a unique string value that signifies the identifier of the owner, ensuring distinct representation within the system.</value>
+    /// <value>String, non‑empty, typically a UUID or account ID representing the user or merchant; immutable for the lifetime of the method.</value>
     public string Owner { get; set; }
 
     /// <summary>
-    /// TargetEmailAddress specifies the email address to which the Interac request is sent. It identifies the recipient for initiating an Interac transaction.
+    /// The email address of the payer to which the Interac payment request will be sent.
     /// </summary>
-    /// <value>A string containing a valid email address, limited to 80 characters.</value>
+    /// <value>Must be a valid RFC‑5322 email string, non‑empty, maximum 254 characters. Required for CreateInteracPaymentMethod.</value>
     public string TargetEmailAddress { get; set; }
 
     /// <summary>
-    /// Specifies the mobile phone number to which the Interac request is sent.
+    /// The mobile phone number of the payer to which the Interac payment will be sent
     /// </summary>
-    /// <value>Contains the 10‑digit Canadian mobile phone number of the recipient. The field may be left empty if no mobile number is used.</value>
+    /// <value>String in E.164 format (e.g., +1XXXXXXXXXX); must be a valid Canadian mobile number, digits only, max 15 characters, required.</value>
     public string TargetMobilePhoneNumber { get; set; }
 
     /// <summary>
-    /// The question displayed to the Interac recipient to request acceptance of a deposit.
+    /// The security question presented to the payer for an Interac e‑Transfer payment.
     /// </summary>
-    /// <value>Holds the question text as a string.</value>
+    /// <value>String, required; up to 255 characters; must be UTF‑8; used to verify the payer’s identity during payment creation.</value>
     public string InteracQuestion { get; set; }
 
     /// <summary>
-    /// InteracAnswer is the response string that the target must provide to accept an Interac deposit.
+    /// The answer to the security question required for creating an Interac payment method.
     /// </summary>
-    /// <value>Holds the answer supplied by the Interac recipient to confirm the deposit operation.</value>
+    /// <value>String, required; must match the answer previously set for the Interac e‑Transfer account; typically 1‑255 characters; case‑sensitive; trimmed of leading/trailing whitespace.</value>
     public string InteracAnswer { get; set; }
 
     }

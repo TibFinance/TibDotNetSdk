@@ -13,7 +13,7 @@ namespace Tib.Api.Gateway
     /// <summary>
     /// Gets or sets a value indicating whether this instance is valid payment identifier.
     /// </summary>
-    /// <value><c>true<c> if this instance is valid payment identifier; otherwise, <c>false<c>.</value>
+    /// <value>&lt;c&gt;true&lt;c&gt; if this instance is valid payment identifier; otherwise, &lt;c&gt;false&lt;c&gt;.</value>
     public bool IsValidPaymentId { get; set; }
 
     }

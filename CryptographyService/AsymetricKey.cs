@@ -1,4 +1,4 @@
-namespace Tib.Api.CryptographyService
+﻿namespace Tib.Api.CryptographyService
 {
   /// <summary>
   /// Contains both the public and private keys

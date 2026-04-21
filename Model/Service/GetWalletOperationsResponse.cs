@@ -13,21 +13,21 @@ namespace Tib.Api.Model.Service
     {
         
     /// <summary>
-    /// 
+    /// List of daily wallet operation summaries.
     /// </summary>
     /// <value></value>
     public List<WalletOperationModel> DailyOperations { get; set; }
 
     /// <summary>
-    /// 
+    /// Wallet balance before the listed operations were applied.
     /// </summary>
     /// <value></value>
     public decimal BalanceBeforeOperations { get; set; }
 
     /// <summary>
-    /// Gets or sets the delay buffer amount used to define the monetary buffer applied to transaction timing delays.
+    /// The amount of buffer reserved to cover service execution delays.
     /// </summary>
-    /// <value>The monetary amount representing the buffer applied to delay calculations.</value>
+    /// <value>Decimal, non‑negative, expressed in the account's base currency; precision up to 4 decimal places.</value>
     public decimal DelayBufferAmount { get; set; }
 
     }

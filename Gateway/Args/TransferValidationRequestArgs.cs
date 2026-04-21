@@ -11,9 +11,9 @@ namespace Tib.Api.Gateway.Args
     {
         
     /// <summary>
-    /// Gets or sets a value indicating whether this <see cref="TransferValidationRequestArgs"> is approved.
+    /// Gets or sets a value indicating whether this &lt;see cref="TransferValidationRequestArgs"&gt; is approved.
     /// </summary>
-    /// <value><c>true<c> if approved; otherwise, <c>false<c>.</value>
+    /// <value>&lt;c&gt;true&lt;c&gt; if approved; otherwise, &lt;c&gt;false&lt;c&gt;.</value>
     public bool Approved { get; set; }
 
     }

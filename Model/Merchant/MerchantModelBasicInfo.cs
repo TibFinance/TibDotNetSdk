@@ -12,69 +12,69 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Represents the merchant's unique name.
+    /// The name of the merchant associated with the transfer.
     /// </summary>
-    /// <value>This property holds a string value that uniquely identifies the merchant by name.</value>
+    /// <value>String, up to 100 characters; may be empty or null if the transfer has no merchant context.</value>
     public string MerchantName { get; set; }
 
     /// <summary>
-    /// Represents the unique identifier for a merchant within an external system. This ID is crucial for integrating and synchronizing merchant data across different platforms.
+    /// Identifier of the external system that owns the merchant ID
     /// </summary>
-    /// <value>Serves as the external system identifier, linking the merchant to external databases or services.</value>
+    /// <value>String (max 50 chars), required, case‑sensitive; must match the external system's unique identifier used to locate merchants linked to that system</value>
     public string ExternalSystemId { get; set; }
 
     /// <summary>
-    /// Represents the external identity associated with a merchant within an external system.
+    /// Identifier of the external system group for the merchant lookup
     /// </summary>
-    /// <value>Serves as the identifier for the group in an external system, facilitating the integration and management of merchant data across platforms.</value>
+    /// <value>String (max 50 chars), required, case‑sensitive, must correspond to an existing external system group; scopes the search performed by GetMerchantsByExternalId</value>
     public string ExternalSystemGroupId { get; set; }
 
     /// <summary>
-    /// Defines the base currency utilized for bill creation by the merchant.
+    /// The currency in which the merchant conducts transactions.
     /// </summary>
-    /// <value>Specifies the currency in which the merchant operates, ensuring consistency in billing and transactions.</value>
+    /// <value>A value from CurrencyEnum (e.g., USD, EUR, GBP); reflects the merchant's base currency and is required for all monetary fields in the response.</value>
     public CurrencyEnum MerchantCurrency { get; set; }
 
     /// <summary>
-    /// Defines the default language for a customer. If not explicitly specified during customer creation, the language setting of the primary merchant is used as the default.
+    /// Specifies the language used for the payment request and related communications
     /// </summary>
-    /// <value>Represents the language preference of a customer.</value>
+    /// <value>Must be a valid LanguageEnum value (e.g., EN, DE, FR). Required; defaults to EN if omitted.</value>
     public LanguageEnum Language { get; set; }
 
     /// <summary>
-    /// Specifies the email address associated with the merchant.
+    /// The merchant's primary contact email address.
     /// </summary>
-    /// <value>Represents the merchant's email address, which is used for communication and identification purposes within the TIB Finance API.</value>
+    /// <value>A valid RFC 5322 email string, maximum 254 characters; may be null or omitted if no email is on record.</value>
     public string Email { get; set; }
 
     /// <summary>
-    /// Specifies a list of email addresses, separated by semicolons, that will receive copies of emails sent to the merchant.
+    /// Email address(es) that receive a copy of the merchant's communications
     /// </summary>
-    /// <value>Represents the list of email addresses designated to receive email copies.</value>
+    /// <value>String, optional, may contain a single email or a comma‑separated list of valid email addresses; maximum length 256 characters</value>
     public string EmailCopyTo { get; set; }
 
     /// <summary>
-    /// The merchant's phone number used for contact and transaction notifications.
+    /// The merchant's primary contact phone number.
     /// </summary>
-    /// <value>A string containing the merchant's telephone number. The value must conform to the allowed character set defined by the regular expression.</value>
+    /// <value>String, required; must follow E.164 format (e.g., +1234567890), 10‑15 digits including country code, no spaces or special characters.</value>
     public string PhoneNumber { get; set; }
 
     /// <summary>
-    /// Contains a free‑text description of the merchant, which is stored in the TIB Finance system and displayed in merchant records.
+    /// A textual description of the merchant’s business and services.
     /// </summary>
-    /// <value>A UTF‑8 encoded string that describes the merchant. The description is optional but recommended for identification purposes.</value>
+    /// <value>Plain‑text string, up to 500 characters, required for new merchants; HTML tags are not allowed.</value>
     public string MerchantDescription { get; set; }
 
     /// <summary>
-    /// Gets or sets the address associated with the entity.
+    /// The merchant's physical address.
     /// </summary>
-    /// <value>The address represented by an AddressModel object.</value>
+    /// <value>An AddressModel containing street, city, state/province, postal code, and country; all fields required, must be a valid, non‑null address.</value>
     public AddressModel Address { get; set; }
 
     /// <summary>
-    /// Gets or sets the favorite provider.
+    /// The merchant's preferred payment provider.
     /// </summary>
-    /// <value>The favorite provider.</value>
+    /// <value>Must be a valid ProviderEnum value representing a supported provider; case‑sensitive and required for processing the merchant's basic info.</value>
     public ProviderEnum? FavoriteProvider { get; set; }
 
     }

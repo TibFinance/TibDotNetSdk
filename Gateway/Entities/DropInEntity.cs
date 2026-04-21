@@ -25,9 +25,9 @@ namespace Tib.Api.Gateway.Entities
     public decimal Amout { get; set; }
 
     /// <summary>
-    /// Defines and manages the type of transfer operation within the system.
+    /// Indicates the category of the recurring transfer (e.g., inbound, outbound, internal).
     /// </summary>
-    /// <value>Specifies the category of the transfer, determining its processing logic and applicable rules.</value>
+    /// <value>Enum TransferTypeEnum; possible values: INBOUND, OUTBOUND, INTERNAL. Returned in uppercase; null if not applicable.</value>
     public TransferTypeEnum TransferType { get; set; }
 
     /// <summary>
@@ -37,45 +37,45 @@ namespace Tib.Api.Gateway.Entities
     public AutorizedPaymentMethodFlags AuthorizedPaymentMode { get; set; }
 
     /// <summary>
-    /// Gets or sets the external reference number used to link this entity with an external system or business process.
+    /// 
     /// </summary>
-    /// <value>The external reference number associated with the entity.</value>
+    /// <value></value>
     public string ExternalReferenceNumber { get; set; }
 
     /// <summary>
-    /// Gets or sets the title that identifies the object in a human‑readable way.
+    /// 
     /// </summary>
-    /// <value>A short, descriptive string displayed in user interfaces and reports.</value>
+    /// <value></value>
     public string Title { get; set; }
 
     /// <summary>
-    /// Provides a detailed explanation of the function's purpose and usage within the API.
+    /// Human‑readable description of the transfer
     /// </summary>
-    /// <value>This property offers a comprehensive description of how the function interacts with the API, detailing its role in retrieving customer data associated with a merchant account.</value>
+    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public string Description { get; set; }
 
     /// <summary>
-    /// Gets or sets the due date for a payment.
+    /// 
     /// </summary>
-    /// <value>The date and time when the payment must be completed, expressed in UTC.</value>
+    /// <value></value>
     public DateTime? PaymentDueDate { get; set; }
 
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// The unique identifier of the merchant initiating the payment request.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
+    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
-    /// Generates a unique identifier for a specific service to facilitate the creation of a customer list.
+    /// Identifier of the service for which recurring transfers are requested
     /// </summary>
-    /// <value>Serves as a unique key that distinctly identifies a specific service within the system.</value>
+    /// <value>Required GUID; must correspond to an existing service owned by the caller</value>
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// Represents the merchant's unique name.
+    /// The name of the merchant associated with the transfer.
     /// </summary>
-    /// <value>This property holds a string value that uniquely identifies the merchant by name.</value>
+    /// <value>String, up to 100 characters; may be empty or null if the transfer has no merchant context.</value>
     public string MerchantName { get; set; }
 
     /// <summary>
