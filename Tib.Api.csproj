@@ -383,6 +383,7 @@
     <Compile Include="Model\Transfer\RelaunchMerchantFailedTransferResponse.cs" />
     <Compile Include="Model\WhiteLabeling\WhiteLabelingDataModel.cs" />
     <Compile Include="Model\WhiteLabeling\WhiteLabelingModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UiModel\CryptedCallObject.cs" />
     <Compile Include="UiModel\CryptedCallReturn.cs" />
     <Compile Include="UiModel\KeyExchangeReturnedKey.cs" />
