@@ -6,33 +6,57 @@
 
 ## Installation
 
-```bash
-git clone https://github.com/TibFinance/TibDotNetSdk.git
+**Option 1 — prebuilt DLL (recommended):**
+
+1. Download `TibDotNetSdk-v<version>-dll.zip` from the latest [GitHub release](https://github.com/TibFinance/TibDotNetSdk/releases) and extract it.
+2. Add a reference to `Tib.Api.dll` in your project.
+3. Install the two NuGet dependencies (Visual Studio Package Manager Console):
+
+```powershell
+Install-Package BouncyCastle -Version 1.8.9
+Install-Package Newtonsoft.Json -Version 13.0.1
 ```
 
-Add a reference to `Tib.Api.dll` in your project.
+**Option 2 — build from source:**
+
+```bash
+git clone https://github.com/TibFinance/TibDotNetSdk.git
+cd TibDotNetSdk
+nuget restore
+```
+
+Build the `.sln` in Visual Studio, then reference the built `Tib.Api.dll` or add the `Tib.Api` project to your own solution.
 
 ## Quick Start
 
 ```csharp
+using System;
 using Tib.Api;
+using Tib.Api.Model.General;
 
 TibInvoker.InitializePortal("https://sandboxportal.tib.finance");
 
 var sessionArgs = new CreateSessionArgs {
-    ClientId = "your_client_id",
+    ClientId = Guid.Parse("00000000-0000-0000-0000-000000000000"), // replace with your client id
     Username = "your_username",
     Password = "your_password"
 };
 var response = TibInvoker.Portal.CreateSession(sessionArgs);
-Console.WriteLine(response.SessionId);
+if (response.HasError)
+{
+    Console.WriteLine("Session failed: " + response.Messages);
+}
+else
+{
+    Console.WriteLine(response.SessionId);
+}
 ```
 
 ## Documentation
 
 For the complete API reference and guides, visit [doc.tib.finance](https://doc.tib.finance).
 
-This SDK provides access to **56 API methods** for payment processing, merchant management, and financial operations.
+This SDK provides access to **62 API methods** for payment processing, merchant management, and financial operations.
 
 ## Other TIB Finance SDKs
 
