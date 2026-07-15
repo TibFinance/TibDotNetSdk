@@ -10,10 +10,9 @@
 
 1. Download `TibDotNetSdk-v<version>-dll.zip` from the latest [GitHub release](https://github.com/TibFinance/TibDotNetSdk/releases) and extract it.
 2. Add a reference to `Tib.Api.dll` in your project.
-3. Install the two NuGet dependencies (Visual Studio Package Manager Console):
+3. Install the NuGet dependency (Visual Studio Package Manager Console):
 
 ```powershell
-Install-Package BouncyCastle -Version 1.8.9
 Install-Package Newtonsoft.Json -Version 13.0.1
 ```
 
