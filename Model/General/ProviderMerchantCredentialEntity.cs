@@ -12,7 +12,6 @@ namespace Tib.Api.Model.General
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string UserName { get; set; }
 
     /// <summary>
@@ -24,7 +23,6 @@ namespace Tib.Api.Model.General
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string DataProtectionKey { get; set; }
 
     /// <summary>

@@ -14,25 +14,21 @@ namespace Tib.Api.Model.Boarding
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public BoardingInformationEntity BoardingCompanyInfos { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public ServiceFeeSettingsModel FeeSettings { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public ServiceSettingsModel LimitationSettings { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public bool IsSignedContract { get; set; }
 
     /// <summary>

@@ -16,7 +16,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Reference identifier for the operation type.
     /// </summary>
-    /// <value></value>
     public string OperationTypeRef { get; set; }
 
     /// <summary>
@@ -28,7 +27,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Currency of the operation (CAD or USD).
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
@@ -46,7 +44,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Identifier of the entity in the target financial system.
     /// </summary>
-    /// <value></value>
     public Guid TargetSystemId { get; set; }
 
     /// <summary>
@@ -58,7 +55,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Child collection operations in the hierarchy.
     /// </summary>
-    /// <value></value>
     public List<FreeCollectionWithHierarchyModel> FreeCollectionList { get; set; }
 
     }

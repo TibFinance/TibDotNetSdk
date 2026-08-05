@@ -14,67 +14,56 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public int TransferCount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string ExternalId { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public DateTime PayoutDate { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public decimal GrossAmount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public decimal ProcessingFeesAmount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public decimal ConvenientFeesAmount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public decimal NonProcessingFeesAmount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public decimal TotalPaidAmount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public decimal RefundsAmount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public List<string> NonProcessingDescriptions { get; set; }
 
     }

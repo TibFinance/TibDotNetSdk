@@ -31,7 +31,6 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// Base currency for the service.
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     }

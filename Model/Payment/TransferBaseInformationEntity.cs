@@ -192,7 +192,6 @@ namespace Tib.Api.Model.Payment
     /// <summary>
     /// The payer's custom alias for the supplier (from MerchantSuppliers.SupplierName). Only populated for supplier transfer list endpoints.
     /// </summary>
-    /// <value></value>
     public string SupplierAlias { get; set; }
 
     /// <summary>

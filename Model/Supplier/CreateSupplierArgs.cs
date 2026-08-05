@@ -20,19 +20,16 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// Display name for the supplier (max 150 characters).
     /// </summary>
-    /// <value></value>
     public string SupplierName { get; set; }
 
     /// <summary>
     /// Email address of the supplier. Used for deduplication and login creation (max 250 characters).
     /// </summary>
-    /// <value></value>
     public string SupplierEmail { get; set; }
 
     /// <summary>
     /// Currency for the supplier's account (1 = CAD, 2 = USD).
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
@@ -50,13 +47,11 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// Supplier's bank/institution code (Canadian routing) — the 3-digit code identifying the financial institution where the account is held. This is the bank itself, not the branch — the branch transit number is carried by InstitutionNumber.
     /// </summary>
-    /// <value></value>
     public string BankNumber { get; set; }
 
     /// <summary>
     /// Supplier's 5-digit branch/transit number (Canadian routing). Despite the property name, this is the branch transit number, not the institution code — the institution is carried by BankNumber.
     /// </summary>
-    /// <value></value>
     public string InstitutionNumber { get; set; }
 
     }

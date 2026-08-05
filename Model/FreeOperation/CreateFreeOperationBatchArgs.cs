@@ -15,7 +15,6 @@ namespace Tib.Api.Model.FreeOperation
     /// <summary>
     /// List of free operations to create as a batch.
     /// </summary>
-    /// <value></value>
     public List<FreeOperationModel> FreeOperationBatchList { get; set; }
 
     /// <summary>
@@ -27,7 +26,6 @@ namespace Tib.Api.Model.FreeOperation
     /// <summary>
     /// Whether to reject duplicate operations with the same identification details within the group.
     /// </summary>
-    /// <value></value>
     public bool? StopSameIdentifications { get; set; }
 
     }

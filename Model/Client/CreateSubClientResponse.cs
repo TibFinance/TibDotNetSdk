@@ -19,7 +19,6 @@ namespace Tib.Api.Model.Client
     /// <summary>
     /// When the client is not boarding-exempt, the URL to redirect the new service's boarding wizard to (auto-InitBoarding). Null/empty for boarding-exempt clients or if the auto-InitBoarding could not be started (the service is still created and usable to board manually).
     /// </summary>
-    /// <value></value>
     public string BoardingRedirectUrl { get; set; }
 
     }

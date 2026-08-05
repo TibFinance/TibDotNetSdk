@@ -68,19 +68,16 @@ namespace Tib.Api.Financial
     /// <summary>
     /// True determine the transaction is process as "reverting" of existing operation, need to fill AlreadyProcessedProviderInfo.
     /// </summary>
-    /// <value></value>
     public bool IsTransactionRevert { get; set; }
 
     /// <summary>
     /// Must be filled when IsTransactionRevert is set to true in order to be able to know what is the transaction to be reverted.
     /// </summary>
-    /// <value></value>
     public string AlreadyProcessedProviderId { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string AlreadyProcessedProviderAdditionalInfos { get; set; }
 
     /// <summary>
@@ -92,13 +89,11 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string ProviderTransactionId { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string ProviderSubType { get; set; }
 
     /// <summary>
@@ -122,7 +117,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public IEnumerable<object> RelatedConvenientFeesWithTargetProviderId { get; set; }
 
     }

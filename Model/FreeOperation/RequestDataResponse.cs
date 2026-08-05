@@ -44,7 +44,6 @@ namespace Tib.Api.Model.FreeOperation
     /// <summary>
     /// Merchant-defined reference number for this batch item.
     /// </summary>
-    /// <value></value>
     public string ReferenceNumber { get; set; }
 
     /// <summary>

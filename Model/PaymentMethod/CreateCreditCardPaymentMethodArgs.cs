@@ -15,7 +15,6 @@ namespace Tib.Api.Model.PaymentMethod
     /// <summary>
     /// Currency for the credit card payment method (CAD or USD).
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>

@@ -14,7 +14,6 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// Display name for the new sub-client.
     /// </summary>
-    /// <value></value>
     public string Name { get; set; }
 
     /// <summary>
@@ -26,7 +25,6 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// Default currency for the sub-client (CAD or USD). Omitting the field defaults to CAD; an explicit NotSet/other value is rejected.
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     }

@@ -18,7 +18,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// The name of the person having the account
     /// </summary>
-    /// <value></value>
     public string Owner { get; set; }
 
     /// <summary>

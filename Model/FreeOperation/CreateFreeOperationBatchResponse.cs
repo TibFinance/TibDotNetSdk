@@ -15,7 +15,6 @@ namespace Tib.Api.Model.FreeOperation
     /// <summary>
     /// List of individual batch item results.
     /// </summary>
-    /// <value></value>
     public List<CreateFreeOperationBatchResponseBase> CreateFreeOperationBatchResponses { get; set; }
 
     }

@@ -13,7 +13,6 @@ namespace Tib.Api.Model.PaymentMethod
     /// <summary>
     /// Identity of the Interac Payment Method
     /// </summary>
-    /// <value></value>
     public Guid InteracPaymentMethodId { get; set; }
 
     /// <summary>

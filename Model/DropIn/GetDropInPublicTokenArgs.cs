@@ -44,19 +44,16 @@ namespace Tib.Api.Model.DropIn
     /// <summary>
     /// Restrict which payment methods are available in the Drop-In interface.
     /// </summary>
-    /// <value></value>
     public AutorizedPaymentMethodFlags DropInAuthorizedPaymentMethod { get; set; }
 
     /// <summary>
     /// External system reference number to associate with the Drop-In payment.
     /// </summary>
-    /// <value></value>
     public string ExternalReferenceNumber { get; set; }
 
     /// <summary>
     /// Whether to display the customer's previously saved payment methods in the Drop-In.
     /// </summary>
-    /// <value></value>
     public bool ShowCustomerExistingPaymentMethods { get; set; }
 
     /// <summary>
@@ -68,13 +65,11 @@ namespace Tib.Api.Model.DropIn
     /// <summary>
     /// Number of days before the Drop-In token expires.
     /// </summary>
-    /// <value></value>
     public int ExpirationDays { get; set; }
 
     /// <summary>
     /// Title displayed on the Drop-In payment form.
     /// </summary>
-    /// <value></value>
     public string Title { get; set; }
 
     /// <summary>
@@ -86,7 +81,6 @@ namespace Tib.Api.Model.DropIn
     /// <summary>
     /// Scheduled due date for the payment created via Drop-In.
     /// </summary>
-    /// <value></value>
     public DateTime? PaymentDueDate { get; set; }
 
     }

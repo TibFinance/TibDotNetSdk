@@ -27,7 +27,6 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// Whether the client is opted out of service boarding (Client.BypassServiceBoarding). An exempt client's brand-new service has no boarding row and never will, so callers must not treat "no boarding" as "not yet boarded" for it.
     /// </summary>
-    /// <value></value>
     public bool IsClientBoardingExempt { get; set; }
 
     }

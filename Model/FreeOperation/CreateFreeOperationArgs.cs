@@ -44,7 +44,6 @@ namespace Tib.Api.Model.FreeOperation
     /// <summary>
     /// Merchant-defined reference number for tracking this operation.
     /// </summary>
-    /// <value></value>
     public string ReferenceNumber { get; set; }
 
     /// <summary>
@@ -68,19 +67,16 @@ namespace Tib.Api.Model.FreeOperation
     /// <summary>
     /// Title or label for the transfer, displayed in reports.
     /// </summary>
-    /// <value></value>
     public string TransferTitle { get; set; }
 
     /// <summary>
     /// Description or memo attached to the transfer.
     /// </summary>
-    /// <value></value>
     public string TransferDescription { get; set; }
 
     /// <summary>
     /// External system reference number for cross-system tracking.
     /// </summary>
-    /// <value></value>
     public string TransferExternalSystemNumber { get; set; }
 
     /// <summary>
@@ -92,7 +88,6 @@ namespace Tib.Api.Model.FreeOperation
     /// <summary>
     /// End date for a recurring transfer. Null means no end date.
     /// </summary>
-    /// <value></value>
     public DateTime? RecurringEndDate { get; set; }
 
     /// <summary>
@@ -116,7 +111,6 @@ namespace Tib.Api.Model.FreeOperation
     /// <summary>
     /// Whether to reject duplicate transfers with the same identification details.
     /// </summary>
-    /// <value></value>
     public bool? StopSameIdentifications { get; set; }
 
     }

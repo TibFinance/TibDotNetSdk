@@ -15,7 +15,6 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// List of suppliers associated with the authenticated client.
     /// </summary>
-    /// <value></value>
     public List<SupplierViewModel> Suppliers { get; set; }
 
     }

@@ -49,7 +49,6 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// Optional filter to show only transfers for a specific supplier. When set, filters by Transfer.RelatedMerchantId == SupplierMerchantId.
     /// </summary>
-    /// <value></value>
     public Guid? SupplierMerchantId { get; set; }
 
     }

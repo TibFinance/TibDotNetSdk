@@ -13,13 +13,11 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public CredentialTypeEnum CredentialType { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public String CredentialValue { get; set; }
 
     }

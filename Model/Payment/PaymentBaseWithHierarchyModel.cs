@@ -55,13 +55,11 @@ namespace Tib.Api.Model.Payment
     /// <summary>
     /// Identifier of the merchant responsible for fee billing on this payment.
     /// </summary>
-    /// <value></value>
     public Guid? FeeMerchantId { get; set; }
 
     /// <summary>
     /// Whether the response data is formatted from the payer's perspective.
     /// </summary>
-    /// <value></value>
     public bool IsPayerView { get; set; }
 
     }

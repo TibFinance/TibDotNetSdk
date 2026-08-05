@@ -25,19 +25,16 @@ namespace Tib.Api.Model.FreeOperation
     /// <summary>
     /// Merchant-defined reference number echoed back from the request.
     /// </summary>
-    /// <value></value>
     public string ReferenceNumber { get; set; }
 
     /// <summary>
     /// Descriptive message with details about the batch item result.
     /// </summary>
-    /// <value></value>
     public string Message { get; set; }
 
     /// <summary>
     /// Original request data echoed back for correlation.
     /// </summary>
-    /// <value></value>
     public RequestDataResponse RequestDataResponse { get; set; }
 
     }

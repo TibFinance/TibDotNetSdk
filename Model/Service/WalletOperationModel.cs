@@ -12,7 +12,6 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// Date and time of the wallet operation.
     /// </summary>
-    /// <value></value>
     public DateTime Date { get; set; }
 
     /// <summary>
@@ -24,7 +23,6 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// Whether this operation was a withdrawal from the wallet.
     /// </summary>
-    /// <value></value>
     public bool IsWithdrawn { get; set; }
 
     /// <summary>

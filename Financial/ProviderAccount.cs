@@ -33,19 +33,16 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public Boolean IsDefault { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public OwnerTypeEnum OwnerType { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     }

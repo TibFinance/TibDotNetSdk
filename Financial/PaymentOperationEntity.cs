@@ -21,7 +21,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// Currency of the operation (CAD or USD).
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
@@ -63,7 +62,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// Numeric status code indicating the current state of this operation — the integer value of the TibOperationStatus enum. Note that 0 is NotSet, not success; a successful operation reads 5 (Success).
     /// </summary>
-    /// <value></value>
     public TibOperationStatus OperationStatus { get; set; }
 
     /// <summary>

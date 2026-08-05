@@ -229,25 +229,21 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// Allowlist (AutorizedPaymentMethodFlags bitmask) of the payment method(s) permitted to COLLECT on this account. 0 = NotSet = unrestricted (grandfather default).
     /// </summary>
-    /// <value></value>
     public int CollectAllowedPaymentMethods { get; set; }
 
     /// <summary>
     /// Allowlist (AutorizedPaymentMethodFlags bitmask) of the payment method(s) permitted to DEPOSIT (FreeDeposit) on this account. 0 = NotSet = unrestricted (grandfather default).
     /// </summary>
-    /// <value></value>
     public int DepositAllowedPaymentMethods { get; set; }
 
     /// <summary>
     /// When true, deny ALL FreeDeposit-type transfers for this entity regardless of payment method.
     /// </summary>
-    /// <value></value>
     public bool DenyFreeDeposits { get; set; }
 
     /// <summary>
     /// When true, deny ALL supplier payments (CreateSupplierTransfer) where this entity is the payer.
     /// </summary>
-    /// <value></value>
     public bool DenySupplierPayments { get; set; }
 
     }

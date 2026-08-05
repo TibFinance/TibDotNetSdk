@@ -13,7 +13,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Unique identifier of this free collection.
     /// </summary>
-    /// <value></value>
     public Guid FreeCollectionId { get; set; }
 
     /// <summary>
@@ -25,7 +24,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Currency of the collection (CAD or USD).
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
@@ -49,7 +47,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Dollar amount of the combined operation.
     /// </summary>
-    /// <value></value>
     public decimal OperationAmount { get; set; }
 
     /// <summary>
@@ -85,7 +82,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Scheduled execution date for the collection.
     /// </summary>
-    /// <value></value>
     public DateTime? TransferDueDate { get; set; }
 
     /// <summary>

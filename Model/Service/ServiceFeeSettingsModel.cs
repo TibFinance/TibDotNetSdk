@@ -193,19 +193,16 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// Fee charged when a credit card charge attempt fails.
     /// </summary>
-    /// <value></value>
     public decimal CreditCardFailedChargeFee { get; set; }
 
     /// <summary>
     /// Fee charged when a transaction is returned due to an opposition (chargeback).
     /// </summary>
-    /// <value></value>
     public decimal OppositionReturnFees { get; set; }
 
     /// <summary>
     /// Fee charged when an Interac transaction is returned.
     /// </summary>
-    /// <value></value>
     public decimal InteracReturnFee { get; set; }
 
     /// <summary>

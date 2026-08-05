@@ -20,7 +20,6 @@ namespace Tib.Api.Model.Merchant
     /// <summary>
     /// The Merchant.Name shown on bank statements and used as the statement label. User-typed. Duplicates within the same client/service are permitted (pragmatic).
     /// </summary>
-    /// <value></value>
     public string Name { get; set; }
 
     /// <summary>
@@ -38,13 +37,11 @@ namespace Tib.Api.Model.Merchant
     /// <summary>
     /// The 3-digit bank/institution code (Canadian routing) identifying the financial institution — must be exactly 3 digits. Same field as AccountModel.BankNumber; the branch transit number is carried by InstitutionNumber.
     /// </summary>
-    /// <value></value>
     public string BankNumber { get; set; }
 
     /// <summary>
     /// The 5-digit branch/transit number (Canadian routing) — must be exactly 5 digits. Despite the property name, this is the branch transit number, not the institution code (the institution is carried by BankNumber); the name is aligned with AccountModel.InstitutionNumber.
     /// </summary>
-    /// <value></value>
     public string InstitutionNumber { get; set; }
 
     /// <summary>

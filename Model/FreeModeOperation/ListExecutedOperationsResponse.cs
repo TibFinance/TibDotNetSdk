@@ -15,7 +15,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// List of executed operations matching the query criteria.
     /// </summary>
-    /// <value></value>
     public List<FreeCollectionOperationModel> OperationList { get; set; }
 
     }

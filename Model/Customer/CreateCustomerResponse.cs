@@ -19,7 +19,6 @@ namespace Tib.Api.Model.Customer
     /// <summary>
     /// Whether the customer already existed and was returned instead of creating a new one.
     /// </summary>
-    /// <value></value>
     public bool CustomerAlreadyExisted { get; set; }
 
     }

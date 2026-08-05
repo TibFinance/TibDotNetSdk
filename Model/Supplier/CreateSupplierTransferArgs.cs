@@ -26,19 +26,16 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// Scheduled date for the supplier transfer to be processed.
     /// </summary>
-    /// <value></value>
     public DateTime TransferDueDate { get; set; }
 
     /// <summary>
     /// The merchant receiving the money. Will be null when creating a new supplier.
     /// </summary>
-    /// <value></value>
     public Guid TargetMerchantId { get; set; }
 
     /// <summary>
     /// Currency for the transfer (CAD or USD).
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
@@ -56,13 +53,11 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// End date for a recurring supplier transfer. Null means no end date.
     /// </summary>
-    /// <value></value>
     public DateTime? RecurringEndDate { get; set; }
 
     /// <summary>
     /// Bill number or invoice number associated with this supplier transfer.
     /// </summary>
-    /// <value></value>
     public string BillNumber { get; set; }
 
     /// <summary>

@@ -12,19 +12,16 @@ namespace Tib.Api.Model.WhiteLabeling
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public Guid WhiteLabelingDataId { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string CssProperty { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string CssValue { get; set; }
 
     }

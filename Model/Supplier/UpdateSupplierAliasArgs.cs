@@ -19,13 +19,11 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// The unique identifier of the supplier link to rename.
     /// </summary>
-    /// <value></value>
     public Guid MerchantSupplierId { get; set; }
 
     /// <summary>
     /// The new display name for the supplier (max 150 characters).
     /// </summary>
-    /// <value></value>
     public string SupplierName { get; set; }
 
     }

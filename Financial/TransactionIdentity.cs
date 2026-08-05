@@ -26,31 +26,26 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string LastExecutionDescription { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public decimal TransactionAmount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public DateTime OriginalTransactionDueDatePassedWeekend { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public DateTime OriginalTransactionCreatedDatePassedWeekend { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
@@ -62,7 +57,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public Guid? PayoutId { get; set; }
 
     }

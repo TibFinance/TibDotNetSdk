@@ -56,37 +56,31 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public bool ContainsPayoutData { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public decimal? ProviderPayoutFeeAmount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public decimal? ProviderPayoutDepositAmount { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public PayoutReportData PayoutReportData { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public bool ContainsPayoutReportData { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public bool ForceCreateWebhookEvent { get; set; }
 
     /// <summary>

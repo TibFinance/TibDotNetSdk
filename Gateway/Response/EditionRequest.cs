@@ -13,7 +13,6 @@ namespace Tib.Api.Gateway.Response
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string Content { get; set; }
 
     /// <summary>
@@ -25,7 +24,6 @@ namespace Tib.Api.Gateway.Response
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string CreationDate { get; set; }
 
     }

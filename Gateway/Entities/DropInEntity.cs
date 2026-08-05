@@ -39,13 +39,11 @@ namespace Tib.Api.Gateway.Entities
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string ExternalReferenceNumber { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string Title { get; set; }
 
     /// <summary>
@@ -57,7 +55,6 @@ namespace Tib.Api.Gateway.Entities
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public DateTime? PaymentDueDate { get; set; }
 
     /// <summary>
@@ -81,19 +78,16 @@ namespace Tib.Api.Gateway.Entities
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string MerchantPhone { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string MerchantEmail { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public bool RequestPPAFromCustomer { get; set; }
 
     }

@@ -19,7 +19,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public Guid ProviderId { get; set; }
 
     /// <summary>

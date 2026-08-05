@@ -19,7 +19,6 @@ namespace Tib.Api.Model.Merchant
     /// <summary>
     /// Whether the wallet adjustment was accepted and a transfer was created; false when a withdrawal is refused because the client's boarding is incomplete.
     /// </summary>
-    /// <value></value>
     public bool WasSuccessful { get; set; }
 
     /// <summary>

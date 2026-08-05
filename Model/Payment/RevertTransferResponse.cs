@@ -13,7 +13,6 @@ namespace Tib.Api.Model.Payment
     /// <summary>
     /// Whether the transfer was successfully deleted as part of the revert operation.
     /// </summary>
-    /// <value></value>
     public bool HasBeenDeleted { get; set; }
 
     }

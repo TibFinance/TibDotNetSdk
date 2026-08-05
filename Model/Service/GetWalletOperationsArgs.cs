@@ -19,13 +19,11 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// Start date of the wallet operations date range filter.
     /// </summary>
-    /// <value></value>
     public DateTime From { get; set; }
 
     /// <summary>
     /// End date of the wallet operations date range filter.
     /// </summary>
-    /// <value></value>
     public DateTime To { get; set; }
 
     }

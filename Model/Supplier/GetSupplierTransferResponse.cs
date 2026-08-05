@@ -20,19 +20,16 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// The supplier's merchant name (for payer view) or the payer's merchant name (for supplier view).
     /// </summary>
-    /// <value></value>
     public string CounterpartyName { get; set; }
 
     /// <summary>
     /// True if the caller is the fee-payer, false if caller is the supplier.
     /// </summary>
-    /// <value></value>
     public bool IsCallerPayer { get; set; }
 
     /// <summary>
     /// The payer's custom alias for the supplier (from MerchantSuppliers.SupplierName).
     /// </summary>
-    /// <value></value>
     public string SupplierAlias { get; set; }
 
     }

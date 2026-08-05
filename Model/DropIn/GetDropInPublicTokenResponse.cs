@@ -14,7 +14,6 @@ namespace Tib.Api.Model.DropIn
     /// <summary>
     /// Generated public token identifier used to initialize the Drop-In payment form.
     /// </summary>
-    /// <value></value>
     public Guid PublicTokenId { get; set; }
 
     }

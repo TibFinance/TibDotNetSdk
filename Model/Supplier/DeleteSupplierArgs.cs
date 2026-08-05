@@ -19,7 +19,6 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// The unique identifier of the supplier link to delete.
     /// </summary>
-    /// <value></value>
     public Guid MerchantSupplierId { get; set; }
 
     }

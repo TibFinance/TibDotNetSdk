@@ -27,7 +27,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// This property determine if you desire to deposit money to someone account of if you request someone to pay the merchant using Interac.
     /// </summary>
-    /// <value></value>
     public TransferDirectionEnum TransferDirection { get; set; }
 
     /// <summary>
@@ -63,7 +62,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Use this property to match transaction in other system.
     /// </summary>
-    /// <value></value>
     public string ReferenceNumber { get; set; }
 
     }

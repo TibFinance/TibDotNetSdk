@@ -19,7 +19,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// The full name of the account holder, as registered with the financial institution.
     /// </summary>
-    /// <value></value>
     public string Owner { get; set; }
 
     /// <summary>
@@ -37,25 +36,21 @@ namespace Tib.Api.Financial
     /// <summary>
     /// BlueSnap ECP (ACH) account type chosen client-side. Optional, max 40 characters, with no server-side whitelist; TIB's own interfaces send CONSUMER_CHECKING (the default), CONSUMER_SAVINGS, CORPORATE_CHECKING or CORPORATE_SAVINGS. Any value starting with CORPORATE (case-insensitive) makes the server derive the provider-required company name for Corporate eCheck from the account Owner. Not sent to the provider directly.
     /// </summary>
-    /// <value></value>
     public string EcpAccountType { get; set; }
 
     /// <summary>
     /// The type of bank account (e.g., personal checking, corporate savings).
     /// </summary>
-    /// <value></value>
     public AccountTypeEnum? AccountType { get; set; }
 
     /// <summary>
     /// The bank/institution code (Canadian routing) identifying the financial institution where the account is held — normally 3 digits, though accounts imported from CPA-format routing strings carry it zero-padded to 4 (0III). This is the bank itself, not the branch — the branch transit number is carried by InstitutionNumber.
     /// </summary>
-    /// <value></value>
     public string BankNumber { get; set; }
 
     /// <summary>
     /// The 5-digit branch/transit number (Canadian routing) where the account is held. Despite the property name, this is the branch transit number, not the institution code — the institution is carried by BankNumber.
     /// </summary>
-    /// <value></value>
     public string InstitutionNumber { get; set; }
 
     /// <summary>
@@ -67,7 +62,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// The combined routing number (bank number + institution number), used to identify the specific branch.
     /// </summary>
-    /// <value></value>
     public string RoutingNumber { get; set; }
 
     /// <summary>
@@ -79,19 +73,16 @@ namespace Tib.Api.Financial
     /// <summary>
     /// The currency denomination of the account (e.g., CAD, USD).
     /// </summary>
-    /// <value></value>
     public CurrencyEnum? Currency { get; set; }
 
     /// <summary>
     /// The complete account number string composed of bank number, institution number, account number, and optional check digit, separated by dashes.
     /// </summary>
-    /// <value></value>
     public string FullAccountNumber { get; set; }
 
     /// <summary>
     /// The account number appended with the check digit (if present), separated by a dash.
     /// </summary>
-    /// <value></value>
     public string AccountNumberWithCheckDigit { get; set; }
 
     /// <summary>

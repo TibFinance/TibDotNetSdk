@@ -67,7 +67,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// Type of account (chequing, savings, etc.).
     /// </summary>
-    /// <value></value>
     public PaymentMethodTypeEnum AccountType { get; set; }
 
     /// <summary>

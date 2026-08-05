@@ -15,13 +15,11 @@ namespace Tib.Api.Model.Service
     /// <summary>
     /// List of daily wallet operation summaries.
     /// </summary>
-    /// <value></value>
     public List<WalletOperationModel> DailyOperations { get; set; }
 
     /// <summary>
     /// Wallet balance before the listed operations were applied.
     /// </summary>
-    /// <value></value>
     public decimal BalanceBeforeOperations { get; set; }
 
     /// <summary>

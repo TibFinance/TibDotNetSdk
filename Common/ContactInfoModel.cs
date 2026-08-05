@@ -18,7 +18,6 @@ namespace Tib.Api.Common
     /// <summary>
     /// Contact phone number.
     /// </summary>
-    /// <value></value>
     public string Phone { get; set; }
 
     /// <summary>
@@ -30,19 +29,16 @@ namespace Tib.Api.Common
     /// <summary>
     /// City name.
     /// </summary>
-    /// <value></value>
     public string City { get; set; }
 
     /// <summary>
     /// Province or state.
     /// </summary>
-    /// <value></value>
     public int? Province { get; set; }
 
     /// <summary>
     /// Country name.
     /// </summary>
-    /// <value></value>
     public int? Country { get; set; }
 
     /// <summary>

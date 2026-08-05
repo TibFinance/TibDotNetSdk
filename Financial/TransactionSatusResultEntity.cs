@@ -13,7 +13,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public OperationStatusEnum OperationStatus { get; set; }
 
     /// <summary>
@@ -25,7 +24,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string BankingOperationDescription { get; set; }
 
     /// <summary>
@@ -43,13 +41,11 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string ProviderTransactionId { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public DateTime? RealDueDate { get; set; }
 
     }

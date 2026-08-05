@@ -13,7 +13,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public Guid ProviderId { get; set; }
 
     /// <summary>
@@ -25,7 +24,6 @@ namespace Tib.Api.Financial
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public int OrderPriority { get; set; }
 
     }

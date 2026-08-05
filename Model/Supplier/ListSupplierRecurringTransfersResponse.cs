@@ -15,7 +15,6 @@ namespace Tib.Api.Model.Supplier
     /// <summary>
     /// List of non-deleted recurring supplier transfer configurations — rows where the calling merchant is the fee-payer for ListSupplierRecurringTransfers, or where any merchant of the requested service is the fee-payer for ListSupplierRecurringTransfersByService.
     /// </summary>
-    /// <value></value>
     public List<RecuringTransferModel> RecurringTransfers { get; set; }
 
     }

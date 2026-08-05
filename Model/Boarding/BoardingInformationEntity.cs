@@ -18,91 +18,76 @@ namespace Tib.Api.Model.Boarding
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string CompanyName { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string CompanyAddress { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string CompanyPhone { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string CompanyEmail { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public int? CompanyType { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string CompanyName_Edited { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string CompanyAddress_Edited { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public int? CompanyType_Edited { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public bool? DidOwnersAlreadyBeenSubjectOfResiliationOfPaymentService { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public bool? DidOwnersAlreadyAskedForBankrupcy { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public bool? HaveYouBeenSubjectOfVisaRiskProgram { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string SpecimenFile { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string IdFile { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public int? BoardingStep { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string TransitNumber { get; set; }
 
     /// <summary>
@@ -114,13 +99,11 @@ namespace Tib.Api.Model.Boarding
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string AccountOwner { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string BankNumber { get; set; }
 
     }

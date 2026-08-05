@@ -13,19 +13,16 @@ namespace Tib.Api.Gateway.Entities
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public string Base64 { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public BoardingIdFileSidesEnum Side { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <value></value>
     public bool IsAdministrator { get; set; }
 
     }

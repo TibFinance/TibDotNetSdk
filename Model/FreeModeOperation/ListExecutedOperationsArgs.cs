@@ -50,7 +50,6 @@ namespace Tib.Api.Model.FreeModeOperation
     /// <summary>
     /// Which date field to use for the date range filter (CreatedDate or LastModifiedDate).
     /// </summary>
-    /// <value></value>
     public DateTypeEnum? DateType { get; set; }
 
     /// <summary>
