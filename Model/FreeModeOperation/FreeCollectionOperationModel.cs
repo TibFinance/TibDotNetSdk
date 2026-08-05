@@ -26,9 +26,9 @@ namespace Tib.Api.Model.FreeModeOperation
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
+    /// Currency of the operation (CAD or USD).
     /// </summary>
-    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
+    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>

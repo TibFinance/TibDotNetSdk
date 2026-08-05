@@ -11,9 +11,9 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// Indicates the result of the ListTransfers request
+    /// 
     /// </summary>
-    /// <value>Integer status code where 0 = success; non‑zero values represent specific error conditions as defined in the API error code table.</value>
+    /// <value></value>
     public OperationStatusEnum OperationStatus { get; set; }
 
     /// <summary>

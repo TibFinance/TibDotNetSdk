@@ -65,9 +65,9 @@ namespace Tib.Api.Financial
     public string AccoutPreview { get; set; }
 
     /// <summary>
-    /// The type of payment method used for the transfer.
+    /// Type of account (chequing, savings, etc.).
     /// </summary>
-    /// <value>Enum PaymentMethodTypeEnum (e.g., BANK_ACCOUNT, CREDIT_CARD, DEBIT_CARD, WALLET). Always present in the response; reflects the source or destination account category.</value>
+    /// <value></value>
     public PaymentMethodTypeEnum AccountType { get; set; }
 
     /// <summary>

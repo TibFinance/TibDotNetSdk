@@ -118,9 +118,9 @@ namespace Tib.Api.Model.Boarding
     public string AccountOwner { get; set; }
 
     /// <summary>
-    /// The bank's identification number used for the direct account payment method.
+    /// 
     /// </summary>
-    /// <value>String of up to 4 numeric characters, required, no spaces or special symbols.</value>
+    /// <value></value>
     public string BankNumber { get; set; }
 
     }

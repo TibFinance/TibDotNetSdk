@@ -24,5 +24,11 @@ namespace Tib.Api.Model.Service
     /// <value>True means the service was provided without the usual client approval step; false means standard client approbation applied. Read‑only, defaults to false, and is only relevant for services that support optional approbation.</value>
     public bool SkipClientApprobation { get; set; }
 
+    /// <summary>
+    /// Whether the client is opted out of service boarding (Client.BypassServiceBoarding). An exempt client's brand-new service has no boarding row and never will, so callers must not treat "no boarding" as "not yet boarded" for it.
+    /// </summary>
+    /// <value></value>
+    public bool IsClientBoardingExempt { get; set; }
+
     }
 }

@@ -30,9 +30,9 @@ namespace Tib.Api.Model.Supplier
     public string SupplierEmail { get; set; }
 
     /// <summary>
-    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
+    /// Currency for the supplier's account (1 = CAD, 2 = USD).
     /// </summary>
-    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
+    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
@@ -48,15 +48,15 @@ namespace Tib.Api.Model.Supplier
     public string AccountNumber { get; set; }
 
     /// <summary>
-    /// The bank's identification number used for the direct account payment method.
+    /// Supplier's bank/institution code (Canadian routing) — the 3-digit code identifying the financial institution where the account is held. This is the bank itself, not the branch — the branch transit number is carried by InstitutionNumber.
     /// </summary>
-    /// <value>String of up to 4 numeric characters, required, no spaces or special symbols.</value>
+    /// <value></value>
     public string BankNumber { get; set; }
 
     /// <summary>
-    /// The bank's institution number identifying the financial institution for the direct account payment.
+    /// Supplier's 5-digit branch/transit number (Canadian routing). Despite the property name, this is the branch transit number, not the institution code — the institution is carried by BankNumber.
     /// </summary>
-    /// <value>String of exactly 3 numeric characters (e.g., "001"); required; must correspond to a valid institution in the TIB Finance network.</value>
+    /// <value></value>
     public string InstitutionNumber { get; set; }
 
     }

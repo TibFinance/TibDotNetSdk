@@ -29,9 +29,9 @@ namespace Tib.Api.Model.Service
     public ProviderEnum? ProviderType { get; set; }
 
     /// <summary>
-    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
+    /// Base currency for the service.
     /// </summary>
-    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
+    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     }

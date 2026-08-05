@@ -73,6 +73,16 @@ public GetWalletOperationsResponse GetWalletOperations(GetWalletOperationsArgs a
 }
 
 /// <summary>
+/// Lists recurring supplier transfers across an entire service. Returns every non-deleted recurring supplier transfer where any merchant in the given service is the fee-payer, with the supplier merchant's name on each entry. Use this to view all recurring supplier payments service-wide; use ListSupplierRecurringTransfers when scoping to a single fee-paying merchant.
+/// </summary>
+/// <param name="args">The ListSupplierRecurringTransfersByServiceArgs containing the service ID.</param>
+/// <returns>A ListSupplierRecurringTransfersResponse containing the recurring transfers.</returns>
+public ListSupplierRecurringTransfersResponse ListSupplierRecurringTransfersByService(ListSupplierRecurringTransfersByServiceArgs args)
+{
+    return _client.Call<ListSupplierRecurringTransfersResponse>("ListSupplierRecurringTransfersByService", args);
+}
+
+/// <summary>
 /// Lists recurring supplier transfers initiated by the calling merchant. Returns recurring transfer configurations where the caller is the fee-payer.
 /// </summary>
 /// <param name="args">The ListSupplierRecurringTransfersArgs containing the merchant ID.</param>
@@ -93,7 +103,7 @@ public GetSupplierTransferResponse GetSupplierTransfer(GetSupplierTransferArgs a
 }
 
 /// <summary>
-/// Lists supplier transfers initiated by the calling merchant (identified via FeeMerchantId). Returns transfers where the caller is the fee-payer, with optional datestatus filters.
+/// Lists supplier transfers initiated by the calling merchant (identified via FeeMerchantId). Returns transfers where the caller is the fee-payer, with optional date/status filters.
 /// </summary>
 /// <param name="args">The ListSupplierTransfersArgs containing the merchant ID and optional filters.</param>
 /// <returns>A ListSupplierTransfersResponse containing the list of supplier transfers.</returns>
@@ -103,7 +113,7 @@ public ListSupplierTransfersResponse ListSupplierTransfers(ListSupplierTransfers
 }
 
 /// <summary>
-/// Soft-deletes a supplier link for the specified merchant. The supplier's merchant account is not affected â€” only the payer-to-supplier association is removed.
+/// Soft-deletes a supplier link for the specified merchant. The supplier's merchant account is not affected — only the payer-to-supplier association is removed.
 /// </summary>
 /// <param name="args">The DeleteSupplierArgs containing the merchant ID and supplier link ID.</param>
 /// <returns>A DeleteSupplierResponse confirming the deletion.</returns>
@@ -193,16 +203,6 @@ public CreateSubClientResponse CreateSubClient(CreateSubClientArgs args)
 }
 
 /// <summary>
-/// Initializes the merchant onboarding (boarding) process for a service. Generates a public access token and returns a redirect URL to either the direct login page (if a service-level login exists) or the boarding sign-up wizard.
-/// </summary>
-/// <param name="args">The InitBoardingArgs containing the service ID.</param>
-/// <returns>An InitBoardingResponse containing the redirect URL for the boarding wizard.</returns>
-public InitBoardingResponse InitBoarding(InitBoardingArgs args)
-{
-    return _client.Call<InitBoardingResponse>("InitBoarding", args);
-}
-
-/// <summary>
 /// Updates the security question and answer on an existing Interac payment method. Creates a replacement payment method with the new credentials and deletes the old one. The answer is encrypted via the external data vault, and both question and answer are obfuscated in logs.
 /// </summary>
 /// <param name="args">The ChangeInteracPaymentMethodQuestionAndAnswerArgs containing the payment method ID, new question, and new answer.</param>
@@ -213,7 +213,7 @@ public ChangeInteracPaymentMethodQuestionAndAnswerResponse ChangeInteracPaymentM
 }
 
 /// <summary>
-/// Reverts (cancels or reverses) a transfer. For pending gateway payments, deletes the transfer and its public token. For processed payments, creates reversal operations for each non-fee operation. Rejects transfers over $5,000 or wallet-type transfers.
+/// Reverts (cancels or reverses) a transfer. For pending gateway payments, deletes the transfer and its public token. For processed payments, creates reversal operations for each non-fee operation. Rejects transfers over $5,000 or wallet-type transfers. For supplier transfers, only the paying merchant (fee-payer) can revert; the recipient supplier cannot revert a transfer they did not create.
 /// </summary>
 /// <param name="args">The RevertTransferArgs containing the transfer ID.</param>
 /// <returns>A RevertTransferResponse indicating whether the transfer was deleted or reversed.</returns>
@@ -253,10 +253,10 @@ public GetDropInPublicTokenResponse GetDropInPublicToken(GetDropInPublicTokenArg
 }
 
 /// <summary>
-/// Forces the payment process.
+/// Forces immediate processing of a transfer that would otherwise wait for the next scheduled run. For supplier transfers, only the paying merchant (fee-payer) can force-process; the recipient supplier cannot force-execute a transfer they did not create.
 /// </summary>
-/// <param name="args">The arguments.</param>
-/// <returns>ForcePaymentProcessResponse.</returns>
+/// <param name="args">The ForcePaymentProcessArgs identifying the payment to force-process.</param>
+/// <returns>A ForcePaymentProcessResponse describing the outcome of the forced run.</returns>
 public ForcePaymentProcessResponse ForcePaymentProcess(ForcePaymentProcessArgs args)
 {
     return _client.Call<ForcePaymentProcessResponse>("ForcePaymentProcess", args);
@@ -467,11 +467,10 @@ public CreateInteracPaymentMethodResponse CreateInteracPaymentMethod(CreateInter
 }
 
 /// <summary>
-/// Creates a bank‑account payment method linked directly to a customer.
+/// Creates the direct account payment method.
 /// </summary>
-/// <value>Call this when you need to register a new bank account for an existing customer, optionally setting it as the default method for automatic payments.</value>
-/// <param name="args">SessionToken (string) – authentication token; CustomerId (Guid) – identifier of the target customer; IsCustomerAutomaticPaymentMethod (bool) – true to make this the default payment method; Account (object) – bank account details (accountNumber, routingNumber, holderName, currency, etc.); Language (string, optional) – locale for validation messages.</param>
-/// <returns>On success returns a JSON payload with paymentMethodId (Guid) and status="Created"; on failure returns standard error object with code and message.</returns>
+/// <param name="args">The CreateDirectAccountPaymentMethodArgs containing the customer ID and the bank account details for the new payment method.</param>
+/// <returns>A CreateDirectAccountPaymentMethodResponse containing the identifier of the newly created payment method.</returns>
 public CreateDirectAccountPaymentMethodResponse CreateDirectAccountPaymentMethod(CreateDirectAccountPaymentMethodArgs args)
 {
     return _client.Call<CreateDirectAccountPaymentMethodResponse>("CreateDirectAccountPaymentMethod", args);
@@ -522,6 +521,16 @@ public DeleteCustomerResponse DeleteCustomer(DeleteCustomerArgs args)
 }
 
 /// <summary>
+/// Updates only a customer's contact information (email, phone, address, language) without touching the rest of the customer record. Use this when editing the contact card in isolation: fields left null preserve the stored value, empty strings clear it, and non-empty values overwrite.
+/// </summary>
+/// <param name="args">The SaveCustomerContactInfoArgs containing the customer ID and the contact information to apply.</param>
+/// <returns>A SaveCustomerContactInfoResponse containing the contact information as persisted after the save.</returns>
+public SaveCustomerContactInfoResponse SaveCustomerContactInfo(SaveCustomerContactInfoArgs args)
+{
+    return _client.Call<SaveCustomerContactInfoResponse>("SaveCustomerContactInfo", args);
+}
+
+/// <summary>
 /// Creates or updates a customer record in TIB Finance.
 /// </summary>
 /// <value>Use this call to register a new customer or modify an existing one for a specific merchant. The method validates the payload and associates the customer with the given merchant account.</value>
@@ -566,11 +575,10 @@ public ListCustomersResponse ListCustomers(ListCustomersArgs args)
 }
 
 /// <summary>
-/// Adjusts the merchant's wallet balance by the specified amount.
+/// Adjusts a merchant's wallet balance. IncreaseWallet collects the amount from the merchant (by EFT, or by Interac when requested) and credits the wallet; DecreaseWallet withdraws it from the wallet balance, subject to the risk-adjusted withdrawable balance. Requires the wallet feature to be enabled for the service.
 /// </summary>
-/// <value>Call this method to credit or debit a merchant wallet—for fee application, refunds, or manual corrections. The adjustment can be processed using the default mode or routed through Interac when required.</value>
-/// <param name="args">SessionToken (auth token), ServiceId (contract GUID), MerchantId (wallet GUID), Amount (decimal, positive to credit, negative to debit), Mode (e.g., 'AUTO_SELECT', 'ANONYMOUS'), UseInterac (boolean, true to use Interac routing).</param>
-/// <returns>On success returns an object containing AdjustWalletId (GUID), NewBalance (decimal) and Status ('Success' or error details).</returns>
+/// <param name="args">The AdjustWalletArgs containing the service and merchant IDs, the amount, and the adjustment mode.</param>
+/// <returns>An AdjustWalletResponse containing the identifier of the transfer created for the adjustment and WasSuccessful set to true; when a withdrawal is refused because the client's boarding is incomplete, no transfer is created and the response carries RequiresSupplierBoarding set to true with WasSuccessful false instead.</returns>
 public AdjustWalletResponse AdjustWallet(AdjustWalletArgs args)
 {
     return _client.Call<AdjustWalletResponse>("AdjustWallet", args);
@@ -599,11 +607,10 @@ public DeleteMerchantResponse DeleteMerchant(DeleteMerchantArgs args)
 }
 
 /// <summary>
-/// Saves or updates a merchant's bank account information.
+/// Saves the merchant account information. This operation is protected by two-factor authentication.
 /// </summary>
-/// <value>Use this endpoint when creating a merchant or when the merchant's bank account details need to be changed. The call is secured with two‑factor authentication to protect sensitive banking data.</value>
-/// <param name="args">SessionToken (string) – token from session creation; MerchantId (GUID) – identifier of the merchant; Account (object) – bank account fields (number, routing, holder name, etc.); TwoFactorCode (string) – OTP from the 2FA device; TwoFactorSecurityAnswer (string) – answer to the pre‑registered security question.</param>
-/// <returns>HTTP 200 with JSON confirming the operation, e.g., { "merchantId": "&lt;GUID&gt;", "accountSaved": true }.</returns>
+/// <param name="args">The SaveMerchantAccountInfoArgs containing the merchant ID and the replacement bank account information.</param>
+/// <returns>A SaveMerchantResponse containing the two-factor authentication status of the operation.</returns>
 public SaveMerchantResponse SaveMerchantAccountInfo(SaveMerchantAccountInfoArgs args)
 {
     return _client.Call<SaveMerchantResponse>("SaveMerchantAccountInfo", args);
@@ -621,11 +628,10 @@ public SaveMerchantResponse SaveMerchantBasicInfo(SaveMerchantBasicInfoArgs args
 }
 
 /// <summary>
-/// Updates or creates a merchant record in TIB Finance.
+/// Saves the merchant.
 /// </summary>
-/// <value>Call this method when you need to modify the basic or account information of an existing merchant or to register a new merchant after obtaining a session token. It persists the supplied MerchantInfo against the specified MerchantId.</value>
-/// <param name="args">SessionToken (string, required): authentication token from session creation; MerchantId (GUID, required): identifier of the merchant to save; MerchantInfo (object, required): JSON payload containing basic and/or account details to be stored.</param>
-/// <returns>On success, returns HTTP 200 with a JSON body containing the saved MerchantId and a timestamp of the update, or an error object on failure.</returns>
+/// <param name="args">The SaveMerchantArgs containing the merchant ID and the replacement merchant information.</param>
+/// <returns>A SaveMerchantResponse indicating success or errors.</returns>
 public SaveMerchantResponse SaveMerchant(SaveMerchantArgs args)
 {
     return _client.Call<SaveMerchantResponse>("SaveMerchant", args);
@@ -643,11 +649,20 @@ public GetMerchantResponse GetMerchant(GetMerchantArgs args)
 }
 
 /// <summary>
-/// Creates a new merchant (bank account) for the client.
+/// Adds a new bank account (i.e., new merchant in TIB's data model) to an existing fully-boarded service. Authorizes the new merchant on insert. One-shot semantic: no pending state, no approval workflow, no confirmation email. Owner and Currency are inherited from an active sibling merchant on the same service. This is a parallel path to CreateMerchant (which serves boarding's first-merchant insert).
 /// </summary>
-/// <value>Use this when a client requires an additional merchant account beyond the primary one. The call registers the merchant and starts the required validation process.</value>
-/// <param name="args">SessionToken (authentication token), ServiceId (client contract GUID), MerchantInfo (object with merchant basic data such as name, address, currency, etc.).</param>
-/// <returns>MerchantId (GUID) of the newly created merchant and a validationStatus flag indicating whether the merchant is active or pending validation.</returns>
+/// <param name="args">The AddBankAccountArgs containing the service ID and the new bank account details.</param>
+/// <returns>An AddBankAccountResponse containing the identifier of the newly created merchant.</returns>
+public AddBankAccountResponse AddBankAccount(AddBankAccountArgs args)
+{
+    return _client.Call<AddBankAccountResponse>("AddBankAccount", args);
+}
+
+/// <summary>
+/// Creates the merchant.
+/// </summary>
+/// <param name="args">The CreateMerchantArgs containing the service ID and the merchant information to create.</param>
+/// <returns>A CreateMerchantResponse containing the identifier of the newly created merchant.</returns>
 public CreateMerchantResponse CreateMerchant(CreateMerchantArgs args)
 {
     return _client.Call<CreateMerchantResponse>("CreateMerchant", args);

@@ -17,9 +17,9 @@ namespace Tib.Api.Financial
     public string AccountName { get; set; }
 
     /// <summary>
-    /// Identifier of the entity that owns the payment method.
+    /// The full name of the account holder, as registered with the financial institution.
     /// </summary>
-    /// <value>String, non‑empty, typically a UUID or account ID representing the user or merchant; immutable for the lifetime of the method.</value>
+    /// <value></value>
     public string Owner { get; set; }
 
     /// <summary>
@@ -35,21 +35,27 @@ namespace Tib.Api.Financial
     public string LastName { get; set; }
 
     /// <summary>
-    /// The type of payment method used for the transfer.
+    /// BlueSnap ECP (ACH) account type chosen client-side. Optional, max 40 characters, with no server-side whitelist; TIB's own interfaces send CONSUMER_CHECKING (the default), CONSUMER_SAVINGS, CORPORATE_CHECKING or CORPORATE_SAVINGS. Any value starting with CORPORATE (case-insensitive) makes the server derive the provider-required company name for Corporate eCheck from the account Owner. Not sent to the provider directly.
     /// </summary>
-    /// <value>Enum PaymentMethodTypeEnum (e.g., BANK_ACCOUNT, CREDIT_CARD, DEBIT_CARD, WALLET). Always present in the response; reflects the source or destination account category.</value>
+    /// <value></value>
+    public string EcpAccountType { get; set; }
+
+    /// <summary>
+    /// The type of bank account (e.g., personal checking, corporate savings).
+    /// </summary>
+    /// <value></value>
     public AccountTypeEnum? AccountType { get; set; }
 
     /// <summary>
-    /// The bank's identification number used for the direct account payment method.
+    /// The bank/institution code (Canadian routing) identifying the financial institution where the account is held — normally 3 digits, though accounts imported from CPA-format routing strings carry it zero-padded to 4 (0III). This is the bank itself, not the branch — the branch transit number is carried by InstitutionNumber.
     /// </summary>
-    /// <value>String of up to 4 numeric characters, required, no spaces or special symbols.</value>
+    /// <value></value>
     public string BankNumber { get; set; }
 
     /// <summary>
-    /// The bank's institution number identifying the financial institution for the direct account payment.
+    /// The 5-digit branch/transit number (Canadian routing) where the account is held. Despite the property name, this is the branch transit number, not the institution code — the institution is carried by BankNumber.
     /// </summary>
-    /// <value>String of exactly 3 numeric characters (e.g., "001"); required; must correspond to a valid institution in the TIB Finance network.</value>
+    /// <value></value>
     public string InstitutionNumber { get; set; }
 
     /// <summary>
@@ -59,9 +65,9 @@ namespace Tib.Api.Financial
     public string AccountNumber { get; set; }
 
     /// <summary>
-    /// The bank routing number identifying the financial institution for the direct account payment.
+    /// The combined routing number (bank number + institution number), used to identify the specific branch.
     /// </summary>
-    /// <value>String of exactly 9 numeric digits (e.g., "021000021"); no spaces or symbols; required for ACH transfers.</value>
+    /// <value></value>
     public string RoutingNumber { get; set; }
 
     /// <summary>
@@ -71,21 +77,21 @@ namespace Tib.Api.Financial
     public string CheckDigit { get; set; }
 
     /// <summary>
-    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
+    /// The currency denomination of the account (e.g., CAD, USD).
     /// </summary>
-    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
+    /// <value></value>
     public CurrencyEnum? Currency { get; set; }
 
     /// <summary>
-    /// The complete bank account number to be used for the direct payment method.
+    /// The complete account number string composed of bank number, institution number, account number, and optional check digit, separated by dashes.
     /// </summary>
-    /// <value>String of digits only, no spaces or delimiters; length typically 8‑34 characters; may include leading zeros; must pass checksum validation (e.g., MOD‑97) and correspond to the specified bank and branch.</value>
+    /// <value></value>
     public string FullAccountNumber { get; set; }
 
     /// <summary>
-    /// The full bank account number including its check digit.
+    /// The account number appended with the check digit (if present), separated by a dash.
     /// </summary>
-    /// <value>String of digits only; length varies by institution (typically 9‑12 characters). Must match the account's official format and include the final check digit for validation.</value>
+    /// <value></value>
     public string AccountNumberWithCheckDigit { get; set; }
 
     /// <summary>

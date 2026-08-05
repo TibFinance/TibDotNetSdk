@@ -234,8 +234,6 @@
     <Compile Include="Model\Boarding\ContractInfoEntity.cs" />
     <Compile Include="Model\Boarding\GetServiceBoardingStatusArgs.cs" />
     <Compile Include="Model\Boarding\GetServiceBoardingStatusResponse.cs" />
-    <Compile Include="Model\Boarding\InitBoardingArgs.cs" />
-    <Compile Include="Model\Boarding\InitBoardingResponse.cs" />
     <Compile Include="Model\Client\CreateSubClientResponse.cs" />
     <Compile Include="Model\Customer\CreateCustomerArgs.cs" />
     <Compile Include="Model\Customer\CreateCustomerResponse.cs" />
@@ -250,6 +248,8 @@
     <Compile Include="Model\Customer\ListCustomersArgs.cs" />
     <Compile Include="Model\Customer\ListCustomersResponse.cs" />
     <Compile Include="Model\Customer\SaveCustomerArgs.cs" />
+    <Compile Include="Model\Customer\SaveCustomerContactInfoArgs.cs" />
+    <Compile Include="Model\Customer\SaveCustomerContactInfoResponse.cs" />
     <Compile Include="Model\Customer\SaveCustomerResponse.cs" />
     <Compile Include="Model\DropIn\GetDropInPublicTokenArgs.cs" />
     <Compile Include="Model\DropIn\GetDropInPublicTokenResponse.cs" />
@@ -277,6 +277,8 @@
     <Compile Include="Model\General\ProviderAddressEntity.cs" />
     <Compile Include="Model\General\ProviderMerchantCredentialEntity.cs" />
     <Compile Include="Model\General\QuestionAnswerDecrypted.cs" />
+    <Compile Include="Model\Merchant\AddBankAccountArgs.cs" />
+    <Compile Include="Model\Merchant\AddBankAccountResponse.cs" />
     <Compile Include="Model\Merchant\AdjustWalletArgs.cs" />
     <Compile Include="Model\Merchant\AdjustWalletResponse.cs" />
     <Compile Include="Model\Merchant\BoardingFileModel.cs" />
@@ -368,6 +370,7 @@
     <Compile Include="Model\Supplier\GetSupplierTransferArgs.cs" />
     <Compile Include="Model\Supplier\GetSupplierTransferResponse.cs" />
     <Compile Include="Model\Supplier\ListSupplierRecurringTransfersArgs.cs" />
+    <Compile Include="Model\Supplier\ListSupplierRecurringTransfersByServiceArgs.cs" />
     <Compile Include="Model\Supplier\ListSupplierRecurringTransfersResponse.cs" />
     <Compile Include="Model\Supplier\ListSuppliersArgs.cs" />
     <Compile Include="Model\Supplier\ListSuppliersResponse.cs" />

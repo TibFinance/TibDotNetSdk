@@ -71,9 +71,9 @@ namespace Tib.Api.Gateway.Entities
     public string MerchantName { get; set; }
 
     /// <summary>
-    /// The full name of the customer who owns the recurring transfer.
+    /// Gets or sets the name of the customer.
     /// </summary>
-    /// <value>String, up to 100 Unicode characters, may include spaces and hyphens; always present in the response.</value>
+    /// <value>The name of the customer.</value>
     public string CustomerName { get; set; }
 
     /// <summary>

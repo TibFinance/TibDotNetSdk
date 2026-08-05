@@ -19,9 +19,9 @@ namespace Tib.Api.Financial
     public decimal Amount { get; set; }
 
     /// <summary>
-    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
+    /// Currency of the operation (CAD or USD).
     /// </summary>
-    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
+    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
@@ -61,10 +61,10 @@ namespace Tib.Api.Financial
     public List<TransactionCommon> Transactions { get; set; }
 
     /// <summary>
-    /// Indicates the result of the ListTransfers request
+    /// Numeric status code indicating the current state of this operation — the integer value of the TibOperationStatus enum. Note that 0 is NotSet, not success; a successful operation reads 5 (Success).
     /// </summary>
-    /// <value>Integer status code where 0 = success; non‑zero values represent specific error conditions as defined in the API error code table.</value>
-    public int OperationStatus { get; set; }
+    /// <value></value>
+    public TibOperationStatus OperationStatus { get; set; }
 
     /// <summary>
     /// The merchant name associated with an overload transfer.

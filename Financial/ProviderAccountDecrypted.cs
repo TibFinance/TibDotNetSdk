@@ -43,9 +43,9 @@ namespace Tib.Api.Financial
     public PaymentMethodTypeEnum PaymentMethodType { get; set; }
 
     /// <summary>
-    /// The ISO 4217 three‑letter code of the currency in which the transfer was executed.
+    /// 
     /// </summary>
-    /// <value>One of the supported CurrencyEnum values (e.g., USD, EUR, GBP), always uppercase; matches the currency of the source and destination accounts and is required for all transfer responses.</value>
+    /// <value></value>
     public CurrencyEnum Currency { get; set; }
 
     /// <summary>
@@ -103,7 +103,7 @@ namespace Tib.Api.Financial
     public Dictionary<string, string> CredentialValues { get; set; }
 
     /// <summary>
-    /// List of specific CredentialValue for other Provider Credential. Example, RBC has Credential Value called "OrganizationNumber". So this property can be loaded with the Key "OrganizationNumber" and the values "RBC""Value2", "RBC2""Value2"
+    /// List of specific CredentialValue for other Provider Credential. Example, RBC has Credential Value called "OrganizationNumber". So this property can be loaded with the Key "OrganizationNumber" and the values "RBC"/"Value2", "RBC2"/"Value2"
     /// </summary>
     /// <value></value>
     public Dictionary<string, Dictionary<string, string>> ProviderOtherCredentialValues { get; set; }

@@ -16,9 +16,9 @@ namespace Tib.Api.Financial
     public string Description { get; set; }
 
     /// <summary>
-    /// Identifier of the entity that owns the payment method.
+    /// The name of the person having the account
     /// </summary>
-    /// <value>String, non‑empty, typically a UUID or account ID representing the user or merchant; immutable for the lifetime of the method.</value>
+    /// <value></value>
     public string Owner { get; set; }
 
     /// <summary>

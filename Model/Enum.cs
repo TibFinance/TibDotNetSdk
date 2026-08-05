@@ -328,9 +328,9 @@ Loyers_baux_automobile = 404,
 /// </summary>
 Loyers_baux_appareils = 405,
 /// <summary>
-/// The gestion espÃ¨ces
+/// The gestion espèces
 /// </summary>
-Gestion_espÃ = 420,
+Gestion_espèces = 420,
 /// <summary>
 /// The paiement de facture de telephone
 /// </summary>
@@ -1075,6 +1075,14 @@ WalletCollect = 25,
 /// Fee for a failed credit card charge.
 /// </summary>
 CreditCardFailedCharge = 26,
+/// <summary>
+/// Low volume fee charged by TIB.
+/// </summary>
+LowVolumeFee = 28,
+/// <summary>
+/// Single-leg $0.01 micro-deposit verification operation (no collect or fee sibling).
+/// </summary>
+MicroDepositVerification = 27,
 /// <summary>
 /// Aggregated fee operations grouped for batch processing.
 /// </summary>
@@ -2281,6 +2289,10 @@ CollectFromWallet = 9,
 /// Deposit into the merchant's wallet via Interac.
 /// </summary>
 DepositToWalletFromInterac = 10,
+/// <summary>
+/// Server-initiated $0.01 micro-deposit that carries a verification code in the recipient's bank-statement descriptor.
+/// </summary>
+MicroDepositVerification = 11,
 }
       public enum TransferTypeFlag {
 

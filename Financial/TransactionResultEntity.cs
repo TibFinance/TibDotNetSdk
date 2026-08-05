@@ -30,9 +30,9 @@ namespace Tib.Api.Financial
     public string BankingOperationDescription { get; set; }
 
     /// <summary>
-    /// Indicates the result of the ListTransfers request
+    /// Gets or sets the operation status.
     /// </summary>
-    /// <value>Integer status code where 0 = success; non‑zero values represent specific error conditions as defined in the API error code table.</value>
+    /// <value>The operation status.</value>
     public OperationStatusEnum OperationStatus { get; set; }
 
     /// <summary>
@@ -88,6 +88,12 @@ namespace Tib.Api.Financial
     /// </summary>
     /// <value></value>
     public bool ForceCreateWebhookEvent { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether this result marks an unmatched Interac payback finalize row that is deferred to the caller for a DB-state reconciliation decision. The provider tier has no DB access, so instead of emailing a false-alarm warning it returns the unmatched row as an exception record for the DB-aware caller to reconcile.
+    /// </summary>
+    /// <value>true if this is an unmatched payback exception record; otherwise, false.</value>
+    public bool IsUnmatchedPaybackException { get; set; }
 
     }
 }

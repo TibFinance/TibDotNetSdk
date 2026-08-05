@@ -65,9 +65,9 @@ namespace Tib.Api.Model.Payment
     public string RelatedMerchantName { get; set; }
 
     /// <summary>
-    /// The full name of the customer who owns the recurring transfer.
+    /// Name of the customer for this recurring transfer (empty if the customer record was deleted). For supplier transfers the paying merchant is represented as a customer of the supplier, so this carries the paying merchant's name as snapshotted when that customer record was created — later merchant renames do not propagate here.
     /// </summary>
-    /// <value>String, up to 100 Unicode characters, may include spaces and hyphens; always present in the response.</value>
+    /// <value></value>
     public string CustomerName { get; set; }
 
     /// <summary>
@@ -105,6 +105,24 @@ namespace Tib.Api.Model.Payment
     /// </summary>
     /// <value>ISO‑8601 UTC timestamp; must be later than the transfer's StartDate. May be null to indicate an indefinite series. The date is inclusive—last scheduled transfer occurs on this day.</value>
     public DateTime? EndDate { get; set; }
+
+    /// <summary>
+    /// Indicates whether the listed transfer is a supplier transfer.
+    /// </summary>
+    /// <value>Boolean flag returned in ListTransfersForBillFast; true when the transfer is to a supplier (BillFast payment), false otherwise. Always present and read‑only.</value>
+    public bool IsSupplierTransfer { get; set; }
+
+    /// <summary>
+    /// Display name of the merchant that pays for the supplier transfer. Populated only by GetRecuringTransfers, and only when the recurring transfer is a supplier transfer whose fee-paying merchant still resolves. Always null on ListSupplierRecurringTransfers and ListSupplierRecurringTransfersByService — on those listings the paying merchant surfaces as CustomerName instead.
+    /// </summary>
+    /// <value></value>
+    public string PayerMerchantName { get; set; }
+
+    /// <summary>
+    /// True when the caller is on the paying side of this transfer. ListSupplierRecurringTransfers and ListSupplierRecurringTransfersByService always return true — their rows list transfers from the paying side by construction. GetRecuringTransfers computes it: false when the caller is the supplier-side recipient of a transfer paid by another merchant. Rows where this is false are informational — the server rejects attempts to update or delete them.
+    /// </summary>
+    /// <value></value>
+    public bool IsCurrentUserPayer { get; set; }
 
     }
 }

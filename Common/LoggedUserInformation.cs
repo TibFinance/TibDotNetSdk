@@ -83,5 +83,11 @@ namespace Tib.Api.Common
     /// <value></value>
     public HashSet<Guid> AllowedServiceIds { get; set; }
 
+    /// <summary>
+    /// Per-client opt-out override (Client.BypassServiceBoarding). When true, this client's new services skip the service-boarding gate. Populated at session/login resolution like IsReadOnly.
+    /// </summary>
+    /// <value></value>
+    public bool IsClientBoardingExempt { get; set; }
+
     }
 }

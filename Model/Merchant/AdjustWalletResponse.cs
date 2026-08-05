@@ -17,9 +17,9 @@ namespace Tib.Api.Model.Merchant
     public Guid TransferId { get; set; }
 
     /// <summary>
-    /// Indicates whether the AdjustWallet request completed successfully
+    /// Whether the wallet adjustment was accepted and a transfer was created; false when a withdrawal is refused because the client's boarding is incomplete.
     /// </summary>
-    /// <value>Boolean flag; true when the wallet adjustment was applied, false if it failed (e.g., validation error, insufficient funds). Always present in the response.</value>
+    /// <value></value>
     public bool WasSuccessful { get; set; }
 
     /// <summary>

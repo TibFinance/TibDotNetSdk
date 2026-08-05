@@ -2,12 +2,12 @@
 using System;
 using Tib.Api.Common;
 
-namespace Tib.Api.Model.Boarding
+namespace Tib.Api.Model.Supplier
 {
     /// <summary>
-    /// Represents the InitBoardingArgs model.
+    /// Represents the ListSupplierRecurringTransfersByServiceArgs model.
     /// </summary>
-    public class InitBoardingArgs : ClientCallBaseArgs
+    public class ListSupplierRecurringTransfersByServiceArgs : ClientCallBaseArgs
     {
         
     /// <summary>

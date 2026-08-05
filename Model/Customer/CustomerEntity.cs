@@ -14,9 +14,9 @@ namespace Tib.Api.Model.Customer
     {
         
     /// <summary>
-    /// The full name of the customer who owns the recurring transfer.
+    /// The name of the customer
     /// </summary>
-    /// <value>String, up to 100 Unicode characters, may include spaces and hyphens; always present in the response.</value>
+    /// <value>The name of the customer.</value>
     public string CustomerName { get; set; }
 
     /// <summary>
