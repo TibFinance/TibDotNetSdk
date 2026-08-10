@@ -30,9 +30,8 @@ namespace Tib.Api.Model.Service
     public ServiceSettingsModel ServiceSettings { get; set; }
 
     /// <summary>
-    /// The merchant name linked to any overloaded fees applied to the transaction.
+    /// Display name of the merchant that absorbs this service's transaction fees, when fee billing has been redirected to a specific merchant. Empty when fees are billed normally. Read-only.
     /// </summary>
-    /// <value>String, up to 100 characters; may be empty if no overloaded fees are present; UTF‑8 encoded.</value>
     public string OverloadedFeesMerchantName { get; set; }
 
     }

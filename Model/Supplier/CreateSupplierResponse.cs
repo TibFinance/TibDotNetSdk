@@ -1,7 +1,5 @@
 
 using System;
-using System.Collections.Generic;
-using Tib.Api.Model.Merchant;
 using Tib.Api.Common;
 
 namespace Tib.Api.Model.Supplier
@@ -21,11 +19,6 @@ namespace Tib.Api.Model.Supplier
     /// Display name of the supplier.
     /// </summary>
     public string SupplierName { get; set; }
-
-    /// <summary>
-    /// List of existing merchants that matched the supplier email, if reusing an existing supplier.
-    /// </summary>
-    public IEnumerable<MerchantViewModel> MatchingExistingMerchants { get; set; }
 
     }
 }

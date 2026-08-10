@@ -96,12 +96,6 @@ namespace Tib.Api.Model.FreeOperation
     public string StatementDescription { get; set; }
 
     /// <summary>
-    /// Unique identifier of the client initiating the session
-    /// </summary>
-    /// <value>Required Guid; must be a valid, registered client ID in the TIB Finance system</value>
-    public Guid ClientId { get; set; }
-
-    /// <summary>
     /// Indicates whether the payment should be executed as an immediate transfer.
     /// </summary>
     /// <value>True triggers real‑time settlement; false creates a pending payment. Must be a boolean; ignored if the account lacks sufficient funds or if immediate processing is not supported for the selected currency.</value>

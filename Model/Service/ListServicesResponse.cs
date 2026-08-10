@@ -19,13 +19,12 @@ namespace Tib.Api.Model.Service
     public IEnumerable<ServiceModel> Services { get; set; }
 
     /// <summary>
-    /// Indicates whether client approbation was bypassed for the listed service.
+    /// Whether merchants created under this client are authorized immediately. When true, a merchant's bank account supplied at creation is applied right away; when false, it is submitted for review and takes effect only once approved. A brand-new, not-yet-operational service still requires approval regardless of this flag.
     /// </summary>
-    /// <value>True means the service was provided without the usual client approval step; false means standard client approbation applied. Read‑only, defaults to false, and is only relevant for services that support optional approbation.</value>
     public bool SkipClientApprobation { get; set; }
 
     /// <summary>
-    /// Whether the client is opted out of service boarding (Client.BypassServiceBoarding). An exempt client's brand-new service has no boarding row and never will, so callers must not treat "no boarding" as "not yet boarded" for it.
+    /// Whether this client is exempt from service boarding. When true, the client's services become usable without a boarding submission, so an absent boarding record means 'not required' rather than 'not yet completed' — callers must not treat a missing boarding status as pending for such a client.
     /// </summary>
     public bool IsClientBoardingExempt { get; set; }
 

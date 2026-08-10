@@ -1,7 +1,5 @@
 
 using System;
-using System.Collections.Generic;
-using Tib.Api.Model.Merchant;
 using Tib.Api.Common;
 
 namespace Tib.Api.Model.Supplier
@@ -12,10 +10,5 @@ namespace Tib.Api.Model.Supplier
     public class CreateSupplierTransferResponse : ClientBaseResponse
     {
         
-    /// <summary>
-    /// List of existing merchants that match the supplier's financial information, if any.
-    /// </summary>
-    public IEnumerable<MerchantViewModel> MatchingExistingMerchants { get; set; }
-
     }
 }

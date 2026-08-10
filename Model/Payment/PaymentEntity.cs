@@ -47,9 +47,9 @@ namespace Tib.Api.Model.Payment
     public decimal? PaymentAmount { get; set; }
 
     /// <summary>
-    /// Identifier of a specific customer payment method to force for this payment
+    /// Identifier of the customer payment method to charge when using the force-payment-method flow (see PaymentFlowEnum value KnownCustomerAutoPaymentForcePaymentMethod). The payment is processed automatically against this method, without a hosted payment page. Must reference a payment method belonging to the payment's customer; validated and persisted on create.
     /// </summary>
-    /// <value>Guid of an existing payment method belonging to the customer; overrides the default selection. Must be a valid GUID and correspond to a payment method the customer can use. If omitted, the platform selects the appropriate method automatically.</value>
+    /// <value>The forced customer payment method identifier.</value>
     public Guid? ForcedCustomerPaymentMethodId { get; set; }
 
     /// <summary>
@@ -77,9 +77,8 @@ namespace Tib.Api.Model.Payment
     public bool? AskForCustomerConsent { get; set; }
 
     /// <summary>
-    /// Specifies whether the new payment should be created as a deleted (soft‑deleted) record.
+    /// True when this payment has been cancelled (soft-deleted). Always false on list endpoints, which exclude deleted rows; only GetPayment can return true. Ignored on create — the server always writes false.
     /// </summary>
-    /// <value>Accepts true or false; typically must be false on creation—setting true may be ignored or rejected as the payment is not yet persisted.</value>
     public bool IsDeleted { get; set; }
 
     }

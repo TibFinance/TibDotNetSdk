@@ -28,9 +28,8 @@ namespace Tib.Api.Common
     public string OtpAuthUri { get; set; }
 
     /// <summary>
-    /// The name or code of the financial institution that issued the merchant’s account.
+    /// The issuer name shown in the authenticator app. Currently always "TIB Portal". Matches the issuer embedded in OtpAuthUri; use this when presenting the manual-entry option.
     /// </summary>
-    /// <value>String, typically the bank’s official name or ISO‑9362 BIC; max length 50 characters; may contain alphanumeric characters and spaces only.</value>
     public string Issuer { get; set; }
 
     /// <summary>

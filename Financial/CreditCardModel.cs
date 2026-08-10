@@ -52,23 +52,5 @@ namespace Tib.Api.Financial
     /// <value>Must be a valid AddressModel (street, city, postal code, country) matching the card issuer's records; required for verification and fraud checks.</value>
     public AddressModel CreditCardRegisteredAddress { get; set; }
 
-    /// <summary>
-    /// The date and time when the payment method expires.
-    /// </summary>
-    /// <value>ISO‑8601 UTC timestamp; may be null for perpetual methods; must be a future date at the time of retrieval.</value>
-    public DateTime ExpirationDate { get; set; }
-
-    /// <summary>
-    /// The credit card number string provided in a standardized format for payment method creation.
-    /// </summary>
-    /// <value>Must contain only digits, optionally separated by spaces or dashes (e.g., "4111 1111 1111 1111"), pass Luhn validation, and represent a supported card type (Visa, MasterCard, Amex, etc.).</value>
-    public string FormatedCreditCardString { get; set; }
-
-    /// <summary>
-    /// A formatted string that previews the direct account payment method details before creation.
-    /// </summary>
-    /// <value>Must be a non‑empty UTF‑8 string, max 256 characters; includes masked account number, bank name, and optional reference, following the platform’s preview template.</value>
-    public string PreviewString { get; set; }
-
     }
 }

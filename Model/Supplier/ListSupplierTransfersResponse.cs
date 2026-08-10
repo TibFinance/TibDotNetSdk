@@ -13,9 +13,8 @@ namespace Tib.Api.Model.Supplier
     {
         
     /// <summary>
-    /// A collection of basic information for each transfer linked to the specified bill.
+    /// List of supplier transfers where the caller is the fee-payer. Each entry includes a SupplierAlias field with the payer's custom name for the supplier.
     /// </summary>
-    /// <value>Contains TransferBaseInformationEntity objects (id, amount, status, timestamps, etc.). May be empty if no transfers exist. Ordered by creation time descending. No pagination applied; all matching transfers are returned.</value>
     public List<TransferBaseInformationEntity> Transfers { get; set; }
 
     }

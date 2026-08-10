@@ -106,9 +106,8 @@ namespace Tib.Api.Model.Payment
     public DateTime? EndDate { get; set; }
 
     /// <summary>
-    /// Indicates whether the listed transfer is a supplier transfer.
+    /// True when this recurring schedule is a supplier transfer (the supplier receives funds and a separate paying merchant is billed).
     /// </summary>
-    /// <value>Boolean flag returned in ListTransfersForBillFast; true when the transfer is to a supplier (BillFast payment), false otherwise. Always present and read‑only.</value>
     public bool IsSupplierTransfer { get; set; }
 
     /// <summary>

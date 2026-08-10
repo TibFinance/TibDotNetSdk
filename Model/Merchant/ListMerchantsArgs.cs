@@ -23,9 +23,8 @@ namespace Tib.Api.Model.Merchant
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// Specifies whether the response should include merchants linked to the requesting client.
+    /// Whether to include the client's own primary merchant for the service in the results. Results are always scoped to the authenticated client; this flag does not widen visibility across clients.
     /// </summary>
-    /// <value>Boolean flag; true returns client‑associated merchants, false (default) excludes them. Must be provided as a bool; omitted defaults to false.</value>
     public bool IncludeClientMerchants { get; set; }
 
     }

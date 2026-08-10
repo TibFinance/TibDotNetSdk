@@ -42,9 +42,8 @@ namespace Tib.Api.Common
     public int? Country { get; set; }
 
     /// <summary>
-    /// Postal code of the cardholder's billing address
+    /// Postal or ZIP code.
     /// </summary>
-    /// <value>String, required; alphanumeric, up to 10 characters; must match the format expected by the issuing country (e.g., 5‑digit or ZIP+4 for US).</value>
     public string ZipCode { get; set; }
 
     /// <summary>

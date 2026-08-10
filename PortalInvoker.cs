@@ -346,22 +346,18 @@ public GetRecuringTransfersResponse GetRecuringTransfers(GetRecuringTransfersArg
 }
 
 /// <summary>
-/// Retrieves all transfer records associated with a specific bill.
+/// Lists the transfers of a bill.
 /// </summary>
-/// <value>Call this method when you need to audit, display, or process the money movements (collections or deposits) that belong to a given bill. It provides the raw transfer data required for status tracking and error handling.</value>
-/// <param name="args">SessionToken (auth token), MerchantId (GUID of the merchant account), BillId (GUID of the target bill).</param>
-/// <returns>On success, a JSON array of transfer objects, each containing TransferId, OperationId, Direction, Target, Status (numeric enum), BankResult (if applicable), Description, and timestamps.</returns>
 public ListTransfersFastResponse ListTransfersForBillFast(ListTransfersForBillFastArgs args)
 {
     return _client.Call<ListTransfersFastResponse>("ListTransfersForBillFast", args);
 }
 
 /// <summary>
-/// Retrieves a filtered, summarized list of transfer records for a specified service.
+/// Retrieves a filtered, summarized list of transfers for a service using an optimized query. Supports filtering by transfer type, date range, merchant, transfer group, error status, and resolved status.
 /// </summary>
-/// <value>Call this endpoint to obtain a lightweight overview of transfers that match given criteria (type, date range, merchant, group, error or resolved status). It is suited for dashboards, reporting, or error‑monitoring workflows where full transaction details are unnecessary.</value>
-/// <param name="args">SessionToken (auth token), ServiceId (required Guid), FromDate/ToDate (ISO‑8601 optional range), MerchantId (Guid), TransferGroupId (Guid), TransferType (enum), MarkResolvedOnly (bool), ExternalMerchantGroupId (Guid), OnlyWithErrors (bool).</param>
-/// <returns>HTTP 200 with a JSON payload containing an array of transfer summary objects (e.g., TransferId, Date, Type, Amount, Status, Resolved, ErrorCode) plus optional pagination info.</returns>
+/// <param name="args">The ListTransfersFastArgs containing the service ID, transfer type, date range, and optional filters.</param>
+/// <returns>A ListTransfersFastResponse containing the summarized transfer list.</returns>
 public ListTransfersFastResponse ListTransfersFast(ListTransfersFastArgs args)
 {
     return _client.Call<ListTransfersFastResponse>("ListTransfersFast", args);

@@ -28,5 +28,10 @@ namespace Tib.Api.Model.Service
     /// <value>Decimal, non‑negative, expressed in the account's base currency; precision up to 4 decimal places.</value>
     public decimal DelayBufferAmount { get; set; }
 
+    /// <summary>
+    /// Individual wallet movements behind DailyOperations, for the same wallet and date range.
+    /// </summary>
+    public List<WalletOperationDetailModel> OperationDetails { get; set; }
+
     }
 }

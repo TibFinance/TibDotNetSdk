@@ -121,28 +121,15 @@ namespace Tib.Api.Model.Merchant
     public string PostalZipCode { get; set; }
 
     /// <summary>
-    /// Identifies the external payment provider associated with the merchant.
+    /// Payment provider for the merchant's account.
     /// </summary>
-    /// <value>Enum defined by ProviderEnum (e.g., Stripe, PayPal, Square). Present only for merchants linked via an external ID; may be null if the provider is not applicable.</value>
     public ProviderEnum? AccountProvider { get; set; }
-
-    /// <summary>
-    /// Identifier of the white‑label partner linked to the merchant, if any.
-    /// </summary>
-    /// <value>Nullable GUID; present only when the merchant is part of a white‑label arrangement, otherwise null. Must be a valid UUID when provided.</value>
-    public Nullable<Guid> WhiteLabelingId { get; set; }
 
     /// <summary>
     /// Indicates the current onboarding state of the merchant identified by the external ID
     /// </summary>
     /// <value>String value such as "Pending", "InReview", "Completed" or "Failed"; reflects the merchant's progress through TIB Finance's boarding workflow and is case‑sensitive.</value>
     public string BoardingStatus { get; set; }
-
-    /// <summary>
-    /// Identifier of the boarding information linked to the merchant
-    /// </summary>
-    /// <value>A valid GUID referencing the merchant's boarding information record; included only when such data exists</value>
-    public Guid? BoardingInformationId { get; set; }
 
     /// <summary>
     /// A list of boarding file records linked to the merchant identified by the external ID.

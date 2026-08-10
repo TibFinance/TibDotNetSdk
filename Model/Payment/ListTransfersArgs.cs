@@ -24,27 +24,27 @@ namespace Tib.Api.Model.Payment
     public Guid? LevelFilterId { get; set; }
 
     /// <summary>
-    /// If true, the request returns only transfers that are marked as resolved.
+    /// Indicates whether to return only transfers that have been resolved
     /// </summary>
-    /// <value>Boolean input; default false. When set to true, unresolved transfers are excluded from the result set. No other status filters may be applied concurrently.</value>
+    /// <value>Boolean flag; true filters the list to resolved transfers only, false (or omitted) returns all transfers. Must be a valid bool value.</value>
     public bool MarkResolvedOnly { get; set; }
 
     /// <summary>
-    /// The start date-time for the transfer search window.
+    /// The start of the date‑time range to filter transfers.
     /// </summary>
-    /// <value>ISO‑8601 DateTime (UTC). Must be earlier than or equal to ToDate and cannot be set in the future.</value>
+    /// <value>ISO‑8601 UTC DateTime; inclusive lower bound; must be earlier than or equal to ToDate; if omitted defaults to the earliest available transfer.</value>
     public DateTime? FromDate { get; set; }
 
     /// <summary>
-    /// Upper bound of the transfer creation date range for the query
+    /// The exclusive upper bound of the transfer creation date range to retrieve.
     /// </summary>
-    /// <value>ISO‑8601 UTC DateTime; inclusive; must be ≥ FromDate; cannot exceed current server time; typical max range 90 days</value>
+    /// <value>Must be a valid ISO‑8601 DateTime (UTC). Must be later than or equal to FromDate. Transfers with a CreatedAt timestamp earlier than this value are returned; those on or after are excluded.</value>
     public DateTime? ToDate { get; set; }
 
     /// <summary>
-    /// Identifier of the transfer group to filter the fast transfer list
+    /// Identifier of the transfer group to filter the listed transfers
     /// </summary>
-    /// <value>String, required; must be a valid UUID (36 characters, hyphenated) representing an existing TransferGroupId</value>
+    /// <value>String, non‑empty, case‑sensitive; must match an existing TransferGroupId (e.g., UUID or alphanumeric up to 64 characters).</value>
     public string TransferGroupId { get; set; }
 
     /// <summary>
@@ -54,15 +54,15 @@ namespace Tib.Api.Model.Payment
     public TransferTypeFlag TransferType { get; set; }
 
     /// <summary>
-    /// Identifier of the external merchant group for which transfers are requested
+    /// Identifier of the external merchant group for which transfers are being listed
     /// </summary>
-    /// <value>String, required; must match the external system's merchant group ID format (e.g., alphanumeric, up to 64 characters).</value>
+    /// <value>String, case‑sensitive, alphanumeric (may include hyphens/underscores), up to 50 characters; must correspond to an existing ExternalMerchantGroup in the system</value>
     public string ExternalMerchantGroupId { get; set; }
 
     /// <summary>
-    /// When true, ListTransfersFast returns only transfers that have errors.
+    /// When true, the request returns only transfers that have errors.
     /// </summary>
-    /// <value>Boolean input; defaults to false (returns all transfers). Ignored if omitted. Must be true or false.</value>
+    /// <value>Optional boolean; defaults to false (returns all transfers). Must be a valid JSON boolean.</value>
     public bool OnlyWithErrors { get; set; }
 
     }

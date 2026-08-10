@@ -205,11 +205,5 @@ namespace Tib.Api.Model.Service
     /// </summary>
     public decimal InteracReturnFee { get; set; }
 
-    /// <summary>
-    /// Identifier of the data context used for the service response
-    /// </summary>
-    /// <value>Integer ≥ 0 representing a predefined data context ID; must match one of the platform's configured context identifiers.</value>
-    public int? DataContext { get; set; }
-
     }
 }

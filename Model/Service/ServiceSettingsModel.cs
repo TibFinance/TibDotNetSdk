@@ -59,9 +59,8 @@ namespace Tib.Api.Model.Service
     public bool IsWalletFeatureActive { get; set; }
 
     /// <summary>
-    /// Specifies the category of the wallet returned in the response
+    /// Wallet withdrawal mode, as the numeric value of WalletTypeEnum: 1 = Schedule (withdrawals run on a set schedule), 2 = Manual (withdrawals require an explicit request), 3 = Automatic (withdrawals run automatically when the threshold is reached).
     /// </summary>
-    /// <value>Corresponds to WalletTypeEnum (e.g., PERSONAL, CORPORATE, CUSTODIAL, EXTERNAL). Read‑only, always present, and determines applicable features and limits.</value>
     public int WalletType { get; set; }
 
     /// <summary>
@@ -143,106 +142,28 @@ namespace Tib.Api.Model.Service
     public int NumberOfDepositPerBankPerDelays { get; set; }
 
     /// <summary>
-    /// The monetary threshold that caps the total amount of warnings returned in the response.
-    /// </summary>
-    /// <value>Decimal, non‑negative, expressed in the account's base currency, rounded to two decimal places; values exceeding this limit are omitted from the warning collection.</value>
-    public decimal TIBWarningCollectionLimit { get; set; }
-
-    /// <summary>
-    /// The maximum daily amount that can be collected as a warning for a single bank account.
-    /// </summary>
-    /// <value>Decimal value (currency) representing the per‑account, per‑day warning collection limit; enforced each calendar day; typically rounded to two decimal places.</value>
-    public decimal TIBWarningCollectionLimitPerBankAccountDaily { get; set; }
-
-    /// <summary>
-    /// Maximum warning‑collection amount allowed for a single bank account within each delay interval.
-    /// </summary>
-    /// <value>Decimal monetary limit (e.g., 12345.67) applied per bank account per delay period; values are rounded to two decimal places and expressed in the platform’s base currency.</value>
-    public decimal TIBWarningCollectionLimitPerBankAccountPerDelays { get; set; }
-
-    /// <summary>
-    /// The daily count of collection attempts per bank account that triggers a warning.
-    /// </summary>
-    /// <value>Integer ≥ 0; reflects how many collections have been made on a single bank account today and is used to alert when the configured warning limit is reached.</value>
-    public int TIBWarningNumberOfCollectionPerBankAccountDaily { get; set; }
-
-    /// <summary>
-    /// The count of collections per bank that have exceeded the allowed delay threshold, triggering a warning.
-    /// </summary>
-    /// <value>Integer ≥ 0; reflects how many delayed collections exist for a given bank in the current response. Zero means no warnings. Upper limit defined by system configuration.</value>
-    public int TIBWarningNumberOfCollectionPerBankPerDelays { get; set; }
-
-    /// <summary>
-    /// The maximum daily amount allowed for warning collections.
-    /// </summary>
-    /// <value>Decimal value representing the daily limit in the account's base currency; typically two‑decimal precision; a value of 0 indicates no limit.</value>
-    public decimal TIBWarningCollectionLimitDaily { get; set; }
-
-    /// <summary>
-    /// The deposit amount at which a warning is issued to the user.
-    /// </summary>
-    /// <value>Decimal value in the account's currency; triggers a warning when a deposit reaches or exceeds this threshold but does not block the transaction. Typically expressed with two decimal places.</value>
-    public decimal TIBWarningDepositLimit { get; set; }
-
-    /// <summary>
-    /// Maximum daily deposit amount per bank account that triggers a warning.
-    /// </summary>
-    /// <value>Decimal value in the account's currency; exceeding this sum for a single day on a bank account generates a warning. Zero or null means no warning limit is set.</value>
-    public decimal TIBWarningDepositLimitPerBankAccountDaily { get; set; }
-
-    /// <summary>
-    /// Maximum deposit amount per bank account that triggers a warning when a deposit is delayed.
-    /// </summary>
-    /// <value>Decimal in the platform's base currency; applied per bank account for each delayed deposit period; exceeding this limit on a delayed deposit generates a warning.</value>
-    public decimal TIBWarningDepositLimitPerBankAccountPerDelays { get; set; }
-
-    /// <summary>
-    /// The daily count of deposit warnings issued for a specific bank account.
-    /// </summary>
-    /// <value>Integer ≥ 0; resets to 0 each calendar day; reflects the number of deposits that exceeded configured warning thresholds for that account.</value>
-    public int TIBWarningNumberOfDepositPerBankAccountDaily { get; set; }
-
-    /// <summary>
-    /// The count of deposits for a specific bank that have exceeded the allowed delay, triggering a warning.
-    /// </summary>
-    /// <value>Integer ≥ 0; represents the number of delayed deposits per bank that have reached the warning threshold. A value of 0 means no warning condition.</value>
-    public int TIBWarningNumberOfDepositPerBankPerDelays { get; set; }
-
-    /// <summary>
-    /// The daily deposit amount at which a warning is issued for the account.
-    /// </summary>
-    /// <value>Decimal value in the account's base currency; triggers a warning when total deposits for the day exceed this threshold. Read‑only, typically rounded to two decimal places.</value>
-    public decimal TIBWarningDepositLimitDaily { get; set; }
-
-    /// <summary>
     /// Number of days the platform waits before depositing funds into the merchant's account
     /// </summary>
     /// <value>Integer ≥ 0; 0 indicates immediate deposit, typical range 0‑30 days depending on settlement settings</value>
     public int MerchantAccountDepositDelay { get; set; }
 
     /// <summary>
-    /// Identifier of the data context used for the service response
-    /// </summary>
-    /// <value>Integer ≥ 0 representing a predefined data context ID; must match one of the platform's configured context identifiers.</value>
-    public int DataContext { get; set; }
-
-    /// <summary>
-    /// Allowlist (AutorizedPaymentMethodFlags bitmask) of the payment method(s) permitted to COLLECT on this account. 0 = NotSet = unrestricted (grandfather default).
+    /// Allowlist of the payment methods permitted for collections on this service, as an AutorizedPaymentMethodFlags bitmask (CreditCard = 1, DirectAccount = 2, Interac = 16). A value of 0 means no restriction; any other value permits only the rails whose bits are set, and a collection on any other rail is refused.
     /// </summary>
     public int CollectAllowedPaymentMethods { get; set; }
 
     /// <summary>
-    /// Allowlist (AutorizedPaymentMethodFlags bitmask) of the payment method(s) permitted to DEPOSIT (FreeDeposit) on this account. 0 = NotSet = unrestricted (grandfather default).
+    /// Allowlist of the payment methods permitted for deposits on this service, as an AutorizedPaymentMethodFlags bitmask (DirectAccount = 2, Interac = 16). A value of 0 means no restriction. Credit card is never valid for deposits.
     /// </summary>
     public int DepositAllowedPaymentMethods { get; set; }
 
     /// <summary>
-    /// When true, deny ALL FreeDeposit-type transfers for this entity regardless of payment method.
+    /// Whether free deposits are blocked for this service. When true, free deposit operations on this service are refused. This applies regardless of the payment method used.
     /// </summary>
     public bool DenyFreeDeposits { get; set; }
 
     /// <summary>
-    /// When true, deny ALL supplier payments (CreateSupplierTransfer) where this entity is the payer.
+    /// Whether supplier payments are blocked for this service. When true, supplier transfers paid by merchants of this service are refused.
     /// </summary>
     public bool DenySupplierPayments { get; set; }
 

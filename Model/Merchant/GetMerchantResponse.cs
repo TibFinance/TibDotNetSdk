@@ -18,7 +18,7 @@ namespace Tib.Api.Model.Merchant
     public MerchantViewModel Merchant { get; set; }
 
     /// <summary>
-    /// True when supplier payments are blocked for this merchant. The value is inherited from TIB configuration: the setting on the merchant's service takes precedence, then the client's service-wide default, then the client-level setting; merchant-level settings do not participate. When none is configured, supplier payments are allowed. Lets a merchant-login portal hide the supplier menu without a second settings call. Additive — absent/false means not denied.
+    /// Whether supplier payments are blocked for this merchant. When true, calls that would make this merchant the payer of a supplier transfer are refused. Absent or false means supplier payments are allowed.
     /// </summary>
     public bool DenySupplierPayments { get; set; }
 

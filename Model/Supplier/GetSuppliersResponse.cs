@@ -12,7 +12,7 @@ namespace Tib.Api.Model.Supplier
     {
         
     /// <summary>
-    /// List of suppliers matching the query criteria. Each entry contains a Description and SupplierId.
+    /// List of suppliers as (Description, SupplierId) pairs: Description is the supplier's display name; SupplierId identifies the supplier in other supplier operations. Note that on the wire each pair serializes with tuple field names: Item1 = Description, Item2 = SupplierId.
     /// </summary>
     public List<object> Suppliers { get; set; }
 

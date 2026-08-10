@@ -30,9 +30,9 @@ namespace Tib.Api.Model.Payment
     public PaymentFlowParsingResultEnum PaymentFlowParsingResult { get; set; }
 
     /// <summary>
-    /// A URL that the payer can visit to complete the created payment.
+    /// URL of the hosted payment page for this payment, when the selected flow issues one. Send it to the payer to complete the payment. Null for flows that process automatically.
     /// </summary>
-    /// <value>HTTPS string, max 2048 characters, unique per transaction, expires according to the payment's TTL; must be URL‑encoded and reachable by the client.</value>
+    /// <value>The payment link to the gateway.</value>
     public string PaymentLink { get; set; }
 
     }

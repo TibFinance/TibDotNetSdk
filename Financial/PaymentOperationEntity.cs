@@ -65,9 +65,8 @@ namespace Tib.Api.Financial
     public TibOperationStatus OperationStatus { get; set; }
 
     /// <summary>
-    /// The merchant name associated with an overload transfer.
+    /// Display name of the merchant billed for this operation's fees when fee billing has been redirected. Empty when fees are billed normally, and on list endpoints, which do not compute it.
     /// </summary>
-    /// <value>String, up to 100 characters; may be null when no overload applies.</value>
     public string OverloadMerchantName { get; set; }
 
     }

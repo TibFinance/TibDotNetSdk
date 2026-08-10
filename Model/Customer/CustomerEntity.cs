@@ -44,9 +44,8 @@ namespace Tib.Api.Model.Customer
     public string CustomerEmail { get; set; }
 
     /// <summary>
-    /// A collection of payment methods available to the requester.
+    /// Payment methods registered for this customer. Populated on read; ignored when supplied on create or save — use CreateDirectAccountPaymentMethod, CreateCreditCardPaymentMethod or CreateInteracPaymentMethod to register one.
     /// </summary>
-    /// <value>IEnumerable of PaymentMethodModel objects; each includes identifiers, display name, and type. May be empty if no methods are configured. Order is not guaranteed.</value>
     public List<PaymentMethodModel> PaymentMethods { get; set; }
 
     /// <summary>

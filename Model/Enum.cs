@@ -3,25 +3,6 @@ namespace Tib.Api.Model
 {
     public class Enum
     {
-      public enum AccountTypeEnum {
-
-    /// <summary>
-/// Personal checking account.
-/// </summary>
-CustomerChecking = 1,
-/// <summary>
-/// Personal savings account.
-/// </summary>
-CustomerSaving = 2,
-/// <summary>
-/// Business or corporate checking account.
-/// </summary>
-CorporateChecking = 3,
-/// <summary>
-/// Business or corporate savings account.
-/// </summary>
-CorporateSaving = 4,
-}
       public enum AutorizedPaymentMethodFlags {
 
     /// <summary>
@@ -345,10 +326,6 @@ LowVolumeFee = 28,
 /// </summary>
 MicroDepositVerification = 27,
 /// <summary>
-/// Aggregated fee operations grouped for batch processing.
-/// </summary>
-GroupedFees = 100,
-/// <summary>
 /// Re-transfer of fees when the original fee deposit failed.
 /// </summary>
 FeesRetransfer = 101,
@@ -496,7 +473,7 @@ KnownCustomerCanManagePaymentMethod = 3,
 /// </summary>
 KnownCustomerCanSetAutoPaymentMethod = 4,
 /// <summary>
-/// The payment is not available for gateway and will be processed automatically without user action. The customer must possess a profil with autopayment defined.
+/// The payment is not available for gateway and will be processed automatically without user action. The customer must have a profile with auto-payment defined.
 /// </summary>
 KnownCustomerAutoPaymentUsingPreference = 5,
 /// <summary>
@@ -504,11 +481,11 @@ KnownCustomerAutoPaymentUsingPreference = 5,
 /// </summary>
 KnownCustomerAutoPaymentForcePaymentMethod = 6,
 /// <summary>
-/// Select the most permissive gateway based on the profil and bill information
+/// Select the most permissive gateway based on the profile and bill information
 /// </summary>
 AutoSelectEasier = 7,
 /// <summary>
-/// Select the most permissive gateway based on the profil and bill information, ignoring the AutoPayment possibilities
+/// Select the most permissive gateway based on the profile and bill information, ignoring the AutoPayment possibilities
 /// </summary>
 AutoSelectEasierExceptAutoPayment = 8,
 }
@@ -585,14 +562,6 @@ Interac = 3,
       public enum ProcessStatusEnum {
 
     /// <summary>
-/// The unknown
-/// </summary>
-Unknown = -1,
-/// <summary>
-/// The not set
-/// </summary>
-NotSet = 0,
-/// <summary>
 /// The new
 /// </summary>
 New = 1,
@@ -609,7 +578,7 @@ Collect_Validation_Success_NoResultReturned = 3,
 /// </summary>
 Collect_Validation_Success_Skip = 4,
 /// <summary>
-/// The collect validation success wait manual
+/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
 /// </summary>
 Collect_Validation_Success_WaitManual = 5,
 /// <summary>
@@ -637,7 +606,7 @@ Collect_Transmission_Success_NoResultReturned = 10,
 /// </summary>
 Collect_Transmission_Success_Skip = 11,
 /// <summary>
-/// The collect transmission success wait manual
+/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
 /// </summary>
 Collect_Transmission_Success_WaitManual = 12,
 /// <summary>
@@ -665,7 +634,7 @@ Collect_StatusCheck_Success_NoResultReturned = 17,
 /// </summary>
 Collect_StatusCheck_Success_Skip = 18,
 /// <summary>
-/// The collect status check success wait manual
+/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
 /// </summary>
 Collect_StatusCheck_Success_WaitManual = 19,
 /// <summary>
@@ -693,7 +662,7 @@ Collect_Payback_Success_NoResultReturned = 24,
 /// </summary>
 Collect_Payback_Success_Skip = 25,
 /// <summary>
-/// The collect payback success wait manual
+/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
 /// </summary>
 Collect_Payback_Success_WaitManual = 26,
 /// <summary>
@@ -721,7 +690,7 @@ Deposit_Validation_Success_NoResultReturned = 31,
 /// </summary>
 Deposit_Validation_Success_Skip = 32,
 /// <summary>
-/// The deposit validation success wait manual
+/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
 /// </summary>
 Deposit_Validation_Success_WaitManual = 33,
 /// <summary>
@@ -749,7 +718,7 @@ Deposit_Transmission_Success_NoResultReturned = 38,
 /// </summary>
 Deposit_Transmission_Success_Skip = 39,
 /// <summary>
-/// The deposit transmission success wait manual
+/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
 /// </summary>
 Deposit_Transmission_Success_WaitManual = 40,
 /// <summary>
@@ -777,7 +746,7 @@ Deposit_StatusCheck_Success_NoResultReturned = 45,
 /// </summary>
 Deposit_StatusCheck_Success_Skip = 46,
 /// <summary>
-/// The deposit status check success wait manual
+/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
 /// </summary>
 Deposit_StatusCheck_Success_WaitManual = 47,
 /// <summary>
@@ -805,7 +774,7 @@ Deposit_Payback_Success_NoResultReturned = 52,
 /// </summary>
 Deposit_Payback_Success_Skip = 53,
 /// <summary>
-/// The deposit payback success wait manual
+/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
 /// </summary>
 Deposit_Payback_Success_WaitManual = 54,
 /// <summary>
@@ -820,38 +789,6 @@ Deposit_Payback_Error_Temporary = 56,
 /// The deposit payback error fatal
 /// </summary>
 Deposit_Payback_Error_Fatal = 57,
-/// <summary>
-/// The collect validation not set
-/// </summary>
-Collect_Validation_NotSet = 100,
-/// <summary>
-/// The collect transmission not set
-/// </summary>
-Collect_Transmission_NotSet = 101,
-/// <summary>
-/// The collect status check not set
-/// </summary>
-Collect_StatusCheck_NotSet = 102,
-/// <summary>
-/// The collect payback not set
-/// </summary>
-Collect_Payback_NotSet = 103,
-/// <summary>
-/// The deposit validation not set
-/// </summary>
-Deposit_Validation_NotSet = 104,
-/// <summary>
-/// The deposit transmission not set
-/// </summary>
-Deposit_Transmission_NotSet = 105,
-/// <summary>
-/// The deposit status check not set
-/// </summary>
-Deposit_StatusCheck_NotSet = 106,
-/// <summary>
-/// The deposit payback not set
-/// </summary>
-Deposit_Payback_NotSet = 107,
 /// <summary>
 /// Collection validation was aborted.
 /// </summary>
@@ -889,22 +826,6 @@ Deposit_Payback_Abort = 115,
 /// </summary>
 Deposit_Immediate_Insufficient_Wallet_Balance_Abort = 116,
 /// <summary>
-/// Collection transmission awaiting provider response.
-/// </summary>
-Collect_Transmission_Pending = 117,
-/// <summary>
-/// Collection status check awaiting provider response.
-/// </summary>
-Collect_StatusCheck_Pending = 118,
-/// <summary>
-/// Deposit transmission awaiting provider response.
-/// </summary>
-Deposit_Transmission_Pending = 119,
-/// <summary>
-/// Deposit status check awaiting provider response.
-/// </summary>
-Deposit_StatusCheck_Pending = 120,
-/// <summary>
 /// Transfer denied by TIB authorization review.
 /// </summary>
 Authorization_Denied = 900,
@@ -919,38 +840,6 @@ Unknown = -1,
 /// The not set
 /// </summary>
 NotSet = 0,
-/// <summary>
-/// The sandbox account
-/// </summary>
-Sandbox_Account = 100,
-/// <summary>
-/// The sandbox credit card
-/// </summary>
-Sandbox_CreditCard = 200,
-/// <summary>
-/// The sandbox Interac
-/// </summary>
-Sandbox_Interac = 300,
-/// <summary>
-/// The sandbox Interac ARN
-/// </summary>
-Sandbox_ARN = 400,
-/// <summary>
-/// The sandbox Blue Snap Account
-/// </summary>
-Sandbox_BlueSnap_Account_USD = 101,
-/// <summary>
-/// The sandbox Blue Snap Account CAD
-/// </summary>
-Sandbox_BlueSnap_Account_CAD = 102,
-/// <summary>
-/// The sandbox Blue Snap Credit Card
-/// </summary>
-Sandbox_BlueSnap_CreditCard_USD = 201,
-/// <summary>
-/// The sandbox Blue Snap Credit Card CAD
-/// </summary>
-Sandbox_BlueSnap_CreditCard_CAD = 202,
 /// <summary>
 /// The provider for credit card moneris
 /// </summary>
@@ -975,22 +864,6 @@ CA_Interac_RBC = 1200,
 /// The Account provider using RBC
 /// </summary>
 RBC_ARN = 3000,
-/// <summary>
-/// The Account provider using BlueSnap CreditCard USD
-/// </summary>
-BlueSnap_CreditCard_USD = 4000,
-/// <summary>
-/// The Account provider using BlueSnap Account USD
-/// </summary>
-BlueSnap_Account_USD = 4001,
-/// <summary>
-/// The Account provider using BlueSnap CreditCard CAD
-/// </summary>
-BlueSnap_CreditCard_CAD = 4002,
-/// <summary>
-/// The Account provider using BlueSnap Account CAD
-/// </summary>
-BlueSnap_Account_CAD = 4003,
 }
       public enum ProvinceStateIdEnum {
 
@@ -1430,21 +1303,17 @@ FreeDeposit = 2,
 /// </summary>
 FreeCollection = 3,
 /// <summary>
-/// Fee transfer charged by TIB.
+/// Server-assigned on fee transfers created by the platform (for example file fees). Not accepted in create requests; valid only as a ListTransfersFast filter value.
 /// </summary>
 Fee = 4,
 /// <summary>
-/// Reversal of a previous transfer.
+/// Server-assigned on refund transfers created by the platform. Not accepted in create requests; valid only as a ListTransfersFast filter value.
 /// </summary>
 Revert = 5,
 /// <summary>
 /// Combined payment with an associated free collection.
 /// </summary>
 PaymentAndFreeCollection = 6,
-/// <summary>
-/// Commission payment transfer.
-/// </summary>
-Commission = 7,
 /// <summary>
 /// Deposit into the merchant's internal wallet from a bank account.
 /// </summary>
@@ -1457,10 +1326,6 @@ CollectFromWallet = 9,
 /// Deposit into the merchant's wallet via Interac.
 /// </summary>
 DepositToWalletFromInterac = 10,
-/// <summary>
-/// Server-initiated $0.01 micro-deposit that carries a verification code in the recipient's bank-statement descriptor.
-/// </summary>
-MicroDepositVerification = 11,
 }
       public enum TransferTypeFlag {
 
@@ -1500,7 +1365,7 @@ All = 7,
       public enum TwoFactorStatus {
 
     /// <summary>
-/// Operation completed successfully - no 2FA was required (admin, impersonated, or non-protected operation)
+/// Operation completed successfully - two-factor authentication was not required for this session or operation
 /// </summary>
 NotRequired = 0,
 /// <summary>

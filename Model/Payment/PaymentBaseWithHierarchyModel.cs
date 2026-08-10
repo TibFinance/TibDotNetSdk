@@ -47,18 +47,17 @@ namespace Tib.Api.Model.Payment
     public string MerchantName { get; set; }
 
     /// <summary>
-    /// Indicates whether the merchant has exceeded its transfer capacity limits.
+    /// True when the fees for this payment are billed to a merchant the caller owns, under a fee-redirection configuration. Computed on GetPayment and GetSupplierTransfer; null on list endpoints.
     /// </summary>
-    /// <value>True if the merchant is currently overloaded (e.g., surpasses daily/weekly transfer thresholds), false otherwise. Only relevant for merchants subject to volume caps.</value>
     public bool? IsOverlodedMerchant { get; set; }
 
     /// <summary>
-    /// Identifier of the merchant responsible for fee billing on this payment.
+    /// Identifier of the merchant that pays for this transfer, when fee billing differs from the related merchant. Populated on GetPayment and GetSupplierTransfer; null on list endpoints. When null, the transfer's related merchant pays.
     /// </summary>
     public Guid? FeeMerchantId { get; set; }
 
     /// <summary>
-    /// Whether the response data is formatted from the payer's perspective.
+    /// True when the caller is the fee-paying side of a supplier transfer — the caller does not own the transfer, but owns the merchant billed for it. Always false on ListTransfers, which does not compute it.
     /// </summary>
     public bool IsPayerView { get; set; }
 

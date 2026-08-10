@@ -55,9 +55,8 @@ namespace Tib.Api.Model.Admin
     public bool IsProcessing { get; set; }
 
     /// <summary>
-    /// Specifies the category of the wallet returned in the response
+    /// Wallet withdrawal mode (scheduled, manual, or automatic).
     /// </summary>
-    /// <value>Corresponds to WalletTypeEnum (e.g., PERSONAL, CORPORATE, CUSTODIAL, EXTERNAL). Read‑only, always present, and determines applicable features and limits.</value>
     public WalletTypeEnum WalletType { get; set; }
 
     /// <summary>

@@ -36,15 +36,8 @@ namespace Tib.Api.Model.PaymentMethod
     public CreditCardModel CreditCard { get; set; }
 
     /// <summary>
-    /// Name of the cardholder as printed on the credit card
+    /// Billing postal or ZIP code for AVS verification, for callers that collect only a postal code rather than a full billing address. Used only when CreditCard.CreditCardRegisteredAddress is not supplied — if a full registered address is provided, it takes precedence and this value is ignored.
     /// </summary>
-    /// <value>Required string, up to 100 characters, alphabetic characters and spaces only; must match the card's billing name</value>
-    public string CardOwner { get; set; }
-
-    /// <summary>
-    /// Postal code of the cardholder's billing address
-    /// </summary>
-    /// <value>String, required; alphanumeric, up to 10 characters; must match the format expected by the issuing country (e.g., 5‑digit or ZIP+4 for US).</value>
     public string ZipCode { get; set; }
 
     /// <summary>

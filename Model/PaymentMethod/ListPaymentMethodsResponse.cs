@@ -13,9 +13,9 @@ namespace Tib.Api.Model.PaymentMethod
     {
         
     /// <summary>
-    /// A collection of payment methods available to the requester.
+    /// List of customer payment method
     /// </summary>
-    /// <value>IEnumerable of PaymentMethodModel objects; each includes identifiers, display name, and type. May be empty if no methods are configured. Order is not guaranteed.</value>
+    /// <value>The payment methods.</value>
     public IEnumerable<PaymentMethodModel> PaymentMethods { get; set; }
 
     }

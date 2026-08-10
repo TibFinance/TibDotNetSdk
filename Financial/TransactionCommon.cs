@@ -65,7 +65,7 @@ namespace Tib.Api.Financial
     public string AccoutPreview { get; set; }
 
     /// <summary>
-    /// Type of account (chequing, savings, etc.).
+    /// The payment method type used for this transaction: credit card, direct bank account, or Interac.
     /// </summary>
     public PaymentMethodTypeEnum AccountType { get; set; }
 

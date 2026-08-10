@@ -17,12 +17,6 @@ namespace Tib.Api.Model.Service
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// Identifier of the white‑label partner linked to the merchant, if any.
-    /// </summary>
-    /// <value>Nullable GUID; present only when the merchant is part of a white‑label arrangement, otherwise null. Must be a valid UUID when provided.</value>
-    public Nullable<Guid> WhiteLabelingId { get; set; }
-
-    /// <summary>
     /// Indicates whether the service has finished its onboarding process.
     /// </summary>
     /// <value>True when all required boarding steps are completed; false otherwise. Read‑only, always present in the GetService response.</value>

@@ -17,15 +17,15 @@ namespace Tib.Api.Model.Bill
     public Guid BillId { get; set; }
 
     /// <summary>
-    /// The fee amount applied to a credit‑card transfer when the convenient fee option is used.
+    /// Calculated convenience fee if paid by credit card. Always zero if UseConvenientFeeRule is false. This amount cannot be set. It is calculated by the system
     /// </summary>
-    /// <value>Decimal value in the account's currency, typically with two decimal places; may be zero if no fee applies.</value>
+    /// <value>The convenient fee credit card.</value>
     public decimal? ConvenientFeeCreditCard { get; set; }
 
     /// <summary>
-    /// The convenience fee charged for a direct account transfer.
+    /// Calculated convenience fee if paid by direct account transfer. Always zero if UseConvenientFeeRule is false. This amount cannot be set. It is calculated by the system
     /// </summary>
-    /// <value>Decimal amount in the transaction currency, typically with two decimal places; may be zero if no fee applies.</value>
+    /// <value>The convenient fee direct account.</value>
     public decimal? ConvenientFeeDirectAccount { get; set; }
 
     /// <summary>

@@ -71,11 +71,5 @@ namespace Tib.Api.Model.Merchant
     /// <value>An AddressModel containing street, city, state/province, postal code, and country; all fields required, must be a valid, non‑null address.</value>
     public AddressModel Address { get; set; }
 
-    /// <summary>
-    /// The merchant's preferred payment provider.
-    /// </summary>
-    /// <value>Must be a valid ProviderEnum value representing a supported provider; case‑sensitive and required for processing the merchant's basic info.</value>
-    public ProviderEnum? FavoriteProvider { get; set; }
-
     }
 }

@@ -71,9 +71,9 @@ namespace Tib.Api.Model.Bill
     public Guid? RelatedCustomerId { get; set; }
 
     /// <summary>
-    /// Indicates whether the convenient fee rule is applied to the retrieved bill.
+    /// Whether convenience fees apply to this bill. Honored on create: when false, no convenience fee is charged when this bill is paid. The convenience fee amounts come from the service's fee configuration; this flag is the per-bill opt-in.
     /// </summary>
-    /// <value>Boolean; true if the bill uses the convenient fee rule, false otherwise. Only relevant for bills that support fee rule customization; defaults to false when not applicable.</value>
+    /// <value>true if [use convenient fee rule]; otherwise, false.</value>
     public bool UseConvenientFeeRule { get; set; }
 
     }

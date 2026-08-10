@@ -217,6 +217,7 @@
     <Compile Include="Model\Service\ServiceModel.cs" />
     <Compile Include="Model\Service\ServiceSettingsModel.cs" />
     <Compile Include="Model\Service\ServiceWithMerchantModel.cs" />
+    <Compile Include="Model\Service\WalletOperationDetailModel.cs" />
     <Compile Include="Model\Service\WalletOperationModel.cs" />
     <Compile Include="Model\Supplier\CreateSupplierArgs.cs" />
     <Compile Include="Model\Supplier\CreateSupplierResponse.cs" />

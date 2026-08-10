@@ -22,28 +22,6 @@ namespace Tib.Api.Financial
     public string Owner { get; set; }
 
     /// <summary>
-    /// The payer's given name for the direct account payment.
-    /// </summary>
-    /// <value>Required string, up to 50 characters, alphabetic characters only (no digits or special symbols).</value>
-    public string FirstName { get; set; }
-
-    /// <summary>
-    /// The account holder’s last name for the direct account payment method.
-    /// </summary>
-    /// <value>Required string, up to 50 characters, alphabetic characters and common punctuation (e.g., hyphen, apostrophe) only.</value>
-    public string LastName { get; set; }
-
-    /// <summary>
-    /// BlueSnap ECP (ACH) account type chosen client-side. Optional, max 40 characters, with no server-side whitelist; TIB's own interfaces send CONSUMER_CHECKING (the default), CONSUMER_SAVINGS, CORPORATE_CHECKING or CORPORATE_SAVINGS. Any value starting with CORPORATE (case-insensitive) makes the server derive the provider-required company name for Corporate eCheck from the account Owner. Not sent to the provider directly.
-    /// </summary>
-    public string EcpAccountType { get; set; }
-
-    /// <summary>
-    /// The type of bank account (e.g., personal checking, corporate savings).
-    /// </summary>
-    public AccountTypeEnum? AccountType { get; set; }
-
-    /// <summary>
     /// The bank/institution code (Canadian routing) identifying the financial institution where the account is held — normally 3 digits, though accounts imported from CPA-format routing strings carry it zero-padded to 4 (0III). This is the bank itself, not the branch — the branch transit number is carried by InstitutionNumber.
     /// </summary>
     public string BankNumber { get; set; }
@@ -60,7 +38,7 @@ namespace Tib.Api.Financial
     public string AccountNumber { get; set; }
 
     /// <summary>
-    /// The combined routing number (bank number + institution number), used to identify the specific branch.
+    /// Convenience alias for the Canadian routing pair. On read, returns BankNumber concatenated with InstitutionNumber. On write, accepts exactly 9 digits — a 4-digit zero-padded institution code followed by a 5-digit branch transit — and splits them into BankNumber and InstitutionNumber; a value of any other length is ignored silently. Supply either this field or BankNumber + InstitutionNumber.
     /// </summary>
     public string RoutingNumber { get; set; }
 
@@ -74,22 +52,6 @@ namespace Tib.Api.Financial
     /// The currency denomination of the account (e.g., CAD, USD).
     /// </summary>
     public CurrencyEnum? Currency { get; set; }
-
-    /// <summary>
-    /// The complete account number string composed of bank number, institution number, account number, and optional check digit, separated by dashes.
-    /// </summary>
-    public string FullAccountNumber { get; set; }
-
-    /// <summary>
-    /// The account number appended with the check digit (if present), separated by a dash.
-    /// </summary>
-    public string AccountNumberWithCheckDigit { get; set; }
-
-    /// <summary>
-    /// A formatted string that previews the direct account payment method details before creation.
-    /// </summary>
-    /// <value>Must be a non‑empty UTF‑8 string, max 256 characters; includes masked account number, bank name, and optional reference, following the platform’s preview template.</value>
-    public string PreviewString { get; set; }
 
     }
 }
