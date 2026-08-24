@@ -31,6 +31,7 @@ using Tib.Api.Model.FreeOperation;
 using Tib.Api.Model.Client;
 using Tib.Api.Model.Transfer;
 using Tib.Api.Model.Supplier;
+using Tib.Api.Model.TwoFactorAuth;
 
 
 
@@ -63,6 +64,16 @@ namespace Tib.Api
     }
 
     /// <summary>
+/// Verifies the 2FA setup after user scans QR code and enters the code. Enables 2FA for the user once verification succeeds.
+/// </summary>
+/// <param name="args">The arguments including the verification code.</param>
+/// <returns>Verify2FASetupResponse indicating success or failure.</returns>
+public Verify2FASetupResponse Verify2FASetup(Verify2FASetupArgs args)
+{
+    return _client.Call<Verify2FASetupResponse>("Verify2FASetup", args);
+}
+
+/// <summary>
 /// Retrieves wallet operation history for a service within a specified date range. Returns the list of daily operations, the wallet balance as of the start date, and the configured delay buffer amount.
 /// </summary>
 /// <param name="args">The GetWalletOperationsArgs containing the service ID and date range.</param>
@@ -163,7 +174,7 @@ public GetSuppliersResponse GetSuppliers(GetSuppliersArgs args)
 }
 
 /// <summary>
-/// Creates a payment transfer from the calling merchant to a supplier. Validates both merchants, runs business rules on the sending merchant's limits, creates the transfer as a free collection, and optionally creates a bill. Notifies the supplier unless client approval is required.
+/// Creates a payment transfer from the calling merchant to a supplier. Validates both merchants, runs business rules on the sending merchant's limits, creates the transfer as a free collection, and optionally creates a bill. Notifies the supplier unless client approval is required. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
 /// <param name="args">The CreateSupplierTransferArgs containing both merchant IDs, amount, due date, currency, frequency, and optional bill details.</param>
 /// <returns>A CreateSupplierTransferResponse containing the created transfer identifier.</returns>
@@ -173,7 +184,7 @@ public CreateSupplierTransferResponse CreateSupplierTransfer(CreateSupplierTrans
 }
 
 /// <summary>
-/// Relaunches (retries) a previously failed transfer for a merchant. Resets the failed payment in the database for reprocessing and sends an internal notification email with the transfer details.
+/// Relaunches (retries) a previously failed transfer for a merchant. Resets the failed payment in the database for reprocessing and sends an internal notification email with the transfer details. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
 /// <param name="args">The RelaunchMerchantFailedTransferArgs containing the transfer ID.</param>
 /// <returns>A RelaunchMerchantFailedTransferResponse.</returns>
@@ -213,7 +224,7 @@ public ChangeInteracPaymentMethodQuestionAndAnswerResponse ChangeInteracPaymentM
 }
 
 /// <summary>
-/// Reverts (cancels or reverses) a transfer. For pending gateway payments, deletes the transfer and its public token. For processed payments, creates reversal operations for each non-fee operation. Rejects transfers over $5,000 or wallet-type transfers. For supplier transfers, only the paying merchant (fee-payer) can revert; the recipient supplier cannot revert a transfer they did not create.
+/// Reverts (cancels or reverses) a transfer. For pending gateway payments, deletes the transfer and its public token. For processed payments, creates reversal operations for each non-fee operation. Rejects transfers over $5,000 or wallet-type transfers. For supplier transfers, only the paying merchant (fee-payer) can revert; the recipient supplier cannot revert a transfer they did not create. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
 /// <param name="args">The RevertTransferArgs containing the transfer ID.</param>
 /// <returns>A RevertTransferResponse indicating whether the transfer was deleted or reversed.</returns>
@@ -223,7 +234,7 @@ public RevertTransferResponse RevertTransfer(RevertTransferArgs args)
 }
 
 /// <summary>
-/// Creates a batch of free operations (deposits or collections) in a single call. Validates that client onboarding (KYC) is completed before allowing free deposit operations.
+/// Creates a batch of free operations (deposits or collections) in a single call. Validates that client onboarding (KYC) is completed before allowing free deposit operations. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
 /// <param name="args">The CreateFreeOperationBatchArgs containing the list of operations, optional group ID, and processing options.</param>
 /// <returns>A CreateFreeOperationBatchResponse containing the results for each operation in the batch.</returns>
@@ -233,7 +244,7 @@ public CreateFreeOperationBatchResponse CreateFreeOperationBatch(CreateFreeOpera
 }
 
 /// <summary>
-/// Creates the free operation.
+/// Creates the free operation. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
 /// <param name="args">The arguments.</param>
 /// <returns>CreateFreeOperationResponse.</returns>
@@ -253,7 +264,7 @@ public GetDropInPublicTokenResponse GetDropInPublicToken(GetDropInPublicTokenArg
 }
 
 /// <summary>
-/// Forces immediate processing of a transfer that would otherwise wait for the next scheduled run. For supplier transfers, only the paying merchant (fee-payer) can force-process; the recipient supplier cannot force-execute a transfer they did not create.
+/// Forces immediate processing of a transfer that would otherwise wait for the next scheduled run. For supplier transfers, only the paying merchant (fee-payer) can force-process; the recipient supplier cannot force-execute a transfer they did not create. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
 /// <param name="args">The ForcePaymentProcessArgs identifying the payment to force-process.</param>
 /// <returns>A ForcePaymentProcessResponse describing the outcome of the forced run.</returns>
@@ -273,7 +284,7 @@ public ListExecutedOperationsResponse ListExecutedOperations(ListExecutedOperati
 }
 
 /// <summary>
-/// Creates the transaction from raw.
+/// Creates the transaction from raw. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
 /// <param name="args">The arguments.</param>
 /// <returns>CreateTransactionFromRawResponse.</returns>
@@ -283,7 +294,7 @@ public CreateTransactionFromRawResponse CreateTransactionFromRaw(CreateTransacti
 }
 
 /// <summary>
-/// Creates the direct Interac transaction
+/// Creates the direct Interac transaction. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
 /// <param name="args">The arguments.</param>
 /// <returns>CreateDirectInteracTransactionResponse.</returns>
@@ -313,11 +324,10 @@ public GetPaymentResponse GetPayment(GetPaymentArgs args)
 }
 
 /// <summary>
-/// Creates a payment associated with a specific bill.
+/// Creates the payment. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
-/// <value>Call this endpoint to collect money from a customer or deposit to a customer using a chosen payment method. It can inherit the customer from the bill, operate in anonymous mode, or override defaults such as immediate transfer or over‑payment safety.</value>
-/// <param name="args">SessionToken: auth token; BillId: target bill GUID; SetPaymentCustomerFromBill: use bill's customer (bool); CustomerEmail: email for anonymous payments; PaymentInfo: payment method payload (type, token, etc.); MerchantId: GUID of the merchant account; ExternalReferenceId: merchant‑defined reference; SafetyToBreakIfOverRemainingBillAmount: stop if amount exceeds bill balance (bool); AutorizedPaymentMethod: pre‑authorized payment method GUID; AskForCustomerConsent: trigger consent flow (bool); DoNotSendEmail: suppress notification (bool); ImmediateTransfer: process without delay (bool); StatementDescription: text shown on bank statement.</param>
-/// <returns>Success returns a JSON object containing PaymentId (Guid), Status (e.g., 'Created'), and optional fields like ProcessedAt and TransactionDetails.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>CreatePaymentResponse.</returns>
 public CreatePaymentResponse CreatePayment(CreatePaymentArgs args)
 {
     return _client.Call<CreatePaymentResponse>("CreatePayment", args);
@@ -571,7 +581,7 @@ public ListCustomersResponse ListCustomers(ListCustomersArgs args)
 }
 
 /// <summary>
-/// Adjusts a merchant's wallet balance. IncreaseWallet collects the amount from the merchant (by EFT, or by Interac when requested) and credits the wallet; DecreaseWallet withdraws it from the wallet balance, subject to the risk-adjusted withdrawable balance. Requires the wallet feature to be enabled for the service.
+/// Adjusts a merchant's wallet balance. IncreaseWallet collects the amount from the merchant (by EFT, or by Interac when requested) and credits the wallet; DecreaseWallet withdraws it from the wallet balance, subject to the risk-adjusted withdrawable balance. Requires the wallet feature to be enabled for the service. This operation supports idempotency via the IdempotencyKey field.
 /// </summary>
 /// <param name="args">The AdjustWalletArgs containing the service and merchant IDs, the amount, and the adjustment mode.</param>
 /// <returns>An AdjustWalletResponse containing the identifier of the transfer created for the adjustment and WasSuccessful set to true; when a withdrawal is refused because the client's boarding is incomplete, no transfer is created and the response carries RequiresSupplierBoarding set to true with WasSuccessful false instead.</returns>
@@ -603,7 +613,7 @@ public DeleteMerchantResponse DeleteMerchant(DeleteMerchantArgs args)
 }
 
 /// <summary>
-/// Saves the merchant account information. This operation is protected by two-factor authentication.
+/// Saves the merchant account information. This operation is protected by two-factor authentication. On first use the response carries two-factor setup instructions (TwoFactorStatus and TwoFactorSetupData); see the Two-factor authentication guide.
 /// </summary>
 /// <param name="args">The SaveMerchantAccountInfoArgs containing the merchant ID and the replacement bank account information.</param>
 /// <returns>A SaveMerchantResponse containing the two-factor authentication status of the operation.</returns>

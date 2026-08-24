@@ -29,9 +29,9 @@ namespace Tib.Api.Model.Bill
     public decimal? ConvenientFeeDirectAccount { get; set; }
 
     /// <summary>
-    /// The date and time when the recurring transfer was initially created.
+    /// The creation date of the bill
     /// </summary>
-    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
+    /// <value>The created date.</value>
     public DateTime CreatedDate { get; set; }
 
     }

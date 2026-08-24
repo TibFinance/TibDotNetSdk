@@ -100,9 +100,9 @@ namespace Tib.Api.Model.Payment
     public decimal? ConvenientFeeDirectAccount { get; set; }
 
     /// <summary>
-    /// The date and time when the recurring transfer was initially created.
+    /// Creation date of the payment (UTC).
     /// </summary>
-    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
+    /// <value>The created date.</value>
     public DateTime CreatedDate { get; set; }
 
     /// <summary>

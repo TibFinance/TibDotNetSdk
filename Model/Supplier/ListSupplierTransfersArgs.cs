@@ -17,15 +17,13 @@ namespace Tib.Api.Model.Supplier
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// The start of the date‑time range to filter transfers.
+    /// Start of the date range filter, UTC (inclusive). Defaults to 3 months ago if not specified.
     /// </summary>
-    /// <value>ISO‑8601 UTC DateTime; inclusive lower bound; must be earlier than or equal to ToDate; if omitted defaults to the earliest available transfer.</value>
     public DateTime? FromDate { get; set; }
 
     /// <summary>
-    /// The exclusive upper bound of the transfer creation date range to retrieve.
+    /// End of the date range filter, UTC (exclusive). Defaults to now if not specified.
     /// </summary>
-    /// <value>Must be a valid ISO‑8601 DateTime (UTC). Must be later than or equal to FromDate. Transfers with a CreatedAt timestamp earlier than this value are returned; those on or after are excluded.</value>
     public DateTime? ToDate { get; set; }
 
     /// <summary>

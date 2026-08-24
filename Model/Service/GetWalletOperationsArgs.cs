@@ -17,12 +17,12 @@ namespace Tib.Api.Model.Service
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// Start date of the wallet operations date range filter.
+    /// Start of the wallet-operations date range filter, UTC (inclusive). Values are compared directly against UTC-stored timestamps — send an ISO-8601 value with a trailing Z.
     /// </summary>
     public DateTime From { get; set; }
 
     /// <summary>
-    /// End date of the wallet operations date range filter.
+    /// End of the wallet-operations date range filter, UTC (inclusive). Send an ISO-8601 value with a trailing Z. The range must not exceed 366 days, and To must not be earlier than From.
     /// </summary>
     public DateTime To { get; set; }
 

@@ -29,9 +29,9 @@ namespace Tib.Api.Model.Payment
     public Guid? RelatedCustomerId { get; set; }
 
     /// <summary>
-    /// The date by which the created payment must be settled.
+    /// The due date of the payment, UTC. Null means now.
     /// </summary>
-    /// <value>ISO‑8601 DateTime (UTC). Must be a future date, not earlier than the current date, and cannot exceed the platform's maximum scheduling horizon.</value>
+    /// <value>The due date.</value>
     public DateTime? DueDate { get; set; }
 
     /// <summary>

@@ -12,33 +12,28 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Indicates the current two‑factor authentication state of the merchant account.
+    /// Indicates the 2FA status of the operation. Check this value to determine if the operation succeeded or if 2FA action is needed.
     /// </summary>
-    /// <value>Enum TwoFactorStatus (e.g., ENABLED, DISABLED, PENDING). Returned only for accounts supporting 2FA; may be null if not applicable. Read‑only.</value>
     public TwoFactorStatus TwoFactorStatus { get; set; }
 
     /// <summary>
-    /// Message returned to the client describing the outcome of the two‑factor authentication step.
+    /// Human-readable message explaining the 2FA status. Currently not localized to the caller's language; drive UX from TwoFactorStatus instead.
     /// </summary>
-    /// <value>String, up to 256 characters; may be empty if 2FA is not required or succeeded without additional prompts.</value>
     public string TwoFactorMessage { get; set; }
 
     /// <summary>
-    /// Details of the merchant's two‑factor authentication configuration returned after saving account info
+    /// Setup data for 2FA enrollment. Populated only when TwoFactorStatus is SetupRequired. Contains QR code and manual entry key for authenticator app setup.
     /// </summary>
-    /// <value>Contains fields such as enabled (bool), method (e.g., TOTP, SMS), secretKey (masked), qrCodeUrl, and setupTimestamp. Present only when 2FA is active; omitted or null otherwise.</value>
     public TwoFactorSetupData TwoFactorSetupData { get; set; }
 
     /// <summary>
-    /// Unique identifier of the merchant associated with the two‑factor verification.
+    /// The ID of the merchant used for security verification. Populated when TwoFactorStatus is SecurityVerificationRequired or SecurityVerificationFailed.
     /// </summary>
-    /// <value>Guid; included only when two‑factor verification applies, otherwise may be null.</value>
     public Guid? TwoFactorVerificationMerchantId { get; set; }
 
     /// <summary>
-    /// The merchant's display name used during two‑factor verification.
+    /// The name of the merchant used for security verification. Populated when TwoFactorStatus is SecurityVerificationRequired or SecurityVerificationFailed. Display in prompt: "Enter bank account for [MerchantName]"
     /// </summary>
-    /// <value>String, up to 100 characters, exactly as registered in the merchant profile; may be empty if two‑factor verification is not enabled.</value>
     public string TwoFactorVerificationMerchantName { get; set; }
 
     }

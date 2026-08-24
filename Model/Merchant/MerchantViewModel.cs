@@ -73,6 +73,12 @@ namespace Tib.Api.Model.Merchant
     public bool IsAuthorized { get; set; }
 
     /// <summary>
+    /// Is this merchant currently suspended
+    /// </summary>
+    /// <value>true if this instance is suspended; otherwise, false.</value>
+    public bool IsSuspended { get; set; }
+
+    /// <summary>
     /// Email address(es) that receive a copy of the merchant's communications
     /// </summary>
     /// <value>String, optional, may contain a single email or a comma‑separated list of valid email addresses; maximum length 256 characters</value>

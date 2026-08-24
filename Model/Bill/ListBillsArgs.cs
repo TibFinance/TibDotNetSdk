@@ -23,15 +23,15 @@ namespace Tib.Api.Model.Bill
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// The start of the date‑time range for which bills are returned.
+    /// Start of the bill creation-date range filter, UTC (inclusive). Send an ISO-8601 value with a trailing Z.
     /// </summary>
-    /// <value>Must be a valid ISO‑8601 DateTime (UTC preferred), inclusive, and cannot be later than the ToDateTime parameter.</value>
+    /// <value>From date time.</value>
     public DateTime? FromDateTime { get; set; }
 
     /// <summary>
-    /// Upper bound of the billing period for which bills are retrieved.
+    /// End of the bill creation-date range filter, UTC (inclusive). Send an ISO-8601 value with a trailing Z.
     /// </summary>
-    /// <value>ISO‑8601 DateTime (UTC). Must be greater than or equal to FromDateTime; inclusive. If omitted defaults to the current date.</value>
+    /// <value>To date time.</value>
     public DateTime? ToDateTime { get; set; }
 
     }

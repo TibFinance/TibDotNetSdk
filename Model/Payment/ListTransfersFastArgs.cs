@@ -12,15 +12,15 @@ namespace Tib.Api.Model.Payment
     {
         
     /// <summary>
-    /// The start of the date‑time range to filter transfers.
+    /// First calendar day of the payment-due-date range (inclusive). Only the date part is used; days are Eastern Time calendar days. Required.
     /// </summary>
-    /// <value>ISO‑8601 UTC DateTime; inclusive lower bound; must be earlier than or equal to ToDate; if omitted defaults to the earliest available transfer.</value>
+    /// <value>From date.</value>
     public DateTime? FromDate { get; set; }
 
     /// <summary>
-    /// The exclusive upper bound of the transfer creation date range to retrieve.
+    /// Last calendar day of the payment-due-date range (inclusive). Only the date part is used; days are Eastern Time calendar days. Required.
     /// </summary>
-    /// <value>Must be a valid ISO‑8601 DateTime (UTC). Must be later than or equal to FromDate. Transfers with a CreatedAt timestamp earlier than this value are returned; those on or after are excluded.</value>
+    /// <value>To date.</value>
     public DateTime? ToDate { get; set; }
 
     /// <summary>

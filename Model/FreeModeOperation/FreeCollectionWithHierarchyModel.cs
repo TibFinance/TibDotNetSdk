@@ -56,9 +56,8 @@ namespace Tib.Api.Model.FreeModeOperation
     public ProcessStatusEnum CurrentStatus { get; set; }
 
     /// <summary>
-    /// The date and time when the recurring transfer was initially created.
+    /// Date and time the collection was created.
     /// </summary>
-    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
     public DateTime CreatedDate { get; set; }
 
     /// <summary>
@@ -74,9 +73,8 @@ namespace Tib.Api.Model.FreeModeOperation
     public string ReferenceId { get; set; }
 
     /// <summary>
-    /// The timestamp when the transfer was executed.
+    /// Date and time the collection was executed by the bank.
     /// </summary>
-    /// <value>ISO‑8601 UTC datetime; present only for completed transfers, null for pending or failed ones.</value>
     public DateTime? ExecutedDate { get; set; }
 
     /// <summary>

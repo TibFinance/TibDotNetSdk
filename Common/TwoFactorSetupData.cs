@@ -10,21 +10,18 @@ namespace Tib.Api.Common
     {
         
     /// <summary>
-    /// Base64‑encoded image of the merchant's QR code.
+    /// Base64-encoded PNG image of the QR code for scanning with authenticator apps.
     /// </summary>
-    /// <value>String containing a valid Base64 representation of a PNG/JPEG QR code; size limited to 500 KB when decoded; used for displaying the merchant's payment QR code in client applications.</value>
     public string QrCodeBase64 { get; set; }
 
     /// <summary>
-    /// A unique identifier returned when the merchant account was created via manual entry.
+    /// The secret key in Base32 format for manual entry into authenticator apps. Display this if the user cannot scan the QR code.
     /// </summary>
-    /// <value>String; alphanumeric; present only for manually entered accounts; max length 64 characters.</value>
     public string ManualEntryKey { get; set; }
 
     /// <summary>
-    /// URI to which the merchant must redirect the user to complete OTP authentication
+    /// Full otpauth:// URI for the TOTP entry. Can be used by API clients to generate their own QR code. Format: otpauth://totp/{Issuer}:{AccountName} with query parameters secret (the Base32 key) and issuer.
     /// </summary>
-    /// <value>String containing a valid HTTPS URL; present only when OTP is required, otherwise omitted or empty</value>
     public string OtpAuthUri { get; set; }
 
     /// <summary>

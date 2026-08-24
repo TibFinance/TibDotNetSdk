@@ -15,7 +15,7 @@ namespace Tib.Api.Model.Payment
     public Guid i { get; set; }
 
     /// <summary>
-    /// Creation date. Only populated on ListSupplierTransfers.
+    /// Creation date (UTC). Only populated on ListSupplierTransfers.
     /// </summary>
     public DateTime cdt { get; set; }
 
@@ -40,7 +40,7 @@ namespace Tib.Api.Model.Payment
     public string m { get; set; }
 
     /// <summary>
-    /// Transfer due date.
+    /// Transfer due date (UTC).
     /// </summary>
     public DateTime td { get; set; }
 
@@ -100,7 +100,7 @@ namespace Tib.Api.Model.Payment
     public string map { get; set; }
 
     /// <summary>
-    /// Execution date. Not populated on ListTransfersForBillFast.
+    /// Execution date (UTC). Not populated on ListTransfersForBillFast.
     /// </summary>
     public DateTime ed { get; set; }
 

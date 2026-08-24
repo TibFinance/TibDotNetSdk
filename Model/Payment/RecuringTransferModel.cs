@@ -47,9 +47,8 @@ namespace Tib.Api.Model.Payment
     public DateTime RecuringRefDate { get; set; }
 
     /// <summary>
-    /// The date and time when the recurring transfer was initially created.
+    /// Date and time this recurring transfer was created.
     /// </summary>
-    /// <value>ISO‑8601 UTC timestamp; always present, immutable, and cannot be null.</value>
     public DateTime CreatedDate { get; set; }
 
     /// <summary>
