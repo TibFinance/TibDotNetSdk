@@ -59,11 +59,6 @@ namespace Tib.Api.Model.Service
     public bool IsWalletFeatureActive { get; set; }
 
     /// <summary>
-    /// Wallet withdrawal mode, as the numeric value of WalletTypeEnum: 1 = Schedule (withdrawals run on a set schedule), 2 = Manual (withdrawals require an explicit request), 3 = Automatic (withdrawals run automatically when the threshold is reached).
-    /// </summary>
-    public int WalletType { get; set; }
-
-    /// <summary>
     /// The reserved cash buffer amount used to cover potential non‑sufficient‑funds (NSF) exposures.
     /// </summary>
     /// <value>Decimal value in the account's base currency, non‑negative, typically with two decimal places; zero indicates no buffer.</value>
@@ -94,18 +89,6 @@ namespace Tib.Api.Model.Service
     public decimal ClientWarningCollectionLimit { get; set; }
 
     /// <summary>
-    /// Maximum number of collection transactions allowed per bank account each day.
-    /// </summary>
-    /// <value>Integer ≥ 0; resets at midnight UTC; reflects the daily limit configured for the service.</value>
-    public int NumberOfCollectionPerBankAccountDaily { get; set; }
-
-    /// <summary>
-    /// The total count of collection attempts scheduled for each bank within a given delay interval.
-    /// </summary>
-    /// <value>Integer, &gt;= 0. Represents how many times the system will retry collecting payments from a specific bank after a delay period. No upper limit defined by the API, but typical implementations cap at a reasonable maximum (e.g., 10).</value>
-    public int NumberOfCollectionPerBankPerDelays { get; set; }
-
-    /// <summary>
     /// Maximum total amount that can be deposited to a single bank account in one day.
     /// </summary>
     /// <value>Decimal value in the account's currency; applies per bank account per calendar day; may be null if no limit is set.</value>
@@ -128,18 +111,6 @@ namespace Tib.Api.Model.Service
     /// </summary>
     /// <value>Decimal value in the account's base currency; a warning is issued when a deposit exceeds this limit. Must be non‑negative.</value>
     public decimal ClientWarningDepositLimit { get; set; }
-
-    /// <summary>
-    /// The total count of deposit transactions made on a bank account during the current day.
-    /// </summary>
-    /// <value>Integer value, resets to 0 at midnight (UTC); reflects only successful deposits; maximum defined by account limits; range: 0‑2147483647.</value>
-    public int NumberOfDepositPerBankAccountDaily { get; set; }
-
-    /// <summary>
-    /// The total count of deposit transactions for each bank within the specified delay intervals.
-    /// </summary>
-    /// <value>Integer ≥ 0; reflects per‑bank deposit volume per delay category in the GetService response. Upper bound limited by 32‑bit signed int.</value>
-    public int NumberOfDepositPerBankPerDelays { get; set; }
 
     /// <summary>
     /// Number of days the platform waits before depositing funds into the merchant's account
