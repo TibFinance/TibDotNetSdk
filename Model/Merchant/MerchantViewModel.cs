@@ -85,9 +85,9 @@ namespace Tib.Api.Model.Merchant
     public string EmailCopyTo { get; set; }
 
     /// <summary>
-    /// The merchant's primary contact phone number.
+    /// Merchant phone
     /// </summary>
-    /// <value>String in E.164 format (e.g., +15551234567); may be null if not provided.</value>
+    /// <value>The merchant phone number.</value>
     public string MerchantPhoneNumber { get; set; }
 
     /// <summary>

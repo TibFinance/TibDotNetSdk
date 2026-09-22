@@ -54,9 +54,8 @@ namespace Tib.Api.Model.Merchant
     public string EmailCopyTo { get; set; }
 
     /// <summary>
-    /// The merchant's primary contact phone number.
+    /// The merchant's contact phone number.
     /// </summary>
-    /// <value>String, required; must follow E.164 format (e.g., +1234567890), 10‑15 digits including country code, no spaces or special characters.</value>
     public string PhoneNumber { get; set; }
 
     /// <summary>

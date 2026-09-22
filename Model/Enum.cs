@@ -558,6 +558,10 @@ DirectAccount = 2,
 /// Interac account
 /// </summary>
 Interac = 3,
+/// <summary>
+/// Settled through the merchant wallet (no external payment method).
+/// </summary>
+Wallet = 4,
 }
       public enum ProcessStatusEnum {
 
@@ -860,6 +864,10 @@ CA_Account_RBC = 1101,
 /// The Interac provider using RBC
 /// </summary>
 CA_Interac_RBC = 1200,
+/// <summary>
+/// The Interac provider using RBC over ISO 20022.
+/// </summary>
+CA_Interac_RBC_v2 = 1201,
 /// <summary>
 /// The Account provider using RBC
 /// </summary>

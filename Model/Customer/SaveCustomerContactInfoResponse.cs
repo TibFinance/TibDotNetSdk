@@ -11,9 +11,9 @@ namespace Tib.Api.Model.Customer
     {
         
     /// <summary>
-    /// The customer's contact information
+    /// Contact information of the customer to be created
     /// </summary>
-    /// <value>A ContactInfoModel object containing phone numbers, email addresses, and mailing address. All fields are optional and may be null if not provided. Values follow standard E.164 format for phone numbers and RFC 5322 for email. Address fields are normalized per ISO 3166 country codes.</value>
+    /// <value>Provides email, phone, and address; at least one contact method (email or phone) is required; fields must conform to standard format and length constraints defined in ContactInfoModel</value>
     public ContactInfoModel ContactInfo { get; set; }
 
     }

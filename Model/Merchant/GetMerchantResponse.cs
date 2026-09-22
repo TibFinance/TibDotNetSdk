@@ -22,5 +22,10 @@ namespace Tib.Api.Model.Merchant
     /// </summary>
     public bool DenySupplierPayments { get; set; }
 
+    /// <summary>
+    /// The merchant's effective allowlist of collect payment methods, resolved the same way the hosted payment page enforces it, so a caller never offers a payment method the page would then refuse. Bit values are OR-ed: CreditCard 1, DirectAccount 2, Interac 16 (for example 18 = DirectAccount + Interac). 0 means no allowlist is recorded and nothing is restricted (every payment method is permitted, Interac included); only a non-zero value restricts, and a payment method may then be offered only when its bit is present.
+    /// </summary>
+    public int CollectAllowedPaymentMethods { get; set; }
+
     }
 }

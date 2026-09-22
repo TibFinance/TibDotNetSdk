@@ -334,22 +334,20 @@ public CreatePaymentResponse CreatePayment(CreatePaymentArgs args)
 }
 
 /// <summary>
-/// Deletes a recurring transfer and cancels all its future scheduled executions.
+/// Deletes a recurring transfer by its identifier, stopping all future scheduled occurrences.
 /// </summary>
-/// <value>Use this endpoint when a merchant must stop an existing recurring payment or collection. It removes the recurrence definition so no further transfers will be generated.</value>
-/// <param name="args">SessionToken (string, auth token for the current session); RecuringTransferId (Guid, identifier of the recurring transfer to delete).</param>
-/// <returns>HTTP 200 with JSON { "deleted": true, "transferId": "&lt;RecuringTransferId&gt;" } on success; error payload otherwise.</returns>
+/// <param name="args">The DeleteRecuringTransferArgs containing the recurring transfer ID.</param>
+/// <returns>A DeleteRecuringTransferResponse.</returns>
 public DeleteRecuringTransferResponse DeleteRecuringTransfer(DeleteRecuringTransferArgs args)
 {
     return _client.Call<DeleteRecuringTransferResponse>("DeleteRecuringTransfer", args);
 }
 
 /// <summary>
-/// Retrieves all active recurring transfers for a specified service.
+/// Retrieves all active recurring transfers for a given service, including their next scheduled recurrence date and associated merchant information.
 /// </summary>
-/// <value>Call this endpoint to list a merchant's ongoing scheduled transfers, view their next execution date, and obtain related merchant metadata. Useful for monitoring, reporting, or managing recurring payment pipelines.</value>
-/// <param name="args">SessionToken (string, auth token from session creation) and ServiceId (GUID identifying the contract under which the transfers were created).</param>
-/// <returns>A JSON array of transfer objects, each containing TransferId (GUID), Status, NextRecurrenceDate (ISO‑8601), Amount, Currency, MerchantId (GUID), and optional metadata such as Description and LastRunResult.</returns>
+/// <param name="args">The GetRecuringTransfersArgs containing the service ID.</param>
+/// <returns>A GetRecuringTransfersResponse containing the list of recurring transfers.</returns>
 public GetRecuringTransfersResponse GetRecuringTransfers(GetRecuringTransfersArgs args)
 {
     return _client.Call<GetRecuringTransfersResponse>("GetRecuringTransfers", args);
@@ -374,99 +372,90 @@ public ListTransfersFastResponse ListTransfersFast(ListTransfersFastArgs args)
 }
 
 /// <summary>
-/// Retrieves a paginated list of transfer records matching the supplied filters.
+/// Lists the transfers.
 /// </summary>
-/// <value>Call this endpoint to query transfers for reporting, reconciliation, or error handling. Use the filter options to narrow results by date range, transfer type, merchant group, or error status.</value>
-/// <param name="args">SessionToken (auth), PaymentFilterLevel &amp; LevelFilterId (scope by client/service/merchant), MarkResolvedOnly (true to include only resolved transfers), FromDate/ToDate (date window), TransferGroupId (group identifier), TransferType (Collect/Deposit), ExternalMerchantGroupId (external merchant reference), OnlyWithErrors (true to return only transfers with error status).</param>
-/// <returns>On success, returns a JSON object containing an array of transfer objects (each with TransferId, Status, Type, Amount, Dates, and related identifiers) and pagination metadata (TotalCount, PageSize, PageNumber).</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>ListTransfersResponse.</returns>
 public ListTransfersResponse ListTransfers(ListTransfersArgs args)
 {
     return _client.Call<ListTransfersResponse>("ListTransfers", args);
 }
 
 /// <summary>
-/// Deletes a previously created bill.
+/// Deletes the bill.
 /// </summary>
-/// <value>Call this endpoint to permanently remove a bill that is no longer required or was created by mistake. The bill and any associated pending payments are cancelled.</value>
-/// <param name="args">SessionToken (string, authentication token), BillId (Guid, identifier of the bill to delete), MerchantId (Guid, merchant account owning the bill).</param>
-/// <returns>HTTP 204 No Content on success (empty response body). Errors are returned with standard HTTP error codes and a JSON error payload.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>DeleteBillResponse.</returns>
 public DeleteBillResponse DeleteBill(DeleteBillArgs args)
 {
     return _client.Call<DeleteBillResponse>("DeleteBill", args);
 }
 
 /// <summary>
-/// Retrieves details of a specific bill.
+/// Gets the bill.
 /// </summary>
-/// <value>Call this method to obtain the full bill record, including status, amount, and linked payments, after a bill has been created or when you need to display or verify bill information.</value>
-/// <param name="args">SessionToken (string) – auth token for the session; BillId (Guid) – identifier of the bill to fetch; MerchantId (Guid) – merchant (bank account) associated with the bill.</param>
-/// <returns>On success, returns a Bill object containing bill metadata (id, amount, currency, status, creation date, due date) and an array of associated payment IDs.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>GetBillResponse.</returns>
 public GetBillResponse GetBill(GetBillArgs args)
 {
     return _client.Call<GetBillResponse>("GetBill", args);
 }
 
 /// <summary>
-/// Creates a new bill record in TIB Finance.
+/// Creates the bill.
 /// </summary>
-/// <value>Call this method when you need to generate a bill that can later have payments attached. It registers the bill under the current session and returns a unique identifier for subsequent operations such as adding payments or querying status.</value>
-/// <param name="args">SessionToken (string, required): authentication token for the current session; BillData (object, required): JSON payload containing bill details (amount, currency, due date, description, etc.); BreakIfMerchantNeverBeenAuthorized (bool, optional): if true, aborts creation when the merchant has no prior authorization, preventing orphan bills.</param>
-/// <returns>On success, returns a JSON object with billId (Guid) and creationTimestamp (ISO‑8601).</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>CreateBillResponse.</returns>
 public CreateBillResponse CreateBill(CreateBillArgs args)
 {
     return _client.Call<CreateBillResponse>("CreateBill", args);
 }
 
 /// <summary>
-/// Retrieves a collection of bills created within a specified time range.
+/// Lists the bills.
 /// </summary>
-/// <value>Call ListBills to enumerate all bills for a merchant when you need to display, reconcile, or process batch operations on recent billing activity. Use the date filters to limit results and reduce payload size.</value>
-/// <param name="args">SessionToken (auth token), ServiceId (contract GUID), MerchantId (merchant GUID), FromDateTime (ISO‑8601 start filter), ToDateTime (ISO‑8601 end filter).</param>
-/// <returns>On success, returns a JSON array of bill objects, each containing at least BillId (GUID), CreationDate, Amount, Currency, Status, and optional metadata.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>ListBillsResponse.</returns>
 public ListBillsResponse ListBills(ListBillsArgs args)
 {
     return _client.Call<ListBillsResponse>("ListBills", args);
 }
 
 /// <summary>
-/// Sets the default payment method for a specified customer.
+/// Sets the default payment method.
 /// </summary>
-/// <value>Invoke after a customer’s payment methods are created or listed to define which method will be automatically used for future payments when no explicit method is provided. Required for auto‑select or anonymous payment flows that depend on a default.</value>
-/// <param name="args">SessionToken (string) – auth token from session creation; CustomerId (GUID) – target customer identifier; PaymentMethodId (GUID) – payment method to designate as default.</param>
-/// <returns>HTTP 200 with JSON { "success": true, "customerId": "&lt;GUID&gt;", "defaultPaymentMethodId": "&lt;GUID&gt;" }. Errors are returned with appropriate HTTP status codes and error payloads.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>SetDefaultPaymentMethodResponse.</returns>
 public SetDefaultPaymentMethodResponse SetDefaultPaymentMethod(SetDefaultPaymentMethodArgs args)
 {
     return _client.Call<SetDefaultPaymentMethodResponse>("SetDefaultPaymentMethod", args);
 }
 
 /// <summary>
-/// Deletes a specific payment method from a customer profile.
+/// Deletes the payment method.
 /// </summary>
-/// <value>Call this endpoint when a merchant needs to permanently remove a credit card, bank account, or Interac payment method that is no longer valid or authorized. The operation requires an active session and the GUID of the payment method to be deleted.</value>
-/// <param name="args">SessionToken (string, required): authentication token for the current session; PaymentMethodId (GUID, required): identifier of the payment method to delete.</param>
-/// <returns>HTTP 204 No Content on successful deletion; error payload with standard TIB Finance error codes on failure.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>DeletePaymentMethodResponse.</returns>
 public DeletePaymentMethodResponse DeletePaymentMethod(DeletePaymentMethodArgs args)
 {
     return _client.Call<DeletePaymentMethodResponse>("DeletePaymentMethod", args);
 }
 
 /// <summary>
-/// Retrieves the details of a specific payment method.
+/// Gets the payment method.
 /// </summary>
-/// <value>Use this call when you need to read a stored payment method (credit card, bank account, or Interac) for display, validation, or to reference it in subsequent payment operations.</value>
-/// <param name="args">SessionToken (string) – authentication token from a valid session; PaymentMethodId (GUID) – unique identifier of the payment method to retrieve.</param>
-/// <returns>On success, returns a PaymentMethod object with fields such as id, type, masked account information, status, createdDate, and lastModifiedDate.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>GetPaymentMethodResponse.</returns>
 public GetPaymentMethodResponse GetPaymentMethod(GetPaymentMethodArgs args)
 {
     return _client.Call<GetPaymentMethodResponse>("GetPaymentMethod", args);
 }
 
 /// <summary>
-/// Creates an Interac payment method for a specified customer.
+/// Creates the Interac payment method.
 /// </summary>
-/// <value>Use this endpoint to attach an Interac payment method to a customer so the merchant can collect or deposit funds via Interac. Required before initiating Interac‑based payments or direct Interac transfers.</value>
-/// <param name="args">SessionToken (auth token), CustomerId (Guid of the customer), IsCustomerAutomaticPaymentMethod (bool, marks as default), InteracInformation (email or mobile number), Language (locale code, e.g., 'en' or 'fr'), MerchantId (Guid of the merchant account).</param>
-/// <returns>On success returns a JSON object containing PaymentMethodId (Guid) and a status field indicating creation success.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>CreateInteracPaymentMethodResponse.</returns>
 public CreateInteracPaymentMethodResponse CreateInteracPaymentMethod(CreateInteracPaymentMethodArgs args)
 {
     return _client.Call<CreateInteracPaymentMethodResponse>("CreateInteracPaymentMethod", args);
@@ -483,44 +472,40 @@ public CreateDirectAccountPaymentMethodResponse CreateDirectAccountPaymentMethod
 }
 
 /// <summary>
-/// Creates a new credit‑card payment method for a specified customer.
+/// Creates the credit card payment method.
 /// </summary>
-/// <value>Use this after obtaining a SessionToken when you need to store a customer's credit‑card details for future collections or automatic payments. The method registers the card under the given CustomerId and makes it available for payment operations.</value>
-/// <param name="args">SessionToken (GUID) – auth token from session creation; Currency (ISO‑4217 code) – transaction currency; CustomerId (GUID) – target customer; IsCustomerAutomaticPaymentMethod (bool) – set as default for the customer if true; CreditCard (string) – encrypted PAN; CardOwner (string) – name on the card; ZipCode (string) – billing postal code; Language (string) – ISO language code for notifications.</param>
-/// <returns>HTTP 201 with JSON containing PaymentMethodId (GUID) and masked card info (last4, expiryMonth, expiryYear).</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>CreateCreditCardPaymentMethodResponse.</returns>
 public CreateCreditCardPaymentMethodResponse CreateCreditCardPaymentMethod(CreateCreditCardPaymentMethodArgs args)
 {
     return _client.Call<CreateCreditCardPaymentMethodResponse>("CreateCreditCardPaymentMethod", args);
 }
 
 /// <summary>
-/// Retrieves all payment methods associated with a specific customer under a given merchant.
+/// Lists the payment methods.
 /// </summary>
-/// <value>Call this endpoint to enumerate a customer's stored credit card, bank account, or Interac payment methods, for selection or management before creating a payment or bill.</value>
-/// <param name="args">SessionToken (string, required) – auth token for the API session; CustomerId (GUID, required) – identifier of the target customer; MerchantId (GUID, required) – identifier of the merchant account owning the customer.</param>
-/// <returns>On success, returns a JSON array of payment method objects, each containing Id (GUID), Type (enum: CreditCard|BankAccount|Interac), Status, and masked account details.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>ListPaymentMethodsResponse.</returns>
 public ListPaymentMethodsResponse ListPaymentMethods(ListPaymentMethodsArgs args)
 {
     return _client.Call<ListPaymentMethodsResponse>("ListPaymentMethods", args);
 }
 
 /// <summary>
-/// Retrieves one or more TIB Finance customers matching a given external identifier.
+/// Gets the customers by external identifier.
 /// </summary>
-/// <value>Call this method when you need to locate existing customers that were created or referenced using your own external ID scheme, for synchronization or lookup purposes.</value>
-/// <param name="args">SessionToken (string): auth token for the current session; ExternalCustomerId (string): the merchant‑provided external identifier; MerchantId (Guid): the merchant (bank account) GUID whose customers are queried.</param>
-/// <returns>On success, returns a JSON array of customer objects, each containing at least the TIB CustomerId (Guid) and associated metadata. Errors are returned as standard API error objects.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>GetCustomersByExternalIdResponse.</returns>
 public GetCustomersByExternalIdResponse GetCustomersByExternalId(GetCustomersByExternalIdArgs args)
 {
     return _client.Call<GetCustomersByExternalIdResponse>("GetCustomersByExternalId", args);
 }
 
 /// <summary>
-/// Deletes a customer record from the TIB Finance system.
+/// Deletes the customer.
 /// </summary>
-/// <value>Call this method when a merchant needs to permanently remove a customer that is no longer required, for example after account closure or data‑retention compliance. The operation also removes all payment methods linked to the customer.</value>
-/// <param name="args">SessionToken (string, required): authentication token for the current session. CustomerId (Guid, required): unique identifier of the customer to delete.</param>
-/// <returns>HTTP 204 No Content on success; if a body is returned, it contains a JSON object { "deletedCustomerId": "&lt;Guid&gt;", "status": "Success" }.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>DeleteCustomerResponse.</returns>
 public DeleteCustomerResponse DeleteCustomer(DeleteCustomerArgs args)
 {
     return _client.Call<DeleteCustomerResponse>("DeleteCustomer", args);
@@ -537,44 +522,40 @@ public SaveCustomerContactInfoResponse SaveCustomerContactInfo(SaveCustomerConta
 }
 
 /// <summary>
-/// Creates or updates a customer record in TIB Finance.
+/// Saves the customer.
 /// </summary>
-/// <value>Use this call to register a new customer or modify an existing one for a specific merchant. The method validates the payload and associates the customer with the given merchant account.</value>
-/// <param name="args">SessionToken (string) – authentication token from session creation; Customer (object) – customer details (name, email, etc.); MerchantId (Guid) – identifier of the merchant owning the customer.</param>
-/// <returns>On success returns a JSON object containing CustomerId (Guid) and a success flag, e.g., { "CustomerId": "...", "Success": true }.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>SaveCustomerResponse.</returns>
 public SaveCustomerResponse SaveCustomer(SaveCustomerArgs args)
 {
     return _client.Call<SaveCustomerResponse>("SaveCustomer", args);
 }
 
 /// <summary>
-/// Retrieves details of a specific customer.
+/// Gets the customer.
 /// </summary>
-/// <value>Call this method to obtain the stored information for a customer, including linked payment methods, when you need to display or process customer data. Required for operations that reference a customer by ID.</value>
-/// <param name="args">SessionToken (string): auth token for the session; CustomerId (Guid): identifier of the target customer; MerchantId (Guid): identifier of the merchant account owning the customer.</param>
-/// <returns>On success, returns a Customer object containing Id, Email, Status, and an array of PaymentMethod summaries. HTTP 200 with JSON payload; errors returned with appropriate HTTP status codes.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>GetCustomerResponse.</returns>
 public GetCustomerResponse GetCustomer(GetCustomerArgs args)
 {
     return _client.Call<GetCustomerResponse>("GetCustomer", args);
 }
 
 /// <summary>
-/// Creates a new Customer object in TIB Finance.
+/// Creates the customer.
 /// </summary>
-/// <value>Call this method when you need to register a person or entity that will receive or send payments. The customer acts as a container for payment methods and can be referenced in subsequent payment or bill operations.</value>
-/// <param name="args">SessionToken (auth token), ServiceId (contract GUID), Customer (JSON with required fields: email, optional name, address, etc.).</param>
-/// <returns>On success, returns a JSON payload containing CustomerId (GUID) and a creation timestamp.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>CreateCustomerResponse.</returns>
 public CreateCustomerResponse CreateCustomer(CreateCustomerArgs args)
 {
     return _client.Call<CreateCustomerResponse>("CreateCustomer", args);
 }
 
 /// <summary>
-/// Retrieves a list of customer objects associated with the specified merchant.
+/// Lists the customers.
 /// </summary>
-/// <value>Call this method to enumerate all customers created under a merchant, including those auto‑generated by direct‑deposit or direct‑Interac operations. Useful for syncing customer data or locating a customer ID for subsequent payment actions.</value>
-/// <param name="args">SessionToken (string): auth token for the current session; ServiceId (GUID): identifier of the contract under which the merchant operates; MerchantId (GUID): identifier of the merchant (bank account) whose customers are queried.</param>
-/// <returns>On success, returns HTTP 200 with a JSON array of customer objects, each containing at minimum: CustomerId (GUID), Email (optional), CreatedDate (ISO‑8601), and Status (enum). Errors are returned with standard HTTP error codes and an error payload.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>ListCustomersResponse.</returns>
 public ListCustomersResponse ListCustomers(ListCustomersArgs args)
 {
     return _client.Call<ListCustomersResponse>("ListCustomers", args);
@@ -591,22 +572,20 @@ public AdjustWalletResponse AdjustWallet(AdjustWalletArgs args)
 }
 
 /// <summary>
-/// Retrieves TIB merchant records that match a given external system identifier.
+/// Gets the merchants by external identifier.
 /// </summary>
-/// <value>Call this method when you need to locate one or more merchant accounts that were created or linked via an external system, using the external IDs assigned by that system. Useful for synchronizing data or performing operations on merchants without knowing their internal GUIDs.</value>
-/// <param name="args">SessionToken (string) – auth token for the current session; ExternalSystemId (string) – the identifier of the external system; ExternalSystemGroupId (string) – the external identifier assigned to the merchant within that system.</param>
-/// <returns>On success, returns a JSON array of merchant objects, each containing at least the internal MerchantId (Guid) and basic merchant information. Errors are returned as standard API error objects.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>GetMerchantsByExternalIdResponse.</returns>
 public GetMerchantsByExternalIdResponse GetMerchantsByExternalId(GetMerchantsByExternalIdArgs args)
 {
     return _client.Call<GetMerchantsByExternalIdResponse>("GetMerchantsByExternalId", args);
 }
 
 /// <summary>
-/// Deletes a merchant (bank account) identified by its GUID.
+/// Deletes the merchant.
 /// </summary>
-/// <value>Call this method to permanently remove a merchant record that is no longer needed, for example when a client closes a bank account or after a failed validation. The merchant must not be linked to active contracts or pending transactions.</value>
-/// <param name="args">SessionToken (string) – authentication token from CreateSession; MerchantId (GUID) – identifier of the merchant to delete.</param>
-/// <returns>HTTP 200 with a JSON body containing { "success": true, "merchantId": "&lt;MerchantId&gt;" }. Errors return appropriate HTTP status codes and error payload.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>DeleteMerchantResponse.</returns>
 public DeleteMerchantResponse DeleteMerchant(DeleteMerchantArgs args)
 {
     return _client.Call<DeleteMerchantResponse>("DeleteMerchant", args);
@@ -623,11 +602,10 @@ public SaveMerchantResponse SaveMerchantAccountInfo(SaveMerchantAccountInfoArgs 
 }
 
 /// <summary>
-/// Updates the basic profile data of an existing merchant.
+/// Saves the merchant basic information.
 /// </summary>
-/// <value>Invoke this when a merchant's contact, address, or other basic attributes need to be changed. It overwrites the stored basic information without affecting the merchant's bank account details.</value>
-/// <param name="args">SessionToken (string) – authentication token from session creation; MerchantId (GUID) – identifier of the merchant to modify; MerchantInfo (object) – JSON object with basic fields (e.g., Name, Email, Phone, Address, TaxId, etc.).</param>
-/// <returns>HTTP 200 with a JSON body containing a success flag and the MerchantId; on failure returns the standard error object with error code and description.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>SaveMerchantResponse.</returns>
 public SaveMerchantResponse SaveMerchantBasicInfo(SaveMerchantBasicInfoArgs args)
 {
     return _client.Call<SaveMerchantResponse>("SaveMerchantBasicInfo", args);
@@ -644,11 +622,10 @@ public SaveMerchantResponse SaveMerchant(SaveMerchantArgs args)
 }
 
 /// <summary>
-/// Retrieves the details of a merchant by its GUID.
+/// Gets the merchant.
 /// </summary>
-/// <value>Use after creating a session to obtain the merchant's basic profile and a preview of its bank account information, needed for validation or display before processing transactions.</value>
-/// <param name="args">SessionToken (string) – authentication token from SessionCreate; MerchantId (GUID) – unique identifier of the merchant to fetch.</param>
-/// <returns>On success, returns a Merchant object with MerchantId, basic information (name, status, creation date) and a preview of account information (bank name, masked account number, currency, etc.).</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>GetMerchantResponse.</returns>
 public GetMerchantResponse GetMerchant(GetMerchantArgs args)
 {
     return _client.Call<GetMerchantResponse>("GetMerchant", args);
@@ -675,66 +652,60 @@ public CreateMerchantResponse CreateMerchant(CreateMerchantArgs args)
 }
 
 /// <summary>
-/// Retrieves the boarding status of all merchants associated with a specific service.
+/// Retrieves the payment provider boarding (onboarding) status for all merchants within a service. Returns each merchant's boarding progress with their current status.
 /// </summary>
-/// <value>Use this endpoint after establishing a session to verify which merchants have completed, are pending, or have failed the boarding process for the given service. It helps automate monitoring and error handling of merchant onboarding.</value>
-/// <param name="args">SessionToken (string) – authentication token from session creation; BoardingServiceId (Guid) – identifier of the service whose merchant boarding status is requested.</param>
-/// <returns>JSON array of objects, each containing MerchantId (Guid), BoardingStatus (enum: Boarded|Pending|Failed), and StatusTimestamp (ISO‑8601). HTTP 200 on success; error codes follow standard API error handling.</returns>
+/// <param name="args">The GetServiceBoardingStatusArgs containing the service ID to query.</param>
+/// <returns>A GetServiceBoardingStatusResponse containing the boarding status of each merchant in the service.</returns>
 public GetServiceBoardingStatusResponse GetServiceBoardingStatus(GetServiceBoardingStatusArgs args)
 {
     return _client.Call<GetServiceBoardingStatusResponse>("GetServiceBoardingStatus", args);
 }
 
 /// <summary>
-/// Retrieves a list of merchant accounts accessible to the authenticated session.
+/// Lists the merchants.
 /// </summary>
-/// <value>Call this endpoint to enumerate merchant records for a client, optionally filtering by a specific merchant ID or including all merchants associated with the client’s contracts. Useful for UI dropdowns, synchronization jobs, or validating merchant existence before creating transactions.</value>
-/// <param name="args">SessionToken (string, required): auth token from session creation; ServiceId (GUID, required): identifies the client contract; MerchantId (GUID, optional): limits results to a single merchant; IncludeClientMerchants (bool, optional): when true, also returns merchants created under the client’s primary account.</param>
-/// <returns>On success, returns HTTP 200 with a JSON array of merchant objects, each containing MerchantId (GUID), Name, IsPrimary (bool), and Status fields.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>ListMerchantsResponse.</returns>
 public ListMerchantsResponse ListMerchants(ListMerchantsArgs args)
 {
     return _client.Call<ListMerchantsResponse>("ListMerchants", args);
 }
 
 /// <summary>
-/// Retrieves the wallet state for a specific service.
+/// Retrieves wallet information for a service, including the effective balance (wallet balance plus available delay buffer minus pending collections), the risk-adjusted withdrawable amount, processing status, and whether the new wallet feature is active.
 /// </summary>
-/// <value>Call this method to obtain the current effective balance, risk‑adjusted withdrawable amount, processing status, and feature flag for the new wallet associated with a service. Useful for displaying available funds or validating withdrawal limits before initiating a transaction.</value>
-/// <param name="args">SessionToken (string, required) – authentication token for the current session; ServiceId (GUID, required) – identifier of the service whose wallet is queried.</param>
-/// <returns>On success, returns a JSON object containing effectiveBalance (decimal), withdrawableAmount (decimal), processingStatus (enum), and isNewWalletEnabled (boolean). Errors are returned with standard API error codes.</returns>
+/// <param name="args">The GetWalletInformationsArgs containing the service ID.</param>
+/// <returns>A GetWalletInformationsResponse containing the wallet model with balance, withdrawable amount, and status.</returns>
 public GetWalletInformationsResponse GetWalletInformationsByService(GetWalletInformationsArgs args)
 {
     return _client.Call<GetWalletInformationsResponse>("GetWalletInformationsByService", args);
 }
 
 /// <summary>
-/// Retrieves the details of a specific Service (contract) for the authenticated client.
+/// Gets the service.
 /// </summary>
-/// <value>Call this method to obtain contract metadata such as limits, fees, and status when you need to validate or display service information before performing operations that depend on the ServiceId.</value>
-/// <param name="args">SessionToken (string, auth token); ServiceId (Guid, identifies the contract); MerchantId (Guid, identifies the merchant account linked to the request).</param>
-/// <returns>On success, returns a Service object containing ServiceId, MerchantId, Name, Limits, Fees, Currency, EffectiveDates, and CurrentStatus.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>GetServiceResponse.</returns>
 public GetServiceResponse GetService(GetServiceArgs args)
 {
     return _client.Call<GetServiceResponse>("GetService", args);
 }
 
 /// <summary>
-/// Retrieves the list of service contracts associated with the authenticated merchant.
+/// Lists the services.
 /// </summary>
-/// <value>Call this method after establishing a session to enumerate all service IDs (contracts) the merchant can use for fee and limit calculations. Useful when a merchant operates multiple contracts across different companies.</value>
-/// <param name="args">SessionToken (string, required) – bearer token from session creation; MerchantId (GUID, required) – identifier of the merchant account whose services are queried.</param>
-/// <returns>On success, returns a JSON array of service objects, each containing ServiceId (GUID) and optional descriptive fields (e.g., Name, Status). HTTP 200.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>ListServicesResponse.</returns>
 public ListServicesResponse ListServices(ListServicesArgs args)
 {
     return _client.Call<ListServicesResponse>("ListServices", args);
 }
 
 /// <summary>
-/// Creates an authenticated session for a TIB Finance client.
+/// Creates the session.
 /// </summary>
-/// <value>Invoke this endpoint at the beginning of a workflow to obtain a session token required for all subsequent API calls. The session ties the request to a specific client and validates the supplied credentials.</value>
-/// <param name="args">ClientId (Guid) – client identifier issued by TIB; Username – API user name; Password – API password (secure).</param>
-/// <returns>On success returns a JSON payload with SessionId (Guid) and Expiration (ISO‑8601 timestamp) indicating the session token and its validity period.</returns>
+/// <param name="args">The arguments.</param>
+/// <returns>CreateSessionResponse.</returns>
 public CreateSessionResponse CreateSession(CreateSessionArgs args)
 {
     return _client.Call<CreateSessionResponse>("CreateSession", args);

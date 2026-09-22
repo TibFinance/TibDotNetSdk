@@ -27,9 +27,8 @@ namespace Tib.Api.Financial
     public string TargetEmailAddress { get; set; }
 
     /// <summary>
-    /// The mobile phone number of the payer to which the Interac payment will be sent
+    /// The mobile phone number that receives the Interac request. Any formatting of a 10-digit North American number is accepted (spaces, dashes, dots, parentheses, an optional +1 or 1 prefix); the platform keeps the 10 digits.
     /// </summary>
-    /// <value>String in E.164 format (e.g., +1XXXXXXXXXX); must be a valid Canadian mobile number, digits only, max 15 characters, required.</value>
     public string TargetMobilePhoneNumber { get; set; }
 
     /// <summary>
