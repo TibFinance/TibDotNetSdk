@@ -25,9 +25,8 @@ namespace Tib.Api.Model.Payment
     public bool SetPaymentCustomerFromBill { get; set; }
 
     /// <summary>
-    /// The email address of the customer initiating the payment.
+    /// Email address to send the payment notification to.
     /// </summary>
-    /// <value>Must be a valid RFC‑5322 email, max 254 characters; required for receipt delivery and notifications.</value>
     public string CustomerEmail { get; set; }
 
     /// <summary>
@@ -37,9 +36,8 @@ namespace Tib.Api.Model.Payment
     public PaymentEntity PaymentInfo { get; set; }
 
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// Merchant ID to scope this operation to. Automatically set for merchant-level logins.
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     /// <summary>
@@ -55,9 +53,8 @@ namespace Tib.Api.Model.Payment
     public bool SafetyToBreakIfOverRemainingBillAmount { get; set; }
 
     /// <summary>
-    /// Flags indicating which payment methods are authorized for the created payment
+    /// Restrict which payment methods the customer can use for this payment.
     /// </summary>
-    /// <value>Bitmask of AuthorizedPaymentMethodFlags; combine multiple methods using OR. Must include at least one supported method; unsupported flags cause validation error.</value>
     public AutorizedPaymentMethodFlags? AutorizedPaymentMethod { get; set; }
 
     /// <summary>

@@ -16,9 +16,8 @@ namespace Tib.Api.Model.FreeModeOperation
     public Guid FreeCollectionId { get; set; }
 
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// Merchant that owns this collection.
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>

@@ -12,9 +12,8 @@ namespace Tib.Api.Common.Contract
     {
         
     /// <summary>
-    /// The SessionId property serves as a unique identifier for each user session, encapsulated as a Guid, facilitating a secure and personalized user experience.
+    /// The session ID. Send it as SessionToken on the following calls.
     /// </summary>
-    /// <value>The SessionId property denotes a unique identifier, expressed as a Guid, assigned to each user session, thereby ensuring its distinctiveness and security.</value>
     public Guid SessionId { get; set; }
 
     }

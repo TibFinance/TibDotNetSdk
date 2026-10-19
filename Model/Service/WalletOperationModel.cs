@@ -26,9 +26,8 @@ namespace Tib.Api.Model.Service
     public bool IsWithdrawn { get; set; }
 
     /// <summary>
-    /// Human‑readable description of the transfer
+    /// Description of the wallet operation.
     /// </summary>
-    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public string Description { get; set; }
 
     }

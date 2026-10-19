@@ -42,9 +42,8 @@ namespace Tib.Api.Model.Merchant
     public LanguageEnum Language { get; set; }
 
     /// <summary>
-    /// The merchant's primary contact email address.
+    /// The primary email address used for system notifications and communications with the merchant.
     /// </summary>
-    /// <value>A valid RFC 5322 email string, maximum 254 characters; may be null or omitted if no email is on record.</value>
     public string Email { get; set; }
 
     /// <summary>

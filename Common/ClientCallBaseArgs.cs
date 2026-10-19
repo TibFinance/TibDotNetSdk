@@ -3,15 +3,14 @@ using System;
 namespace Tib.Api.Common
 {
     /// <summary>
-    ///  base Object for createing ApiCallArgs.
+    ///  base Object for creating ApiCallArgs.
     /// </summary>
     public class ClientCallBaseArgs
     {
         /// <summary>
-/// Gets or sets the session token.
-/// </summary>
-/// <value>The session token.</value>
-public Guid? SessionToken { get; set; }
+        /// The SessionId returned by CreateSession or Login.
+        /// </summary>
+        public Guid? SessionToken { get; set; }
 
         /// <summary>
         /// Optional idempotency key (max 200 characters; a new GUID per logical operation is recommended).

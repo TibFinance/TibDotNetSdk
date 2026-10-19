@@ -702,10 +702,30 @@ public ListServicesResponse ListServices(ListServicesArgs args)
 }
 
 /// <summary>
-/// Creates the session.
+/// Opens a session on one access of a user, usually a client, a merchant or a service. Call GetLoginAccessList first and pass the LoginsUserRelationsId of the access to open. Send the returned SessionId as SessionToken on the following calls. On a merchant-level session, each MerchantId described as automatically set for merchant-level logins takes the session's merchant, whatever value is sent.
 /// </summary>
-/// <param name="args">The arguments.</param>
-/// <returns>CreateSessionResponse.</returns>
+/// <param name="args">The LoginArgs containing the client ID, username, password and the LoginsUserRelationsId of the access to open.</param>
+/// <returns>A LoginResponse containing the SessionId.</returns>
+public LoginResponse Login(LoginArgs args)
+{
+    return _client.Call<LoginResponse>("Login", args);
+}
+
+/// <summary>
+/// Lists the accesses of a user. Each entry is one access that Login can open a session on (usually a client, a merchant or a service) and gives the LoginsUserRelationsId to pass to Login.
+/// </summary>
+/// <param name="args">The GetLoginAccessListArgs containing the client ID, username and password.</param>
+/// <returns>A GetLoginAccessListResponse listing the user's accesses.</returns>
+public GetLoginAccessListResponse GetLoginAccessList(GetLoginAccessListArgs args)
+{
+    return _client.Call<GetLoginAccessListResponse>("GetLoginAccessList", args);
+}
+
+/// <summary>
+/// Opens a client-level session for a user who has client-level access to the given ClientId. Send the returned SessionId as SessionToken on the following calls. For a merchant-level or service-level access, use GetLoginAccessList, then Login.
+/// </summary>
+/// <param name="args">The CreateSessionArgs containing the client ID, username and password.</param>
+/// <returns>A CreateSessionResponse containing the SessionId.</returns>
 public CreateSessionResponse CreateSession(CreateSessionArgs args)
 {
     return _client.Call<CreateSessionResponse>("CreateSession", args);

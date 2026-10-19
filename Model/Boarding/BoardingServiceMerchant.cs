@@ -10,9 +10,8 @@ namespace Tib.Api.Model.Boarding
     {
         
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// Unique identifier of the merchant.
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>

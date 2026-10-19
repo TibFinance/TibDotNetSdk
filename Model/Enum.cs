@@ -834,45 +834,6 @@ Deposit_Immediate_Insufficient_Wallet_Balance_Abort = 116,
 /// </summary>
 Authorization_Denied = 900,
 }
-      public enum ProviderEnum {
-
-    /// <summary>
-/// The unknown
-/// </summary>
-Unknown = -1,
-/// <summary>
-/// The not set
-/// </summary>
-NotSet = 0,
-/// <summary>
-/// The provider for credit card moneris
-/// </summary>
-CA_CreditCard_Moneris = 1000,
-/// <summary>
-/// The provider for credit card Bank of America
-/// </summary>
-CA_CreditCard_BankOfAmerica = 1001,
-/// <summary>
-/// The ca account desjardins
-/// </summary>
-CA_Account_Desjardins = 1100,
-/// <summary>
-/// The ca account RBC
-/// </summary>
-CA_Account_RBC = 1101,
-/// <summary>
-/// The Interac provider using RBC
-/// </summary>
-CA_Interac_RBC = 1200,
-/// <summary>
-/// The Interac provider using RBC over ISO 20022.
-/// </summary>
-CA_Interac_RBC_v2 = 1201,
-/// <summary>
-/// The Account provider using RBC
-/// </summary>
-RBC_ARN = 3000,
-}
       public enum ProvinceStateIdEnum {
 
     /// <summary>

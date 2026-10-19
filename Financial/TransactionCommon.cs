@@ -35,9 +35,8 @@ namespace Tib.Api.Financial
     public OperationStatusEnum Status { get; set; }
 
     /// <summary>
-    /// Human‑readable description of the transfer
+    /// Description of the transaction.
     /// </summary>
-    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
     public string Description { get; set; }
 
     /// <summary>

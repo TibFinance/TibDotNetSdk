@@ -12,9 +12,8 @@ namespace Tib.Api.Model.General
     {
         
     /// <summary>
-    /// Unique identifier for the newly created session
+    /// The session ID. Send it as SessionToken on the following calls.
     /// </summary>
-    /// <value>A 128‑bit GUID returned in the response; required for all subsequent authenticated API calls</value>
     public Guid SessionId { get; set; }
 
     }

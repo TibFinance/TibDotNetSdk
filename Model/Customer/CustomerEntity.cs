@@ -38,9 +38,8 @@ namespace Tib.Api.Model.Customer
     public string CustomerDescription { get; set; }
 
     /// <summary>
-    /// The email address of the customer initiating the payment.
+    /// Email address of the customer.
     /// </summary>
-    /// <value>Must be a valid RFC‑5322 email, max 254 characters; required for receipt delivery and notifications.</value>
     public string CustomerEmail { get; set; }
 
     /// <summary>

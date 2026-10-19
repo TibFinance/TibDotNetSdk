@@ -13,9 +13,9 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// The merchant identity
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
+    /// <value>The merchant identifier.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
@@ -61,9 +61,9 @@ namespace Tib.Api.Model.Merchant
     public LanguageEnum MerchantLanguage { get; set; }
 
     /// <summary>
-    /// The merchant's primary contact email address.
+    /// Merchant Email
     /// </summary>
-    /// <value>A valid RFC 5322 email string, maximum 254 characters; may be null or omitted if no email is on record.</value>
+    /// <value>The email.</value>
     public string Email { get; set; }
 
     /// <summary>
@@ -125,11 +125,6 @@ namespace Tib.Api.Model.Merchant
     /// </summary>
     /// <value>String, required; must match the postal code format of the cardholder’s country (e.g., 5‑digit US ZIP or alphanumeric international code), typically 3‑10 characters.</value>
     public string PostalZipCode { get; set; }
-
-    /// <summary>
-    /// Payment provider for the merchant's account.
-    /// </summary>
-    public ProviderEnum? AccountProvider { get; set; }
 
     /// <summary>
     /// Indicates the current onboarding state of the merchant identified by the external ID

@@ -65,9 +65,8 @@ namespace Tib.Api.Model.Payment
     public string ExternalReferenceIdentification { get; set; }
 
     /// <summary>
-    /// Flags indicating which payment methods are authorized for the created payment
+    /// Restrict which payment methods the customer can use for this payment.
     /// </summary>
-    /// <value>Bitmask of AuthorizedPaymentMethodFlags; combine multiple methods using OR. Must include at least one supported method; unsupported flags cause validation error.</value>
     public AutorizedPaymentMethodFlags? AutorizedPaymentMethod { get; set; }
 
     /// <summary>

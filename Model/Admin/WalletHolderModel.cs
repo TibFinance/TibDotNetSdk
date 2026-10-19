@@ -16,9 +16,8 @@ namespace Tib.Api.Model.Admin
     public Guid WalletHolderId { get; set; }
 
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// Merchant that holds funds in the wallet.
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>

@@ -11,9 +11,8 @@ namespace Tib.Api.Model.Supplier
     {
         
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// The merchant ID to list suppliers for.
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     }

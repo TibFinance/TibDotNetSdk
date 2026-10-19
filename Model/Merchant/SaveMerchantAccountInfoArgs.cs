@@ -12,9 +12,9 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// Merchant identitity to modify
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
+    /// <value>The merchant identifier.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>

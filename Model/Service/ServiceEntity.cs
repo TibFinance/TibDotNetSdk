@@ -23,11 +23,6 @@ namespace Tib.Api.Model.Service
     public LanguageEnum DefaultCustomerLanguage { get; set; }
 
     /// <summary>
-    /// Payment provider type for this service.
-    /// </summary>
-    public ProviderEnum? ProviderType { get; set; }
-
-    /// <summary>
     /// Base currency for the service.
     /// </summary>
     public CurrencyEnum Currency { get; set; }

@@ -12,9 +12,8 @@ namespace Tib.Api.Common
     {
         
     /// <summary>
-    /// The MerchantId property retrieves or assigns a unique Guid identifier for a specific merchant.
+    /// Merchant ID to scope this operation to. Automatically set for merchant-level logins.
     /// </summary>
-    /// <value>The MerchantId property signifies a unique Guid identifier that corresponds to a specific merchant within the system.</value>
     public Guid? MerchantId { get; set; }
 
     }

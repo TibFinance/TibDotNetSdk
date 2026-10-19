@@ -10,9 +10,9 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// Human‑readable description of the transfer
+    /// This information will be displayed to the user
     /// </summary>
-    /// <value>Free‑form UTF‑8 text describing the purpose or details of the transfer; optional, max length 255 characters</value>
+    /// <value>The Interac information description.</value>
     public string Description { get; set; }
 
     /// <summary>
@@ -21,13 +21,12 @@ namespace Tib.Api.Financial
     public string Owner { get; set; }
 
     /// <summary>
-    /// The email address of the payer to which the Interac payment request will be sent.
+    /// The address where to send the Interac request
     /// </summary>
-    /// <value>Must be a valid RFC‑5322 email string, non‑empty, maximum 254 characters. Required for CreateInteracPaymentMethod.</value>
     public string TargetEmailAddress { get; set; }
 
     /// <summary>
-    /// The mobile phone number that receives the Interac request. Any formatting of a 10-digit North American number is accepted (spaces, dashes, dots, parentheses, an optional +1 or 1 prefix); the platform keeps the 10 digits.
+    /// The mobile phone number that receives the Interac request. Any formatting of a 10-digit North American number is accepted (spaces, dashes, dots, parentheses, an optional +1 or 1 prefix); the platform keeps the 10 digits. The field is optional; a value that contains no digits is stored as empty.
     /// </summary>
     public string TargetMobilePhoneNumber { get; set; }
 

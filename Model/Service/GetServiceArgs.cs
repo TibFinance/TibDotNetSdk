@@ -17,9 +17,8 @@ namespace Tib.Api.Model.Service
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// Not used by GetService.
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     }

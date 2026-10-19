@@ -83,6 +83,7 @@
     <Compile Include="Financial\MerchantIdName.cs" />
     <Compile Include="Financial\PaymentOperationEntity.cs" />
     <Compile Include="Financial\TransactionCommon.cs" />
+    <Compile Include="Gateway\Entities\LoginRelationsEntity.cs" />
     <Compile Include="Model\Enum.cs" />
     <Compile Include="Model\Admin\WalletHolderModel.cs" />
     <Compile Include="Model\Admin\WalletModel.cs" />
@@ -135,7 +136,12 @@
     <Compile Include="Model\FreeOperation\RequestDataResponse.cs" />
     <Compile Include="Model\General\CreateSessionArgs.cs" />
     <Compile Include="Model\General\CreateSessionResponse.cs" />
+    <Compile Include="Model\General\GetLoginAccessListArgs.cs" />
+    <Compile Include="Model\General\GetLoginAccessListResponse.cs" />
+    <Compile Include="Model\General\ILogin.cs" />
     <Compile Include="Model\General\ILoginAccessList.cs" />
+    <Compile Include="Model\General\LoginArgs.cs" />
+    <Compile Include="Model\General\LoginResponse.cs" />
     <Compile Include="Model\Merchant\AddBankAccountArgs.cs" />
     <Compile Include="Model\Merchant\AddBankAccountResponse.cs" />
     <Compile Include="Model\Merchant\AdjustWalletArgs.cs" />

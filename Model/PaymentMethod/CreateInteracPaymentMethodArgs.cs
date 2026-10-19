@@ -37,9 +37,8 @@ namespace Tib.Api.Model.PaymentMethod
     public LanguageEnum? Language { get; set; }
 
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// Merchant ID to scope this operation to. Automatically set for merchant-level logins.
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
     public Guid? MerchantId { get; set; }
 
     }

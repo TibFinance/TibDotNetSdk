@@ -23,9 +23,9 @@ namespace Tib.Api.Model.Payment
     public string ServiceName { get; set; }
 
     /// <summary>
-    /// The unique identifier of the merchant initiating the payment request.
+    /// Merchant id containing the payment
     /// </summary>
-    /// <value>Must be a valid GUID representing a registered merchant; cannot be empty or null.</value>
+    /// <value>The merchant identifier.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>

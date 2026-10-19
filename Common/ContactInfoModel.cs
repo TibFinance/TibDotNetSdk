@@ -10,9 +10,8 @@ namespace Tib.Api.Common
     {
         
     /// <summary>
-    /// The merchant's primary contact email address.
+    /// Contact email address.
     /// </summary>
-    /// <value>A valid RFC 5322 email string, maximum 254 characters; may be null or omitted if no email is on record.</value>
     public string Email { get; set; }
 
     /// <summary>
