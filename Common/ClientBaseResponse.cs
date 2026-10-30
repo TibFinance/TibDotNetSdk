@@ -12,7 +12,7 @@ namespace Tib.Api.Common
         /// <summary>
         /// List Of Errors Returned by the APi.
         /// </summary>
-        public List<BaseServiceError> Errors { get; set; }
+        public List<BaseServiceError> Errors { get; set; } = new List<BaseServiceError>();
 
         /// <summary>
         /// Boolean that tells if the Call went successfuly or not .

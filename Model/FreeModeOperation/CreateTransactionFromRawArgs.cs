@@ -11,7 +11,7 @@ namespace Tib.Api.Model.FreeModeOperation
     {
         
     /// <summary>
-    /// Raw ACP (Automated Clearing and Payment) file content to parse and process.
+    /// The payment file to upload, as text: our semicolon-separated format, the Payments Canada CPA Standard 005 format or the 80-character EFT export of Sage 50.
     /// </summary>
     public string RawAcpFileContent { get; set; }
 
@@ -21,7 +21,7 @@ namespace Tib.Api.Model.FreeModeOperation
     public Guid? MerchantId { get; set; }
 
     /// <summary>
-    /// When true, deposit lines from the file are sent through the ARN instant-deposit rail instead of standard EFT. The upload is refused if the file contains any collection lines, any recurring lines, or if the merchant currency is not CAD. Optional; absent or false keeps standard EFT behavior.
+    /// When true, the deposits in this file become instant deposits. Additional fees may apply. Deposits only, one-time, dated today or earlier (UTC): the upload is refused if the file contains a collection line, a recurring line or a deposit dated after today, or if the merchant's currency is not CAD. Optional: absent or false keeps the usual schedule.
     /// </summary>
     public bool? IsImmediate { get; set; }
 

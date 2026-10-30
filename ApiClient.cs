@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Tib.Api.UiModel;
 using Tib.Api.Model;
@@ -42,6 +43,11 @@ namespace Tib.Api
     /// The shared HTTP client
     /// </summary>
     private static readonly HttpClient _httpClient;
+
+    /// <summary>
+    /// How many characters of a non-API reply the error message keeps
+    /// </summary>
+    private const int ReplyStartLength = 300;
 
     /// <summary>
     /// Initializes static members of the <see cref="ApiClient"/> class.
@@ -118,8 +124,12 @@ namespace Tib.Api
         StringContent jsonStringContentKeyExchangeArgs = new StringContent(jsonKeyExchangeArgs, UnicodeEncoding.UTF8, "application/json");
         HttpResponseMessage executeKeyExchangeResponse = _httpClient.PostAsync(_siteUrl + "/Data/ExecuteKeyExchange", jsonStringContentKeyExchangeArgs).Result;
         string executeKeyExchangeContent = executeKeyExchangeResponse.Content.ReadAsStringAsync().Result;
-        KeyExchangeReturnedKey keyExchangeReturnedKey = new KeyExchangeReturnedKey();
-        JsonConvert.PopulateObject(executeKeyExchangeContent, keyExchangeReturnedKey, settings);
+        KeyExchangeReturnedKey keyExchangeReturnedKey = ReadKeyExchangeReply(executeKeyExchangeContent, settings);
+        if (keyExchangeReturnedKey == null)
+        {
+          SetReplyError(response, executeKeyExchangeResponse, executeKeyExchangeContent);
+          return response;
+        }
 
         //Process Key Exchange
         byte[] serverSideSymetrycKeyPart = cryptoHelper.AsymetricDecryptToBytes(Convert.FromBase64String(keyExchangeReturnedKey.SymetricHostHalfKey), clientAsymetricKey.PrivateKey.KeyCspBlob);
@@ -165,27 +175,80 @@ namespace Tib.Api
         }
         else
         {
-          response.Errors.Add(new BaseServiceError()
-          {
-            ErrorCode = 500,
-            ErrorMessage = callResponseStringContent
-          });
-          response.HasError = true;
-          response.Messages = callResponseStringContent;
+          SetReplyError(response, callResponse, callResponseStringContent);
         }
       }
       else
       {
-        response.Errors.Add(new BaseServiceError()
-        {
-          ErrorCode = 500,
-          ErrorMessage = getPublicKeyContent
-        });
-        response.HasError = true;
-        response.Messages = getPublicKeyContent;
+        SetReplyError(response, getPublicKeyResponse, getPublicKeyContent);
       }
 
       return response;
+    }
+
+    /// <summary>
+    /// Reads the reply of the key exchange.
+    /// </summary>
+    /// <param name="content">The body of the reply.</param>
+    /// <param name="settings">The JSON settings.</param>
+    /// <returns>The returned key, or null when the reply is not the API's (for example a web-server or proxy error page).</returns>
+    private static KeyExchangeReturnedKey ReadKeyExchangeReply(string content, JsonSerializerSettings settings)
+    {
+      KeyExchangeReturnedKey keyExchangeReturnedKey = new KeyExchangeReturnedKey();
+      try
+      {
+        JsonConvert.PopulateObject(content, keyExchangeReturnedKey, settings);
+      }
+      catch (JsonException)
+      {
+        return null;
+      }
+
+      if (string.IsNullOrEmpty(keyExchangeReturnedKey.SymetricHostHalfKey))
+      {
+        return null;
+      }
+
+      return keyExchangeReturnedKey;
+    }
+
+    /// <summary>
+    /// Sets the error of a reply that is not the API's: a web-server, proxy or gateway error page, or an empty reply.
+    /// The error carries the HTTP status and the start of the reply.
+    /// </summary>
+    /// <param name="response">The response.</param>
+    /// <param name="httpResponse">The HTTP reply.</param>
+    /// <param name="content">The body of the reply.</param>
+    private static void SetReplyError(ClientBaseResponse response, HttpResponseMessage httpResponse, string content)
+    {
+      string message = "HTTP " + (int)httpResponse.StatusCode;
+      if (!string.IsNullOrWhiteSpace(httpResponse.ReasonPhrase))
+      {
+        message += " " + httpResponse.ReasonPhrase.Trim();
+      }
+
+      string replyStart = Regex.Replace(content ?? "", @"\s+", " ").Trim();
+      if (replyStart.Length > ReplyStartLength)
+      {
+        int length = char.IsHighSurrogate(replyStart[ReplyStartLength - 1]) ? ReplyStartLength - 1 : ReplyStartLength;
+        replyStart = replyStart.Substring(0, length) + "...";
+      }
+      if (replyStart.Length > 0)
+      {
+        message += ": " + replyStart;
+      }
+
+      if (response.Errors == null)
+      {
+        response.Errors = new List<BaseServiceError>();
+      }
+      response.Errors.Add(new BaseServiceError()
+      {
+        ErrorCode = 500,
+        ErrorMessage = message
+      });
+      response.HasError = true;
+      response.Messages = message;
     }
   }
 }
