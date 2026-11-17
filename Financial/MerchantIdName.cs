@@ -10,7 +10,7 @@ namespace Tib.Api.Financial
     {
         
     /// <summary>
-    /// The merchant id
+    /// The merchant identifier.
     /// </summary>
     public Guid MerchantId { get; set; }
 

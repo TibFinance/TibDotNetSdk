@@ -11,7 +11,7 @@ namespace Tib.Api.Model.Supplier
     {
         
     /// <summary>
-    /// The payer's merchant ID. Recurring transfers where this merchant is the fee-payer will be returned.
+    /// The paying merchant: the recurring transfers where this merchant is the fee-payer are returned. Required, except for a merchant-level login. For a merchant-level login, always that login's own merchant.
     /// </summary>
     public Guid? MerchantId { get; set; }
 

@@ -103,8 +103,11 @@
     <Compile Include="Model\Client\CreateSubClientResponse.cs" />
     <Compile Include="Model\Customer\CreateCustomerArgs.cs" />
     <Compile Include="Model\Customer\CreateCustomerResponse.cs" />
+    <Compile Include="Model\Customer\CreateCustomerV2Args.cs" />
+    <Compile Include="Model\Customer\CreateCustomerV2Response.cs" />
     <Compile Include="Model\Customer\CustomerEntity.cs" />
     <Compile Include="Model\Customer\CustomerModel.cs" />
+    <Compile Include="Model\Customer\CustomerV2Model.cs" />
     <Compile Include="Model\Customer\DeleteCustomerArgs.cs" />
     <Compile Include="Model\Customer\DeleteCustomerResponse.cs" />
     <Compile Include="Model\Customer\GetCustomerArgs.cs" />
@@ -247,6 +250,14 @@
     <Compile Include="Model\Supplier\UpdateSupplierAliasResponse.cs" />
     <Compile Include="Model\Transfer\RelaunchMerchantFailedTransferArgs.cs" />
     <Compile Include="Model\Transfer\RelaunchMerchantFailedTransferResponse.cs" />
+    <Compile Include="Model\TransferBatch\CreateTransferBatchArgs.cs" />
+    <Compile Include="Model\TransferBatch\CreateTransferBatchResponse.cs" />
+    <Compile Include="Model\TransferBatch\GetTransferBatchResultArgs.cs" />
+    <Compile Include="Model\TransferBatch\GetTransferBatchResultResponse.cs" />
+    <Compile Include="Model\TransferBatch\TransferBatchCustomerModel.cs" />
+    <Compile Include="Model\TransferBatch\TransferBatchItemModel.cs" />
+    <Compile Include="Model\TransferBatch\TransferBatchItemResult.cs" />
+    <Compile Include="Model\TransferBatch\TransferBatchTotalsModel.cs" />
     <Compile Include="Model\TwoFactorAuth\Verify2FASetupArgs.cs" />
     <Compile Include="Model\TwoFactorAuth\Verify2FASetupResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

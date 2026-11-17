@@ -11,9 +11,8 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Merchant identity to be remove. Cannot be the primary merchant.
+    /// The merchant to delete. Cannot be the primary merchant.
     /// </summary>
-    /// <value>The merchant identifier.</value>
     public Guid MerchantId { get; set; }
 
     }

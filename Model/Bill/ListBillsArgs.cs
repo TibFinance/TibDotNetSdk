@@ -17,9 +17,8 @@ namespace Tib.Api.Model.Bill
     public Guid ServiceId { get; set; }
 
     /// <summary>
-    /// The merchant ID Filter. If null, the bills from all merchant are returned
+    /// The merchant whose bills are listed. If null, the bills of every merchant of the requested service are returned. For a merchant-level login, always that login's own merchant.
     /// </summary>
-    /// <value>The merchant identifier.</value>
     public Guid? MerchantId { get; set; }
 
     /// <summary>

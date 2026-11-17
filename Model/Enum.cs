@@ -582,7 +582,7 @@ Collect_Validation_Success_NoResultReturned = 3,
 /// </summary>
 Collect_Validation_Success_Skip = 4,
 /// <summary>
-/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
+/// Resolves without any customer action. Treat as pending.
 /// </summary>
 Collect_Validation_Success_WaitManual = 5,
 /// <summary>
@@ -610,7 +610,7 @@ Collect_Transmission_Success_NoResultReturned = 10,
 /// </summary>
 Collect_Transmission_Success_Skip = 11,
 /// <summary>
-/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
+/// Resolves without any customer action. Treat as pending.
 /// </summary>
 Collect_Transmission_Success_WaitManual = 12,
 /// <summary>
@@ -638,7 +638,7 @@ Collect_StatusCheck_Success_NoResultReturned = 17,
 /// </summary>
 Collect_StatusCheck_Success_Skip = 18,
 /// <summary>
-/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
+/// Resolves without any customer action. Treat as pending.
 /// </summary>
 Collect_StatusCheck_Success_WaitManual = 19,
 /// <summary>
@@ -666,7 +666,7 @@ Collect_Payback_Success_NoResultReturned = 24,
 /// </summary>
 Collect_Payback_Success_Skip = 25,
 /// <summary>
-/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
+/// Resolves without any customer action. Treat as pending.
 /// </summary>
 Collect_Payback_Success_WaitManual = 26,
 /// <summary>
@@ -694,7 +694,7 @@ Deposit_Validation_Success_NoResultReturned = 31,
 /// </summary>
 Deposit_Validation_Success_Skip = 32,
 /// <summary>
-/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
+/// Resolves without any customer action. Treat as pending.
 /// </summary>
 Deposit_Validation_Success_WaitManual = 33,
 /// <summary>
@@ -722,7 +722,7 @@ Deposit_Transmission_Success_NoResultReturned = 38,
 /// </summary>
 Deposit_Transmission_Success_Skip = 39,
 /// <summary>
-/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
+/// Resolves without any customer action. Treat as pending.
 /// </summary>
 Deposit_Transmission_Success_WaitManual = 40,
 /// <summary>
@@ -750,7 +750,7 @@ Deposit_StatusCheck_Success_NoResultReturned = 45,
 /// </summary>
 Deposit_StatusCheck_Success_Skip = 46,
 /// <summary>
-/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
+/// Resolves without any customer action. Treat as pending.
 /// </summary>
 Deposit_StatusCheck_Success_WaitManual = 47,
 /// <summary>
@@ -778,7 +778,7 @@ Deposit_Payback_Success_NoResultReturned = 52,
 /// </summary>
 Deposit_Payback_Success_Skip = 53,
 /// <summary>
-/// Parked for TIB back-office processing; resolves without any customer action. Treat as pending.
+/// Resolves without any customer action. Treat as pending.
 /// </summary>
 Deposit_Payback_Success_WaitManual = 54,
 /// <summary>
@@ -830,7 +830,7 @@ Deposit_Payback_Abort = 115,
 /// </summary>
 Deposit_Immediate_Insufficient_Wallet_Balance_Abort = 116,
 /// <summary>
-/// Transfer denied by TIB authorization review.
+/// Transfer denied.
 /// </summary>
 Authorization_Denied = 900,
 }
@@ -1194,6 +1194,110 @@ Success = 5,
 /// Operation lost or unresolved.
 /// </summary>
 Lost = 6,
+}
+      public enum TransferBatchCustomerActionEnum {
+
+    /// <summary>
+/// Nothing was done with the customer. Also the value for an Accepted item, and for an item whose payment a later attempt found already created (the action was not recorded).
+/// </summary>
+None = 0,
+/// <summary>
+/// A new customer was created for the item's CustomerExternalId.
+/// </summary>
+Created = 1,
+/// <summary>
+/// The existing customer was updated with the item's customer details.
+/// </summary>
+Updated = 2,
+/// <summary>
+/// The existing customer was used as is: the details the item sent that can be saved match the stored ones.
+/// </summary>
+Unchanged = 3,
+/// <summary>
+/// The customer had been deleted: a new one was created with the item's details only, and it takes its place.
+/// </summary>
+Recreated = 4,
+/// <summary>
+/// Customer records were off when this outcome was given: no customer was saved or returned for the item. A Created item's payment carries no customer; an existing payment (AlreadyCreated) keeps any customer it had.
+/// </summary>
+NotStored = 5,
+}
+      public enum TransferBatchItemOutcomeEnum {
+
+    /// <summary>
+/// The payment was created; PaymentId identifies it. The request can read Completed before the payment reaches a final status: check it with GetPayment before you count it as paid.
+/// </summary>
+Created = 1,
+/// <summary>
+/// The merchant already has a live payment with this ReferenceNumber, direction, payment method type, ImmediateTransfer setting, amount, due date and destination; PaymentId identifies it and nothing was written.
+/// </summary>
+AlreadyCreated = 2,
+/// <summary>
+/// The item was refused and no payment was created for it; ErrorCode and Message say why.
+/// </summary>
+Refused = 3,
+/// <summary>
+/// The item was not processed: processing stopped before its payment was created (2135, its customer may have been saved), or the request stopped before the item (2151). No payment exists for this item; send it again in a new request.
+/// </summary>
+NotProcessed = 4,
+/// <summary>
+/// A ValidateOnly call: the item passed every check. Nothing was created. An item that matches a live payment also reads Valid, and the real call then answers AlreadyCreated.
+/// </summary>
+Valid = 5,
+/// <summary>
+/// The item passed every check and is processed in the background; GetTransferBatchResult gives its final outcome.
+/// </summary>
+Accepted = 6,
+}
+      public enum TransferBatchOutcomeEnum {
+
+    /// <summary>
+/// Every item's outcome is final in this reply: none is created in the background. Each item's result says what happened to it.
+/// </summary>
+Processed = 1,
+/// <summary>
+/// The call was refused as a whole and nothing was created; Errors says why, and BatchErrorCode and BatchMessage too, unless the call was refused before the method ran.
+/// </summary>
+Refused = 2,
+/// <summary>
+/// A ValidateOnly call: every item was checked and nothing was created.
+/// </summary>
+Validated = 3,
+/// <summary>
+/// The request was accepted: its Accepted items are processed in the background, in request order; read their outcome with GetTransferBatchResult. AlreadyCreated and Refused items are final.
+/// </summary>
+Accepted = 4,
+}
+      public enum TransferBatchStatusEnum {
+
+    /// <summary>
+/// No request was read (the call was refused).
+/// </summary>
+NotSet = 0,
+/// <summary>
+/// Accepted, waiting to be processed.
+/// </summary>
+Queued = 1,
+/// <summary>
+/// Being processed; items still Accepted are not processed yet.
+/// </summary>
+Processing = 2,
+/// <summary>
+/// Every item has its final outcome.
+/// </summary>
+Completed = 3,
+/// <summary>
+/// The merchant could no longer take payments, or the login that sent the request could no longer create them for it (BatchErrorCode 2107 / 2110): the payments already created stay; the other items are NotProcessed 2151.
+/// </summary>
+Stopped = 4,
+/// <summary>
+/// An unexpected error prevented the request from completing (BatchErrorCode 2111): the payments already created stay; the other items are NotProcessed 2151.
+/// </summary>
+Failed = 5,
+/// <summary>
+/// The request is not final yet. There is nothing to send again: keep polling GetTransferBatchResult, about every 15 minutes.
+/// </summary>
+HeldForApproval = 6,
 }
       public enum TransferDirectionEnum {
 

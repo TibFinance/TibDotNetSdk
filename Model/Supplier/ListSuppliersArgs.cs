@@ -11,7 +11,7 @@ namespace Tib.Api.Model.Supplier
     {
         
     /// <summary>
-    /// The merchant ID to list suppliers for.
+    /// The merchant whose suppliers are listed. Required, except for a merchant-level login. For a merchant-level login, always that login's own merchant.
     /// </summary>
     public Guid? MerchantId { get; set; }
 

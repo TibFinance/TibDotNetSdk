@@ -12,9 +12,8 @@ namespace Tib.Api.Model.Merchant
     {
         
     /// <summary>
-    /// Merchant identitity to modify
+    /// The merchant to modify. A merchant-level login can only modify its own merchant.
     /// </summary>
-    /// <value>The merchant identifier.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>

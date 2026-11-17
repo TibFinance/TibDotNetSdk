@@ -23,9 +23,8 @@ namespace Tib.Api.Model.Payment
     public string ServiceName { get; set; }
 
     /// <summary>
-    /// Merchant id containing the payment
+    /// The merchant the payment belongs to.
     /// </summary>
-    /// <value>The merchant identifier.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>

@@ -31,12 +31,12 @@ namespace Tib.Api.Common
     public string City { get; set; }
 
     /// <summary>
-    /// Province or state.
+    /// Province or state, as an integer id: a ProvinceStateIdEnum value, such as 10 for Quebec or 8 for Ontario.
     /// </summary>
     public int? Province { get; set; }
 
     /// <summary>
-    /// Country name.
+    /// Country, as an integer id: a CountryIdEnum value, 1 for Canada or 2 for the United States.
     /// </summary>
     public int? Country { get; set; }
 

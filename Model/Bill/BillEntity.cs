@@ -11,9 +11,8 @@ namespace Tib.Api.Model.Bill
     {
         
     /// <summary>
-    /// Merchant ID that Own the bill
+    /// The merchant that owns the bill.
     /// </summary>
-    /// <value>The merchant identifier.</value>
     public Guid MerchantId { get; set; }
 
     /// <summary>
