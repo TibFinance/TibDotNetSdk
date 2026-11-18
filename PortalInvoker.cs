@@ -65,6 +65,16 @@ namespace Tib.Api
     }
 
     /// <summary>
+/// Lists the transfers of your services that are waiting to be approved or declined in the portal, the newest first. The list is not paged. A payment to a supplier is listed for the paying merchant and for the supplier; only the paying merchant can approve or decline it.
+/// </summary>
+/// <param name="args">The arguments.</param>
+/// <returns>GetPendingTransferApprovalsResponse.</returns>
+public GetPendingTransferApprovalsResponse GetPendingTransferApprovals(GetPendingTransferApprovalsArgs args)
+{
+    return _client.Call<GetPendingTransferApprovalsResponse>("GetPendingTransferApprovals", args);
+}
+
+/// <summary>
 /// Verifies the 2FA setup after user scans QR code and enters the code. Enables 2FA for the user once verification succeeds.
 /// </summary>
 /// <param name="args">The arguments including the verification code.</param>

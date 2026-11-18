@@ -248,6 +248,9 @@
     <Compile Include="Model\Supplier\SupplierViewModel.cs" />
     <Compile Include="Model\Supplier\UpdateSupplierAliasArgs.cs" />
     <Compile Include="Model\Supplier\UpdateSupplierAliasResponse.cs" />
+    <Compile Include="Model\Transfer\GetPendingTransferApprovalsArgs.cs" />
+    <Compile Include="Model\Transfer\GetPendingTransferApprovalsResponse.cs" />
+    <Compile Include="Model\Transfer\PendingTransferDto.cs" />
     <Compile Include="Model\Transfer\RelaunchMerchantFailedTransferArgs.cs" />
     <Compile Include="Model\Transfer\RelaunchMerchantFailedTransferResponse.cs" />
     <Compile Include="Model\TransferBatch\CreateTransferBatchArgs.cs" />
